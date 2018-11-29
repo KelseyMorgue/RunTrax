@@ -9,12 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    //Properties
+    
+    @IBOutlet var nameTextField: UIView!
+    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var welcomeImage: UIImageView!
+    
+    
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
+    //Actions
+    
+    
 
 }
 
