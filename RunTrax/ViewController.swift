@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     //Properties
     
-    @IBOutlet var nameTextField: UIView!
+    @IBOutlet var nameTextField: UIView! //ps this is needed to run lol
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var welcomeImage: UIImageView!
     

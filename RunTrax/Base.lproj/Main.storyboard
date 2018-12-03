@@ -195,6 +195,9 @@
                                 <state key="normal" title="Share Run?">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="shareMenu" destination="Vl5-mO-GvI" eventType="touchUpInside" id="ICz-nG-drH"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pace:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9X-k8-WW7">
                                 <rect key="frame" x="131" y="485" width="59" height="23"/>
@@ -222,6 +225,7 @@
                         <outlet property="dateLabel" destination="TiM-bD-lt6" id="4F9-ZZ-e5t"/>
                         <outlet property="distanceLabel" destination="QcJ-Av-fTH" id="iNu-TG-DKz"/>
                         <outlet property="paceLabel" destination="S9X-k8-WW7" id="ZK1-IP-XM7"/>
+                        <outlet property="shareButton" destination="cg8-6Z-fJ4" id="4Cj-eM-5Ex"/>
                         <outlet property="timeLabel" destination="K8K-8q-UVe" id="YTs-o8-2IB"/>
                     </connections>
                 </viewController>
