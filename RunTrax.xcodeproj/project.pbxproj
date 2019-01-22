@@ -19,11 +19,11 @@
 		DF1BF5C7219F7D8000DC5DA8 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF5C6219F7D8000DC5DA8 /* back.png */; };
 		DFBA4A2721A5BBBA008BFB7A /* RunDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2621A5BBBA008BFB7A /* RunDetailsViewController.swift */; };
 		DFBA4A2921A5DAB6008BFB7A /* RunDetailsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2821A5DAB6008BFB7A /* RunDetailsDisplay.swift */; };
-		DFBA4A2B21A5E31B008BFB7A /* NewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2A21A5E31B008BFB7A /* NewRunViewController.swift */; };
 		DFBA4A2E21A643BB008BFB7A /* RunTrax.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2C21A643BB008BFB7A /* RunTrax.xcdatamodeld */; };
 		DFBA4A3021A6466A008BFB7A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2F21A6466A008BFB7A /* LocationManager.swift */; };
 		DFBA4A3221A64691008BFB7A /* UnitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A3121A64691008BFB7A /* UnitExtension.swift */; };
 		DFBA4A3421A648E6008BFB7A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A3321A648E6008BFB7A /* CoreDataStack.swift */; };
+		DFF7E7A821F77D22002220E1 /* NewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,11 +53,11 @@
 		DF1BF5C6219F7D8000DC5DA8 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = ../../back.png; sourceTree = "<group>"; };
 		DFBA4A2621A5BBBA008BFB7A /* RunDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailsViewController.swift; sourceTree = "<group>"; };
 		DFBA4A2821A5DAB6008BFB7A /* RunDetailsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailsDisplay.swift; sourceTree = "<group>"; };
-		DFBA4A2A21A5E31B008BFB7A /* NewRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRunViewController.swift; sourceTree = "<group>"; };
 		DFBA4A2D21A643BB008BFB7A /* RunTrax.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunTrax.xcdatamodel; sourceTree = "<group>"; };
 		DFBA4A2F21A6466A008BFB7A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DFBA4A3121A64691008BFB7A /* UnitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitExtension.swift; sourceTree = "<group>"; };
 		DFBA4A3321A648E6008BFB7A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRunViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				DF1BF584219E289000DC5DA8 /* AppDelegate.swift */,
-				DFBA4A2A21A5E31B008BFB7A /* NewRunViewController.swift */,
 				DF1BF586219E289000DC5DA8 /* ViewController.swift */,
 				DFBA4A3321A648E6008BFB7A /* CoreDataStack.swift */,
+				DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */,
 				DFBA4A2F21A6466A008BFB7A /* LocationManager.swift */,
 				DFBA4A3121A64691008BFB7A /* UnitExtension.swift */,
 				DF1BF588219E289000DC5DA8 /* Main.storyboard */,
@@ -235,13 +235,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFBA4A2E21A643BB008BFB7A /* RunTrax.xcdatamodeld in Sources */,
-				DFBA4A2B21A5E31B008BFB7A /* NewRunViewController.swift in Sources */,
 				DFBA4A2921A5DAB6008BFB7A /* RunDetailsDisplay.swift in Sources */,
 				DFBA4A3421A648E6008BFB7A /* CoreDataStack.swift in Sources */,
 				DFBA4A3221A64691008BFB7A /* UnitExtension.swift in Sources */,
 				DFBA4A3021A6466A008BFB7A /* LocationManager.swift in Sources */,
 				DF1BF587219E289000DC5DA8 /* ViewController.swift in Sources */,
 				DF1BF585219E289000DC5DA8 /* AppDelegate.swift in Sources */,
+				DFF7E7A821F77D22002220E1 /* NewRunViewController.swift in Sources */,
 				DFBA4A2721A5BBBA008BFB7A /* RunDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +405,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B8G5V889NN;
 				INFOPLIST_FILE = RunTrax/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -422,6 +423,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B8G5V889NN;
 				INFOPLIST_FILE = RunTrax/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
