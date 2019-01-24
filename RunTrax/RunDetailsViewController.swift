@@ -14,7 +14,7 @@ class RunDetailsViewController: UIViewController {
     //Properties
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var paceLabel: UILabel!
+    @IBOutlet weak var pzaceLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var shareButton: UIButton!

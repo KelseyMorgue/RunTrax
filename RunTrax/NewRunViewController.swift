@@ -40,9 +40,9 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         let formattedTime = FormatDisplay.time(seconds)
         let formattedPace = FormatDisplay.pace(distance: distance,seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
         
-        distanceLabel.text = "Distance:  \(formattedDistance)"
-        timeLabel.text = "Time:  \(formattedTime)"
-        paceLabel.text = "Pace:  \(formattedPace)"
+        distanceLabel.text = "\(formattedDistance)"
+        timeLabel.text = "\(formattedTime)"
+        paceLabel.text = "\(formattedPace)"
     }
     
    
@@ -65,6 +65,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         locationManager.stopUpdatingLocation()
     }
     
+    //make it save to database for saved runs
     private func saveRun() {
         let newRun = Run(context: CoreDataStack.context)
         newRun.distance = distance.value
@@ -76,7 +77,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
             locationObject.timestamp = location.timestamp
             locationObject.latitude = location.coordinate.latitude
             locationObject.longitude = location.coordinate.longitude
-            newRun.addToLocations(locationObject)
+            //newRun.addToLocations(locationObject)
         }
         
         CoreDataStack.saveContext()
@@ -97,7 +98,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
             self.stopRun()
-            self.saveRun() // ADD THIS LINE!
+            self.saveRun()
         })
         
         alertController.addAction(UIAlertAction(title: "Discard", style: .destructive) { _ in

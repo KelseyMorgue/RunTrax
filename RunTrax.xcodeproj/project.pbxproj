@@ -24,6 +24,7 @@
 		DFBA4A3221A64691008BFB7A /* UnitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A3121A64691008BFB7A /* UnitExtension.swift */; };
 		DFBA4A3421A648E6008BFB7A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A3321A648E6008BFB7A /* CoreDataStack.swift */; };
 		DFF7E7A821F77D22002220E1 /* NewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */; };
+		DFF7E7AE21FA27D4002220E1 /* SharedRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF7E7AD21FA27D4002220E1 /* SharedRunViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		DFBA4A3121A64691008BFB7A /* UnitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitExtension.swift; sourceTree = "<group>"; };
 		DFBA4A3321A648E6008BFB7A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRunViewController.swift; sourceTree = "<group>"; };
+		DFF7E7AD21FA27D4002220E1 /* SharedRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedRunViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				DF1BF584219E289000DC5DA8 /* AppDelegate.swift */,
+				DFF7E7AD21FA27D4002220E1 /* SharedRunViewController.swift */,
 				DF1BF586219E289000DC5DA8 /* ViewController.swift */,
 				DFBA4A3321A648E6008BFB7A /* CoreDataStack.swift */,
 				DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */,
@@ -240,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFBA4A2E21A643BB008BFB7A /* RunTrax.xcdatamodeld in Sources */,
+				DFF7E7AE21FA27D4002220E1 /* SharedRunViewController.swift in Sources */,
 				DFBA4A2921A5DAB6008BFB7A /* RunDetailsDisplay.swift in Sources */,
 				DFBA4A3421A648E6008BFB7A /* CoreDataStack.swift in Sources */,
 				DFBA4A3221A64691008BFB7A /* UnitExtension.swift in Sources */,
