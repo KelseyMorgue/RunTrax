@@ -5,9 +5,10 @@
 //  Created by Kelsey Henrichsen on 1/22/19.
 //  Copyright © 2019 Kelsey Henrichsen. All rights reserved.
 
+import Foundation
+import UIKit
 import MapKit
 import CoreLocation
-import Foundation
 
 class NewRunViewController: UIViewController, UITextFieldDelegate
 {
@@ -20,11 +21,12 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var startButton: UIButton!
     
     private var run: Run?
-    private let locationManager = LocationManager.shared
+    private let locationManager = CLLocationManager()
     private var seconds = 0
     private var timer: Timer?
     private var distance = Measurement(value: 0, unit: UnitLength.meters)
     private var locationList: [CLLocation] = []
+    let regionInMeters: Double = 500
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         updateDisplay()
     }
     
-    private func updateDisplay() {
+     func updateDisplay() {
         let formattedDistance = FormatDisplay.distance(distance)
         let formattedTime = FormatDisplay.time(seconds)
         let formattedPace = FormatDisplay.pace(distance: distance,seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
@@ -48,7 +50,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
    
 
     
-    private func startRun() {
+     func startRun() {
         seconds = 0
         distance = Measurement(value: 0, unit: UnitLength.meters)
         locationList.removeAll()
@@ -57,10 +59,9 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
             self.eachSecond()
         }
         startLocationUpdates()
-        
     }
     
-    private func stopRun() {
+     func stopRun() {
       
         locationManager.stopUpdatingLocation()
     }
@@ -109,12 +110,64 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         present(alertController, animated: true)
 
     }
-    private func startLocationUpdates() {
+     func startLocationUpdates() {
         locationManager.delegate = self
         locationManager.activityType = .fitness
         locationManager.distanceFilter = 10
         locationManager.startUpdatingLocation()
     }
+    
+    func setupLocationManager() {
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    
+    func centerViewOnUserLocation() {
+        if let location = locationManager.location?.coordinate {
+            let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+            mapView.setRegion(region, animated: true)
+        }
+    }
+    
+    
+    func checkLocationServices() {
+        if CLLocationManager.locationServicesEnabled() {
+            setupLocationManager()
+            checkLocationAuthorization()
+        } else {
+            // Show alert letting the user know they have to turn this on.
+        }
+    }
+    
+    
+    func checkLocationAuthorization() {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse:
+            mapView.showsUserLocation = true
+            centerViewOnUserLocation()
+            locationManager.startUpdatingLocation()
+            break
+        case .denied:
+            // Show alert instructing them how to turn on permissions
+            break
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted:
+            // Show an alert letting them know what's up
+            break
+        case .authorizedAlways:
+            break
+        }
+    }
+    func getLocationUpdates() {
+        locationManager.delegate = self
+        locationManager.activityType = .fitness
+        locationManager.distanceFilter = 10 //good balance so less zigzags)
+        locationManager.startUpdatingLocation()
+        
+        
+    }
+    
 }
 
 extension NewRunViewController: CLLocationManagerDelegate {
@@ -131,8 +184,27 @@ extension NewRunViewController: CLLocationManagerDelegate {
             
             locationList.append(newLocation)
         }
+}
+}
+
+
+
+//adds line
+extension NewRunViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        guard let polyline = overlay as? MKPolyline else {
+            return MKOverlayRenderer(overlay: overlay)
+        }
+        let renderer = MKPolylineRenderer(polyline: polyline)
+        renderer.strokeColor = .black
+        renderer.lineWidth = 3
+        return renderer
     }
 }
+
+
+
+
 
 //What to do in this view controller:
 //  -Have distance, time, and pace update and displayed

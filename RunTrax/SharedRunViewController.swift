@@ -67,12 +67,22 @@ func checkLocationAuthorization() {
         break
     }
 }
+func getLocationUpdates() {
+        locationManager.delegate = self
+        locationManager.activityType = .fitness
+        locationManager.distanceFilter = 10 //good balance so less zigzags)
+        locationManager.startUpdatingLocation()
+
+    
+    }
 }
 
 
 extension SharedRunViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        // NOTE guard makes it so it has to "pass" before continuing to whatever is below it
         guard let location = locations.last else { return }
         let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
         mapView.setRegion(region, animated: true)
@@ -84,3 +94,14 @@ extension SharedRunViewController: CLLocationManagerDelegate {
     }
 }
 
+extension SharedRunViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        guard let polyline = overlay as? MKPolyline else {
+            return MKOverlayRenderer(overlay: overlay)
+        }
+        let renderer = MKPolylineRenderer(polyline: polyline)
+        renderer.strokeColor = .black
+        renderer.lineWidth = 3
+        return renderer
+    }
+}

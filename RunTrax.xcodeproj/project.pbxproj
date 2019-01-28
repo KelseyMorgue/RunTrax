@@ -17,6 +17,7 @@
 		DF1BF5A7219E31D100DC5DA8 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF5A6219E31D100DC5DA8 /* menu.png */; };
 		DF1BF5C5219F7BD700DC5DA8 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF5C4219F7BD600DC5DA8 /* start.png */; };
 		DF1BF5C7219F7D8000DC5DA8 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF5C6219F7D8000DC5DA8 /* back.png */; };
+		DF808DB321FFAF8D00D46EDA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF808DB221FFAF8D00D46EDA /* MapKit.framework */; };
 		DFBA4A2721A5BBBA008BFB7A /* RunDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2621A5BBBA008BFB7A /* RunDetailsViewController.swift */; };
 		DFBA4A2921A5DAB6008BFB7A /* RunDetailsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2821A5DAB6008BFB7A /* RunDetailsDisplay.swift */; };
 		DFBA4A2E21A643BB008BFB7A /* RunTrax.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2C21A643BB008BFB7A /* RunTrax.xcdatamodeld */; };
@@ -52,6 +53,7 @@
 		DF1BF5A6219E31D100DC5DA8 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = ../../menu.png; sourceTree = "<group>"; };
 		DF1BF5C4219F7BD600DC5DA8 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = start.png; path = ../../start.png; sourceTree = "<group>"; };
 		DF1BF5C6219F7D8000DC5DA8 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = ../../back.png; sourceTree = "<group>"; };
+		DF808DB221FFAF8D00D46EDA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DFBA4A2621A5BBBA008BFB7A /* RunDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailsViewController.swift; sourceTree = "<group>"; };
 		DFBA4A2821A5DAB6008BFB7A /* RunDetailsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailsDisplay.swift; sourceTree = "<group>"; };
 		DFBA4A2D21A643BB008BFB7A /* RunTrax.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunTrax.xcdatamodel; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF808DB321FFAF8D00D46EDA /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +89,7 @@
 				DF1BF583219E289000DC5DA8 /* RunTrax */,
 				DF1BF598219E289A00DC5DA8 /* RunTraxTests */,
 				DF1BF582219E289000DC5DA8 /* Products */,
+				DF808DAF21FFAF8C00D46EDA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +134,14 @@
 				DF1BF59B219E289B00DC5DA8 /* Info.plist */,
 			);
 			path = RunTraxTests;
+			sourceTree = "<group>";
+		};
+		DF808DAF21FFAF8C00D46EDA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF808DB221FFAF8D00D46EDA /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +196,9 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
 						};
