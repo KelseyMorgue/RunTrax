@@ -18,6 +18,7 @@
 		DF1BF5C5219F7BD700DC5DA8 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF5C4219F7BD600DC5DA8 /* start.png */; };
 		DF1BF5C7219F7D8000DC5DA8 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF5C6219F7D8000DC5DA8 /* back.png */; };
 		DF808DB321FFAF8D00D46EDA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF808DB221FFAF8D00D46EDA /* MapKit.framework */; };
+		DF808DB821FFD8F400D46EDA /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = DF808DB721FFD8F400D46EDA /* pin.png */; };
 		DFBA4A2721A5BBBA008BFB7A /* RunDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2621A5BBBA008BFB7A /* RunDetailsViewController.swift */; };
 		DFBA4A2921A5DAB6008BFB7A /* RunDetailsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2821A5DAB6008BFB7A /* RunDetailsDisplay.swift */; };
 		DFBA4A2E21A643BB008BFB7A /* RunTrax.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2C21A643BB008BFB7A /* RunTrax.xcdatamodeld */; };
@@ -54,6 +55,7 @@
 		DF1BF5C4219F7BD600DC5DA8 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = start.png; path = ../../start.png; sourceTree = "<group>"; };
 		DF1BF5C6219F7D8000DC5DA8 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = ../../back.png; sourceTree = "<group>"; };
 		DF808DB221FFAF8D00D46EDA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		DF808DB721FFD8F400D46EDA /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin.png; path = ../../pin.png; sourceTree = "<group>"; };
 		DFBA4A2621A5BBBA008BFB7A /* RunDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailsViewController.swift; sourceTree = "<group>"; };
 		DFBA4A2821A5DAB6008BFB7A /* RunDetailsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailsDisplay.swift; sourceTree = "<group>"; };
 		DFBA4A2D21A643BB008BFB7A /* RunTrax.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunTrax.xcdatamodel; sourceTree = "<group>"; };
@@ -106,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				DF1BF584219E289000DC5DA8 /* AppDelegate.swift */,
-				DFF7E7AD21FA27D4002220E1 /* SharedRunViewController.swift */,
 				DF1BF586219E289000DC5DA8 /* ViewController.swift */,
 				DFBA4A3321A648E6008BFB7A /* CoreDataStack.swift */,
 				DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */,
@@ -114,7 +115,9 @@
 				DFBA4A3121A64691008BFB7A /* UnitExtension.swift */,
 				DF1BF588219E289000DC5DA8 /* Main.storyboard */,
 				DFBA4A2821A5DAB6008BFB7A /* RunDetailsDisplay.swift */,
+				DFF7E7AD21FA27D4002220E1 /* SharedRunViewController.swift */,
 				DFBA4A2621A5BBBA008BFB7A /* RunDetailsViewController.swift */,
+				DF808DB721FFD8F400D46EDA /* pin.png */,
 				DF1BF5C6219F7D8000DC5DA8 /* back.png */,
 				DF1BF5A6219E31D100DC5DA8 /* menu.png */,
 				DF1BF5C4219F7BD600DC5DA8 /* start.png */,
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF1BF58F219E289A00DC5DA8 /* LaunchScreen.storyboard in Resources */,
+				DF808DB821FFD8F400D46EDA /* pin.png in Resources */,
 				DF1BF5A7219E31D100DC5DA8 /* menu.png in Resources */,
 				DF1BF58C219E289A00DC5DA8 /* Assets.xcassets in Resources */,
 				DF1BF58A219E289000DC5DA8 /* Main.storyboard in Resources */,
