@@ -16,7 +16,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class RunDetailsViewController: UIViewController {
+class RunOverviewViewController: UIViewController {
     //Properties
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!

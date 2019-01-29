@@ -19,7 +19,10 @@
 		DF1BF5C7219F7D8000DC5DA8 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF5C6219F7D8000DC5DA8 /* back.png */; };
 		DF808DB321FFAF8D00D46EDA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF808DB221FFAF8D00D46EDA /* MapKit.framework */; };
 		DF808DB821FFD8F400D46EDA /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = DF808DB721FFD8F400D46EDA /* pin.png */; };
-		DFBA4A2721A5BBBA008BFB7A /* RunDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2621A5BBBA008BFB7A /* RunDetailsViewController.swift */; };
+		DF808DBA2200F82700D46EDA /* SharePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DB92200F82700D46EDA /* SharePageViewController.swift */; };
+		DF808DBC2200FA2500D46EDA /* PastRunsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */; };
+		DF808DBE2201025800D46EDA /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DBD2201025800D46EDA /* FriendsListViewController.swift */; };
+		DFBA4A2721A5BBBA008BFB7A /* RunOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2621A5BBBA008BFB7A /* RunOverviewViewController.swift */; };
 		DFBA4A2921A5DAB6008BFB7A /* RunDetailsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2821A5DAB6008BFB7A /* RunDetailsDisplay.swift */; };
 		DFBA4A2E21A643BB008BFB7A /* RunTrax.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2C21A643BB008BFB7A /* RunTrax.xcdatamodeld */; };
 		DFBA4A3021A6466A008BFB7A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2F21A6466A008BFB7A /* LocationManager.swift */; };
@@ -56,7 +59,10 @@
 		DF1BF5C6219F7D8000DC5DA8 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = ../../back.png; sourceTree = "<group>"; };
 		DF808DB221FFAF8D00D46EDA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DF808DB721FFD8F400D46EDA /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin.png; path = ../../pin.png; sourceTree = "<group>"; };
-		DFBA4A2621A5BBBA008BFB7A /* RunDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailsViewController.swift; sourceTree = "<group>"; };
+		DF808DB92200F82700D46EDA /* SharePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePageViewController.swift; sourceTree = "<group>"; };
+		DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastRunsViewController.swift; sourceTree = "<group>"; };
+		DF808DBD2201025800D46EDA /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
+		DFBA4A2621A5BBBA008BFB7A /* RunOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunOverviewViewController.swift; sourceTree = "<group>"; };
 		DFBA4A2821A5DAB6008BFB7A /* RunDetailsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailsDisplay.swift; sourceTree = "<group>"; };
 		DFBA4A2D21A643BB008BFB7A /* RunTrax.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunTrax.xcdatamodel; sourceTree = "<group>"; };
 		DFBA4A2F21A6466A008BFB7A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -108,15 +114,18 @@
 			isa = PBXGroup;
 			children = (
 				DF1BF584219E289000DC5DA8 /* AppDelegate.swift */,
-				DF1BF586219E289000DC5DA8 /* ViewController.swift */,
 				DFBA4A3321A648E6008BFB7A /* CoreDataStack.swift */,
-				DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */,
+				DFBA4A2821A5DAB6008BFB7A /* RunDetailsDisplay.swift */,
 				DFBA4A2F21A6466A008BFB7A /* LocationManager.swift */,
 				DFBA4A3121A64691008BFB7A /* UnitExtension.swift */,
 				DF1BF588219E289000DC5DA8 /* Main.storyboard */,
-				DFBA4A2821A5DAB6008BFB7A /* RunDetailsDisplay.swift */,
+				DF1BF586219E289000DC5DA8 /* ViewController.swift */,
+				DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */,
+				DF808DB92200F82700D46EDA /* SharePageViewController.swift */,
+				DF808DBD2201025800D46EDA /* FriendsListViewController.swift */,
 				DFF7E7AD21FA27D4002220E1 /* SharedRunViewController.swift */,
-				DFBA4A2621A5BBBA008BFB7A /* RunDetailsViewController.swift */,
+				DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */,
+				DFBA4A2621A5BBBA008BFB7A /* RunOverviewViewController.swift */,
 				DF808DB721FFD8F400D46EDA /* pin.png */,
 				DF1BF5C6219F7D8000DC5DA8 /* back.png */,
 				DF1BF5A6219E31D100DC5DA8 /* menu.png */,
@@ -263,14 +272,17 @@
 			files = (
 				DFBA4A2E21A643BB008BFB7A /* RunTrax.xcdatamodeld in Sources */,
 				DFF7E7AE21FA27D4002220E1 /* SharedRunViewController.swift in Sources */,
+				DF808DBC2200FA2500D46EDA /* PastRunsViewController.swift in Sources */,
 				DFBA4A2921A5DAB6008BFB7A /* RunDetailsDisplay.swift in Sources */,
 				DFBA4A3421A648E6008BFB7A /* CoreDataStack.swift in Sources */,
 				DFBA4A3221A64691008BFB7A /* UnitExtension.swift in Sources */,
+				DF808DBA2200F82700D46EDA /* SharePageViewController.swift in Sources */,
+				DF808DBE2201025800D46EDA /* FriendsListViewController.swift in Sources */,
 				DFBA4A3021A6466A008BFB7A /* LocationManager.swift in Sources */,
 				DF1BF587219E289000DC5DA8 /* ViewController.swift in Sources */,
 				DF1BF585219E289000DC5DA8 /* AppDelegate.swift in Sources */,
 				DFF7E7A821F77D22002220E1 /* NewRunViewController.swift in Sources */,
-				DFBA4A2721A5BBBA008BFB7A /* RunDetailsViewController.swift in Sources */,
+				DFBA4A2721A5BBBA008BFB7A /* RunOverviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -158,7 +158,7 @@ extension SharedRunViewController: MKMapViewDelegate {
         
         guard let previousLocation = self.previousLocation else { return }
         
-        guard center.distance(from: previousLocation) > 50 else { return }
+        guard center.distance(from: previousLocation) > 10 else { return }
         self.previousLocation = center
         
         geoCoder.cancelGeocode()
