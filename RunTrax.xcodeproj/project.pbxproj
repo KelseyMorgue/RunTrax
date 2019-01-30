@@ -22,6 +22,8 @@
 		DF808DBA2200F82700D46EDA /* SharePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DB92200F82700D46EDA /* SharePageViewController.swift */; };
 		DF808DBC2200FA2500D46EDA /* PastRunsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */; };
 		DF808DBE2201025800D46EDA /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DBD2201025800D46EDA /* FriendsListViewController.swift */; };
+		DF808DC022010D0900D46EDA /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = DF808DBF22010D0900D46EDA /* default.png */; };
+		DF808DC22202689500D46EDA /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DC12202689500D46EDA /* AccountViewController.swift */; };
 		DFBA4A2721A5BBBA008BFB7A /* RunOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2621A5BBBA008BFB7A /* RunOverviewViewController.swift */; };
 		DFBA4A2921A5DAB6008BFB7A /* RunDetailsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2821A5DAB6008BFB7A /* RunDetailsDisplay.swift */; };
 		DFBA4A2E21A643BB008BFB7A /* RunTrax.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2C21A643BB008BFB7A /* RunTrax.xcdatamodeld */; };
@@ -62,6 +64,8 @@
 		DF808DB92200F82700D46EDA /* SharePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePageViewController.swift; sourceTree = "<group>"; };
 		DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastRunsViewController.swift; sourceTree = "<group>"; };
 		DF808DBD2201025800D46EDA /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
+		DF808DBF22010D0900D46EDA /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default.png; path = ../../default.png; sourceTree = "<group>"; };
+		DF808DC12202689500D46EDA /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		DFBA4A2621A5BBBA008BFB7A /* RunOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunOverviewViewController.swift; sourceTree = "<group>"; };
 		DFBA4A2821A5DAB6008BFB7A /* RunDetailsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailsDisplay.swift; sourceTree = "<group>"; };
 		DFBA4A2D21A643BB008BFB7A /* RunTrax.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunTrax.xcdatamodel; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 				DFBA4A2F21A6466A008BFB7A /* LocationManager.swift */,
 				DFBA4A3121A64691008BFB7A /* UnitExtension.swift */,
 				DF1BF588219E289000DC5DA8 /* Main.storyboard */,
+				DF808DC12202689500D46EDA /* AccountViewController.swift */,
 				DF1BF586219E289000DC5DA8 /* ViewController.swift */,
 				DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */,
 				DF808DB92200F82700D46EDA /* SharePageViewController.swift */,
@@ -128,6 +133,7 @@
 				DFBA4A2621A5BBBA008BFB7A /* RunOverviewViewController.swift */,
 				DF808DB721FFD8F400D46EDA /* pin.png */,
 				DF1BF5C6219F7D8000DC5DA8 /* back.png */,
+				DF808DBF22010D0900D46EDA /* default.png */,
 				DF1BF5A6219E31D100DC5DA8 /* menu.png */,
 				DF1BF5C4219F7BD600DC5DA8 /* start.png */,
 				DF1BF5A4219E2E0F00DC5DA8 /* runner.png */,
@@ -253,6 +259,7 @@
 				DF1BF5C7219F7D8000DC5DA8 /* back.png in Resources */,
 				DF1BF5C5219F7BD700DC5DA8 /* start.png in Resources */,
 				DF1BF5A5219E2E0F00DC5DA8 /* runner.png in Resources */,
+				DF808DC022010D0900D46EDA /* default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +279,7 @@
 			files = (
 				DFBA4A2E21A643BB008BFB7A /* RunTrax.xcdatamodeld in Sources */,
 				DFF7E7AE21FA27D4002220E1 /* SharedRunViewController.swift in Sources */,
+				DF808DC22202689500D46EDA /* AccountViewController.swift in Sources */,
 				DF808DBC2200FA2500D46EDA /* PastRunsViewController.swift in Sources */,
 				DFBA4A2921A5DAB6008BFB7A /* RunDetailsDisplay.swift in Sources */,
 				DFBA4A3421A648E6008BFB7A /* CoreDataStack.swift in Sources */,
