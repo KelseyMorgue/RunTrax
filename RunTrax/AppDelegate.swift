@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        // UINavigationBar.appearance().barTintColor = .black
         let locationManager = LocationManager.shared
         locationManager.requestWhenInUseAuthorization()
-        
+        FirebaseApp.configure()
         return true
     }
     

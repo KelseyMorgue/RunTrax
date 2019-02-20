@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A674485741F8D8A0AF0CCB58 /* Pods_RunTrax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C4CCF109B8A571210B2C67 /* Pods_RunTrax.framework */; };
 		DF1BF585219E289000DC5DA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1BF584219E289000DC5DA8 /* AppDelegate.swift */; };
 		DF1BF587219E289000DC5DA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1BF586219E289000DC5DA8 /* ViewController.swift */; };
 		DF1BF58A219E289000DC5DA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF588219E289000DC5DA8 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 		DF1BF5A7219E31D100DC5DA8 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF5A6219E31D100DC5DA8 /* menu.png */; };
 		DF1BF5C5219F7BD700DC5DA8 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF5C4219F7BD600DC5DA8 /* start.png */; };
 		DF1BF5C7219F7D8000DC5DA8 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF5C6219F7D8000DC5DA8 /* back.png */; };
+		DF7D1B402208F86F00B51CEB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF7D1B3F2208F86F00B51CEB /* GoogleService-Info.plist */; };
 		DF808DB321FFAF8D00D46EDA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF808DB221FFAF8D00D46EDA /* MapKit.framework */; };
 		DF808DB821FFD8F400D46EDA /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = DF808DB721FFD8F400D46EDA /* pin.png */; };
 		DF808DBA2200F82700D46EDA /* SharePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DB92200F82700D46EDA /* SharePageViewController.swift */; };
@@ -45,6 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EB8FBF5C7E0BC825F2415C0 /* Pods-RunTrax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunTrax.release.xcconfig"; path = "Pods/Target Support Files/Pods-RunTrax/Pods-RunTrax.release.xcconfig"; sourceTree = "<group>"; };
+		6C8DADC7E036884BB8A2DF32 /* Pods-RunTrax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunTrax.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RunTrax/Pods-RunTrax.debug.xcconfig"; sourceTree = "<group>"; };
+		9E66B519E83D8DE1EF56D967 /* Pods_RunTraxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunTraxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2C4CCF109B8A571210B2C67 /* Pods_RunTrax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunTrax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1BF581219E289000DC5DA8 /* RunTrax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunTrax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1BF584219E289000DC5DA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF1BF586219E289000DC5DA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +65,7 @@
 		DF1BF5A6219E31D100DC5DA8 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = ../../menu.png; sourceTree = "<group>"; };
 		DF1BF5C4219F7BD600DC5DA8 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = start.png; path = ../../start.png; sourceTree = "<group>"; };
 		DF1BF5C6219F7D8000DC5DA8 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = ../../back.png; sourceTree = "<group>"; };
+		DF7D1B3F2208F86F00B51CEB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF808DB221FFAF8D00D46EDA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DF808DB721FFD8F400D46EDA /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin.png; path = ../../pin.png; sourceTree = "<group>"; };
 		DF808DB92200F82700D46EDA /* SharePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePageViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF808DB321FFAF8D00D46EDA /* MapKit.framework in Frameworks */,
+				A674485741F8D8A0AF0CCB58 /* Pods_RunTrax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55DB40125FEA8D4A82C8B583 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C8DADC7E036884BB8A2DF32 /* Pods-RunTrax.debug.xcconfig */,
+				1EB8FBF5C7E0BC825F2415C0 /* Pods-RunTrax.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DF1BF578219E289000DC5DA8 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +119,7 @@
 				DF1BF598219E289A00DC5DA8 /* RunTraxTests */,
 				DF1BF582219E289000DC5DA8 /* Products */,
 				DF808DAF21FFAF8C00D46EDA /* Frameworks */,
+				55DB40125FEA8D4A82C8B583 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,6 +157,7 @@
 				DF1BF5A4219E2E0F00DC5DA8 /* runner.png */,
 				DF1BF58B219E289A00DC5DA8 /* Assets.xcassets */,
 				DF1BF58D219E289A00DC5DA8 /* LaunchScreen.storyboard */,
+				DF7D1B3F2208F86F00B51CEB /* GoogleService-Info.plist */,
 				DF1BF590219E289A00DC5DA8 /* Info.plist */,
 				DFBA4A2C21A643BB008BFB7A /* RunTrax.xcdatamodeld */,
 			);
@@ -158,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				DF808DB221FFAF8D00D46EDA /* MapKit.framework */,
+				D2C4CCF109B8A571210B2C67 /* Pods_RunTrax.framework */,
+				9E66B519E83D8DE1EF56D967 /* Pods_RunTraxTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -169,9 +190,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF1BF59E219E289B00DC5DA8 /* Build configuration list for PBXNativeTarget "RunTrax" */;
 			buildPhases = (
+				8A9B28F7DB5CC6BCACEBD0C4 /* [CP] Check Pods Manifest.lock */,
 				DF1BF57D219E289000DC5DA8 /* Sources */,
 				DF1BF57E219E289000DC5DA8 /* Frameworks */,
 				DF1BF57F219E289000DC5DA8 /* Resources */,
+				4A385A44C011AF0B3D6B650C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,6 +281,7 @@
 				DF1BF58A219E289000DC5DA8 /* Main.storyboard in Resources */,
 				DF1BF5C7219F7D8000DC5DA8 /* back.png in Resources */,
 				DF1BF5C5219F7BD700DC5DA8 /* start.png in Resources */,
+				DF7D1B402208F86F00B51CEB /* GoogleService-Info.plist in Resources */,
 				DF1BF5A5219E2E0F00DC5DA8 /* runner.png in Resources */,
 				DF808DC022010D0900D46EDA /* default.png in Resources */,
 			);
@@ -271,6 +295,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4A385A44C011AF0B3D6B650C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RunTrax/Pods-RunTrax-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RunTrax/Pods-RunTrax-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A9B28F7DB5CC6BCACEBD0C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RunTrax-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DF1BF57D219E289000DC5DA8 /* Sources */ = {
@@ -450,6 +525,7 @@
 		};
 		DF1BF59F219E289B00DC5DA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C8DADC7E036884BB8A2DF32 /* Pods-RunTrax.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -468,6 +544,7 @@
 		};
 		DF1BF5A0219E289B00DC5DA8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EB8FBF5C7E0BC825F2415C0 /* Pods-RunTrax.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
