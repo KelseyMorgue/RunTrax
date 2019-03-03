@@ -24,7 +24,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="runner.png" translatesAutoresizingMaskIntoConstraints="NO" id="QwD-gd-5sw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="runner" translatesAutoresizingMaskIntoConstraints="NO" id="QwD-gd-5sw">
                                 <rect key="frame" x="16" y="246" width="343" height="182"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="RhW-AS-Z7Z">
@@ -56,6 +56,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="runner.png" width="2268" height="1417"/>
+        <image name="runner" width="2268" height="1417"/>
     </resources>
 </document>

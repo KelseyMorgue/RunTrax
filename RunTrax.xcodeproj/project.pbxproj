@@ -14,16 +14,10 @@
 		DF1BF58C219E289A00DC5DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF58B219E289A00DC5DA8 /* Assets.xcassets */; };
 		DF1BF58F219E289A00DC5DA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF58D219E289A00DC5DA8 /* LaunchScreen.storyboard */; };
 		DF1BF59A219E289B00DC5DA8 /* RunTraxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1BF599219E289B00DC5DA8 /* RunTraxTests.swift */; };
-		DF1BF5A5219E2E0F00DC5DA8 /* runner.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF5A4219E2E0F00DC5DA8 /* runner.png */; };
-		DF1BF5A7219E31D100DC5DA8 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF5A6219E31D100DC5DA8 /* menu.png */; };
-		DF1BF5C5219F7BD700DC5DA8 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF5C4219F7BD600DC5DA8 /* start.png */; };
-		DF1BF5C7219F7D8000DC5DA8 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF5C6219F7D8000DC5DA8 /* back.png */; };
 		DF808DB321FFAF8D00D46EDA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF808DB221FFAF8D00D46EDA /* MapKit.framework */; };
-		DF808DB821FFD8F400D46EDA /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = DF808DB721FFD8F400D46EDA /* pin.png */; };
 		DF808DBA2200F82700D46EDA /* SharePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DB92200F82700D46EDA /* SharePageViewController.swift */; };
 		DF808DBC2200FA2500D46EDA /* PastRunsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */; };
 		DF808DBE2201025800D46EDA /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DBD2201025800D46EDA /* FriendsListViewController.swift */; };
-		DF808DC022010D0900D46EDA /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = DF808DBF22010D0900D46EDA /* default.png */; };
 		DF808DC22202689500D46EDA /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DC12202689500D46EDA /* AccountViewController.swift */; };
 		DF98CE032225A05300086812 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF98CE022225A05300086812 /* GoogleService-Info.plist */; };
 		DF98CE052229A62800086812 /* OpeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF98CE042229A62800086812 /* OpeningViewController.swift */; };
@@ -64,16 +58,10 @@
 		DF1BF595219E289A00DC5DA8 /* RunTraxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunTraxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1BF599219E289B00DC5DA8 /* RunTraxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunTraxTests.swift; sourceTree = "<group>"; };
 		DF1BF59B219E289B00DC5DA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DF1BF5A4219E2E0F00DC5DA8 /* runner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = runner.png; path = ../../runner.png; sourceTree = "<group>"; };
-		DF1BF5A6219E31D100DC5DA8 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = ../../menu.png; sourceTree = "<group>"; };
-		DF1BF5C4219F7BD600DC5DA8 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = start.png; path = ../../start.png; sourceTree = "<group>"; };
-		DF1BF5C6219F7D8000DC5DA8 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = ../../back.png; sourceTree = "<group>"; };
 		DF808DB221FFAF8D00D46EDA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		DF808DB721FFD8F400D46EDA /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin.png; path = ../../pin.png; sourceTree = "<group>"; };
 		DF808DB92200F82700D46EDA /* SharePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePageViewController.swift; sourceTree = "<group>"; };
 		DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastRunsViewController.swift; sourceTree = "<group>"; };
 		DF808DBD2201025800D46EDA /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
-		DF808DBF22010D0900D46EDA /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default.png; path = ../../default.png; sourceTree = "<group>"; };
 		DF808DC12202689500D46EDA /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		DF98CE022225A05300086812 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF98CE042229A62800086812 /* OpeningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
@@ -158,12 +146,6 @@
 				DFF7E7AD21FA27D4002220E1 /* SharedRunViewController.swift */,
 				DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */,
 				DFBA4A2621A5BBBA008BFB7A /* RunOverviewViewController.swift */,
-				DF808DB721FFD8F400D46EDA /* pin.png */,
-				DF1BF5C6219F7D8000DC5DA8 /* back.png */,
-				DF808DBF22010D0900D46EDA /* default.png */,
-				DF1BF5A6219E31D100DC5DA8 /* menu.png */,
-				DF1BF5C4219F7BD600DC5DA8 /* start.png */,
-				DF1BF5A4219E2E0F00DC5DA8 /* runner.png */,
 				DF1BF58B219E289A00DC5DA8 /* Assets.xcassets */,
 				DF1BF58D219E289A00DC5DA8 /* LaunchScreen.storyboard */,
 				DF98CE022225A05300086812 /* GoogleService-Info.plist */,
@@ -285,15 +267,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF1BF58F219E289A00DC5DA8 /* LaunchScreen.storyboard in Resources */,
-				DF808DB821FFD8F400D46EDA /* pin.png in Resources */,
-				DF1BF5A7219E31D100DC5DA8 /* menu.png in Resources */,
 				DF1BF58C219E289A00DC5DA8 /* Assets.xcassets in Resources */,
 				DF1BF58A219E289000DC5DA8 /* Main.storyboard in Resources */,
-				DF1BF5C7219F7D8000DC5DA8 /* back.png in Resources */,
-				DF1BF5C5219F7BD700DC5DA8 /* start.png in Resources */,
 				DF98CE032225A05300086812 /* GoogleService-Info.plist in Resources */,
-				DF1BF5A5219E2E0F00DC5DA8 /* runner.png in Resources */,
-				DF808DC022010D0900D46EDA /* default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,7 +554,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kelseyhenrichsen.RunTrax;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kelseyhenrichsen.FirebaseApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -597,7 +573,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kelseyhenrichsen.RunTrax;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kelseyhenrichsen.FirebaseApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
