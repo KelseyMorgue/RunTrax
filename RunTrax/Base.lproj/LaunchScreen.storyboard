@@ -18,24 +18,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RunTrax" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVh-H9-XzW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RunTrax" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVh-H9-XzW">
                                 <rect key="frame" x="71" y="166" width="233" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="51"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="runner.png" translatesAutoresizingMaskIntoConstraints="NO" id="QwD-gd-5sw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="runner.png" translatesAutoresizingMaskIntoConstraints="NO" id="QwD-gd-5sw">
                                 <rect key="frame" x="16" y="246" width="343" height="182"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="RhW-AS-Z7Z">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="RhW-AS-Z7Z">
                                 <rect key="frame" x="170" y="493" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QwD-gd-5sw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="0hX-iC-mAL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RVh-H9-XzW" secondAttribute="bottom" constant="449" id="5oV-bG-shX"/>
+                            <constraint firstItem="RVh-H9-XzW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="146" id="9em-1t-T5D"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QwD-gd-5sw" secondAttribute="bottom" constant="239" id="BPl-2V-tjW"/>
+                            <constraint firstItem="RhW-AS-Z7Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="473" id="ERI-TQ-iJF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RhW-AS-Z7Z" secondAttribute="trailing" constant="168" id="HNC-R7-laa"/>
+                            <constraint firstItem="RVh-H9-XzW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="71" id="JJU-Kh-lSY"/>
+                            <constraint firstItem="RhW-AS-Z7Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="170" id="Mp9-yY-aSN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RhW-AS-Z7Z" secondAttribute="bottom" constant="137" id="XC0-Ih-YUE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QwD-gd-5sw" secondAttribute="trailing" constant="16" id="e1Q-YM-HZf"/>
+                            <constraint firstItem="QwD-gd-5sw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="226" id="nq2-M0-6Gy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RVh-H9-XzW" secondAttribute="trailing" constant="71" id="sd7-eV-Vrr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
