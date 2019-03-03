@@ -8,12 +8,11 @@ target 'RunTrax' do
   # Pods for RunTrax
 pod 'Firebase/Core'
 pod 'Firebase/Database'
+pod 'FirebaseUI/Auth'
+pod 'Firebase/Storage'
 
+pod 'FirebaseUI/Google'
 
-  
-
-
-
-
+ 
 
 end

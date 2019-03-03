@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="runner.png" translatesAutoresizingMaskIntoConstraints="NO" id="yuD-iC-BSa">
-                                <rect key="frame" x="81" y="160" width="217" height="127"/>
+                                <rect key="frame" x="81" y="116" width="217" height="171"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8r-Ct-9wW">
-                                <rect key="frame" x="102" y="314" width="170" height="45"/>
+                                <rect key="frame" x="102" y="270" width="170" height="89"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="40"/>
                                 <state key="normal" title="Account">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeF-ec-MIV">
-                                <rect key="frame" x="83" y="372" width="208" height="53"/>
+                                <rect key="frame" x="83" y="328" width="208" height="97"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="40"/>
                                 <state key="normal" title="Past Runs">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMn-sO-9Vr">
-                                <rect key="frame" x="107" y="438" width="160" height="53"/>
+                                <rect key="frame" x="107" y="394" width="160" height="97"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="40"/>
                                 <state key="normal" title="Friends">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,7 +52,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CA1-BZ-AuJ">
-                                <rect key="frame" x="54" y="503" width="266" height="53"/>
+                                <rect key="frame" x="54" y="459" width="266" height="97"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="40"/>
                                 <state key="normal" title="Shared Runs">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,7 +62,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6e4-Wq-zQW">
-                                <rect key="frame" x="96" y="567" width="182" height="53"/>
+                                <rect key="frame" x="96" y="523" width="182" height="97"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="40"/>
                                 <state key="normal" title="New Run">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,7 +72,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to RunTrax!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suw-z5-6R8">
-                                <rect key="frame" x="16" y="78" width="343" height="81"/>
+                                <rect key="frame" x="16" y="34" width="343" height="125"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -120,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="133.5832083958021"/>
+            <point key="canvasLocation" x="-1" y="125"/>
         </scene>
         <!--Past Runs View Controller-->
         <scene sceneID="jps-5A-x5P">
@@ -167,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQR-b0-Okt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="134"/>
+            <point key="canvasLocation" x="1079" y="125"/>
         </scene>
         <!--Share Page View Controller-->
         <scene sceneID="xAN-iY-xig">
@@ -218,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3pB-s8-nDW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712.79999999999995" y="859.52023988005999"/>
+            <point key="canvasLocation" x="676" y="851"/>
         </scene>
         <!--Shared Run View Controller-->
         <scene sceneID="eSU-nf-sH9">
@@ -269,7 +269,91 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boo-TN-45j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1394" y="860"/>
+            <point key="canvasLocation" x="1356" y="851"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="22F-Hu-cDg">
+            <objects>
+                <viewController id="uuq-K6-Sr5" customClass="SignUpViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S3b-0z-Jkt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ssU-w6-sN7">
+                                <rect key="frame" x="37" y="275" width="112" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3xT-9h-tcx">
+                                <rect key="frame" x="37" y="404" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j0F-ln-w2z">
+                                <rect key="frame" x="37" y="528" width="141" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmu-ve-eJW">
+                                <rect key="frame" x="157" y="57" width="66" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default.png" translatesAutoresizingMaskIntoConstraints="NO" id="ml5-XE-xxv">
+                                <rect key="frame" x="116" y="95" width="143" height="119"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0S5-It-q8h">
+                                <rect key="frame" x="37" y="322" width="301" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L3b-Ux-xaH">
+                                <rect key="frame" x="37" y="452" width="301" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vpM-sL-aoP">
+                                <rect key="frame" x="37" y="574" width="301" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaW-Rb-60b">
+                                <rect key="frame" x="96" y="222" width="183" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="10"/>
+                                <state key="normal" title="Tap Image to choose profile picture">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="KWI-lx-O6I"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailField" destination="L3b-Ux-xaH" id="kvO-3d-YPe"/>
+                        <outlet property="profileImageView" destination="ml5-XE-xxv" id="Wne-EW-rxz"/>
+                        <outlet property="tapToChangeProfileButton" destination="iaW-Rb-60b" id="0c5-WV-Mut"/>
+                        <outlet property="usernameField" destination="0S5-It-q8h" id="iOC-il-Sf7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ol-5R-Oz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1951" y="608"/>
         </scene>
         <!--Tracking Run-->
         <scene sceneID="s7U-0G-nXs">
@@ -280,37 +364,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beginning Run" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xj-gx-tf5">
-                                <rect key="frame" x="16" y="90" width="343" height="47"/>
+                                <rect key="frame" x="16" y="46" width="343" height="91"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1c9-Kg-N0t">
-                                <rect key="frame" x="97" y="494" width="253" height="34"/>
+                                <rect key="frame" x="97" y="450" width="253" height="78"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntr-AV-xCM">
-                                <rect key="frame" x="34" y="457" width="316" height="29"/>
+                                <rect key="frame" x="34" y="413" width="316" height="73"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pace:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SuR-Wz-ejP">
-                                <rect key="frame" x="94" y="536" width="256" height="34"/>
+                                <rect key="frame" x="94" y="492" width="256" height="78"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O51-ZA-vuM">
-                                <rect key="frame" x="16" y="155" width="343" height="294"/>
+                                <rect key="frame" x="16" y="111" width="343" height="338"/>
                                 <connections>
                                     <outlet property="delegate" destination="Anw-lb-hPQ" id="dNA-WY-QoH"/>
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x71-if-P7p">
-                                <rect key="frame" x="25" y="596" width="148" height="42"/>
+                                <rect key="frame" x="25" y="552" width="148" height="86"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="29"/>
                                 <state key="normal" title="Start run">
                                     <color key="titleColor" red="0.11283535816508627" green="1" blue="0.031962710671578964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -320,7 +404,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8B-RT-Cpx">
-                                <rect key="frame" x="225" y="596" width="125" height="42"/>
+                                <rect key="frame" x="225" y="552" width="125" height="86"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="29"/>
                                 <state key="normal" title="End Run">
                                     <color key="titleColor" red="1" green="0.15734811794817627" blue="0.12053478197320211" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -375,7 +459,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egr-KO-Ojg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-628" y="860"/>
+            <point key="canvasLocation" x="-665" y="851"/>
         </scene>
         <!--Share Run-->
         <scene sceneID="7na-nb-LZG">
@@ -386,25 +470,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great Job!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXW-zN-RXT">
-                                <rect key="frame" x="70" y="72" width="234" height="45"/>
+                                <rect key="frame" x="70" y="28" width="234" height="89"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="44"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8K-8q-UVe">
-                                <rect key="frame" x="65" y="454" width="294" height="23"/>
+                                <rect key="frame" x="65" y="410" width="294" height="67"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Distance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcJ-Av-fTH">
-                                <rect key="frame" x="16" y="422" width="343" height="24"/>
+                                <rect key="frame" x="16" y="378" width="343" height="68"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cg8-6Z-fJ4">
-                                <rect key="frame" x="67" y="547" width="241" height="92"/>
+                                <rect key="frame" x="67" y="503" width="241" height="136"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="40"/>
                                 <state key="normal" title="Share Run?">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -414,19 +498,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pace:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9X-k8-WW7">
-                                <rect key="frame" x="131" y="485" width="228" height="23"/>
+                                <rect key="frame" x="131" y="441" width="228" height="67"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiM-bD-lt6">
-                                <rect key="frame" x="131" y="516" width="228" height="23"/>
+                                <rect key="frame" x="131" y="472" width="228" height="67"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yr2-4z-hwv">
-                                <rect key="frame" x="16" y="125" width="343" height="275"/>
+                                <rect key="frame" x="16" y="81" width="343" height="319"/>
                                 <connections>
                                     <outlet property="delegate" destination="Vl5-mO-GvI" id="htm-VR-u3F"/>
                                 </connections>
@@ -476,7 +560,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfd-h4-FI2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="860"/>
+            <point key="canvasLocation" x="-1" y="851"/>
         </scene>
         <!--Account-->
         <scene sceneID="aFG-5x-HuJ">
@@ -487,26 +571,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default.png" translatesAutoresizingMaskIntoConstraints="NO" id="dnw-iV-UpR">
-                                <rect key="frame" x="97" y="140" width="180" height="173"/>
+                                <rect key="frame" x="97" y="96" width="180" height="217"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="neT-HS-eei" appends="YES" id="8Cd-nw-yog"/>
                                 </connections>
                             </imageView>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zs8-EY-nj4">
-                                <rect key="frame" x="55" y="336" width="279" height="26"/>
+                                <rect key="frame" x="55" y="292" width="279" height="70"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Runs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UA3-nA-Tvj">
-                                <rect key="frame" x="55" y="378" width="279" height="17"/>
+                                <rect key="frame" x="55" y="334" width="279" height="61"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mileage:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9E-Y5-G1k">
-                                <rect key="frame" x="55" y="425" width="279" height="26"/>
+                                <rect key="frame" x="55" y="381" width="279" height="70"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -519,13 +603,13 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUK-xO-epd">
-                                <rect key="frame" x="55" y="79" width="290" height="50"/>
+                                <rect key="frame" x="55" y="35" width="290" height="94"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="49"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" text="About me..." textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BSv-JP-NnH">
-                                <rect key="frame" x="50" y="463" width="274" height="167"/>
+                                <rect key="frame" x="50" y="419" width="274" height="211"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
@@ -575,7 +659,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-402.39999999999998" y="-562.66866566716647"/>
+            <point key="canvasLocation" x="-439" y="-571"/>
         </scene>
         <!--Friends List View Controller-->
         <scene sceneID="ohi-tC-L4n">
@@ -623,7 +707,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qiH-NX-nJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="713" y="-563"/>
+            <point key="canvasLocation" x="676" y="-572"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gnt-iJ-Lda">
@@ -636,12 +720,159 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="syq-xd-CUb"/>
+                        <segue destination="dE3-14-fQZ" kind="show" id="Thp-Fl-gDb"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3AQ-OA-EDa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-628" y="134"/>
+            <point key="canvasLocation" x="-3766" y="140"/>
+        </scene>
+        <!--Opening View Controller-->
+        <scene sceneID="ykp-C8-gOF">
+            <objects>
+                <viewController id="dE3-14-fQZ" customClass="OpeningViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ayt-aR-Vcx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="runner.png" translatesAutoresizingMaskIntoConstraints="NO" id="hN3-hq-UJC">
+                                <rect key="frame" x="57" y="51" width="260" height="138"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYN-fh-s10">
+                                <rect key="frame" x="16" y="528" width="351" height="44"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="MwM-HD-ZcH" kind="show" id="Dc9-gI-fug"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMZ-yq-jFx">
+                                <rect key="frame" x="16" y="588" width="351" height="44"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <segue destination="uuq-K6-Sr5" kind="show" id="Isg-7z-cOP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RunTrax" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0Z-tP-zbf">
+                                <rect key="frame" x="112" y="197" width="150" height="35"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Sharing App for Runners" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rpi-Dl-6nj">
+                                <rect key="frame" x="62" y="233" width="251" height="30"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYn-ak-MU0">
+                                <rect key="frame" x="16" y="279" width="343" height="200"/>
+                                <string key="text">Welcome to RunTrax! We are an app that offers the ability to share runs, connect with running buddies, and view your running progress!</string>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bMZ-yq-jFx" firstAttribute="top" secondItem="gVM-wf-TEC" secondAttribute="top" constant="568" id="12b-Fv-d5U"/>
+                            <constraint firstItem="O0Z-tP-zbf" firstAttribute="top" secondItem="gVM-wf-TEC" secondAttribute="top" constant="177" id="31E-S5-Wgi"/>
+                            <constraint firstItem="Rpi-Dl-6nj" firstAttribute="top" secondItem="gVM-wf-TEC" secondAttribute="top" constant="213" id="6cs-hs-Rpl"/>
+                            <constraint firstItem="yYn-ak-MU0" firstAttribute="leading" secondItem="gVM-wf-TEC" secondAttribute="leading" constant="16" id="78z-ln-N7O"/>
+                            <constraint firstItem="gVM-wf-TEC" firstAttribute="bottom" secondItem="Rpi-Dl-6nj" secondAttribute="bottom" constant="404" id="969-cq-Obv"/>
+                            <constraint firstItem="gVM-wf-TEC" firstAttribute="trailing" secondItem="yYn-ak-MU0" secondAttribute="trailing" constant="16" id="9sQ-Kz-ntW"/>
+                            <constraint firstItem="gVM-wf-TEC" firstAttribute="trailing" secondItem="hN3-hq-UJC" secondAttribute="trailing" constant="58" id="Ck0-EI-kxZ"/>
+                            <constraint firstItem="gVM-wf-TEC" firstAttribute="bottom" secondItem="hN3-hq-UJC" secondAttribute="bottom" constant="478" id="DBi-kF-6M0"/>
+                            <constraint firstItem="gVM-wf-TEC" firstAttribute="trailing" secondItem="Rpi-Dl-6nj" secondAttribute="trailing" constant="62" id="EaD-AX-6Gl"/>
+                            <constraint firstItem="gVM-wf-TEC" firstAttribute="bottom" secondItem="O0Z-tP-zbf" secondAttribute="bottom" constant="435" id="Ef2-O2-Vco"/>
+                            <constraint firstItem="hN3-hq-UJC" firstAttribute="leading" secondItem="gVM-wf-TEC" secondAttribute="leading" constant="57" id="GHs-xD-jGh"/>
+                            <constraint firstItem="gVM-wf-TEC" firstAttribute="bottom" secondItem="yYn-ak-MU0" secondAttribute="bottom" constant="188" id="IEm-Oe-jh4"/>
+                            <constraint firstItem="gVM-wf-TEC" firstAttribute="bottom" secondItem="DYN-fh-s10" secondAttribute="bottom" constant="95" id="Mxb-ys-ZIo"/>
+                            <constraint firstItem="gVM-wf-TEC" firstAttribute="trailing" secondItem="bMZ-yq-jFx" secondAttribute="trailing" constant="8" id="TJZ-MB-fqx"/>
+                            <constraint firstItem="DYN-fh-s10" firstAttribute="top" secondItem="yYn-ak-MU0" secondAttribute="bottom" constant="49" id="azy-NA-xB5"/>
+                            <constraint firstItem="gVM-wf-TEC" firstAttribute="bottom" secondItem="bMZ-yq-jFx" secondAttribute="bottom" constant="35" id="cN7-Eg-WYj"/>
+                            <constraint firstItem="DYN-fh-s10" firstAttribute="leading" secondItem="gVM-wf-TEC" secondAttribute="leading" constant="16" id="cVW-f0-unW"/>
+                            <constraint firstItem="yYn-ak-MU0" firstAttribute="top" secondItem="gVM-wf-TEC" secondAttribute="top" constant="259" id="fNU-mW-TSY"/>
+                            <constraint firstItem="O0Z-tP-zbf" firstAttribute="leading" secondItem="gVM-wf-TEC" secondAttribute="leading" constant="112" id="jbV-8q-hrd"/>
+                            <constraint firstItem="Rpi-Dl-6nj" firstAttribute="leading" secondItem="gVM-wf-TEC" secondAttribute="leading" constant="62" id="ka7-6p-Hjj"/>
+                            <constraint firstItem="hN3-hq-UJC" firstAttribute="top" secondItem="gVM-wf-TEC" secondAttribute="top" constant="31" id="o7c-6Q-No3"/>
+                            <constraint firstItem="bMZ-yq-jFx" firstAttribute="leading" secondItem="gVM-wf-TEC" secondAttribute="leading" constant="16" id="qrf-9t-aha"/>
+                            <constraint firstItem="DYN-fh-s10" firstAttribute="top" secondItem="gVM-wf-TEC" secondAttribute="top" constant="508" id="quw-74-iGJ"/>
+                            <constraint firstItem="gVM-wf-TEC" firstAttribute="trailing" secondItem="DYN-fh-s10" secondAttribute="trailing" constant="8" id="tib-WD-skh"/>
+                            <constraint firstItem="yYn-ak-MU0" firstAttribute="top" secondItem="Rpi-Dl-6nj" secondAttribute="bottom" constant="16" id="uKM-0F-lcu"/>
+                            <constraint firstItem="gVM-wf-TEC" firstAttribute="trailing" secondItem="O0Z-tP-zbf" secondAttribute="trailing" constant="113" id="ufT-u8-da9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gVM-wf-TEC"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="DYN-fh-s10" id="Dno-SP-zcE"/>
+                        <outlet property="signupButton" destination="bMZ-yq-jFx" id="Svt-hn-Ed9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GvO-mm-Cz8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2970.4000000000001" y="139.880059970015"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="D4g-qK-Jlr">
+            <objects>
+                <viewController id="MwM-HD-ZcH" customClass="LoginViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DxD-88-Lmb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QFA-zW-pQa">
+                                <rect key="frame" x="43" y="229" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lnl-ci-qhl">
+                                <rect key="frame" x="43" y="337" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DPX-WM-B1s">
+                                <rect key="frame" x="43" y="275" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stO-nr-0J4">
+                                <rect key="frame" x="89" y="67" width="196" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="runner.png" translatesAutoresizingMaskIntoConstraints="NO" id="kUJ-cu-F25">
+                                <rect key="frame" x="128" y="116" width="119" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fl6-qr-N1o">
+                                <rect key="frame" x="43" y="383" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="W9L-QS-5rW"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailField" destination="DPX-WM-B1s" id="XZc-Bc-0by"/>
+                        <outlet property="passwordField" destination="fl6-qr-N1o" id="SFQ-WC-GQr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cPe-Mo-R0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1951.2" y="-367.46626686656674"/>
         </scene>
     </scenes>
     <resources>

@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>231427625087-u3su3ekh8j2pfmpnbvfef5at5nifmdcp.apps.googleusercontent.com</string>
+	<string>679714423766-390q1nck9stp9p4uh8dl1h9h2abt24j4.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.231427625087-u3su3ekh8j2pfmpnbvfef5at5nifmdcp</string>
+	<string>com.googleusercontent.apps.679714423766-390q1nck9stp9p4uh8dl1h9h2abt24j4</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCoONnwFmtBjxYr5HpTZmDtv8YD0qMqvPI</string>
+	<string>AIzaSyA3PUyhQQtB1bKIpuB0vloc7hyAS8-FQKc</string>
 	<key>GCM_SENDER_ID</key>
-	<string>231427625087</string>
+	<string>679714423766</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.kelseyhenrichsen.RunTrax</string>
+	<string>com.robcanton.FirebaseApp</string>
 	<key>PROJECT_ID</key>
-	<string>runtrax-833ce</string>
+	<string>fir-app-dfd4d</string>
 	<key>STORAGE_BUCKET</key>
-	<string>runtrax-833ce.appspot.com</string>
+	<string>fir-app-dfd4d.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:231427625087:ios:96943ac3b6bcfc17</string>
+	<string>1:679714423766:ios:482bd146fcb1126c</string>
 	<key>DATABASE_URL</key>
-	<string>https://runtrax-833ce.firebaseio.com</string>
+	<string>https://fir-app-dfd4d.firebaseio.com</string>
 </dict>
 </plist>
