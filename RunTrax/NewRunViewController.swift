@@ -28,6 +28,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     var timer: Timer?
     var distance = Measurement(value: 0, unit: UnitLength.meters)
     var locationList: [CLLocation] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
             self.eachSecond()
         }
         startLocationUpdates()
+        
     }
     
      func stopRun() {

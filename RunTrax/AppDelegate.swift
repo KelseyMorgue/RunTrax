@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +29,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let db = Firestore.firestore()
         // [END default_firestore]
         print(db) // silence warning
+        
+//        db.collection("checker").document("please").setData([
+//            "Email" : "email@email.com",
+//            "Username" : "joe",
+//            "Passwprd" : "pass"])
+//        {(error:Error?) in
+//            if let error = error
+//            {
+//            print("\(error.localizedDescription)")
+//            }
+//            else
+//            {
+//                print("Looking good here")
+//            }
+//        }
+        application.isIdleTimerDisabled = true
+
+        
         return true
     }
     

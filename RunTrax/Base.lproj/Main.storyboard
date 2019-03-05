@@ -281,6 +281,10 @@
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="ml5-XE-xxv">
                                 <rect key="frame" x="116" y="113" width="143" height="119"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="kdL-Si-Uq1" appends="YES" id="vNd-pq-FHn"/>
+                                </connections>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0S5-It-q8h">
                                 <rect key="frame" x="37" y="335" width="301" height="30"/>
@@ -365,11 +369,17 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="L3b-Ux-xaH" id="kvO-3d-YPe"/>
+                        <outlet property="passwordField" destination="vpM-sL-aoP" id="aXJ-gU-H9n"/>
                         <outlet property="profileImageView" destination="ml5-XE-xxv" id="Wne-EW-rxz"/>
                         <outlet property="usernameField" destination="0S5-It-q8h" id="iOC-il-Sf7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ol-5R-Oz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="kdL-Si-Uq1">
+                    <connections>
+                        <action selector="selectedImage:" destination="uuq-K6-Sr5" id="5Ui-qm-JLW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1708" y="-21.139430284857571"/>
         </scene>

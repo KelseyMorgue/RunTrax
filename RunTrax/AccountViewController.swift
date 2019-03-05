@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import FirebaseDatabase
+import Firebase
+import FirebaseFirestore
 
 class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -26,7 +27,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
 
         // Do any additional setup after loading the view.
         
-        let ref = Database.database().reference()
+       // let ref = Database.database().reference()
     }
     
     @IBAction func selectedImage(_ sender: UITapGestureRecognizer) {

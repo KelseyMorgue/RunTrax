@@ -7,7 +7,7 @@ target 'RunTrax' do
 
   # Pods for RunTrax
 pod 'Firebase/Core'
-pod 'Firebase/Database'
+# pod 'Firebase/Database'
 pod 'FirebaseUI/Auth'
 pod 'Firebase/Storage'
 pod 'Firebase/Firestore'
