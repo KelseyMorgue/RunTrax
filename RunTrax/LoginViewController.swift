@@ -15,22 +15,18 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
   
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
+   
+    //Makes the keyboard dismiss when return is hit
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.emailField.delegate = self
+        self.passwordField.delegate = self
     }
-    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        // Do any additional setup after loading the view, typically from a nib.
-//
-//        self.emailField.delegate = self
-//        self.passwordField.delegate = self
-//    }
-//
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        self.view.endEditing(true)
-//        return false
-//    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 
 }

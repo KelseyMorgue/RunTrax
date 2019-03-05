@@ -13,12 +13,12 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
 
 //User inputted
     @IBOutlet weak var profilePicture: UIImageView!
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var aboutText: UITextView!
 
 //From Database
     @IBOutlet weak var runLabel: UILabel!
     @IBOutlet weak var mileageLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+
     
     
     override func viewDidLoad() {

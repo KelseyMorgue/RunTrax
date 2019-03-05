@@ -10,6 +10,8 @@ pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'FirebaseUI/Auth'
 pod 'Firebase/Storage'
+pod 'Firebase/Firestore'
+
 
 pod 'FirebaseUI/Google'
 

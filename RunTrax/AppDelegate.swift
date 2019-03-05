@@ -17,9 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
      
+        // for the mapping stuffs
         let locationManager = LocationManager.shared
         locationManager.requestWhenInUseAuthorization()
+        
+        
+        // [START default_firestore]
         FirebaseApp.configure()
+        
+        let db = Firestore.firestore()
+        // [END default_firestore]
+        print(db) // silence warning
         return true
     }
     
