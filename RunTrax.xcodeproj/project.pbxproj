@@ -131,17 +131,15 @@
 			isa = PBXGroup;
 			children = (
 				DFF37037222F8180006BEF17 /* Resources */,
+				DFF37036222F814F006BEF17 /* Storyboards */,
+				DFF37039222F87B8006BEF17 /* Run Pages */,
+				DFF3703A222F8BC7006BEF17 /* Login and Signup */,
 				DFBA4A3321A648E6008BFB7A /* CoreDataStack.swift */,
 				DFBA4A2821A5DAB6008BFB7A /* RunDetailsDisplay.swift */,
 				DFBA4A2F21A6466A008BFB7A /* LocationManager.swift */,
 				DFBA4A3121A64691008BFB7A /* UnitExtension.swift */,
-				DFF37036222F814F006BEF17 /* Storyboards */,
-				DF98CE062229A97B00086812 /* LoginViewController.swift */,
-				DF98CE082229A9B900086812 /* SignUpViewController.swift */,
-				DF98CE042229A62800086812 /* OpeningViewController.swift */,
 				DF808DC12202689500D46EDA /* AccountViewController.swift */,
 				DF1BF586219E289000DC5DA8 /* StartScreenViewController.swift */,
-				DFF37039222F87B8006BEF17 /* Run Pages */,
 				DF808DB92200F82700D46EDA /* SharePageViewController.swift */,
 				DF808DBD2201025800D46EDA /* FriendsListViewController.swift */,
 				DFF37034222F7A64006BEF17 /* GoogleService-Info.plist */,
@@ -198,6 +196,16 @@
 				DFBA4A2621A5BBBA008BFB7A /* RunOverviewViewController.swift */,
 			);
 			path = "Run Pages";
+			sourceTree = "<group>";
+		};
+		DFF3703A222F8BC7006BEF17 /* Login and Signup */ = {
+			isa = PBXGroup;
+			children = (
+				DF98CE062229A97B00086812 /* LoginViewController.swift */,
+				DF98CE082229A9B900086812 /* SignUpViewController.swift */,
+				DF98CE042229A62800086812 /* OpeningViewController.swift */,
+			);
+			path = "Login and Signup";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

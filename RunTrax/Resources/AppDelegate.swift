@@ -21,15 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let locationManager = LocationManager.shared
         locationManager.requestWhenInUseAuthorization()
         
-        
+        // for the database
         FirebaseApp.configure()
 
-        // This bottom part is for switching to firestore
-
-//        let db = Firestore.firestore()
-//        // [END default_firestore]
-//        print(db) // silence warning
-
+        // makes the screens "turn off" timer to be disabled
         application.isIdleTimerDisabled = true
 
         
