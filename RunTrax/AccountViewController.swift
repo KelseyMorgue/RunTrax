@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseFirestore
 
 class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 

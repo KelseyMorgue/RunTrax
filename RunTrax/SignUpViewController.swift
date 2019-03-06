@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import Firebase
-import FirebaseFirestore
 
 
 
@@ -17,8 +16,6 @@ import FirebaseFirestore
 
 class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
-    var counter :Int = 0
-    //var ref: DatabaseReference?
     
     
     
@@ -29,26 +26,29 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
     
-    var db: Firestore!
+    var database = Database.database().reference()
+
     
+
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+
         
         self.usernameField.delegate = self
         self.emailField.delegate = self
+        self.passwordField.delegate = self
         
-        //This one doesn't work??? KELSEY FIX
-      self.passwordField.delegate = self
         
-        super.viewDidLoad()
+        self.database = Database.database().reference()
         
-        // [START setup]
-        let settings = FirestoreSettings()
-
-        Firestore.firestore().settings = settings
-        // [END setup]
-        db = Firestore.firestore()
+//        // [START setup]
+//        let settings = FirestoreSettings()
+//
+//        Firestore.firestore().settings = settings
+//        // [END setup]
+//        db = Firestore.firestore()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -90,7 +90,25 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
         dismiss(animated: true, completion: nil)
     }
     
-    
+    func addUser()
+    {
+        let rando = arc4random() % 1234
+        if let key = database.child("User").childByAutoId().key
+        {
+            let userName = "Kelsey \(rando)"
+            let email = "kelsey@gmail.com"
+            let password = "password"
+            
+            let samplePost = [
+                "Username: " : userName,
+                "Email: " : email,
+                "Password: " : password]
+            let update = ["/User/\(key)" : samplePost]
+            print(userName)
+            print(update)
+            database.updateChildValues(update)
+        }
+    }
     
     
     
@@ -98,30 +116,30 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     
 
     //firebase example modified !!!
-        private func addUser()
-        {
-            // Add a new document with a generated ID
-            //var ref: DocumentReference? = nil
-        
-            // Add a new document in collection "cities"
-            db.collection("RunTrax").document("User").setData([
-                "Username": "Ada",
-                "Email": "Lovelace@gmail.com",
-                "Password": "password"
-            ]) { err in
-                if let err = err {
-                    print("Error writing document: \(err)")
-                } else {
-                    print("Document successfully written!")
-                }
-            }
-            
-            
-            // [END add_ada_lovelace]
-
-//            print(db.description())
-            print("KELSEY HERE")
-        }
+//        private func addUser()
+//        {
+//            // Add a new document with a generated ID
+//            //var ref: DocumentReference? = nil
+//
+//            // Add a new document in collection "cities"
+//            db.collection("RunTrax").document("User").setData([
+//                "Username": "Ada",
+//                "Email": "Lovelace@gmail.com",
+//                "Password": "password"
+//            ]) { err in
+//                if let err = err {
+//                    print("Error writing document: \(err)")
+//                } else {
+//                    print("Document successfully written!")
+//                }
+//            }
+//
+//
+//            // [END add_ada_lovelace]
+//
+////            print(db.description())
+//            print("KELSEY HERE")
+//        }
     
 
     

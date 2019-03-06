@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A674485741F8D8A0AF0CCB58 /* Pods_RunTrax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C4CCF109B8A571210B2C67 /* Pods_RunTrax.framework */; };
 		DF1BF585219E289000DC5DA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1BF584219E289000DC5DA8 /* AppDelegate.swift */; };
-		DF1BF587219E289000DC5DA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1BF586219E289000DC5DA8 /* ViewController.swift */; };
+		DF1BF587219E289000DC5DA8 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1BF586219E289000DC5DA8 /* StartScreenViewController.swift */; };
 		DF1BF58A219E289000DC5DA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF588219E289000DC5DA8 /* Main.storyboard */; };
 		DF1BF58C219E289A00DC5DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF58B219E289A00DC5DA8 /* Assets.xcassets */; };
 		DF1BF58F219E289A00DC5DA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF58D219E289A00DC5DA8 /* LaunchScreen.storyboard */; };
@@ -19,7 +19,6 @@
 		DF808DBC2200FA2500D46EDA /* PastRunsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */; };
 		DF808DBE2201025800D46EDA /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DBD2201025800D46EDA /* FriendsListViewController.swift */; };
 		DF808DC22202689500D46EDA /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DC12202689500D46EDA /* AccountViewController.swift */; };
-		DF98CE032225A05300086812 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF98CE022225A05300086812 /* GoogleService-Info.plist */; };
 		DF98CE052229A62800086812 /* OpeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF98CE042229A62800086812 /* OpeningViewController.swift */; };
 		DF98CE072229A97B00086812 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF98CE062229A97B00086812 /* LoginViewController.swift */; };
 		DF98CE092229A9B900086812 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF98CE082229A9B900086812 /* SignUpViewController.swift */; };
@@ -29,6 +28,7 @@
 		DFBA4A3021A6466A008BFB7A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2F21A6466A008BFB7A /* LocationManager.swift */; };
 		DFBA4A3221A64691008BFB7A /* UnitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A3121A64691008BFB7A /* UnitExtension.swift */; };
 		DFBA4A3421A648E6008BFB7A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A3321A648E6008BFB7A /* CoreDataStack.swift */; };
+		DFF37035222F7A64006BEF17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DFF37034222F7A64006BEF17 /* GoogleService-Info.plist */; };
 		DFF7E7A821F77D22002220E1 /* NewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */; };
 		DFF7E7AE21FA27D4002220E1 /* SharedRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF7E7AD21FA27D4002220E1 /* SharedRunViewController.swift */; };
 /* End PBXBuildFile section */
@@ -50,7 +50,7 @@
 		D2C4CCF109B8A571210B2C67 /* Pods_RunTrax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunTrax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1BF581219E289000DC5DA8 /* RunTrax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunTrax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1BF584219E289000DC5DA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DF1BF586219E289000DC5DA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DF1BF586219E289000DC5DA8 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		DF1BF589219E289000DC5DA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DF1BF58B219E289A00DC5DA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF1BF58E219E289A00DC5DA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,7 +63,6 @@
 		DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastRunsViewController.swift; sourceTree = "<group>"; };
 		DF808DBD2201025800D46EDA /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
 		DF808DC12202689500D46EDA /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		DF98CE022225A05300086812 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF98CE042229A62800086812 /* OpeningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
 		DF98CE062229A97B00086812 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DF98CE082229A9B900086812 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +72,8 @@
 		DFBA4A2F21A6466A008BFB7A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DFBA4A3121A64691008BFB7A /* UnitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitExtension.swift; sourceTree = "<group>"; };
 		DFBA4A3321A648E6008BFB7A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		DFF37034222F7A64006BEF17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DFF37038222F818E006BEF17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRunViewController.swift; sourceTree = "<group>"; };
 		DFF7E7AD21FA27D4002220E1 /* SharedRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedRunViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,28 +130,21 @@
 		DF1BF583219E289000DC5DA8 /* RunTrax */ = {
 			isa = PBXGroup;
 			children = (
-				DF1BF584219E289000DC5DA8 /* AppDelegate.swift */,
+				DFF37037222F8180006BEF17 /* Resources */,
 				DFBA4A3321A648E6008BFB7A /* CoreDataStack.swift */,
 				DFBA4A2821A5DAB6008BFB7A /* RunDetailsDisplay.swift */,
 				DFBA4A2F21A6466A008BFB7A /* LocationManager.swift */,
 				DFBA4A3121A64691008BFB7A /* UnitExtension.swift */,
-				DF1BF588219E289000DC5DA8 /* Main.storyboard */,
+				DFF37036222F814F006BEF17 /* Storyboards */,
 				DF98CE062229A97B00086812 /* LoginViewController.swift */,
 				DF98CE082229A9B900086812 /* SignUpViewController.swift */,
 				DF98CE042229A62800086812 /* OpeningViewController.swift */,
 				DF808DC12202689500D46EDA /* AccountViewController.swift */,
-				DF1BF586219E289000DC5DA8 /* ViewController.swift */,
-				DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */,
+				DF1BF586219E289000DC5DA8 /* StartScreenViewController.swift */,
+				DFF37039222F87B8006BEF17 /* Run Pages */,
 				DF808DB92200F82700D46EDA /* SharePageViewController.swift */,
 				DF808DBD2201025800D46EDA /* FriendsListViewController.swift */,
-				DFF7E7AD21FA27D4002220E1 /* SharedRunViewController.swift */,
-				DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */,
-				DFBA4A2621A5BBBA008BFB7A /* RunOverviewViewController.swift */,
-				DF1BF58B219E289A00DC5DA8 /* Assets.xcassets */,
-				DF1BF58D219E289A00DC5DA8 /* LaunchScreen.storyboard */,
-				DF98CE022225A05300086812 /* GoogleService-Info.plist */,
-				DF1BF590219E289A00DC5DA8 /* Info.plist */,
-				DFBA4A2C21A643BB008BFB7A /* RunTrax.xcdatamodeld */,
+				DFF37034222F7A64006BEF17 /* GoogleService-Info.plist */,
 			);
 			path = RunTrax;
 			sourceTree = "<group>";
@@ -172,6 +166,38 @@
 				9E66B519E83D8DE1EF56D967 /* Pods_RunTraxTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DFF37036222F814F006BEF17 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				DF1BF588219E289000DC5DA8 /* Main.storyboard */,
+				DF1BF58D219E289A00DC5DA8 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		DFF37037222F8180006BEF17 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DF1BF584219E289000DC5DA8 /* AppDelegate.swift */,
+				DFF37038222F818E006BEF17 /* GoogleService-Info.plist */,
+				DF1BF58B219E289A00DC5DA8 /* Assets.xcassets */,
+				DF1BF590219E289A00DC5DA8 /* Info.plist */,
+				DFBA4A2C21A643BB008BFB7A /* RunTrax.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DFF37039222F87B8006BEF17 /* Run Pages */ = {
+			isa = PBXGroup;
+			children = (
+				DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */,
+				DFF7E7AD21FA27D4002220E1 /* SharedRunViewController.swift */,
+				DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */,
+				DFBA4A2621A5BBBA008BFB7A /* RunOverviewViewController.swift */,
+			);
+			path = "Run Pages";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,9 +293,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF1BF58F219E289A00DC5DA8 /* LaunchScreen.storyboard in Resources */,
+				DFF37035222F7A64006BEF17 /* GoogleService-Info.plist in Resources */,
 				DF1BF58C219E289A00DC5DA8 /* Assets.xcassets in Resources */,
 				DF1BF58A219E289000DC5DA8 /* Main.storyboard in Resources */,
-				DF98CE032225A05300086812 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,13 +318,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RunTrax/Pods-RunTrax-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -306,13 +328,9 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -388,7 +406,7 @@
 				DF808DBA2200F82700D46EDA /* SharePageViewController.swift in Sources */,
 				DF808DBE2201025800D46EDA /* FriendsListViewController.swift in Sources */,
 				DFBA4A3021A6466A008BFB7A /* LocationManager.swift in Sources */,
-				DF1BF587219E289000DC5DA8 /* ViewController.swift in Sources */,
+				DF1BF587219E289000DC5DA8 /* StartScreenViewController.swift in Sources */,
 				DF98CE072229A97B00086812 /* LoginViewController.swift in Sources */,
 				DF1BF585219E289000DC5DA8 /* AppDelegate.swift in Sources */,
 				DFF7E7A821F77D22002220E1 /* NewRunViewController.swift in Sources */,
@@ -557,7 +575,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8G5V889NN;
-				INFOPLIST_FILE = RunTrax/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RunTrax/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -576,7 +594,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8G5V889NN;
-				INFOPLIST_FILE = RunTrax/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RunTrax/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
