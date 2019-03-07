@@ -33,6 +33,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .photoLibrary
         imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
         present(imagePickerController, animated: true, completion: nil)
         
     }
@@ -45,37 +46,20 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var selectedImage: UIImage?
         
-        // The info dictionary may contain multiple representations of the image. You want to use the original.
-        guard let selectedImage = info[.originalImage] as? UIImage else {
-            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        // this changes image to what user crops it too
+        if let editedImage = info[.editedImage] as? UIImage {
+            selectedImage = editedImage
+            self.profilePicture.image = selectedImage!
+            picker.dismiss(animated: true, completion: nil)
+        } else if let originalImage = info[.originalImage] as? UIImage {
+            selectedImage = originalImage
+            self.profilePicture.image = selectedImage!
+            picker.dismiss(animated: true, completion: nil)
         }
-        
-        // Set photoImageView to display the selected image.
-        profilePicture.image = selectedImage
-        
-        // Dismiss the picker.
-        dismiss(animated: true, completion: nil)
     }
-
     
-    
-    //need action func for about me
-    // nameTextField.resignFirstResponder() --> fixes keyboard
- 
-    //need action func for username
-    // nameTextField.resignFirstResponder() --> fixes keyboard
-
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  
 
 }

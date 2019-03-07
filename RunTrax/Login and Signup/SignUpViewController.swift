@@ -44,24 +44,109 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     }
     
     
+
+    
     func addUser()
     {
-       let key = newUsers.childByAutoId().key
+
         
-        let user = ["Id" : key,
-                    "Username" : usernameField.text! as String,
-                    "Email" : emailField.text! as String,
-                    "Password" : passwordField.text! as String]
+//        //checks to make sure all are entered (these are required, unlike the image)
+//        guard let email = emailField.text, let password = passwordField.text, let username = usernameField.text else {
+//            print("Form is not valid")
+//            return
+//        }
+//
+//        //authenticates user with firebase
+//        Auth.auth().createUser(withEmail: email, password: password, completion: { (res, error) in
+//            if let error = error {
+//                print(error)
+//                return
+//            }
+//            guard let uid = res?.user.uid else {
+//                return
+//            }
+//
+//
+        guard let email = emailField.text, let password = passwordField.text, let name = usernameField.text else {
+            print("Form is not valid")
+            return
+        }
         
-        //Also need to add the optional profile photo image
-        // string -> URL path
+        Auth.auth().createUser(withEmail: email, password: password, completion: { (res, error) in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let uid = res?.user.uid else {
+                return
+            }
+            
+            //successfully authenticated user
+            let imageName = NSUUID().uuidString
+            let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).png")
+            
+            if let uploadData = self.profileImageView.image!.pngData() {
+                
+                storageRef.putData(uploadData, metadata: nil, completion: { (_, err) in
+                    
+                    if let error = error {
+                        print(error)
+                        return
+                    }
+                    
+                    storageRef.downloadURL(completion: { (url, err) in
+                        if let err = err {
+                            print(err)
+                            return
+                        }
+                        
+                        guard let url = url else { return }
+                        let values = ["name": name, "email": email, "profileImageUrl": url.absoluteString]
+                        
+                        self.registerUserIntoDatabaseWithUID(uid, values: values as [String : AnyObject])
+                    })
+                    
+                })
+            }
+        })
+
         
-        newUsers.child(key!).setValue(user)
+        
+//
+//        // DB Check
+//               let key = newUsers.childByAutoId().key
+//                let user = ["Id" : key,
+//                            "Username" : usernameField.text! as String,
+//                            "Email" : emailField.text! as String,
+//                            "Password" : passwordField.text! as String]
+//
+//
+//
+//
+//        //Also need to add the optional profile photo image
+//        // string -> URL path
+//
+//        newUsers.child(key!).setValue(user)
         
     }
+    fileprivate func registerUserIntoDatabaseWithUID(_ uid: String, values: [String: AnyObject]) {
+        let ref = Database.database().reference()
+        let usersReference = ref.child("users").child(uid)
+        
+        usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            
+            if let err = err {
+                print(err)
+                return
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        })
+    }
     
-    
-    
+    //keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
@@ -71,11 +156,10 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .photoLibrary
         imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
         present(imagePickerController, animated: true, completion: nil)
-        
-        
+
     }
-    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
@@ -83,19 +167,20 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     }
     
     func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+         var selectedImage: UIImage?
         
-        // The info dictionary may contain multiple representations of the image. You want to use the original.
-        guard let selectedImage = info[.originalImage] as? UIImage else {
-            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
-        }
-        
-        // Set photoImageView to display the selected image.
-        profileImageView.image = selectedImage
-        
-        // Dismiss the picker.
-        dismiss(animated: true, completion: nil)
-    }
+        // this changes image to what user crops it too
+            if let editedImage = info[.editedImage] as? UIImage {
+                    selectedImage = editedImage
+                    self.profileImageView.image = selectedImage!
+                    picker.dismiss(animated: true, completion: nil)
+                } else if let originalImage = info[.originalImage] as? UIImage {
+                    selectedImage = originalImage
+                    self.profileImageView.image = selectedImage!
+                    picker.dismiss(animated: true, completion: nil)
+                }
+                    }
     
     
 }
