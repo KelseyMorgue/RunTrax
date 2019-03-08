@@ -42,35 +42,24 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     @IBAction func createAccount(_ sender: Any) {
         addUser()
         //addQuery()
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "startScreen") as! StartScreenViewController
+        self.present(vc, animated: true, completion: nil)
     }
     
-    func addQuery()
-    {
-        // DB Check
-        let key = newUsers.childByAutoId().key
-        
-        /*
-         Need to make an if statement or something here,
-         if username/email already exist then print error
-         else set user = []
-         */
-        
-        let user = ["Id" : key,
-                    "Username" : usernameField.text! as String,
-                    "Email" : emailField.text! as String,
-                    "Password" : passwordField.text! as String]
-        
-        
-        
-        
-        //Also need to add the optional profile photo image
-        // string -> URL path
-        
-        newUsers.child(key!).setValue(user)
-    }
+    
+//    
+//    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let yourVC = segue.destination as? StartScreenViewController {
+//            yourVC.yourData = self.someData
+//        }
+//    }
+    
+    
     
     func addUser()
     {
+        
         //checks to make sure all are entered (these are required, unlike the image)
         
         guard let email = emailField.text, let password = passwordField.text, let name = usernameField.text else {
@@ -171,6 +160,29 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
             picker.dismiss(animated: true, completion: nil)
         }
     }
-    
+    func addQuery()
+    {
+        // DB Check
+        let key = newUsers.childByAutoId().key
+        
+        /*
+         Need to make an if statement or something here,
+         if username/email already exist then print error
+         else set user = []
+         */
+        
+        let user = ["Id" : key,
+                    "Username" : usernameField.text! as String,
+                    "Email" : emailField.text! as String,
+                    "Password" : passwordField.text! as String]
+        
+        
+        
+        
+        //Also need to add the optional profile photo image
+        // string -> URL path
+        
+        newUsers.child(key!).setValue(user)
+    }
     
 }

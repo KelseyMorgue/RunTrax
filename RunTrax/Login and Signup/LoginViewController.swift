@@ -26,18 +26,27 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
 
     @IBAction func login(_ sender: Any) {
         signIn()
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "startScreen") as! StartScreenViewController
+        self.present(vc, animated: true, completion: nil)
+        
     }
     
     func signIn()
     {
         let email = emailField.text! as String
         let password = passwordField.text! as String
-        FirebaseApp.configure()
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] user, error in
-            guard let strongSelf = self else { return }
-            // ...
-        }
-
+    
+        Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            //successfully logged in our user
+            self.dismiss(animated: true, completion: nil)
+            
+        })
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
