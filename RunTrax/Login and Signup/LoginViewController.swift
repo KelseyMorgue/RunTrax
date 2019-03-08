@@ -24,9 +24,28 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
         self.passwordField.delegate = self
     }
 
+    @IBAction func login(_ sender: Any) {
+        signIn()
+    }
+    
+    func signIn()
+    {
+        let email = emailField.text! as String
+        let password = passwordField.text! as String
+        FirebaseApp.configure()
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] user, error in
+            guard let strongSelf = self else { return }
+            // ...
+        }
+
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
 
 }
+
+
+

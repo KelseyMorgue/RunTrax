@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="runner" translatesAutoresizingMaskIntoConstraints="NO" id="yuD-iC-BSa">
-                                <rect key="frame" x="81" y="160" width="217" height="127"/>
+                                <rect key="frame" x="81" y="179" width="217" height="127"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8r-Ct-9wW">
-                                <rect key="frame" x="102" y="314" width="170" height="45"/>
+                                <rect key="frame" x="102" y="333" width="170" height="45"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="40"/>
                                 <state key="normal" title="Account">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeF-ec-MIV">
-                                <rect key="frame" x="83" y="372" width="208" height="53"/>
+                                <rect key="frame" x="83" y="391" width="208" height="53"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="40"/>
                                 <state key="normal" title="Past Runs">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,8 +41,9 @@
                                     <segue destination="14l-Gp-O2m" kind="show" id="d9x-mH-6qP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMn-sO-9Vr">
-                                <rect key="frame" x="107" y="438" width="160" height="53"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMn-sO-9Vr">
+                                <rect key="frame" x="107" y="457" width="160" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="40"/>
                                 <state key="normal" title="Friends">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,7 +53,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CA1-BZ-AuJ">
-                                <rect key="frame" x="54" y="503" width="266" height="53"/>
+                                <rect key="frame" x="54" y="522" width="266" height="53"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="40"/>
                                 <state key="normal" title="Shared Runs">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,7 +63,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6e4-Wq-zQW">
-                                <rect key="frame" x="96" y="567" width="182" height="53"/>
+                                <rect key="frame" x="96" y="586" width="182" height="53"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="40"/>
                                 <state key="normal" title="New Run">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,42 +73,49 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to RunTrax!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suw-z5-6R8">
-                                <rect key="frame" x="16" y="78" width="343" height="81"/>
+                                <rect key="frame" x="16" y="97" width="343" height="81"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPh-a4-PHd">
+                                <rect key="frame" x="289" y="71" width="77" height="30"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="suw-z5-6R8" secondAttribute="trailing" constant="16" id="1ST-R2-C4a"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GMn-sO-9Vr" secondAttribute="trailing" constant="108" id="3gj-la-qHn"/>
-                            <constraint firstItem="yuD-iC-BSa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="81" id="6BT-FN-Atn"/>
-                            <constraint firstItem="CA1-BZ-AuJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="439" id="6NX-f3-L2p"/>
-                            <constraint firstItem="GMn-sO-9Vr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="107" id="7x9-mq-Wby"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qeF-ec-MIV" secondAttribute="bottom" constant="242" id="8Uh-7L-pvO"/>
-                            <constraint firstItem="suw-z5-6R8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ApQ-9e-f9F"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CA1-BZ-AuJ" secondAttribute="bottom" constant="111" id="B1q-WQ-TOX"/>
-                            <constraint firstItem="GMn-sO-9Vr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="374" id="BXV-5N-eU7"/>
-                            <constraint firstItem="CA1-BZ-AuJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="54" id="GC9-BL-1gU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h8r-Ct-9wW" secondAttribute="trailing" constant="103" id="H28-pj-XKa"/>
-                            <constraint firstItem="qeF-ec-MIV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="308" id="J1a-ic-PUK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="suw-z5-6R8" secondAttribute="bottom" constant="508" id="M3G-DA-t5I"/>
-                            <constraint firstItem="6e4-Wq-zQW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="96" id="M9Q-07-Y9N"/>
-                            <constraint firstItem="suw-z5-6R8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="U36-Jk-M33"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yuD-iC-BSa" secondAttribute="trailing" constant="77" id="cKo-eY-FQH"/>
-                            <constraint firstItem="h8r-Ct-9wW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="102" id="dlY-Ik-EmA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6e4-Wq-zQW" secondAttribute="bottom" constant="47" id="dzA-RM-ZJb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yuD-iC-BSa" secondAttribute="bottom" constant="380" id="eio-sA-jeQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="h8r-Ct-9wW" secondAttribute="bottom" constant="308" id="mgY-3T-f6h"/>
-                            <constraint firstItem="h8r-Ct-9wW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="250" id="oxi-Io-EHk"/>
-                            <constraint firstItem="6e4-Wq-zQW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="503" id="qp9-mS-2h6"/>
-                            <constraint firstItem="yuD-iC-BSa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="96" id="rr6-LY-R6b"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qeF-ec-MIV" secondAttribute="trailing" constant="84" id="upY-pl-6Jt"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CA1-BZ-AuJ" secondAttribute="trailing" constant="55" id="v1V-4b-XAk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6e4-Wq-zQW" secondAttribute="trailing" constant="97" id="xiQ-WQ-Ki8"/>
-                            <constraint firstItem="qeF-ec-MIV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="83" id="xum-d4-1AQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GMn-sO-9Vr" secondAttribute="bottom" constant="176" id="z2k-GO-7zd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6e4-Wq-zQW" secondAttribute="trailing" constant="97" id="20x-yV-huL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h8r-Ct-9wW" secondAttribute="trailing" constant="103" id="5hb-ew-ziy"/>
+                            <constraint firstItem="h8r-Ct-9wW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="102" id="6OQ-SX-a1V"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EPh-a4-PHd" secondAttribute="bottom" constant="566" id="8LK-az-bZH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qeF-ec-MIV" secondAttribute="bottom" constant="223" id="9Ji-cU-I9H"/>
+                            <constraint firstItem="EPh-a4-PHd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="289" id="9ra-wV-ca3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yuD-iC-BSa" secondAttribute="trailing" constant="77" id="CPd-aF-pc9"/>
+                            <constraint firstItem="yuD-iC-BSa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="115" id="D6c-fa-kVs"/>
+                            <constraint firstItem="6e4-Wq-zQW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="522" id="FIz-sS-iz1"/>
+                            <constraint firstItem="6e4-Wq-zQW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="96" id="FT4-gW-cA1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6e4-Wq-zQW" secondAttribute="bottom" constant="28" id="Hc2-q8-zRE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="suw-z5-6R8" secondAttribute="bottom" constant="489" id="NCY-Hl-mDS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="h8r-Ct-9wW" secondAttribute="bottom" constant="289" id="PHq-Iv-s48"/>
+                            <constraint firstItem="CA1-BZ-AuJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="458" id="Qoc-kv-rAf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CA1-BZ-AuJ" secondAttribute="bottom" constant="92" id="VR9-PX-upd"/>
+                            <constraint firstItem="suw-z5-6R8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="33" id="Zow-I8-jIi"/>
+                            <constraint firstItem="suw-z5-6R8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Zvi-2a-rRg"/>
+                            <constraint firstItem="qeF-ec-MIV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="83" id="bKU-l9-9Wv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yuD-iC-BSa" secondAttribute="bottom" constant="361" id="dyZ-Zf-PrA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="suw-z5-6R8" secondAttribute="trailing" constant="16" id="exa-F9-fu5"/>
+                            <constraint firstItem="h8r-Ct-9wW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="269" id="kOl-gh-ovk"/>
+                            <constraint firstItem="CA1-BZ-AuJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="54" id="n1V-9v-y0F"/>
+                            <constraint firstItem="qeF-ec-MIV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="327" id="oCc-EA-taX"/>
+                            <constraint firstItem="yuD-iC-BSa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="81" id="q7c-iN-r7y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qeF-ec-MIV" secondAttribute="trailing" constant="84" id="rVO-HG-Czt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EPh-a4-PHd" secondAttribute="trailing" constant="9" id="uhI-2q-DVH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CA1-BZ-AuJ" secondAttribute="trailing" constant="55" id="uiz-wN-u5n"/>
+                            <constraint firstItem="EPh-a4-PHd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="7" id="wlb-oV-PGu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -883,6 +891,7 @@
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="22"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
+                                    <action selector="login:" destination="MwM-HD-ZcH" eventType="touchUpInside" id="QVw-cq-1UH"/>
                                     <segue destination="uiZ-1V-bm6" kind="show" id="rRS-eH-qjd"/>
                                 </connections>
                             </button>
@@ -974,6 +983,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="BKs-Yp-IWa"/>
-        <segue reference="DUi-qe-baO"/>
+        <segue reference="Bbv-xv-7oS"/>
     </inferredMetricsTieBreakers>
 </document>

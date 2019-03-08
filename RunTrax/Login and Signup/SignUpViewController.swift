@@ -27,50 +27,57 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     @IBOutlet weak var profileImageView: UIImageView!
     
     var newUsers = Database.database().reference()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.usernameField.delegate = self
         self.emailField.delegate = self
         self.passwordField.delegate = self
         self.newUsers = Database.database().reference().child("User")
     }
-   
+    
     
     @IBAction func createAccount(_ sender: Any) {
         addUser()
+        //addQuery()
     }
     
-    
-
+    func addQuery()
+    {
+        // DB Check
+        let key = newUsers.childByAutoId().key
+        
+        /*
+         Need to make an if statement or something here,
+         if username/email already exist then print error
+         else set user = []
+         */
+        
+        let user = ["Id" : key,
+                    "Username" : usernameField.text! as String,
+                    "Email" : emailField.text! as String,
+                    "Password" : passwordField.text! as String]
+        
+        
+        
+        
+        //Also need to add the optional profile photo image
+        // string -> URL path
+        
+        newUsers.child(key!).setValue(user)
+    }
     
     func addUser()
     {
-
+        //checks to make sure all are entered (these are required, unlike the image)
         
-//        //checks to make sure all are entered (these are required, unlike the image)
-//        guard let email = emailField.text, let password = passwordField.text, let username = usernameField.text else {
-//            print("Form is not valid")
-//            return
-//        }
-//
-//        //authenticates user with firebase
-//        Auth.auth().createUser(withEmail: email, password: password, completion: { (res, error) in
-//            if let error = error {
-//                print(error)
-//                return
-//            }
-//            guard let uid = res?.user.uid else {
-//                return
-//            }
-//
-//
         guard let email = emailField.text, let password = passwordField.text, let name = usernameField.text else {
-            print("Form is not valid")
+            print("Not all fields are completed")
             return
         }
+        //        //authenticates user with firebase
         
         Auth.auth().createUser(withEmail: email, password: password, completion: { (res, error) in
             
@@ -111,24 +118,7 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
                 })
             }
         })
-
         
-        
-//
-//        // DB Check
-//               let key = newUsers.childByAutoId().key
-//                let user = ["Id" : key,
-//                            "Username" : usernameField.text! as String,
-//                            "Email" : emailField.text! as String,
-//                            "Password" : passwordField.text! as String]
-//
-//
-//
-//
-//        //Also need to add the optional profile photo image
-//        // string -> URL path
-//
-//        newUsers.child(key!).setValue(user)
         
     }
     fileprivate func registerUserIntoDatabaseWithUID(_ uid: String, values: [String: AnyObject]) {
@@ -158,7 +148,7 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
         present(imagePickerController, animated: true, completion: nil)
-
+        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -167,20 +157,20 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     }
     
     func imagePickerController(_ picker: UIImagePickerController,
-        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-         var selectedImage: UIImage?
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var selectedImage: UIImage?
         
         // this changes image to what user crops it too
-            if let editedImage = info[.editedImage] as? UIImage {
-                    selectedImage = editedImage
-                    self.profileImageView.image = selectedImage!
-                    picker.dismiss(animated: true, completion: nil)
-                } else if let originalImage = info[.originalImage] as? UIImage {
-                    selectedImage = originalImage
-                    self.profileImageView.image = selectedImage!
-                    picker.dismiss(animated: true, completion: nil)
-                }
-                    }
+        if let editedImage = info[.editedImage] as? UIImage {
+            selectedImage = editedImage
+            self.profileImageView.image = selectedImage!
+            picker.dismiss(animated: true, completion: nil)
+        } else if let originalImage = info[.originalImage] as? UIImage {
+            selectedImage = originalImage
+            self.profileImageView.image = selectedImage!
+            picker.dismiss(animated: true, completion: nil)
+        }
+    }
     
     
 }

@@ -78,6 +78,12 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     @IBAction func stopTapped(_ sender: Any) {
         
         stopRun()
+        let alert = UIAlertController(title: "Ending Run",
+                                      message: "Would you like to save your run?",
+                                      preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Discard", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Save", style: .default))
+        self.present(alert, animated: true, completion: nil)
     }
     
     
