@@ -29,6 +29,21 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
        // let ref = Database.database().reference()
     }
     
+    //sets up DB to pull current user's username
+    func displayUser()
+    {
+    }
+    
+    //sets up DB to pull current user's profile picture
+    func displayImage()
+    {
+    }
+    
+    
+    
+    //stuff for choosing the image
+    // TODO Update the new image into the database
+    
     @IBAction func selectedImage(_ sender: UITapGestureRecognizer) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .photoLibrary

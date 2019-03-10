@@ -99,7 +99,7 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
                         }
                         
                         guard let url = url else { return }
-                        let values = ["name": name, "email": email, "profileImageUrl": url.absoluteString]
+                        let values = ["username": name, "email": email, "profileImageUrl": url.absoluteString]
                         
                         self.registerUserIntoDatabaseWithUID(uid, values: values as [String : AnyObject])
                     })

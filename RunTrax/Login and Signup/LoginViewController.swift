@@ -35,6 +35,16 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
     {
         let email = emailField.text! as String
         let password = passwordField.text! as String
+        
+        if let current = Auth.auth().currentUser
+        {
+            //Check if user is already signed in - no
+            
+            print(current.displayName ?? "blerg")
+         self.dismiss(animated: true, completion: nil)
+        }
+        else
+        {
     
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             
@@ -46,9 +56,9 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
             //successfully logged in our user
             self.dismiss(animated: true, completion: nil)
             
-        })
+            })
+        }
     }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
