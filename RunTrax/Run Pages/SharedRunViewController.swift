@@ -13,6 +13,7 @@ import CoreLocation
 
 
 class SharedRunViewController: UIViewController {
+    
     //Properties
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addressLabel: UILabel!

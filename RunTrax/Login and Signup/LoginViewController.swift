@@ -42,9 +42,9 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
         
         if let current = Auth.auth().currentUser
         {
-            //Check if user is already signed in - no
+            //TODO: Check if user is already signed in - no
             
-            print(current.displayName ?? "blerg")
+            
          self.dismiss(animated: true, completion: nil)
         }
         else

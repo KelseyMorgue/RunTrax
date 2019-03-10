@@ -26,8 +26,8 @@ class StartScreenViewController: UIViewController {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "openingViewController") as! OpeningViewController
-            self.present(vc, animated: true, completion: nil)
+            let nav = self.storyboard?.instantiateViewController(withIdentifier: "startNav") as! UINavigationController
+            self.present(nav,animated: true, completion: nil)
 
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)

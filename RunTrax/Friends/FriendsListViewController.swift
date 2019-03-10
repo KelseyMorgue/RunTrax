@@ -8,7 +8,8 @@
 
 import UIKit
 
-class FriendsListViewController: UIViewController {
+class FriendsListViewController: UIViewController, UITableViewDataSource
+{
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        <#code#>
 //    }
@@ -17,6 +18,7 @@ class FriendsListViewController: UIViewController {
 //        <#code#>
 //    }
     
+    lazy var friendList: [String] = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,21 @@ class FriendsListViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+     func numberOfSections(in tableView: UITableView) -> Int{
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as! FriendsTableViewCell
+        
+        //cell.friendsProfilePicture = friendList[indexPath.row] // taking from DB (example)
+        return cell
+    }
 
     /*
     // MARK: - Navigation

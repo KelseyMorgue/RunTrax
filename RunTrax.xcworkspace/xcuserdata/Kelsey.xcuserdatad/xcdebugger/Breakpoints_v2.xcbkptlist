@@ -6,11 +6,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Login and Signup/LoginViewController.swift"
-            timestampString = "573940048.068447"
+            timestampString = "573953087.521919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -19,14 +19,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "RunTrax.LoginViewController.login(Any) -&gt; ()"
                   moduleName = "RunTrax"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Kelsey/Desktop/Swift/RunTrax/RunTrax/RunTrax/Login%20and%20Signup/LoginViewController.swift"
-                  timestampString = "573940048.267964"
+                  timestampString = "573940554.128505"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
@@ -34,14 +34,14 @@
                   offsetFromSymbolStart = "64">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "RunTrax.LoginViewController.login(Any) -&gt; ()"
                   moduleName = "RunTrax"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Kelsey/Desktop/Swift/RunTrax/RunTrax/RunTrax/Login%20and%20Signup/LoginViewController.swift"
-                  timestampString = "573940048.270767"
+                  timestampString = "573940554.130775"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
@@ -54,11 +54,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/StartScreenViewController.swift"
-            timestampString = "573940176.916696"
+            timestampString = "573953087.52496"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
