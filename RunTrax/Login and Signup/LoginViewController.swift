@@ -26,8 +26,12 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
 
     @IBAction func login(_ sender: Any) {
         signIn()
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "startScreen") as! StartScreenViewController
-        self.present(vc, animated: true, completion: nil)
+        
+        let nav = self.storyboard?.instantiateViewController(withIdentifier: "AccountNavigator") as! UINavigationController
+        self.present(nav,animated: true, completion: nil)
+        
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "startScreen") as! StartScreenViewController
+//        self.present(vc, animated: true, completion: nil)
         
     }
     

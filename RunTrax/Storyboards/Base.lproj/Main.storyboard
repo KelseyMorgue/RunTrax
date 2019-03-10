@@ -290,7 +290,6 @@
         <!--Sign Up View Controller-->
         <scene sceneID="22F-Hu-cDg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ol-5R-Oz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="uuq-K6-Sr5" customClass="SignUpViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S3b-0z-Jkt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -380,6 +379,7 @@
                         <outlet property="usernameField" destination="laf-oi-pYX" id="1dV-Xy-7s3"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ol-5R-Oz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="h73-mO-X3c">
                     <connections>
                         <action selector="selectedImage:" destination="uuq-K6-Sr5" id="ZUu-pG-Uva"/>
@@ -935,7 +935,7 @@
         <!--Navigation Controller-->
         <scene sceneID="1Fu-Ep-Fb7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uiZ-1V-bm6" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AccountNavigator" automaticallyAdjustsScrollViewInsets="NO" id="uiZ-1V-bm6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QWZ-G3-Hom">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
