@@ -10,33 +10,68 @@ import UIKit
 import Firebase
 
 class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-//User inputted
+    
+    //User inputted
     @IBOutlet weak var profilePicture: UIImageView!
-
-//From Database
+    
+    //From Database
     @IBOutlet weak var runLabel: UILabel!
     @IBOutlet weak var mileageLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
-
+    
+    let userID = Auth.auth().currentUser?.uid
+    var ref = Database.database().reference()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        displayUser()
         
-       // let ref = Database.database().reference()
     }
+    
+    // Do any additional setup after loading the view.
+    
+    // let ref = Database.database().reference()
+    
     
     //sets up DB to pull current user's username
     func displayUser()
     {
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let username = value?["username"] as? String ?? ""
+            self.usernameLabel.text = username
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
+    
+    
     
     //sets up DB to pull current user's profile picture
     func displayImage()
     {
+        
+//        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+//            // Get user value
+//            let value = snapshot.value as? NSDictionary
+//            let profilepicture = value?["profileImageURL"] as? String ?? ""
+//            let imgData = try Data(contentsOf: profilePicture)
+//            if let image = UIImage(data: imgData) {
+//                self.profilePicture.image = profilepicture
+//
+//
+//            }
+//
+//
+//            // ...
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+//
     }
     
     
@@ -75,6 +110,6 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         }
     }
     
-  
-
+    
+    
 }
