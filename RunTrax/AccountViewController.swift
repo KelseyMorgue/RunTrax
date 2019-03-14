@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import SDWebImage
+
 
 class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -21,7 +23,11 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     let userID = Auth.auth().currentUser?.uid
     var ref = Database.database().reference()
+    // Get a reference to the storage service using the default Firebase App
+    let storage = Storage.storage()
     
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +47,9 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             // Get user value
             let value = snapshot.value as? NSDictionary
             let username = value?["username"] as? String ?? ""
-            self.usernameLabel.text = username
+            self.usernameLabel.text = "Username: \(username)"
+            
+
             
             // ...
         }) { (error) in
@@ -54,26 +62,25 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     //sets up DB to pull current user's profile picture
     func displayImage()
     {
-//        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-//            // Get user value
-//            let value = snapshot.value as? NSDictionary
-//            let profilePicture = value?["profilePictureUrl"] as? String ?? ""
-//            if let url = URL(string: profilePicture){
-//                let imgData = try? Data(contentsOf: url)
-//                    if let image = UIImage(data: imgData) {
-//                       // self.profilePicture.image = profilepicture
-//                        self.profilePicture.image = UIImage(data: imgData)
-//                }
-//
-//
-//            }
-//
-//
-//            // ...
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
         
+        
+        // Create a storage reference from our storage service
+        let storageRef = storage.reference()
+        
+//       // let pathReference = storage.reference(withPath: "images/stars.jpg")
+//        let imagesRef = storageRef.child("users")
+//        let spaceRef = imagesRef.child("")
+//
+        // Reference to an image file in Firebase Storage
+        let reference = storageRef.child("users/profileImageUrl")
+
+
+        // Placeholder image
+        let placeholderImage = UIImage(named: "default.imageset")
+
+        // Load the image using SDWebImage
+        profilePicture.sd_setImage(with: reference, placeholderImage: placeholderImage)
+
         
         
     }

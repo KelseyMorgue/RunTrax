@@ -185,6 +185,23 @@
             </objects>
             <point key="canvasLocation" x="2016.8" y="124.58770614692655"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0lh-vd-CmZ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ylT-PM-vVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="Joy-9H-Obo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DXc-D5-swa">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Vl5-mO-GvI" kind="show" id="l81-TV-aYr"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="2bH-fh-R32"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-682" y="1511"/>
+        </scene>
         <!--Share Page View Controller-->
         <scene sceneID="xAN-iY-xig">
             <objects>
@@ -444,7 +461,6 @@
                                 </state>
                                 <connections>
                                     <action selector="stopTapped:" destination="Anw-lb-hPQ" eventType="touchUpInside" id="bTe-3q-Wi6"/>
-                                    <segue destination="Vl5-mO-GvI" kind="show" id="ewS-c3-ej5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -492,36 +508,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egr-KO-Ojg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-665" y="851"/>
+            <point key="canvasLocation" x="-930" y="851"/>
         </scene>
         <!--Share Run-->
         <scene sceneID="7na-nb-LZG">
             <objects>
-                <viewController title="Share Run" id="Vl5-mO-GvI" customClass="RunOverviewViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RunOverview" title="Share Run" id="Vl5-mO-GvI" customClass="RunOverviewViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aP9-Ke-sbl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great Job!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXW-zN-RXT">
-                                <rect key="frame" x="70" y="72" width="234" height="45"/>
+                                <rect key="frame" x="70" y="28" width="234" height="89"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="44"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8K-8q-UVe">
-                                <rect key="frame" x="65" y="454" width="294" height="23"/>
+                                <rect key="frame" x="65" y="410" width="294" height="67"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Distance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcJ-Av-fTH">
-                                <rect key="frame" x="16" y="422" width="343" height="24"/>
+                                <rect key="frame" x="16" y="378" width="343" height="68"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cg8-6Z-fJ4">
-                                <rect key="frame" x="67" y="547" width="241" height="92"/>
+                                <rect key="frame" x="67" y="503" width="241" height="136"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="40"/>
                                 <state key="normal" title="Share Run?">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -531,19 +547,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pace:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9X-k8-WW7">
-                                <rect key="frame" x="131" y="485" width="228" height="23"/>
+                                <rect key="frame" x="131" y="441" width="228" height="67"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiM-bD-lt6">
-                                <rect key="frame" x="131" y="516" width="228" height="23"/>
+                                <rect key="frame" x="131" y="472" width="228" height="67"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yr2-4z-hwv">
-                                <rect key="frame" x="16" y="125" width="343" height="275"/>
+                                <rect key="frame" x="16" y="81" width="343" height="319"/>
                                 <connections>
                                     <outlet property="delegate" destination="Vl5-mO-GvI" id="htm-VR-u3F"/>
                                 </connections>
@@ -593,7 +609,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfd-h4-FI2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="851"/>
+            <point key="canvasLocation" x="-2" y="1511"/>
         </scene>
         <!--Account-->
         <scene sceneID="aFG-5x-HuJ">
@@ -991,5 +1007,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Bbv-xv-7oS"/>
+        <segue reference="uHM-i9-4zo"/>
     </inferredMetricsTieBreakers>
 </document>

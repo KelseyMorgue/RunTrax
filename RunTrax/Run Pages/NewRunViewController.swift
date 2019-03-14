@@ -31,13 +31,11 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     var timer: Timer?
     var distance = Measurement(value: 0, unit: UnitLength.meters)
     var locationList: [CLLocation] = []
-    var formattedDistance = 0.0
-    var formattedPace = 0.0
-    var formattedTime = 0.0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.newRun = Database.database().reference().child("run")
+        self.newRun = Database.database().reference()//.child("run")
     }
     
     func eachSecond() {
@@ -71,7 +69,6 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     }
     
     func stopRun() {
-        
         locationManager.stopUpdatingLocation()
     }
     
@@ -87,15 +84,36 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         let alert = UIAlertController(title: "Ending Run",
                                       message: "Would you like to save your run?",
                                       preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Discard", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Delete: will return to main screen", style: .cancel, handler:
+            {
+                action in
+                self.returnToMain()
+        }))
         alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
             self.saveRun()
+            self.openOverview()
         }))
         
         self.present(alert, animated: true, completion: nil)
+        
+        
+        /*
+         let nav = self.storyboard?.instantiateViewController(withIdentifier: "AccountNavigator") as! UINavigationController
+         self.present(nav,animated: true, completion: nil)
+ */
     }
     
+    func openOverview()
+    {
+        let nav = self.storyboard?.instantiateViewController(withIdentifier: "RunOverview") as! UIViewController
+        self.present(nav,animated: true, completion: nil)
+    }
     
+    func returnToMain()
+    {
+        let nav = self.storyboard?.instantiateViewController(withIdentifier: "AccountNavigator") as! UINavigationController
+        self.present(nav,animated: true, completion: nil)
+    }
     
     
     //make it save to database for saved runs
@@ -130,19 +148,28 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     func saveRun()
     {
         let currentUser = Auth.auth().currentUser
-        let key = newRun.childByAutoId().key
-       // newRun.child(key!).setValue(
-        let run =
-            [ "id" : key!,
-                //need foreign for user key
-                "mileage" : formattedDistance,
-                "pace" : formattedPace,
-                // "date" : ,
-                "time" : formattedTime,
+        let key = newRun.child("run").childByAutoId().key
+        
+        let date = Date()
+        let df = DateFormatter()
+        df.dateFormat = "mm dd yyyy"
+        let result = df.string(from: date)
+        
+        
+        let run = [
+            "id" : key as Any,
+              "userId" : currentUser?.uid as Any,  //need foreign for user key
+                "mileage" : FormatDisplay.distance(distance),
+                "pace" : FormatDisplay.pace(distance: distance,seconds: seconds, outputUnit: UnitSpeed.minutesPerMile),
+                "date" : result,
+               // "name" : "",
+                "time" : FormatDisplay.time(seconds),
                 "location" : locationList
                 ] as [String : Any]
-        let userDbRef =  newRun.child("users").child(currentUser!.uid)
-        userDbRef.child("run").setValue(run)
+        
+        
+       // let userDbRef =  newRun.child("users").child(currentUser!.uid)
+        newRun.child("run").setValue(run)
         
     }
     
@@ -171,8 +198,12 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
             setupLocationManager()
             checkLocationAuthorization()
         } else {
-            // Show alert letting the user know they have to turn this on.
-        }
+            let alert = UIAlertController(title: "Location Services Must Be Turned On",
+                                          message: "Go to settings to turn on location",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(alert, animated: true, completion: nil)        }
     }
     
     
@@ -184,25 +215,28 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
             locationManager.startUpdatingLocation()
             break
         case .denied:
-            // Show alert instructing them how to turn on permissions
+            let alert = UIAlertController(title: "Location Services Must Be Turned On",
+                                          message: "Go to settings to turn on location",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(alert, animated: true, completion: nil)
             break
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
-            // Show an alert letting them know what's up
+            let alert = UIAlertController(title: "Location Services Must Be Turned On",
+                                          message: "Go to settings to turn on location",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(alert, animated: true, completion: nil)
             break
         case .authorizedAlways:
             break
         }
     }
-    func getLocationUpdates() {
-        locationManager.delegate = self
-        locationManager.activityType = .fitness
-        locationManager.distanceFilter = 10 //good balance so less zigzags)
-        locationManager.startUpdatingLocation()
-        
-        
-    }
+ 
     
 }
 

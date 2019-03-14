@@ -63,6 +63,11 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
         //checks to make sure all are entered (these are required, unlike the image)
         
         guard let email = emailField.text, let password = passwordField.text, let name = usernameField.text else {
+            let alert = UIAlertController(title: "Not all fields are completed",
+                                          message: "Please be sure to have a username, password, and email",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .cancel))
+            self.present(alert, animated: true, completion: nil)
             print("Not all fields are completed")
             return
         }

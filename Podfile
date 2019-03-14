@@ -11,6 +11,7 @@ pod 'Firebase/Database'
 pod 'FirebaseUI/Auth'
 pod 'Firebase/Storage'
 #pod 'Firebase/Firestore'
+pod 'SDWebImage'
 
 
 pod 'FirebaseUI/Google'
