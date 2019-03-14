@@ -54,14 +54,16 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     //sets up DB to pull current user's profile picture
     func displayImage()
     {
-        
 //        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
 //            // Get user value
 //            let value = snapshot.value as? NSDictionary
-//            let profilepicture = value?["profileImageURL"] as? String ?? ""
-//            let imgData = try Data(contentsOf: profilePicture)
-//            if let image = UIImage(data: imgData) {
-//                self.profilePicture.image = profilepicture
+//            let profilePicture = value?["profilePictureUrl"] as? String ?? ""
+//            if let url = URL(string: profilePicture){
+//                let imgData = try? Data(contentsOf: url)
+//                    if let image = UIImage(data: imgData) {
+//                       // self.profilePicture.image = profilepicture
+//                        self.profilePicture.image = UIImage(data: imgData)
+//                }
 //
 //
 //            }
@@ -71,7 +73,9 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
 //        }) { (error) in
 //            print(error.localizedDescription)
 //        }
-//
+        
+        
+        
     }
     
     

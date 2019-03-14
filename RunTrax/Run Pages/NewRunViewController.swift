@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import MapKit
 import CoreLocation
+import Firebase
 
 class NewRunViewController: UIViewController, UITextFieldDelegate
 {
@@ -20,6 +21,8 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
+    var newRun = Database.database().reference()
+    
     //variables
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 500
@@ -28,10 +31,13 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     var timer: Timer?
     var distance = Measurement(value: 0, unit: UnitLength.meters)
     var locationList: [CLLocation] = []
+    var formattedDistance = 0.0
+    var formattedPace = 0.0
+    var formattedTime = 0.0
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.newRun = Database.database().reference().child("run")
     }
     
     func eachSecond() {
@@ -39,7 +45,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         updateDisplay()
     }
     
-     func updateDisplay() {
+    func updateDisplay() {
         let formattedDistance = FormatDisplay.distance(distance)
         let formattedTime = FormatDisplay.time(seconds)
         let formattedPace = FormatDisplay.pace(distance: distance,seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
@@ -49,10 +55,10 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         paceLabel.text = "Pace: \(formattedPace)"
     }
     
-   
-
+    
+    
     //KELSEY NOTE: I think I should have the locked screen only on this function
-     func startRun() {
+    func startRun() {
         seconds = 0
         distance = Measurement(value: 0, unit: UnitLength.meters)
         locationList.removeAll()
@@ -64,8 +70,8 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         
     }
     
-     func stopRun() {
-      
+    func stopRun() {
+        
         locationManager.stopUpdatingLocation()
     }
     
@@ -74,7 +80,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         
         startRun()
     }
-   
+    
     @IBAction func stopTapped(_ sender: Any) {
         
         stopRun()
@@ -82,7 +88,10 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
                                       message: "Would you like to save your run?",
                                       preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Discard", style: .cancel))
-        alert.addAction(UIAlertAction(title: "Save", style: .default))
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
+            self.saveRun()
+        }))
+        
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -90,50 +99,54 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     
     
     //make it save to database for saved runs
-    private func saveRun() {
-        let newRun = Run(context: CoreDataStack.context)
-        newRun.distance = distance.value
-        newRun.duration = Int16(seconds)
-        newRun.timestamp = Date()
+    //    private func saveRun() {
+    ////        let newRun = Run(context: CoreDataStack.context)
+    ////        newRun.distance = distance.value
+    ////        newRun.duration = Int16(seconds)
+    ////        newRun.timestamp = Date()
+    ////
+    ////        for location in locationList {
+    ////            let locationObject = Location(context: CoreDataStack.context)
+    ////            locationObject.timestamp = location.timestamp
+    ////            locationObject.latitude = location.coordinate.latitude
+    ////            locationObject.longitude = location.coordinate.longitude
+    ////            //newRun.addToLocations(locationObject)
+    ////        }
+    ////
+    ////        CoreDataStack.saveContext()
+    ////
+    ////        run = newRun
+    //    }
+    /*
+     let locationManager = CLLocationManager()
+     let regionInMeters: Double = 500
+     var run: Run?
+     var seconds = 0
+     var timer: Timer?
+     var distance = Measurement(value: 0, unit: UnitLength.meters)
+     var locationList: [CLLocation] = []
+     */
+    
+    func saveRun()
+    {
+        let currentUser = Auth.auth().currentUser
+        let key = newRun.childByAutoId().key
+       // newRun.child(key!).setValue(
+        let run =
+            [ "id" : key!,
+                //need foreign for user key
+                "mileage" : formattedDistance,
+                "pace" : formattedPace,
+                // "date" : ,
+                "time" : formattedTime,
+                "location" : locationList
+                ] as [String : Any]
+        let userDbRef =  newRun.child("users").child(currentUser!.uid)
+        userDbRef.child("run").setValue(run)
         
-        for location in locationList {
-            let locationObject = Location(context: CoreDataStack.context)
-            locationObject.timestamp = location.timestamp
-            locationObject.latitude = location.coordinate.latitude
-            locationObject.longitude = location.coordinate.longitude
-            //newRun.addToLocations(locationObject)
-        }
-        
-        CoreDataStack.saveContext()
-        
-        run = newRun
     }
     
-    
-//    @IBAction func startTapped() {
-//        startRun()
-//    }
-//
-//    @IBAction func stopTapped() {
-//        //NOTE need to add to stop button before the run complete to save, then in the final screen allow sharing
-//        let alertController = UIAlertController(title: "Run Completed",
-//                                                message: "Would you like to save or discard your run?",
-//                                                preferredStyle: .actionSheet)
-//        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-//        alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
-//            self.stopRun()
-//            self.saveRun()
-//        })
-//
-//        alertController.addAction(UIAlertAction(title: "Discard", style: .destructive) { _ in
-//            self.stopRun()
-//            _ = self.navigationController?.popToRootViewController(animated: true)
-//        })
-//
-//        present(alertController, animated: true)
-//
-//    }
-     func startLocationUpdates() {
+    func startLocationUpdates() {
         locationManager.delegate = self
         locationManager.activityType = .fitness
         locationManager.distanceFilter = 10
@@ -197,29 +210,29 @@ extension NewRunViewController: CLLocationManagerDelegate {
     //review l8r
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-                let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-                mapView.setRegion(region, animated: true)
+        let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+        mapView.setRegion(region, animated: true)
         for newLocation in locations {
             let howRecent = newLocation.timestamp.timeIntervalSinceNow
             guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
-
+            
             if let lastLocation = locationList.last {
                 let delta = newLocation.distance(from: lastLocation)
                 distance = distance + Measurement(value: delta, unit: UnitLength.meters)
             }
-
+            
             locationList.append(newLocation)
         }
-}
+    }
     
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//
-//        // NOTE guard makes it so it has to "pass" before continuing to whatever is below it
-//        guard let location = locations.last else { return }
-//        let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-//        mapView.setRegion(region, animated: true)
-//    }
-//
+    //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    //
+    //        // NOTE guard makes it so it has to "pass" before continuing to whatever is below it
+    //        guard let location = locations.last else { return }
+    //        let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+    //        mapView.setRegion(region, animated: true)
+    //    }
+    //
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         checkLocationAuthorization()

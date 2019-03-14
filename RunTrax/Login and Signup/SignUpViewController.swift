@@ -35,7 +35,7 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
         self.usernameField.delegate = self
         self.emailField.delegate = self
         self.passwordField.delegate = self
-        self.newUsers = Database.database().reference().child("User")
+        self.newUsers = Database.database().reference().child("users")
     }
     
     
