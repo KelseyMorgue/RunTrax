@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import SDWebImage
+//import FirebaseStorage
+import FirebaseUI
 
 
 class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -24,14 +26,17 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     let userID = Auth.auth().currentUser?.uid
     var ref = Database.database().reference()
     // Get a reference to the storage service using the default Firebase App
-    let storage = Storage.storage()
+  //  let storage = Storage.storage()
     
     
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       // self.ref = Database.database().reference().child("users")
+
         displayUser()
+        displayImage()
         
     }
     
@@ -43,16 +48,14 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     //sets up DB to pull current user's username
     func displayUser()
     {
+        let ref = Database.database().reference()
+
         ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
             let username = value?["username"] as? String ?? ""
             self.usernameLabel.text = "Username: \(username)"
-            
-
-            
-            // ...
-        }) { (error) in
+            }) { (error) in
             print(error.localizedDescription)
         }
     }
@@ -62,30 +65,18 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     //sets up DB to pull current user's profile picture
     func displayImage()
     {
-        
-        
-        // Create a storage reference from our storage service
-        let storageRef = storage.reference()
-        
-//       // let pathReference = storage.reference(withPath: "images/stars.jpg")
-//        let imagesRef = storageRef.child("users")
-//        let spaceRef = imagesRef.child("")
-//
-        // Reference to an image file in Firebase Storage
-        let reference = storageRef.child("users/profileImageUrl")
+        let storage = Storage.storage()
+      //  let userID = Auth.auth().currentUser?.uid
+      let key = "fg1eM6pQvMQ5SToiK7q3C16zXFg1"
 
+        let storageRef = storage.reference(withPath: "profile_images/\(String(describing: key))/userImage.png")
+        let placeHolderImage = UIImage(named: "default")
+        profilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)
 
-        // Placeholder image
-        let placeholderImage = UIImage(named: "default.imageset")
-
-        // Load the image using SDWebImage
-        profilePicture.sd_setImage(with: reference, placeholderImage: placeholderImage)
-
-        
         
     }
-    
-    
+
+
     
     //stuff for choosing the image
     // TODO Update the new image into the database

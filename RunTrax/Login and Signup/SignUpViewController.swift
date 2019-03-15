@@ -59,16 +59,46 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     
     func addUser()
     {
-        
+        //TODO this doesn't work
         //checks to make sure all are entered (these are required, unlike the image)
-        
-        guard let email = emailField.text, let password = passwordField.text, let name = usernameField.text else {
+        if emailField.text == nil{
             let alert = UIAlertController(title: "Not all fields are completed",
                                           message: "Please be sure to have a username, password, and email",
                                           preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "Okay", style: .cancel))
             self.present(alert, animated: true, completion: nil)
             print("Not all fields are completed")
+            
+            let nav = self.storyboard?.instantiateViewController(withIdentifier: "startNav") as! UINavigationController
+            self.present(nav,animated: true, completion: nil)
+        }
+        if passwordField.text == nil{
+            let alert = UIAlertController(title: "Not all fields are completed",
+                                          message: "Please be sure to have a username, password, and email",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .cancel))
+            self.present(alert, animated: true, completion: nil)
+            print("Not all fields are completed")
+            
+            let nav = self.storyboard?.instantiateViewController(withIdentifier: "startNav") as! UINavigationController
+            self.present(nav,animated: true, completion: nil)
+            
+        }
+        if usernameField.text == nil
+        {
+            let alert = UIAlertController(title: "Not all fields are completed",
+                                          message: "Please be sure to have a username, password, and email",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .cancel))
+            self.present(alert, animated: true, completion: nil)
+            print("Not all fields are completed")
+            
+            let nav = self.storyboard?.instantiateViewController(withIdentifier: "startNav") as! UINavigationController
+            self.present(nav,animated: true, completion: nil)
+            
+        }
+        guard let email = emailField.text, let password = passwordField.text, let name = usernameField.text else {
+          print("nope")
             return
         }
         //        //authenticates user with firebase
@@ -85,8 +115,11 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
             }
             
             //successfully authenticated user
-            let imageName = NSUUID().uuidString
-            let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).png")
+//            let imageName = NSUUID().uuidString
+            let key = uid
+            let imageName = "userImage.png"
+            let storageRef = Storage.storage().reference().child("profile_images/\(key)/\(imageName)")
+            
             
             if let uploadData = self.profileImageView.image!.pngData() {
                 

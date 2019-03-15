@@ -28,6 +28,8 @@
 #import "FUIAuthTableHeaderView.h"
 #import "FirebaseGoogleAuthUI.h"
 #import "FUIGoogleAuth.h"
+#import "FirebaseStorageUI.h"
+#import "UIImageView+FirebaseStorage.h"
 
 FOUNDATION_EXPORT double FirebaseUIVersionNumber;
 FOUNDATION_EXPORT const unsigned char FirebaseUIVersionString[];

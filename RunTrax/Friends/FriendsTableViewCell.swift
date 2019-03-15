@@ -16,6 +16,9 @@ class FriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var friendsUsername: UIButton!
     
     
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

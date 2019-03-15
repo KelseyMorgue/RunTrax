@@ -20,6 +20,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var paceLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var speedLabel: UILabel!
     
     var newRun = Database.database().reference()
     
@@ -47,10 +48,12 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         let formattedDistance = FormatDisplay.distance(distance)
         let formattedTime = FormatDisplay.time(seconds)
         let formattedPace = FormatDisplay.pace(distance: distance,seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
+        let formattedSpeed = FormatDisplay.pace(distance: distance, seconds: seconds, outputUnit: UnitSpeed.milesPerHour)
         
         distanceLabel.text = "Distance: \(formattedDistance)"
         timeLabel.text = "Time: \(formattedTime)"
         paceLabel.text = "Pace: \(formattedPace)"
+        speedLabel.text = "Speed:  \(formattedSpeed)"
     }
     
     
