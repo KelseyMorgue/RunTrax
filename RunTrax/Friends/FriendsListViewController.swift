@@ -51,14 +51,13 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
         searchBar.delegate = self
     }
     
-    func searchUsers()
+    func searchUsers(searchText: String)
     {
-        //  ref.child('users').orderByChild('name').equalTo('Alex').on('child_added',  ...)
-        let currentUser = Auth.auth().currentUser
+        let ref = Database.database().reference()
+        //let currentUser = Auth.auth().currentUser
         //let key = ref.child("friends").childByAutoId().key
         
-        // ref.child("users").orderByChild("username").equalTo(userInput)
-        
+        ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: searchText)
     }
     
     

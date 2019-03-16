@@ -26,17 +26,27 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     
     //variables
     let locationManager = CLLocationManager()
+    //let currentUser :
     let regionInMeters: Double = 500
     var run: Run?
     var seconds = 0
     var timer: Timer?
     var distance = Measurement(value: 0, unit: UnitLength.meters)
     var locationList: [CLLocation] = []
-    
+    var handle : AuthStateDidChangeListenerHandle!
+    var currentUser : User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         self.newRun = Database.database().reference()//.child("run")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+         
+            self.currentUser = Auth.auth().currentUser            // ...
+        }
     }
     
     func eachSecond() {
@@ -108,7 +118,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     
     func openOverview()
     {
-        let nav = self.storyboard?.instantiateViewController(withIdentifier: "RunOverview") as! UIViewController
+        let nav = self.storyboard!.instantiateViewController(withIdentifier: "RunOverview")
         self.present(nav,animated: true, completion: nil)
     }
     
@@ -150,7 +160,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     
     func saveRun()
     {
-        let currentUser = Auth.auth().currentUser
+        //let currentUser = Auth.auth().currentUser
         let key = newRun.child("run").childByAutoId().key
         
         let date = Date()
@@ -158,6 +168,16 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         df.dateFormat = "mm dd yyyy"
         let result = df.string(from: date)
         
+        var testy : Dictionary<String,Any> = Dictionary<String,Any>()
+        testy["id"] = key
+        testy["userId"] = currentUser?.uid as Any
+        testy["mileage"] = FormatDisplay.distance(distance)
+        testy["pace"] = FormatDisplay.pace(distance: distance,seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
+        testy["date"] = result
+        testy["time"] = FormatDisplay.time(seconds)
+        testy["location"] = locationList
+        
+    
         
         let run = [
             "id" : key as Any,
@@ -172,7 +192,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         
         
        // let userDbRef =  newRun.child("users").child(currentUser!.uid)
-        newRun.child("run").setValue(run)
+        newRun.child("run").setValue(testy)
         
     }
     

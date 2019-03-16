@@ -23,11 +23,11 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     @IBOutlet weak var mileageLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     
-    let userID = Auth.auth().currentUser?.uid
     var ref = Database.database().reference()
     // Get a reference to the storage service using the default Firebase App
-  //  let storage = Storage.storage()
-    
+   let storage = Storage.storage()
+    var handle : AuthStateDidChangeListenerHandle!
+    var userID : User!
     
 
     
@@ -35,9 +35,23 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         super.viewDidLoad()
        // self.ref = Database.database().reference().child("users")
 
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            
+            if Auth.auth().currentUser == nil
+            {
+                //TODO: force relogin
+            }
+            // ...
+        }
+        self.userID = Auth.auth().currentUser
+        //print(handle)
         displayUser()
         displayImage()
-        
     }
     
     // Do any additional setup after loading the view.
@@ -50,12 +64,13 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     {
         let ref = Database.database().reference()
 
-        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("users").child(userID?.uid ?? "derp").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
-            let username = value?["username"] as? String ?? ""
+            let username = value?["username"] as? String ?? "yeet"
             self.usernameLabel.text = "Username: \(username)"
             }) { (error) in
+                print("hello error")
             print(error.localizedDescription)
         }
     }
@@ -65,11 +80,10 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     //sets up DB to pull current user's profile picture
     func displayImage()
     {
-        let storage = Storage.storage()
-      //  let userID = Auth.auth().currentUser?.uid
-      let key = "fg1eM6pQvMQ5SToiK7q3C16zXFg1"
+       // let storage = Storage.storage()
+     // let key = "fg1eM6pQvMQ5SToiK7q3C16zXFg1"
 
-        let storageRef = storage.reference(withPath: "profile_images/\(String(describing: key))/userImage.png")
+        let storageRef = storage.reference(withPath: "profile_images/\(userID?.uid ?? "derp")/userImage.png")
         let placeHolderImage = UIImage(named: "default")
         profilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)
 

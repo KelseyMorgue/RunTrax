@@ -109,8 +109,16 @@ class SharedRunViewController: UIViewController {
             for route in response.routes {
                 self.mapView.addOverlay(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+//                dump(self.directionsArray)
+//                print(self.directionsArray)
+                //here for direction steps
+                for step in route.steps {
+                    print(step.instructions)
+
+                }
             }
         }
+       
     }
     
     
@@ -190,7 +198,7 @@ extension SharedRunViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay as! MKPolyline)
-        renderer.strokeColor = .black
+        renderer.strokeColor = UIColor.magenta
         
         return renderer
     }

@@ -281,7 +281,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="22F-Hu-cDg">
             <objects>
-                <viewController id="uuq-K6-Sr5" customClass="SignUpViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signUpViewController" id="uuq-K6-Sr5" customClass="SignUpViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S3b-0z-Jkt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

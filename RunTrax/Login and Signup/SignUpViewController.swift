@@ -59,6 +59,9 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     
     func addUser()
     {
+        //TODO: make these work
+//        ifNilCheck()
+        
         //TODO: make this cleaner becuase holy shit if statements
         //checks to make sure all are entered (these are required, unlike the image)
         if emailField.text == ""{
@@ -73,7 +76,7 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
             }))
             self.present(alert, animated: true, completion: nil)
             print("Not all fields are completed")
-    
+            
             
         }
         if passwordField.text == ""{
@@ -105,6 +108,11 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
             print("Not all fields are completed")
             
         }
+        else
+        {
+            usernameCheck(username: usernameField.text ?? "")
+        }
+        
         guard let email = emailField.text, let password = passwordField.text, let name = usernameField.text else {
           print("nope")
             return
@@ -156,6 +164,8 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
         
         
     }
+    
+    
     fileprivate func registerUserIntoDatabaseWithUID(_ uid: String, values: [String: AnyObject]) {
         let ref = Database.database().reference()
         let usersReference = ref.child("users").child(uid)
@@ -170,6 +180,94 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
             self.dismiss(animated: true, completion: nil)
         })
     }
+    
+    func usernameCheck(username: String)
+    {
+       // let userID = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference()
+        //might need to use current user also in here  ref.child("users").child(userID). etc
+       //ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: usernameField.text)
+        //.child("fg1eM6pQvMQ5SToiK7q3C16zXFg1")
+        //isn't working why??
+        ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: username).observeSingleEvent(of: .value, with: { (snapshot) in
+       //  let checkUser = snapshot.value as! String
+           // if checkUser == "goal"{
+         if snapshot.exists(){
+            let alert = UIAlertController(title: "Username already exists",
+                                          message: "Please try a new username",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler:
+                {
+                    action in
+                    let nav = self.storyboard?.instantiateViewController(withIdentifier: "signUpViewController") as! UIViewController
+                    self.present(nav,animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+         print("username already exists")
+         
+         }else{
+         
+         print("new username")
+         }
+         
+         
+         })
+ 
+        
+        
+        
+    }
+    
+    func ifNilCheck()
+    {
+        //TODO: make this cleaner becuase holy shit if statements
+        //checks to make sure all are entered (these are required, unlike the image)
+        if emailField.text == ""{
+            let alert = UIAlertController(title: "Not all fields are completed",
+                                          message: "Please be sure to have a username, password, and email",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler:
+                {
+                    action in
+                    let nav = self.storyboard?.instantiateViewController(withIdentifier: "startNav") as! UINavigationController
+                    self.present(nav,animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+            print("Not all fields are completed")
+            
+            
+        }
+        if passwordField.text == ""{
+            let alert = UIAlertController(title: "Not all fields are completed",
+                                          message: "Please be sure to have a username, password, and email",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler:
+                {
+                    action in
+                    let nav = self.storyboard?.instantiateViewController(withIdentifier: "startNav") as! UINavigationController
+                    self.present(nav,animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+            print("Not all fields are completed")
+            
+        }
+        if usernameField.text == ""
+        {
+            let alert = UIAlertController(title: "Not all fields are completed",
+                                          message: "Please be sure to have a username, password, and email",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler:
+                {
+                    action in
+                    let nav = self.storyboard?.instantiateViewController(withIdentifier: "startNav") as! UINavigationController
+                    self.present(nav,animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+            print("Not all fields are completed")
+            
+        }
+    }
+    
     
     //keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
