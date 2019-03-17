@@ -6,9 +6,11 @@
 //  Copyright © 2019 Kelsey Henrichsen. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import Firebase
+import SDWebImage
+//import FirebaseStorage
+import FirebaseUI
 
 class FriendsListViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate
 {
@@ -20,6 +22,10 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
     
     
     var ref = Database.database().reference()
+    // Get a reference to the storage service using the default Firebase App
+    let storage = Storage.storage()
+    var handle : AuthStateDidChangeListenerHandle!
+    var userID : User!
     
     lazy var friendList: [String] = [String]()
     var userInput = ""
@@ -27,14 +33,26 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      //  self.tableView.register(UITableViewCell.self, forCellWithReuseIdentifier: "friendCell")
-
         searchBar.delegate = self
 
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            
+            if Auth.auth().currentUser == nil
+            {
+                //TODO: force relogin
+            }
+            // ...
+        }
+        self.userID = Auth.auth().currentUser
+        
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchUsers(searchText: searchText)
         print("searchText \(searchText)")
     }
     
@@ -57,7 +75,32 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
         //let currentUser = Auth.auth().currentUser
         //let key = ref.child("friends").childByAutoId().key
         
-        ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: searchText)
+        /*
+         //Might be helpful
+         
+         var ref = Firebase(url: MY_FIREBASE_URL)
+         ref.observeSingleEvent(of: .value) { snapshot in
+         print(snapshot.childrenCount) // I got the expected number of items
+         for case let rest as FIRDataSnapshot in snapshot.children {
+         print(rest.value)
+         }
+         }
+ */
+        //TODO: how to go through this query for users
+        ref.observeSingleEvent(of: .value)
+        {
+            
+            (snapshot) in
+            print("in the query")
+            let results = ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: searchText)
+            for case let result as DataSnapshot in snapshot.children
+            {
+                print(result.value ?? "derpsnapshot")
+                print(results)
+            }
+        }
+        
+     
     }
     
     
@@ -66,7 +109,16 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if friendList.count > 0
+        {
+            return friendList.count
+        }
+        else
+        {
+        
         return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

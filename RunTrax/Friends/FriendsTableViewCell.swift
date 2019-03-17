@@ -7,16 +7,29 @@
 //
 
 import UIKit
-
+import Firebase
+import SDWebImage
+//import FirebaseStorage
+import FirebaseUI
 class FriendsTableViewCell: UITableViewCell {
 
     //Outlets
     @IBOutlet weak var friendsProfilePicture: UIImageView!
     
-    @IBOutlet weak var friendsUsername: UIButton!
+    @IBOutlet weak var friendsUsername: UILabel!
     
-    
-    
+    var friendItem : FriendsItem!
+    {
+        didSet
+        {
+            loadFriend()
+        }
+    }
+    var ref = Database.database().reference()
+    // Get a reference to the storage service using the default Firebase App
+    let storage = Storage.storage()
+    var handle : AuthStateDidChangeListenerHandle!
+    var userID : User!
     
     
     override func awakeFromNib() {
@@ -29,5 +42,18 @@ class FriendsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    private func loadFriend()
+    {
+        if friendItem != nil
+        {
+            friendsUsername.text = friendItem.name
+            
+            //TODO: query on user, for the friends that equals that id
+            let storageRef = storage.reference(withPath: "profile_images/\(userID?.uid ?? "derp")/userImage.png")
+            let placeHolderImage = UIImage(named: "default")
+            friendsProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)        }
+    }
+    
 
 }
