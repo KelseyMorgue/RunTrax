@@ -33,18 +33,34 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     var timer: Timer?
     var distance = Measurement(value: 0, unit: UnitLength.meters)
     var locationList: [CLLocation] = []
+    let temp = CLLocation()
+   var runDictionary : [Int : [Double]] = [:]
+    //var runDictionary:NSDictionary = [:]
+
+    //var runDictionary = NSDictionary.init(objects: Double, forKeys: Int)
+
+    
     var handle : AuthStateDidChangeListenerHandle!
     var currentUser : User!
     
+    
+    /*
+     let temp = CLLocation()
+     
+     let lat = temp.coordinate.latitude
+     
+     let long = temp.coordinate.longitude
+     */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         self.newRun = Database.database().reference()//.child("run")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-         
+            
             self.currentUser = Auth.auth().currentUser            // ...
         }
     }
@@ -113,7 +129,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         /*
          let nav = self.storyboard?.instantiateViewController(withIdentifier: "AccountNavigator") as! UINavigationController
          self.present(nav,animated: true, completion: nil)
- */
+         */
     }
     
     func openOverview()
@@ -160,39 +176,39 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     
     func saveRun()
     {
+        
+//        for i in 1...locationList.count {
+//            runDictionary[i] = locationList[i]
+//        }
+        
         //let currentUser = Auth.auth().currentUser
         let key = newRun.child("run").childByAutoId().key
+        
+        
+        //convert the cllocation list to dictionary of <int, <double, double>> and only keep the lat/long
+        
+
         
         let date = Date()
         let df = DateFormatter()
         df.dateFormat = "mm dd yyyy"
         let result = df.string(from: date)
         
-        var testy : Dictionary<String,Any> = Dictionary<String,Any>()
-        testy["id"] = key
-        testy["userId"] = currentUser?.uid as Any
-        testy["mileage"] = FormatDisplay.distance(distance)
-        testy["pace"] = FormatDisplay.pace(distance: distance,seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
-        testy["date"] = result
-        testy["time"] = FormatDisplay.time(seconds)
-        testy["location"] = locationList
-        
-    
         
         let run = [
             "id" : key as Any,
-              "userId" : currentUser?.uid as Any,  //need foreign for user key
-                "mileage" : FormatDisplay.distance(distance),
-                "pace" : FormatDisplay.pace(distance: distance,seconds: seconds, outputUnit: UnitSpeed.minutesPerMile),
-                "date" : result,
-               // "name" : "",
-                "time" : FormatDisplay.time(seconds),
-                "location" : locationList
-                ] as [String : Any]
+            "userId" : currentUser?.uid as Any,  //need foreign for user key
+            "mileage" : FormatDisplay.distance(distance),
+            "pace" : FormatDisplay.pace(distance: distance,seconds: seconds, outputUnit: UnitSpeed.minutesPerMile),
+            "date" : result,
+            // "name" : "",
+            "time" : FormatDisplay.time(seconds),
+            "location" : runDictionary
+            ] as [String : Any]
         
         
-       // let userDbRef =  newRun.child("users").child(currentUser!.uid)
-        newRun.child("run").setValue(testy)
+        // let userDbRef =  newRun.child("users").child(currentUser!.uid)
+        newRun.child("run").setValue(run)
         
     }
     
@@ -232,40 +248,51 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
-        case .authorizedWhenInUse:
+        case .authorizedAlways:
             mapView.showsUserLocation = true
             centerViewOnUserLocation()
             locationManager.startUpdatingLocation()
             break
         case .denied:
+            // Show alert instructing them how to turn on permissions
             let alert = UIAlertController(title: "Location Services Must Be Turned On",
                                           message: "Go to settings to turn on location",
                                           preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "Okay", style: .default))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             self.present(alert, animated: true, completion: nil)
-            break
         case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
+            locationManager.requestAlwaysAuthorization()
         case .restricted:
+            // Show an alert letting them know what's up
             let alert = UIAlertController(title: "Location Services Must Be Turned On",
                                           message: "Go to settings to turn on location",
                                           preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "Okay", style: .default))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             self.present(alert, animated: true, completion: nil)
-            break
-        case .authorizedAlways:
-            break
+            
+        case .authorizedWhenInUse:
+            let alert = UIAlertController(title: "Location Services must be available always",
+                                          message: "This way we can track your run even when your screen is locked",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(alert, animated: true, completion: nil)
+            
         }
     }
- 
+    
     
 }
 
 extension NewRunViewController: CLLocationManagerDelegate {
     //review l8r
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        var i = 0
+        var lat = 0.0
+        var long = 0.0
+       
         guard let location = locations.last else { return }
         let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
         mapView.setRegion(region, animated: true)
@@ -276,9 +303,14 @@ extension NewRunViewController: CLLocationManagerDelegate {
             if let lastLocation = locationList.last {
                 let delta = newLocation.distance(from: lastLocation)
                 distance = distance + Measurement(value: delta, unit: UnitLength.meters)
+                 lat = temp.coordinate.latitude
+                 long = temp.coordinate.longitude
+                
             }
             
             locationList.append(newLocation)
+            runDictionary.updateValue([lat, long], forKey: i)
+            i = +1
         }
     }
     

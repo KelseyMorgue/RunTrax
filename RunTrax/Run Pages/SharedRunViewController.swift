@@ -60,18 +60,35 @@ class SharedRunViewController: UIViewController {
     
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
-        case .authorizedWhenInUse:
+        case .authorizedAlways:
             startTackingUserLocation()
         case .denied:
             // Show alert instructing them how to turn on permissions
-            break
+            let alert = UIAlertController(title: "Location Services Must Be Turned On",
+                                          message: "Go to settings to turn on location",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(alert, animated: true, completion: nil)
         case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
+            locationManager.requestAlwaysAuthorization()
         case .restricted:
             // Show an alert letting them know what's up
-            break
-        case .authorizedAlways:
-            break
+            let alert = UIAlertController(title: "Location Services Must Be Turned On",
+                                          message: "Go to settings to turn on location",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(alert, animated: true, completion: nil)
+            
+        case .authorizedWhenInUse:
+            let alert = UIAlertController(title: "Location Services must be available always",
+                                          message: "This way we can track your run even when your screen is locked",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(alert, animated: true, completion: nil)
+            
         }
     }
     
