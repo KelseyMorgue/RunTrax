@@ -22,6 +22,7 @@ class FriendsTableViewCell: UITableViewCell {
     {
         didSet
         {
+            addFriend()
             loadFriend()
         }
     }
@@ -55,5 +56,37 @@ class FriendsTableViewCell: UITableViewCell {
             friendsProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)        }
     }
     
+    
+    func addFriend()
+    {
+        // DB Check
+        let key = ref.childByAutoId().key
+        
+        /*
+         Need to make an if statement or something here,
+         if username/email already exist then print error
+         else set user = []
+         */
+        
+//        let friend = ["Id" : key,
+//                    "Username" : usernameField.text! as String,
+//                    "Email" : emailField.text! as String,
+//                    "Password" : passwordField.text! as String]
+        let friend =
+            [
+                "id" : key,
+                "currentUser" : userID.uid,
+                "username" : "powerade"
+                
+        ]
+        
+        
+        
+        //Also need to add the optional profile photo image
+        // string -> URL path
+        
+        //ref.child(key!).setValue(friend)
+        ref.child("users").child(key!).setValue(friend)
+    }
 
 }

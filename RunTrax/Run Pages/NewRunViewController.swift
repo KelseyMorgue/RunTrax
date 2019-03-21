@@ -34,7 +34,8 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     var distance = Measurement(value: 0, unit: UnitLength.meters)
     var locationList: [CLLocation] = []
     let temp = CLLocation()
-   var runDictionary : [Int : [Double]] = [:]
+    //var holderLocation: [Double] = []
+    var runDictionary : [Int : [String]] = [:]
     //var runDictionary:NSDictionary = [:]
 
     //var runDictionary = NSDictionary.init(objects: Double, forKeys: Int)
@@ -204,8 +205,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
             // "name" : "",
             "time" : FormatDisplay.time(seconds),
             "location" : runDictionary
-            ] as [String : Any]
-        
+            ]
         
         // let userDbRef =  newRun.child("users").child(currentUser!.uid)
         newRun.child("run").setValue(run)
@@ -290,8 +290,7 @@ extension NewRunViewController: CLLocationManagerDelegate {
     //review l8r
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var i = 0
-        var lat = 0.0
-        var long = 0.0
+        
        
         guard let location = locations.last else { return }
         let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
@@ -303,13 +302,15 @@ extension NewRunViewController: CLLocationManagerDelegate {
             if let lastLocation = locationList.last {
                 let delta = newLocation.distance(from: lastLocation)
                 distance = distance + Measurement(value: delta, unit: UnitLength.meters)
-                 lat = temp.coordinate.latitude
-                 long = temp.coordinate.longitude
+                
+                let lat = String(temp.coordinate.latitude)
+                let long = String(temp.coordinate.longitude)
+                runDictionary.updateValue([lat, long], forKey: i)
                 
             }
             
             locationList.append(newLocation)
-            runDictionary.updateValue([lat, long], forKey: i)
+//            runDictionary.updateValue([lat, long], forKey: i)
             i = +1
         }
     }
