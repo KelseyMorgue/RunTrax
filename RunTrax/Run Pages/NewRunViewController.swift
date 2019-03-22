@@ -26,7 +26,6 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     
     //variables
     let locationManager = CLLocationManager()
-    //let currentUser :
     let regionInMeters: Double = 500
     var run: Run?
     var seconds = 0
@@ -34,25 +33,14 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     var distance = Measurement(value: 0, unit: UnitLength.meters)
     var locationList: [CLLocation] = []
     let temp = CLLocation()
-   
-    //var holderLocation: [Double] = []
-    var runDictionary : [Int : [Double]] = [:]
-    //var runDictionary:NSDictionary = [:]
+    var runDictionary : [String : [Double]] = [:]
 
-    //var runDictionary = NSDictionary.init(objects: Double, forKeys: Int)
 
     
     var handle : AuthStateDidChangeListenerHandle!
     var currentUser : User!
     
     
-    /*
-     let temp = CLLocation()
-     
-     let lat = temp.coordinate.latitude
-     
-     let long = temp.coordinate.longitude
-     */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,10 +116,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         self.present(alert, animated: true, completion: nil)
         
         
-        /*
-         let nav = self.storyboard?.instantiateViewController(withIdentifier: "AccountNavigator") as! UINavigationController
-         self.present(nav,animated: true, completion: nil)
-         */
+        
     }
     
     func openOverview()
@@ -147,47 +132,14 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     }
     
     
-    //make it save to database for saved runs
-    //    private func saveRun() {
-    ////        let newRun = Run(context: CoreDataStack.context)
-    ////        newRun.distance = distance.value
-    ////        newRun.duration = Int16(seconds)
-    ////        newRun.timestamp = Date()
-    ////
-    ////        for location in locationList {
-    ////            let locationObject = Location(context: CoreDataStack.context)
-    ////            locationObject.timestamp = location.timestamp
-    ////            locationObject.latitude = location.coordinate.latitude
-    ////            locationObject.longitude = location.coordinate.longitude
-    ////            //newRun.addToLocations(locationObject)
-    ////        }
-    ////
-    ////        CoreDataStack.saveContext()
-    ////
-    ////        run = newRun
-    //    }
-    /*
-     let locationManager = CLLocationManager()
-     let regionInMeters: Double = 500
-     var run: Run?
-     var seconds = 0
-     var timer: Timer?
-     var distance = Measurement(value: 0, unit: UnitLength.meters)
-     var locationList: [CLLocation] = []
-     */
-    
     func saveRun()
     {
-        
-//        for i in 1...locationList.count {
-//            runDictionary[i] = locationList[i]
-//        }
+
         
         //let currentUser = Auth.auth().currentUser
         let key = newRun.child("run").childByAutoId().key
         
-        
-        //convert the cllocation list to dictionary of <int, <double, double>> and only keep the lat/long
+      
         
 
         
@@ -209,9 +161,17 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
             ]
         
         // let userDbRef =  newRun.child("users").child(currentUser!.uid)
-        newRun.child("run").setValue(run)
+        newRun.child("users").child("run").setValue(run) {
+            (error:Error?, ref:DatabaseReference) in
+            if let error = error {
+                print("Data could not be saved: \(error).")
+            } else {
+                print("Data saved successfully!")
+            }
+        }
         
     }
+    
     
     func startLocationUpdates() {
         locationManager.delegate = self
@@ -290,7 +250,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
 extension NewRunViewController: CLLocationManagerDelegate {
     //review l8r
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let random = Int(arc4random() % 169)
+        let random = String(arc4random() % 169)
        
        
        
@@ -316,8 +276,9 @@ extension NewRunViewController: CLLocationManagerDelegate {
             //runDictionary.updateValue([lat, long], forKey: i)
            
         }
-        print(runDictionary.values, "out")
-        print(random)
+       // print(runDictionary.values, "out")
+        print(runDictionary, "here ya hoe")
+        //print(random)
 
     }
     

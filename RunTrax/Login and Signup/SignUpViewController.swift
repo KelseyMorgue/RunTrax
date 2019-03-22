@@ -27,6 +27,7 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     @IBOutlet weak var profileImageView: UIImageView!
     
     var newUsers = Database.database().reference()
+    var appAuth = Auth.auth()
     
     
     override func viewDidLoad() {
@@ -121,8 +122,8 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
         
         Auth.auth().createUser(withEmail: email, password: password, completion: { (res, error) in
             
-            if let error = error {
-                print(error)
+            if let error2 = error {
+                print(error2)
                 return
             }
             

@@ -26,7 +26,7 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
 
     @IBAction func login(_ sender: Any) {
         signIn()
-        
+        let me = Auth.auth().currentUser
         let nav = self.storyboard?.instantiateViewController(withIdentifier: "AccountNavigator") as! UINavigationController
         self.present(nav,animated: true, completion: nil)
         
@@ -52,10 +52,17 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
     
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             
-            if let error = error {
-                print(error)
+            if error != nil
+            {
+                
+                print(error?.localizedDescription)
+            }
+            
+            if let loginFail = error {
+                print(loginFail)
                 return
             }
+//
             
             //successfully logged in our user
             self.dismiss(animated: true, completion: nil)

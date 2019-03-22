@@ -28,7 +28,8 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
    let storage = Storage.storage()
     var handle : AuthStateDidChangeListenerHandle!
     var userID : User!
-    
+    var sampleUser : User!
+    var testauth : Auth!
 
     
     override func viewDidLoad() {
@@ -47,9 +48,13 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 //TODO: force relogin
             }
             // ...
+            self.sampleUser = user
+            self.testauth = auth
+            
         }
         self.userID = Auth.auth().currentUser
         //print(handle)
+        
         displayUser()
         displayImage()
     }

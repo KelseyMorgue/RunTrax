@@ -34,6 +34,10 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
         super.viewDidLoad()
 
         searchBar.delegate = self
+        
+       
+        
+        
 
         // Do any additional setup after loading the view.
     }
@@ -85,6 +89,10 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
          print(rest.value)
          }
          }
+         
+         
+         let myTopPostsQuery = (ref.child("user-posts").child(getUid())).queryOrdered(byChild: "starCount")
+
  */
         //TODO: how to go through this query for users
         ref.observeSingleEvent(of: .value)
@@ -96,7 +104,11 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
             for case let result as DataSnapshot in snapshot.children
             {
                 print(result.value ?? "derpsnapshot")
-                print(results)
+                print(results, "idk")
+                print(searchText, "searchtext value")
+               
+                //FriendsTableViewCell.loadFriend(results)
+                
             }
         }
         

@@ -44,7 +44,7 @@ class FriendsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    private func loadFriend()
+     func loadFriend()
     {
         if friendItem != nil
         {
@@ -53,7 +53,9 @@ class FriendsTableViewCell: UITableViewCell {
             //TODO: query on user, for the friends that equals that id
             let storageRef = storage.reference(withPath: "profile_images/\(userID?.uid ?? "derp")/userImage.png")
             let placeHolderImage = UIImage(named: "default")
-            friendsProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)        }
+            friendsProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)
+            
+        }
     }
     
     
@@ -86,7 +88,7 @@ class FriendsTableViewCell: UITableViewCell {
         // string -> URL path
         
         //ref.child(key!).setValue(friend)
-        ref.child("users").child(key!).setValue(friend)
+        ref.child("friend").child(key!).setValue(friend)
     }
 
 }
