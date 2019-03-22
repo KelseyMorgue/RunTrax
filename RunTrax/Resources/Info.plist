@@ -35,10 +35,10 @@
 	<array>
 		<string>MKDirectionsModePedestrian</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Must accept in order to track your run</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Must accept in order to track your run, thank you!</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Must accept in order to track your run</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

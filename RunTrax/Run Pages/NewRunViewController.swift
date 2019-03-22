@@ -34,8 +34,9 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     var distance = Measurement(value: 0, unit: UnitLength.meters)
     var locationList: [CLLocation] = []
     let temp = CLLocation()
+   
     //var holderLocation: [Double] = []
-    var runDictionary : [Int : [String]] = [:]
+    var runDictionary : [Int : [Double]] = [:]
     //var runDictionary:NSDictionary = [:]
 
     //var runDictionary = NSDictionary.init(objects: Double, forKeys: Int)
@@ -289,8 +290,9 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
 extension NewRunViewController: CLLocationManagerDelegate {
     //review l8r
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        var i = 0
-        
+        let random = Int(arc4random() % 169)
+       
+       
        
         guard let location = locations.last else { return }
         let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
@@ -302,17 +304,21 @@ extension NewRunViewController: CLLocationManagerDelegate {
             if let lastLocation = locationList.last {
                 let delta = newLocation.distance(from: lastLocation)
                 distance = distance + Measurement(value: delta, unit: UnitLength.meters)
+                let lat = Double(lastLocation.coordinate.latitude)
+                let long = Double(lastLocation.coordinate.longitude)
+                runDictionary.updateValue([lat, long], forKey: random)
+               // print(runDictionary.values, "in if")
                 
-                let lat = String(temp.coordinate.latitude)
-                let long = String(temp.coordinate.longitude)
-                runDictionary.updateValue([lat, long], forKey: i)
                 
             }
             
             locationList.append(newLocation)
-//            runDictionary.updateValue([lat, long], forKey: i)
-            i = +1
+            //runDictionary.updateValue([lat, long], forKey: i)
+           
         }
+        print(runDictionary.values, "out")
+        print(random)
+
     }
     
     //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -326,6 +332,11 @@ extension NewRunViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         checkLocationAuthorization()
+        
+//        let loc: CLLocation = locations[locations.count - 1]
+//        currentLat = loc.coordinate.latitude
+//        currentLong = loc.coordinate.longitude
+        
     }
 }
 
