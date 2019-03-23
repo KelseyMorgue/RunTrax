@@ -137,7 +137,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
 
         
         //let currentUser = Auth.auth().currentUser
-        let key = newRun.child("run").childByAutoId().key
+        let key = newRun.child("runs").childByAutoId().key
         
       
         
@@ -160,8 +160,11 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
             "location" : runDictionary
             ]
         
+        let update = ["/runs\(key!)" : run, "/users\(currentUser?.uid)/runs/\(key!)" : run]
+        
         // let userDbRef =  newRun.child("users").child(currentUser!.uid)
-        newRun.child("users").child("run").setValue(run) {
+//        newRun.child("users").child("runs").setValue(run) {
+        newRun.child("runs").updateChildValues(update) {
             (error:Error?, ref:DatabaseReference) in
             if let error = error {
                 print("Data could not be saved: \(error).")
