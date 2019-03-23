@@ -34,6 +34,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     var locationList: [CLLocation] = []
     let temp = CLLocation()
     var runDictionary : [String : [Double]] = [:]
+    var sendKey : String?
 
 
     
@@ -45,7 +46,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.newRun = Database.database().reference()//.child("run")
+        self.newRun = Database.database().reference()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,7 +122,8 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     
     func openOverview()
     {
-        let nav = self.storyboard!.instantiateViewController(withIdentifier: "RunOverview")
+        let nav = self.storyboard!.instantiateViewController(withIdentifier: "RunOverview") as! RunOverviewViewController
+        nav.runKey = sendKey
         self.present(nav,animated: true, completion: nil)
     }
     
@@ -139,7 +141,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         //let currentUser = Auth.auth().currentUser
         let key = newRun.child("runs").childByAutoId().key
         
-      
+        self.sendKey = key
         
 
         
@@ -160,11 +162,20 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
             "location" : runDictionary
             ]
         
-        let update = ["/runs\(key!)" : run, "/users\(currentUser?.uid)/runs/\(key!)" : run]
+        let updateRun = ["/\(key!)" : run]
+        let updateUser = ["/\(currentUser!.uid)/runs/\(key!)" : run]
         
         // let userDbRef =  newRun.child("users").child(currentUser!.uid)
-//        newRun.child("users").child("runs").setValue(run) {
-        newRun.child("runs").updateChildValues(update) {
+       newRun.child("users").updateChildValues(updateUser) {
+        (error:Error?, ref:DatabaseReference) in
+        if let error = error {
+            print("Data could not be saved: \(error).")
+        } else {
+            print("Data saved successfully!")
+        }
+        }
+
+        newRun.child("runs").updateChildValues(updateRun) {
             (error:Error?, ref:DatabaseReference) in
             if let error = error {
                 print("Data could not be saved: \(error).")

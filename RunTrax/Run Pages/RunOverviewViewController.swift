@@ -15,6 +15,7 @@ import Foundation
 import UIKit
 import MapKit
 import CoreLocation
+import Firebase
 
 class RunOverviewViewController: UIViewController {
     //Properties
@@ -27,13 +28,39 @@ class RunOverviewViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 500
+    var runKey : String?
     
+    var ref = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadFields()
     }
     
+    /*
+     ref.child("users").child(userID?.uid ?? "derp").observeSingleEvent(of: .value, with: { (snapshot) in
+     // Get user value
+     let value = snapshot.value as? NSDictionary
+     let username = value?["username"] as? String ?? "yeet"
+     self.usernameLabel.text = "Username: \(username)"
+     }) { (error) in
+     print("hello error")
+     print(error.localizedDescription)
+     }
+ */
 
+    private func loadFields() -> Void
+    {
+        ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let distance = value?["mileage"] as? String ?? "yeet"
+            self.distanceLabel.text = "Distance: \(distance)"
+        }) { (error) in
+            print("hello error")
+            print(error.localizedDescription)
+        }
+    }
+    
     
     //Actions
     @IBAction func shareMenu()

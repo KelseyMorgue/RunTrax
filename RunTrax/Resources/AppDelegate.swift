@@ -27,6 +27,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // makes the screens "turn off" timer to be disabled
         application.isIdleTimerDisabled = true
 
+        let defaults = UserDefaults.standard
+        if (defaults.value(forKey: "RunTraxInstalled") == nil)
+        {
+            defaults.setValue(true, forKey: "RunTraxInstalled")
+            do{
+                try Auth.auth().signOut()
+                print("firebase signed out")
+            }
+            catch{
+                print("damn firebase")
+            }
+        }
+        else
+        {
+            print("in the app now")
+        }
         
         return true
     }

@@ -42,6 +42,12 @@ class StartScreenViewController: UIViewController {
         
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //print(Auth.auth().currentUser!.uid)
+    }
+    
     
     @IBAction func signOut(_ sender: Any) {
         let firebaseAuth = Auth.auth()
