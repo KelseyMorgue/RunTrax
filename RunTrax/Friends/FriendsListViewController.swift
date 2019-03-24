@@ -21,24 +21,26 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
     
     
     
-    var ref = Database.database().reference()
+    let ref = Database.database().reference()
     // Get a reference to the storage service using the default Firebase App
     let storage = Storage.storage()
     var handle : AuthStateDidChangeListenerHandle!
     var userID : User!
-    
+    var friend : FriendsItem?
     lazy var friendList: [String] = [String]()
     var userInput = ""
+    var searchButtonClicked : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         searchBar.delegate = self
         
-       
+        //call something to load current friends
+        
+        let allUsers = ref.child("users").child("username")
         
         
-
         // Do any additional setup after loading the view.
     }
     
@@ -58,14 +60,14 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchUsers(searchText: searchText)
         print("searchText \(searchText)")
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        //  <#code#>
+        searchButtonClicked = true
+        
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("searchText \(String(describing: searchBar.text))")
+        searchUsers(searchText: searchBar.text ?? "didn't get it")
+        searchButtonClicked = true
     }
     
     private func setUpSearchBar()
@@ -75,44 +77,23 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
     
     func searchUsers(searchText: String)
     {
-        let ref = Database.database().reference()
-        //let currentUser = Auth.auth().currentUser
-        //let key = ref.child("friends").childByAutoId().key
         
-        /*
-         //Might be helpful
-         
-         var ref = Firebase(url: MY_FIREBASE_URL)
-         ref.observeSingleEvent(of: .value) { snapshot in
-         print(snapshot.childrenCount) // I got the expected number of items
-         for case let rest as FIRDataSnapshot in snapshot.children {
-         print(rest.value)
-         }
-         }
-         
-         
-         let myTopPostsQuery = (ref.child("user-posts").child(getUid())).queryOrdered(byChild: "starCount")
-
- */
-        //TODO: how to go through this query for users
-        ref.observeSingleEvent(of: .value)
-        {
+        
+        ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: searchText).observeSingleEvent(of: .value){(snapshot) in
             
-            (snapshot) in
+            //  let value = snapshot.value as? NSDictionary
             print("in the query")
-            let results = ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: searchText)
             for case let result as DataSnapshot in snapshot.children
             {
-                print(result.value ?? "derpsnapshot")
-                print(results, "idk")
-                print(searchText, "searchtext value")
-               
-                //FriendsTableViewCell.loadFriend(results)
+                print(result.value ?? "derpppy")
+                print(searchText, "search text value")
+                
+                self.friend = FriendsItem(name:result.value as! String, imageUrl: "", id: result.key)
                 
             }
+            
         }
         
-     
     }
     
     
@@ -128,18 +109,29 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
         }
         else
         {
-        
-        return 1
+            
+            return 1
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as! FriendsTableViewCell
+        /*
+         have an if searching --> pull all users in DB to search through users (if greater that 0 --> to be sure theres something in it) set addButton to true
+         else --> load friends table
+         */
+        if searchButtonClicked
+        {
+        }
         
-        //cell.friendsProfilePicture = friendList[indexPath.row] // taking from DB (example)
-        return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as! FriendsTableViewCell
+            
+            //cell.friendsProfilePicture = friendList[indexPath.row] // taking from DB (example)
+            return cell
+        
+        
     }
+    
     
     
     

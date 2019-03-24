@@ -709,9 +709,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15n-3i-q9E">
+                                                    <rect key="frame" x="285" y="21" width="46" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="addButtonClicked:" destination="8E8-nN-cDR" eventType="touchUpInside" id="cBo-ip-wdW"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="addButton" destination="15n-3i-q9E" id="pWm-Bg-iFB"/>
                                             <outlet property="friendsProfilePicture" destination="AAD-Gc-9Ad" id="IbP-g5-pw0"/>
                                             <outlet property="friendsUsername" destination="CN4-4b-6Xe" id="o70-SZ-Rbq"/>
                                         </connections>
@@ -1004,7 +1013,7 @@
         <image name="runner" width="2268" height="1417"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bbv-xv-7oS"/>
+        <segue reference="DUi-qe-baO"/>
         <segue reference="uHM-i9-4zo"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -57,6 +57,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         displayUser()
         displayImage()
+      //  displayRuns()
     }
     
     // Do any additional setup after loading the view.
@@ -67,7 +68,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     //sets up DB to pull current user's username
     func displayUser()
     {
-        let ref = Database.database().reference()
+       // let ref = Database.database().reference()
 
         ref.child("users").child(userID?.uid ?? "derp").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
@@ -95,6 +96,39 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
     }
 
+    func displayRuns()
+    {
+//        ref.child("users").child(userID?.uid ?? "deerrpppy").observeSingleEvent(of: .value, with: { (snapshot) in
+//
+//            let run = self.ref.child("users").child(self.userID?.uid ?? "deerrpppy").child("runs").queryOrderedByKey()
+//            let runCount = [run]
+//            let value = runCount.count
+//
+//            self.runLabel.text = "Runs:  \(value)"
+//
+//        }) { (error) in
+//            print("hello error")
+//            print(error.localizedDescription)
+//        }
+        
+        var temp = 0
+        ref.child("users").child(userID?.uid ?? "deerrpppy").observeSingleEvent(of: .value, with: { (snapshot) in
+        let value = snapshot.value as? NSDictionary
+        let location = value?["runs"] as? NSArray
+        let count = location!.count
+            for index in 0 ..< count
+            {
+                temp+=1
+            }
+            self.runLabel.text = "Runs: \(temp)"
+            
+    })
+    }
+    
+    func displayMileage()
+    {
+        
+    }
 
     
     //stuff for choosing the image

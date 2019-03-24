@@ -15,22 +15,26 @@ class FriendsTableViewCell: UITableViewCell {
 
     //Outlets
     @IBOutlet weak var friendsProfilePicture: UIImageView!
-    
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var friendsUsername: UILabel!
     
     var friendItem : FriendsItem!
     {
         didSet
         {
-            addFriend()
             loadFriend()
         }
     }
+    
+    //boolean value to show "add" button
+    var addButtonOn : Bool = false
     var ref = Database.database().reference()
     // Get a reference to the storage service using the default Firebase App
     let storage = Storage.storage()
     var handle : AuthStateDidChangeListenerHandle!
     var userID : User!
+    
+    
     
     
     override func awakeFromNib() {
@@ -55,40 +59,32 @@ class FriendsTableViewCell: UITableViewCell {
             let placeHolderImage = UIImage(named: "default")
             friendsProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)
             
+            
+            
         }
     }
     
-    
-    func addFriend()
-    {
-        // DB Check
-        let key = ref.childByAutoId().key
+    //adds new friend to user's friendlist
+    @IBAction func addButtonClicked(_ sender: UIButton) {
         
-        /*
-         Need to make an if statement or something here,
-         if username/email already exist then print error
-         else set user = []
-         */
+        //update child id for friends --> pass id of user
         
-//        let friend = ["Id" : key,
-//                    "Username" : usernameField.text! as String,
-//                    "Email" : emailField.text! as String,
-//                    "Password" : passwordField.text! as String]
-        let friend =
-            [
-                "id" : key,
-                "currentUser" : userID.uid,
-                "username" : "powerade"
-                
-        ]
+        let key = ref.child("friends").childByAutoId()
+        
+        let updateUser = ["/\(userID!.uid)/friends/" : friendItem.id]
+        
+        ref.child("users").updateChildValues(updateUser) {
+            (error:Error?, ref:DatabaseReference) in
+            if let error = error {
+                print("Data could not be saved: \(error).")
+            } else {
+                print("Data saved successfully!")
+            }
+        }
         
         
-        
-        //Also need to add the optional profile photo image
-        // string -> URL path
-        
-        //ref.child(key!).setValue(friend)
-        ref.child("friend").child(key!).setValue(friend)
     }
+    
+
 
 }
