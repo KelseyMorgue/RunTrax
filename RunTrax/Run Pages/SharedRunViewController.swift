@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 import CoreLocation
+import Firebase
 
 
 class SharedRunViewController: UIViewController {

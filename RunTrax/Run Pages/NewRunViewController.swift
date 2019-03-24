@@ -264,7 +264,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
 extension NewRunViewController: CLLocationManagerDelegate {
     //review l8r
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let random = String(arc4random() % 169)
+        let index = String(locationList.count)
        
        
        
@@ -280,7 +280,7 @@ extension NewRunViewController: CLLocationManagerDelegate {
                 distance = distance + Measurement(value: delta, unit: UnitLength.meters)
                 let lat = Double(lastLocation.coordinate.latitude)
                 let long = Double(lastLocation.coordinate.longitude)
-                runDictionary.updateValue([lat, long], forKey: random)
+                runDictionary.updateValue([lat, long], forKey: index)
                // print(runDictionary.values, "in if")
                 
                 
