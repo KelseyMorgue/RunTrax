@@ -54,14 +54,29 @@ class RunOverviewViewController: UIViewController {
 //
                 self.locationList.append(CLLocation(latitude: temp[0], longitude: temp[1]))
 //
-                //            self.mapView.addOverlay(route.polyline)
-                //            self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
                 
             }
+            
+            self.addRouteToMap(locations: self.locationList)
+            
+//            for route in self.locationList
+//            {
+//                self.mapView.addOverlay(route.polyline)
+//                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+//            }
             
         })
     }
     
+    private func addRouteToMap(locations: [CLLocation])
+    {
+        let coordinates = locations.map { $0.coordinate }
+        let geodesic = MKGeodesicPolyline(coordinates: coordinates, count: coordinates.count)
+        mapView.addOverlay(geodesic)
+        guard let location = locations.last else { return }
+        let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+        mapView.setRegion(region, animated: true)
+    }
     
     private func loadFields() -> Void
     {
@@ -97,3 +112,15 @@ class RunOverviewViewController: UIViewController {
     }
 }
 
+//adds line
+extension RunOverviewViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        guard let polyline = overlay as? MKPolyline else {
+            return MKOverlayRenderer(overlay: overlay)
+        }
+        let renderer = MKPolylineRenderer(polyline: polyline)
+        renderer.strokeColor = .black
+        renderer.lineWidth = 3
+        return renderer
+    }
+}
