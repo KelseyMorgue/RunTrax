@@ -705,9 +705,9 @@
                                                         <constraint firstAttribute="height" constant="63" id="mCH-me-zoO"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CN4-4b-6Xe">
-                                                    <rect key="frame" x="123" y="20" width="162" height="33"/>
-                                                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="33"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CN4-4b-6Xe">
+                                                    <rect key="frame" x="99" y="20" width="219" height="33"/>
+                                                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="29"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -729,11 +729,11 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="15n-3i-q9E" secondAttribute="bottom" constant="9" id="LVd-Nm-I1w"/>
                                                 <constraint firstItem="15n-3i-q9E" firstAttribute="trailing" secondItem="b4O-hI-ysT" secondAttribute="trailingMargin" id="PuR-Go-BSO"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="AAD-Gc-9Ad" secondAttribute="bottom" constant="-5" id="T1k-7g-tSd"/>
-                                                <constraint firstItem="CN4-4b-6Xe" firstAttribute="leading" secondItem="AAD-Gc-9Ad" secondAttribute="trailing" constant="32" id="acV-u1-WRP"/>
                                                 <constraint firstItem="15n-3i-q9E" firstAttribute="top" secondItem="b4O-hI-ysT" secondAttribute="topMargin" constant="10" id="gUG-tU-Eue"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="CN4-4b-6Xe" secondAttribute="bottom" constant="10" id="nrJ-py-6S7"/>
-                                                <constraint firstItem="15n-3i-q9E" firstAttribute="leading" secondItem="CN4-4b-6Xe" secondAttribute="trailing" constant="41" id="oPv-ws-ALu"/>
+                                                <constraint firstItem="CN4-4b-6Xe" firstAttribute="leading" secondItem="AAD-Gc-9Ad" secondAttribute="trailing" constant="8" id="qzd-3j-4AM"/>
                                                 <constraint firstItem="AAD-Gc-9Ad" firstAttribute="leading" secondItem="b4O-hI-ysT" secondAttribute="leadingMargin" id="yxq-83-2kv"/>
+                                                <constraint firstItem="15n-3i-q9E" firstAttribute="leading" secondItem="CN4-4b-6Xe" secondAttribute="trailing" constant="8" id="zTZ-wG-9ha"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
