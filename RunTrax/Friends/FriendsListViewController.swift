@@ -78,7 +78,8 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
     
     func searchUsers(searchText: String)
     {
-        
+        foundFriends.removeAll()
+        //see dads query email
         ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: searchText.lowercased()).observeSingleEvent(of: .value){(snapshot) in
             
             //print("in the query")
@@ -93,14 +94,27 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
 //
 //            }
             
+            
+            //I think we need to go through all the keys and add each key if not in list to foundFriends
+            self.tableView.beginUpdates()
+            
             let value = snapshot.value as? NSDictionary
-            let userKey = value?.allKeys.first as? String
-            let userValues = value?[userKey] as? NSDictionary
-
-            let username = userValues?["username"] as? String ?? "yeet"
-            let imageUrl = userValues?["profileImageUrl"] as? String ?? "noppers"
-
-            self.foundFriends.append(FriendsItem(name: username, imageUrl: imageUrl, id: userKey!))
+            let userKeys = value?.allKeys as? [String]
+            
+            for currentKey in userKeys!
+            {
+                let userValues = value?[currentKey] as? NSDictionary
+                
+                if (!self.foundFriends.contains(where: { $0.id == currentKey}))
+                {
+                    let username = userValues?["username"] as? String ?? "yeet"
+                    let imageUrl = userValues?["profileImageUrl"] as? String ?? "noppers"
+                    
+                    self.foundFriends.append(FriendsItem(name: username, imageUrl: imageUrl, id: currentKey))
+                }
+            }
+            self.tableView.reloadData()
+            self.tableView.endUpdates()
         }
         
     }
@@ -116,10 +130,13 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
         {
             return friendList.count
         }
+        else if foundFriends.count > 0
+        {
+            return foundFriends.count
+        }
         else
         {
-            
-            return 0
+            return 1
         }
     }
     
@@ -137,7 +154,7 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
             cell.friendItem = foundFriends[indexPath.row]
         }
         
-        else
+        else if friendList.count > 0
         {
             cell.friendItem = friendList[indexPath.row]
         }
