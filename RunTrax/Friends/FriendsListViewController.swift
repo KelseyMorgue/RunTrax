@@ -27,7 +27,8 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
     var handle : AuthStateDidChangeListenerHandle!
     var userID : User!
     var friend : FriendsItem?
-    lazy var friendList: [String] = [String]()
+    lazy var friendList: [FriendsItem] = [FriendsItem]()
+    lazy var foundFriends: [FriendsItem] = [FriendsItem]()
     var userInput = ""
     var searchButtonClicked : Bool = false
     
@@ -58,9 +59,9 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchUsers(searchText: searchText)
-        print("searchText \(searchText)")
-        searchButtonClicked = true
+//        searchUsers(searchText: searchText)
+//        print("searchText \(searchText)")
+//        searchButtonClicked = true
         
     }
     
@@ -78,20 +79,28 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
     func searchUsers(searchText: String)
     {
         
-        
-        ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: searchText).observeSingleEvent(of: .value){(snapshot) in
+        ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: searchText.lowercased()).observeSingleEvent(of: .value){(snapshot) in
             
-            //  let value = snapshot.value as? NSDictionary
-            print("in the query")
-            for case let result as DataSnapshot in snapshot.children
-            {
-                print(result.value ?? "derpppy")
-                print(searchText, "search text value")
-                
-                self.friend = FriendsItem(name:result.value as! String, imageUrl: "", id: result.key)
-                
-            }
+            //print("in the query")
+//            for case let result as DataSnapshot in snapshot.children
+//            {
+//                let friendName = result as NSDictionary
+//
+//                print(result.value ?? "derpppy")
+//                print(searchText, "search text value")
+//
+//                self.foundFriends.append(FriendsItem(name:result.value as! String, imageUrl: "", id: result.key))
+//
+//            }
             
+            let value = snapshot.value as? NSDictionary
+            let userKey = value?.allKeys.first as? String
+            let userValues = value?[userKey] as? NSDictionary
+
+            let username = userValues?["username"] as? String ?? "yeet"
+            let imageUrl = userValues?["profileImageUrl"] as? String ?? "noppers"
+
+            self.foundFriends.append(FriendsItem(name: username, imageUrl: imageUrl, id: userKey!))
         }
         
     }
@@ -110,7 +119,7 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
         else
         {
             
-            return 1
+            return 0
         }
     }
     
@@ -120,14 +129,20 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
          have an if searching --> pull all users in DB to search through users (if greater that 0 --> to be sure theres something in it) set addButton to true
          else --> load friends table
          */
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as! FriendsTableViewCell
+        
         if searchButtonClicked
         {
+            cell.addButtonOn = true
+            cell.friendItem = foundFriends[indexPath.row]
         }
         
-            let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as! FriendsTableViewCell
-            
-            //cell.friendsProfilePicture = friendList[indexPath.row] // taking from DB (example)
-            return cell
+        else
+        {
+            cell.friendItem = friendList[indexPath.row]
+        }
+        
+        return cell
         
         
     }
