@@ -37,6 +37,8 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
         
         searchBar.delegate = self
         
+        
+        
         //call something to load current friends
         
         let allUsers = ref.child("users").child("username")
@@ -58,12 +60,12 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
         
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        searchUsers(searchText: searchText)
-//        print("searchText \(searchText)")
-//        searchButtonClicked = true
-        
-    }
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+////        searchUsers(searchText: searchText)
+////        print("searchText \(searchText)")
+////        searchButtonClicked = true
+//
+//    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("searchText \(String(describing: searchBar.text))")
@@ -82,25 +84,13 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
         //see dads query email
         ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: searchText.lowercased()).observeSingleEvent(of: .value){(snapshot) in
             
-            //print("in the query")
-//            for case let result as DataSnapshot in snapshot.children
-//            {
-//                let friendName = result as NSDictionary
-//
-//                print(result.value ?? "derpppy")
-//                print(searchText, "search text value")
-//
-//                self.foundFriends.append(FriendsItem(name:result.value as! String, imageUrl: "", id: result.key))
-//
-//            }
-            
-            
             //I think we need to go through all the keys and add each key if not in list to foundFriends
             self.tableView.beginUpdates()
             
             let value = snapshot.value as? NSDictionary
             let userKeys = value?.allKeys as? [String]
             
+            //make guard statement about checking users exist
             for currentKey in userKeys!
             {
                 let userValues = value?[currentKey] as? NSDictionary
@@ -147,6 +137,7 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
          else --> load friends table
          */
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as! FriendsTableViewCell
+        cell.addButtonOn = false
         
         if searchButtonClicked
         {
@@ -156,6 +147,7 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
         
         else if friendList.count > 0
         {
+           // cell.addButtonOn = false
             cell.friendItem = friendList[indexPath.row]
         }
         
