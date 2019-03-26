@@ -162,6 +162,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="delegate" destination="14l-Gp-O2m" id="xj9-IN-Pra"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Past Runs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIn-Eu-4RV">
                                 <rect key="frame" x="26" y="83" width="323" height="63"/>
@@ -258,10 +261,10 @@
             </objects>
             <point key="canvasLocation" x="676" y="851"/>
         </scene>
-        <!--Shared Run View Controller-->
+        <!--Directions View Controller-->
         <scene sceneID="eSU-nf-sH9">
             <objects>
-                <viewController id="GVr-17-Ukh" customClass="SharedRunViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GVr-17-Ukh" customClass="DirectionsViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fyf-ap-kpx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

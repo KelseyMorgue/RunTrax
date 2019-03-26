@@ -34,7 +34,7 @@
 		DFF370432235B35A006BEF17 /* FriendsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF370422235B35A006BEF17 /* FriendsItem.swift */; };
 		DFF370452235D1A7006BEF17 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF370442235D1A7006BEF17 /* CoreDataStack.swift */; };
 		DFF7E7A821F77D22002220E1 /* NewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */; };
-		DFF7E7AE21FA27D4002220E1 /* SharedRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF7E7AD21FA27D4002220E1 /* SharedRunViewController.swift */; };
+		DFF7E7AE21FA27D4002220E1 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF7E7AD21FA27D4002220E1 /* DirectionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +83,7 @@
 		DFF370422235B35A006BEF17 /* FriendsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsItem.swift; sourceTree = "<group>"; };
 		DFF370442235D1A7006BEF17 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRunViewController.swift; sourceTree = "<group>"; };
-		DFF7E7AD21FA27D4002220E1 /* SharedRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedRunViewController.swift; sourceTree = "<group>"; };
+		DFF7E7AD21FA27D4002220E1 /* DirectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */,
-				DFF7E7AD21FA27D4002220E1 /* SharedRunViewController.swift */,
+				DFF7E7AD21FA27D4002220E1 /* DirectionsViewController.swift */,
 				DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */,
 				DFDC884B2249A09800C2C988 /* PastRunsTableViewCell.swift */,
 				DFBA4A2621A5BBBA008BFB7A /* RunOverviewViewController.swift */,
@@ -435,7 +435,7 @@
 				DFDC884A22499FEA00C2C988 /* PastRunItem.swift in Sources */,
 				DFBA4A2E21A643BB008BFB7A /* RunTrax.xcdatamodeld in Sources */,
 				DF98CE052229A62800086812 /* OpeningViewController.swift in Sources */,
-				DFF7E7AE21FA27D4002220E1 /* SharedRunViewController.swift in Sources */,
+				DFF7E7AE21FA27D4002220E1 /* DirectionsViewController.swift in Sources */,
 				DF808DC22202689500D46EDA /* AccountViewController.swift in Sources */,
 				DFDC884C2249A09800C2C988 /* PastRunsTableViewCell.swift in Sources */,
 				DF808DBC2200FA2500D46EDA /* PastRunsViewController.swift in Sources */,

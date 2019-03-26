@@ -145,10 +145,20 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         
 
         
-        let date = Date()
-        let df = DateFormatter()
-        df.dateFormat = "mm dd yyyy"
-        let result = df.string(from: date)
+//        let date = Date()
+//        let df = DateFormatter()
+//        df.dateFormat = "mm dd yyyy"
+//        let result = df.string(from: date)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        
+        let date = Date(timeIntervalSinceReferenceDate: 118800)
+        
+        // US English Locale (en_US)
+        dateFormatter.locale = Locale(identifier: "en_US")
+        
         
         
         let run = [
@@ -156,7 +166,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
             "userId" : currentUser?.uid as Any,  //need foreign for user key
             "mileage" : FormatDisplay.distance(distance),
             "pace" : FormatDisplay.pace(distance: distance,seconds: seconds, outputUnit: UnitSpeed.minutesPerMile),
-            "date" : result,
+            "date" : dateFormatter.string(from: date),
             // "name" : "",
             "time" : FormatDisplay.time(seconds),
             "location" : runDictionary

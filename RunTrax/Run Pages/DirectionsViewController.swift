@@ -13,7 +13,7 @@ import CoreLocation
 import Firebase
 
 
-class SharedRunViewController: UIViewController {
+class DirectionsViewController: UIViewController {
     
     //Properties
     @IBOutlet weak var mapView: MKMapView!
@@ -23,8 +23,10 @@ class SharedRunViewController: UIViewController {
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 500
     var previousLocation: CLLocation?
-    
+     var ref = Database.database().reference()
     let geoCoder = CLGeocoder()
+    var runKey : String?
+
     var directionsArray: [MKDirections] = []
     
     
@@ -109,6 +111,33 @@ class SharedRunViewController: UIViewController {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
+    func loadMap()
+    {
+        ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            let location = value?["location"] as? NSArray
+            let count = location!.count
+            for index in 1 ..< count
+            {
+                let temp = location![index] as! [Double]
+                //
+               // self.directionsArray.append(CLLocation(latitude: temp[0], longitude: temp[1]))
+                //
+                
+            }
+            
+         //   self.addRouteToMap(locations: self.directionsArray)
+            
+            //            for route in self.directionsArray
+            //            {
+            //                self.mapView.addOverlay(route.polyline)
+            //                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+            //            }
+            
+        })
+    }
+
     
     func getDirections() {
         guard let location = locationManager.location?.coordinate else {
@@ -170,7 +199,7 @@ class SharedRunViewController: UIViewController {
 }
 
 
-extension SharedRunViewController: CLLocationManagerDelegate {
+extension DirectionsViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         checkLocationAuthorization()
@@ -178,7 +207,7 @@ extension SharedRunViewController: CLLocationManagerDelegate {
 }
 
 
-extension SharedRunViewController: MKMapViewDelegate {
+extension DirectionsViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         let center = getCenterLocation(for: mapView)

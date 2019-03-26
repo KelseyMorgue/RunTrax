@@ -39,7 +39,8 @@ class PastRunsTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        //tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        
         // Configure the view for the selected state
     }
 
@@ -52,11 +53,9 @@ class PastRunsTableViewCell: UITableViewCell {
             timeLabel.text = "Time: \(pastRunItem.time)"
             dateLabel.text = "Date: \(pastRunItem.date)"
             
-            //            self.usernameLabel.text = "Username: \(username)"
-
-            
-            
         }
+        
+        
         
     }
     

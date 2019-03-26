@@ -46,7 +46,6 @@ class RunOverviewViewController: UIViewController {
             
             let value = snapshot.value as? NSDictionary
             let location = value?["location"] as? NSArray
-            let first = location?[1] as? [Double]
             let count = location!.count
             for index in 1 ..< count
             {
