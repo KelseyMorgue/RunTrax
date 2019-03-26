@@ -110,6 +110,7 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
     }
     
     
+    
     func numberOfSections(in tableView: UITableView) -> Int{
         return 1
     }
@@ -149,6 +150,16 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
         {
            // cell.addButtonOn = false
             cell.friendItem = friendList[indexPath.row]
+        }
+        
+        ref.child("users").child(userID.uid).child("friends").observe(.value){(snapshot) in
+            
+            self.tableView.beginUpdates()
+            cell.loadFriend()
+            self.tableView.reloadData()
+            self.tableView.endUpdates()
+            
+            
         }
         
         return cell

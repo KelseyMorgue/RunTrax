@@ -94,6 +94,8 @@ class FriendsTableViewCell: UITableViewCell {
             }
         }
         
+        //FriendsListViewController.friendList.append(FriendsItem(name: friendItem.name, imageUrl: friendItem.imageUrl, id: friendItem.id))
+
     }
     
     

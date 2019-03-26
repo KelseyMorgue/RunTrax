@@ -7,24 +7,86 @@
 //
 
 import UIKit
+import Firebase
+import SDWebImage
+//import FirebaseStorage
+import FirebaseUI
 
-class PastRunsViewController: UIViewController {
+class PastRunsViewController: UIViewController, UITableViewDataSource {
+  
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    let ref = Database.database().reference()
+    let storage = Storage.storage()
+    var handle: AuthStateDidChangeListenerHandle!
+    var userID : User!
+    var run : PastRunItem?
+    lazy var pastRunsList: [PastRunItem] = [PastRunItem]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        getRuns()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if pastRunsList.count > 0
+        {
+            return pastRunsList.count
+        }
+        else
+        {
+            print("returned one")
+            return 1
+        }
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+         let cell = tableView.dequeueReusableCell(withIdentifier: "pastRun", for: indexPath) as! PastRunsTableViewCell
+        
+        return cell
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            
+            if Auth.auth().currentUser == nil
+            {
+                //TODO: force relogin
+            }
+            // ...
+        }
+        self.userID = Auth.auth().currentUser
+        
+    }
+    
+    func getRuns()
+    {
+        
+self.userID = Auth.auth().currentUser
+        ref.child("users").child(userID?.uid ?? "no users here").child("runs").child("-Lah4ZyRrtpR_Bpe0g7X").observeSingleEvent(of: .value){(snapshot) in
+            self.tableView.beginUpdates()
+            
+            
+            let value = snapshot.value as? NSDictionary
+            let date = value?["date"] as? String ?? "yeet"
+            let distance = value?["mileage"] as? String ?? "yeet"
+            let time = value?["time"] as? String ?? "yeet"
+            let id = value?["id"] as? String ?? "yeet"
+            
+
+            
+            self.pastRunsList.append(PastRunItem(date: date, distance: distance, time: time, id: id))
+            self.tableView.reloadData()
+            self.tableView.endUpdates()
+        }
+    }
 
 }
