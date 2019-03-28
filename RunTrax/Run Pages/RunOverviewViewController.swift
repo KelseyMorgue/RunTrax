@@ -112,6 +112,7 @@ class RunOverviewViewController: UIViewController {
 }
 
 //adds line
+//add an if to change colors?? for speed?
 extension RunOverviewViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let polyline = overlay as? MKPolyline else {
@@ -119,7 +120,7 @@ extension RunOverviewViewController: MKMapViewDelegate {
         }
         let renderer = MKPolylineRenderer(polyline: polyline)
         renderer.strokeColor = .black
-        renderer.lineWidth = 3
+        renderer.lineWidth = 10
         return renderer
     }
 }

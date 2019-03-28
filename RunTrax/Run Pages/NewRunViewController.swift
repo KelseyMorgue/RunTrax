@@ -154,7 +154,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         
-        let date = Date(timeIntervalSinceReferenceDate: 118800)
+        let date = Date()
         
         // US English Locale (en_US)
         dateFormatter.locale = Locale(identifier: "en_US")
