@@ -171,6 +171,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DFDC884F224D364800C2C988 /* Past Runs */ = {
+			isa = PBXGroup;
+			children = (
+				DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */,
+				DFDC884B2249A09800C2C988 /* PastRunsTableViewCell.swift */,
+			);
+			path = "Past Runs";
+			sourceTree = "<group>";
+		};
 		DFF37036222F814F006BEF17 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,10 +207,9 @@
 		DFF37039222F87B8006BEF17 /* Run Pages */ = {
 			isa = PBXGroup;
 			children = (
+				DFDC884F224D364800C2C988 /* Past Runs */,
 				DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */,
 				DFF7E7AD21FA27D4002220E1 /* DirectionsViewController.swift */,
-				DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */,
-				DFDC884B2249A09800C2C988 /* PastRunsTableViewCell.swift */,
 				DFBA4A2621A5BBBA008BFB7A /* RunOverviewViewController.swift */,
 			);
 			path = "Run Pages";
