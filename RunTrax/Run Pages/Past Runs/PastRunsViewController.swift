@@ -57,23 +57,22 @@ class PastRunsViewController: UIViewController{
             
 //            for _ in snapshot.children
 //            {
-                print("in the for loop")
                 let value = snapshot.value as? NSDictionary
                 let date = value?["date"] as? String ?? "yeet"
                 let distance = value?["mileage"] as? String ?? "yeet"
                 let time = value?["time"] as? String ?? "yeet"
                 let id = value?["id"] as? String ?? "yeet"
                 self.pastRunsList.append(PastRunItem(date: date, distance: distance, time: time, id: id))
-                
-                print(self.pastRunsList, "hello here")
-            print(date, distance, time, id, "all the things")
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
 //            }
             
-            self.tableView.reloadData()
             
         }
         
-      //  self.tableView.endUpdates()
+        self.tableView.endUpdates()
+       
     }
     
 }
@@ -81,7 +80,6 @@ class PastRunsViewController: UIViewController{
 extension PastRunsViewController: UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("made it here")
 
         return pastRunsList.count
     }
@@ -93,7 +91,6 @@ extension PastRunsViewController: UITableViewDataSource
         cell.distanceLabel?.text = run.distance
         cell.dateLabel?.text = run.date
         cell.timeLabel?.text = run.time
-        print("made it here too")
 
         return cell
         
