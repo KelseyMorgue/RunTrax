@@ -19,7 +19,9 @@ class DirectionsViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var goButton: UIButton!
+    @IBOutlet weak var runDetails: UIButton!
     
+    var routeSteps = [String]()
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 500
     var previousLocation: CLLocation?
@@ -149,8 +151,11 @@ class DirectionsViewController: UIViewController {
     }
 
     //TODO: Change to get the directions from a queried run (from runkey)
-    func getDirections() {
-        guard let location = locationManager.location?.coordinate else {
+    func getDirections()
+    {
+        guard let location = locationManager.location?.coordinate
+            else
+        {
             //TODO: Inform user we don't have their current location
             return
         }
@@ -167,16 +172,32 @@ class DirectionsViewController: UIViewController {
                 self.mapView.addOverlay(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
 
+                
                 //here for direction steps
-                for step in route.steps {
+                //TODO: make it so it doesn't print any empty ones
+                for step in route.steps
+                {
+                    self.routeSteps.append(step.instructions)
                     print(step.instructions)
 
                 }
+                
+                
             }
+            
+            //Open new screen on nav stack
+            
+            
         }
        
     }
     
+    @IBAction func detailsClicked(_ sender: Any) {
+        let directions = storyboard?.instantiateViewController(withIdentifier: "DirectionsTableView") as! DirectionsTableViewController
+        directions.directionsList = self.routeSteps
+        //put on navstack and display
+        self.navigationController?.pushViewController(directions, animated: true)
+    }
     
     func createDirectionsRequest(from coordinate: CLLocationCoordinate2D) -> MKDirections.Request {
         let destinationCoordinate       = getCenterLocation(for: mapView).coordinate

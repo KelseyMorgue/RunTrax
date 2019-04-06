@@ -256,14 +256,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJB-ph-fPA">
-                                                    <rect key="frame" x="226" y="-24" width="149" height="62"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="click to move on"/>
-                                                    <connections>
-                                                        <segue destination="GVr-17-Ukh" kind="show" id="DUi-qe-baO"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -276,6 +268,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJB-ph-fPA">
+                                <rect key="frame" x="39" y="113" width="149" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="click to move on"/>
+                                <connections>
+                                    <segue destination="GVr-17-Ukh" kind="show" id="DUi-qe-baO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zyF-ws-44o"/>
@@ -323,7 +323,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cJE-n8-EDe" kind="show" id="XfE-rT-v4z"/>
+                                    <action selector="detailsClicked:" destination="GVr-17-Ukh" eventType="touchUpInside" id="Asg-YY-M8i"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQe-8B-QvV">
@@ -341,6 +341,7 @@
                         <outlet property="addressLabel" destination="JQe-8B-QvV" id="wFI-bm-hIH"/>
                         <outlet property="goButton" destination="gtR-vf-s5B" id="MPx-zB-jct"/>
                         <outlet property="mapView" destination="Zxe-xM-sKt" id="VzV-0X-mBe"/>
+                        <outlet property="runDetails" destination="64E-bc-s6a" id="3Z7-jB-alf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boo-TN-45j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1095,28 +1096,36 @@
         <!--Directions Table View Controller-->
         <scene sceneID="13W-CF-NPS">
             <objects>
-                <tableViewController id="cJE-n8-EDe" customClass="DirectionsTableViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DirectionsTableView" id="cJE-n8-EDe" customClass="DirectionsTableViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y4C-lZ-7bd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="98" id="Acs-yG-8ee" customClass="DirectionsTableViewCell" customModule="RunTrax" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="directionsCell" rowHeight="98" id="Acs-yG-8ee" customClass="DirectionsTableViewCell" customModule="RunTrax" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="98"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Acs-yG-8ee" id="Rgx-Ks-iOJ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="97.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Directions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5u-7x-vI4">
-                                            <rect key="frame" x="124" y="36" width="126" height="24"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directions" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5u-7x-vI4">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
                                             <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="23"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstItem="W5u-7x-vI4" firstAttribute="height" secondItem="Acs-yG-8ee" secondAttribute="height" id="V1p-Ne-6Uo"/>
+                                    <constraint firstItem="W5u-7x-vI4" firstAttribute="centerX" secondItem="Acs-yG-8ee" secondAttribute="centerX" id="rKY-dd-jsC"/>
+                                    <constraint firstItem="W5u-7x-vI4" firstAttribute="width" secondItem="Acs-yG-8ee" secondAttribute="width" id="srq-g6-WRK"/>
+                                    <constraint firstItem="W5u-7x-vI4" firstAttribute="centerY" secondItem="Acs-yG-8ee" secondAttribute="centerY" id="v1u-vF-kil"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="directionsLabel" destination="W5u-7x-vI4" id="vTT-mi-Lw4"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

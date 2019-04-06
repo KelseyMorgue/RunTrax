@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Run Pages/Past Runs/PastRunsViewController.swift"
-            timestampString = "576272983.136021"
+            timestampString = "576281657.289111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Run Pages/Past Runs/PastRunsViewController.swift"
-            timestampString = "576272983.136592"
+            timestampString = "576281657.289741"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
@@ -170,7 +170,7 @@
                   moduleName = "RunTrax"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Kelsey/Desktop/Swift/RunTrax/RunTrax/RunTrax/Run%20Pages/Past%20Runs/PastRunsViewController.swift"
-                  timestampString = "576272983.566141"
+                  timestampString = "576281657.6349699"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "56"
@@ -185,7 +185,7 @@
                   moduleName = "RunTrax"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Kelsey/Desktop/Swift/RunTrax/RunTrax/RunTrax/Run%20Pages/Past%20Runs/PastRunsViewController.swift"
-                  timestampString = "576272983.569665"
+                  timestampString = "576281657.637916"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "60"
@@ -224,6 +224,22 @@
             startingLineNumber = "172"
             endingLineNumber = "172"
             landmarkName = "getDirections()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunTrax/Run Pages/Directions/DirectionsViewController.swift"
+            timestampString = "576281657.2902499"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "detailsClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import MapKit
 
-class DirectionsTableViewController: UITableViewController {
+class DirectionsTableViewController: UITableViewController
+{
+    lazy var directionsList : [String] = [String]()
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -22,25 +26,32 @@ class DirectionsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    override func numberOfSections(in tableView: UITableView) -> Int
+    {
+        return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return directionsList.count
     }
+    
+    private func loadDirections() -> Void
+    {
+        
+    }
+    
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "directionsCell", for: indexPath) as! DirectionsTableViewCell
 
-        // Configure the cell...
+        cell.directionsLabel.text = directionsList[indexPath.row]
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
