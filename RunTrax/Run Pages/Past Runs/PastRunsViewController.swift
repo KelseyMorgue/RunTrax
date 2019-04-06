@@ -53,18 +53,36 @@ class PastRunsViewController: UIViewController{
         self.tableView.beginUpdates()
         
         //
-        ref.child("users").child(userID?.uid ?? "no users here").child("runs").child("-Lah4ZyRrtpR_Bpe0g7X").observeSingleEvent(of: .value){(snapshot) in
+        ref.child("users").child(userID?.uid ?? "no users here").child("runs").observeSingleEvent(of: .value){(snapshot) in
             
 //            for _ in snapshot.children
 //            {
                 let value = snapshot.value as? NSDictionary
-                let date = value?["date"] as? String ?? "yeet"
-                let distance = value?["mileage"] as? String ?? "yeet"
-                let time = value?["time"] as? String ?? "yeet"
-                let id = value?["id"] as? String ?? "yeet"
+                let runKeys = value?.allKeys as! [String]
+            /*
+             let userKeys = value?.allKeys as? [String]
+             
+             //make guard statement about checking users exist
+             for currentKey in userKeys!
+             {
+             let userValues = value?[currentKey] as? NSDictionary
+             
+             */
+            
+            
+            
+            for current in runKeys{
+                
+                let userValues = value?[current] as? NSDictionary
+
+                let date = userValues?["date"] as? String ?? "yeet"
+                let distance = userValues?["mileage"] as? String ?? "yeet"
+                let time = userValues?["time"] as? String ?? "yeet"
+                let id = userValues?["id"] as? String ?? "yeet"
                 self.pastRunsList.append(PastRunItem(date: date, distance: distance, time: time, id: id))
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+            }
             }
 //            }
             
