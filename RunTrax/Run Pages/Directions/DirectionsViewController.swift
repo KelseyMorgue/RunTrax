@@ -28,12 +28,18 @@ class DirectionsViewController: UIViewController {
     var runKey : String?
 
     var directionsArray: [MKDirections] = []
+    var coordinateArray = [CLLocationCoordinate2D]()
+    var locationList = [CLLocation]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        goButton.layer.cornerRadius = goButton.frame.size.height/2
+        mapView.showsUserLocation = true
+        centerViewOnUserLocation()
+       // loadMap()
+       // goButton.layer.cornerRadius = goButton.frame.size.height/2
         checkLocationServices()
+        
     }
     
     
@@ -121,24 +127,28 @@ class DirectionsViewController: UIViewController {
             for index in 1 ..< count
             {
                 let temp = location![index] as! [Double]
-                //
-               // self.directionsArray.append(CLLocation(latitude: temp[0], longitude: temp[1]))
-                //
+                
+                self.locationList.append(CLLocation(latitude: temp[0], longitude: temp[1]))
+                let coordinate = CLLocationCoordinate2DMake(temp[0], temp[1]);
+
+                self.coordinateArray.append(coordinate)
+                
                 
             }
             
-         //   self.addRouteToMap(locations: self.directionsArray)
+            //idk it mad
+            //self.addRouteToMap(locations: self.locationList)
             
-            //            for route in self.directionsArray
-            //            {
-            //                self.mapView.addOverlay(route.polyline)
-            //                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-            //            }
+//                        for route in self.locationList
+//                        {
+//                            self.mapView.addOverlay(route.polyline)
+//                            self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+//                        }
             
         })
     }
 
-    
+    //TODO: Change to get the directions from a queried run (from runkey)
     func getDirections() {
         guard let location = locationManager.location?.coordinate else {
             //TODO: Inform user we don't have their current location
@@ -156,8 +166,7 @@ class DirectionsViewController: UIViewController {
             for route in response.routes {
                 self.mapView.addOverlay(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-//                dump(self.directionsArray)
-//                print(self.directionsArray)
+
                 //here for direction steps
                 for step in route.steps {
                     print(step.instructions)
@@ -235,8 +244,14 @@ extension DirectionsViewController: MKMapViewDelegate {
             let streetNumber = placemark.subThoroughfare ?? ""
             let streetName = placemark.thoroughfare ?? ""
             let cityName = placemark.locality ?? ""
+            print("Here!!!!!: \(streetName)")
+            print(streetNumber)
+            print(cityName)
             
             DispatchQueue.main.async {
+                print(streetName)
+                print(streetNumber)
+                print(cityName)
                 self.addressLabel.text = "\(streetNumber) \(streetName) \(cityName)"
             }
         }
@@ -245,8 +260,8 @@ extension DirectionsViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay as! MKPolyline)
-        renderer.strokeColor = UIColor.magenta
-        
+        renderer.strokeColor = UIColor.black
+        renderer.lineWidth = 10
         return renderer
     }
 }

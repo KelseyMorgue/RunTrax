@@ -14,6 +14,9 @@
 		DF1BF58C219E289A00DC5DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF58B219E289A00DC5DA8 /* Assets.xcassets */; };
 		DF1BF58F219E289A00DC5DA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF58D219E289A00DC5DA8 /* LaunchScreen.storyboard */; };
 		DF1BF59A219E289B00DC5DA8 /* RunTraxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1BF599219E289B00DC5DA8 /* RunTraxTests.swift */; };
+		DF2BB39E22593B6E00439262 /* DirectionsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2BB39D22593B6E00439262 /* DirectionsItem.swift */; };
+		DF2BB3A222593DB100439262 /* DirectionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2BB3A122593DB100439262 /* DirectionsTableViewController.swift */; };
+		DF2BB3A422593E3F00439262 /* DirectionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2BB3A322593E3F00439262 /* DirectionsTableViewCell.swift */; };
 		DF808DB321FFAF8D00D46EDA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF808DB221FFAF8D00D46EDA /* MapKit.framework */; };
 		DF808DBA2200F82700D46EDA /* SharePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DB92200F82700D46EDA /* SharePageViewController.swift */; };
 		DF808DBC2200FA2500D46EDA /* PastRunsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */; };
@@ -62,6 +65,9 @@
 		DF1BF595219E289A00DC5DA8 /* RunTraxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunTraxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1BF599219E289B00DC5DA8 /* RunTraxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunTraxTests.swift; sourceTree = "<group>"; };
 		DF1BF59B219E289B00DC5DA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF2BB39D22593B6E00439262 /* DirectionsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsItem.swift; sourceTree = "<group>"; };
+		DF2BB3A122593DB100439262 /* DirectionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsTableViewController.swift; sourceTree = "<group>"; };
+		DF2BB3A322593E3F00439262 /* DirectionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsTableViewCell.swift; sourceTree = "<group>"; };
 		DF808DB221FFAF8D00D46EDA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DF808DB92200F82700D46EDA /* SharePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePageViewController.swift; sourceTree = "<group>"; };
 		DF808DBB2200FA2500D46EDA /* PastRunsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastRunsViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +167,16 @@
 			path = RunTraxTests;
 			sourceTree = "<group>";
 		};
+		DF2BB3A522593E4F00439262 /* Directions */ = {
+			isa = PBXGroup;
+			children = (
+				DF2BB3A122593DB100439262 /* DirectionsTableViewController.swift */,
+				DF2BB3A322593E3F00439262 /* DirectionsTableViewCell.swift */,
+				DFF7E7AD21FA27D4002220E1 /* DirectionsViewController.swift */,
+			);
+			path = Directions;
+			sourceTree = "<group>";
+		};
 		DF808DAF21FFAF8C00D46EDA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,7 +225,7 @@
 			children = (
 				DFDC884F224D364800C2C988 /* Past Runs */,
 				DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */,
-				DFF7E7AD21FA27D4002220E1 /* DirectionsViewController.swift */,
+				DF2BB3A522593E4F00439262 /* Directions */,
 				DFBA4A2621A5BBBA008BFB7A /* RunOverviewViewController.swift */,
 			);
 			path = "Run Pages";
@@ -230,6 +246,7 @@
 			children = (
 				DFF370422235B35A006BEF17 /* FriendsItem.swift */,
 				DFDC884922499FEA00C2C988 /* PastRunItem.swift */,
+				DF2BB39D22593B6E00439262 /* DirectionsItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -456,11 +473,14 @@
 				DF808DBE2201025800D46EDA /* FriendsListViewController.swift in Sources */,
 				DFBA4A3021A6466A008BFB7A /* LocationManager.swift in Sources */,
 				DF1BF587219E289000DC5DA8 /* StartScreenViewController.swift in Sources */,
+				DF2BB39E22593B6E00439262 /* DirectionsItem.swift in Sources */,
+				DF2BB3A222593DB100439262 /* DirectionsTableViewController.swift in Sources */,
 				DF98CE072229A97B00086812 /* LoginViewController.swift in Sources */,
 				DF1BF585219E289000DC5DA8 /* AppDelegate.swift in Sources */,
 				DFF7E7A821F77D22002220E1 /* NewRunViewController.swift in Sources */,
 				DFF370432235B35A006BEF17 /* FriendsItem.swift in Sources */,
 				DFBA4A2721A5BBBA008BFB7A /* RunOverviewViewController.swift in Sources */,
+				DF2BB3A422593E3F00439262 /* DirectionsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
