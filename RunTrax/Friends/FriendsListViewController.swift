@@ -12,7 +12,7 @@ import SDWebImage
 //import FirebaseStorage
 import FirebaseUI
 
-class FriendsListViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate
+class FriendsListViewController: UIViewController, UISearchBarDelegate
 {
     
     
@@ -34,7 +34,7 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadFriends()
         searchBar.delegate = self
         
         
@@ -81,11 +81,10 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
     func searchUsers(searchText: String)
     {
         foundFriends.removeAll()
+        self.tableView.beginUpdates()
+
         //see dads query email
         ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: searchText.lowercased()).observeSingleEvent(of: .value){(snapshot) in
-            
-            //I think we need to go through all the keys and add each key if not in list to foundFriends
-            self.tableView.beginUpdates()
             
             let value = snapshot.value as? NSDictionary
             let userKeys = value?.allKeys as? [String]
@@ -95,17 +94,59 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
             {
                 let userValues = value?[currentKey] as? NSDictionary
                 
-                if (!self.foundFriends.contains(where: { $0.id == currentKey}))
-                {
+                //if (!self.foundFriends.contains(where: { $0.id == currentKey}))
+               // {
                     let username = userValues?["username"] as? String ?? "yeet"
                     let imageUrl = userValues?["profileImageUrl"] as? String ?? "noppers"
                     
                     self.foundFriends.append(FriendsItem(name: username, imageUrl: imageUrl, id: currentKey))
+                //}
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
             }
-            self.tableView.reloadData()
+           // self.tableView.reloadData()
             self.tableView.endUpdates()
         }
+        
+    }
+    
+    
+    func loadFriends()
+    {
+        self.userID = Auth.auth().currentUser
+        self.tableView.beginUpdates()
+        ref.child("users").child(userID?.uid ?? "no users here").child("friends").observeSingleEvent(of: .value){(snapshot) in
+            
+            //            for _ in snapshot.children
+            //            {
+            let value = snapshot.value as? NSDictionary
+            let friendKeys = value?.allValues as! [String]
+           
+            for current in friendKeys
+            {
+                self.ref.child("users").child(current).observeSingleEvent(of: .value)
+                {(snapshot) in
+                    let friendValue = snapshot.value as? NSDictionary
+                
+       
+                let name = friendValue?["username"] as? String ?? "yeet"
+                let imageUrl = friendValue?["imageUrl"] as? String ?? "yeet"
+                let id = friendValue?["id"] as? String ?? "yeet"
+
+                self.friendList.append(FriendsItem(name: name, imageUrl: imageUrl, id: id))
+                DispatchQueue.main.async
+                {
+                    self.tableView.reloadData()
+                }
+            }
+            //            }
+            
+            
+        }
+        
+        self.tableView.endUpdates()
+        
         
     }
     
@@ -115,20 +156,27 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
         return 1
     }
     
+   
+    
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    }
+    
+}
+extension FriendsListViewController: UITableViewDataSource
+{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if friendList.count > 0
-        {
-            return friendList.count
-        }
-        else if foundFriends.count > 0
-        {
-            return foundFriends.count
-        }
-        else
-        {
-            return 1
-        }
+        return friendList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -145,11 +193,17 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
             cell.addButtonOn = true
             cell.friendItem = foundFriends[indexPath.row]
         }
-        
+            
         else if friendList.count > 0
         {
-           // cell.addButtonOn = false
-            cell.friendItem = friendList[indexPath.row]
+            // cell.addButtonOn = false
+            let friend = friendList[indexPath.row]
+            cell.friendsUsername?.text = friend.name
+//cell.friendsProfilePicture = friend.imageUrl
+            
+            
+            return cell
+            
         }
         
         ref.child("users").child(userID.uid).child("friends").observe(.value){(snapshot) in
@@ -166,18 +220,5 @@ class FriendsListViewController: UIViewController, UITableViewDataSource, UISear
         
         
     }
-    
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
