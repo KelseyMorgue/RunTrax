@@ -131,8 +131,8 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate
                 
        
                 let name = friendValue?["username"] as? String ?? "yeet"
-                let imageUrl = friendValue?["imageUrl"] as? String ?? "yeet"
-                let id = friendValue?["id"] as? String ?? "yeet"
+                let imageUrl = friendValue?["profileImageUrl"] as? String ?? "yeet"
+                let id = current
 
                 self.friendList.append(FriendsItem(name: name, imageUrl: imageUrl, id: id))
                 DispatchQueue.main.async
@@ -200,7 +200,10 @@ extension FriendsListViewController: UITableViewDataSource
             let friend = friendList[indexPath.row]
             cell.friendsUsername?.text = friend.name
 //cell.friendsProfilePicture = friend.imageUrl
-            
+            let storageRef = storage.reference(withPath: "profile_images/\(friend.id ?? "derp")/userImage.png")
+            let placeHolderImage = UIImage(named: "default")
+            cell.friendsProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)
+//
             
             return cell
             
