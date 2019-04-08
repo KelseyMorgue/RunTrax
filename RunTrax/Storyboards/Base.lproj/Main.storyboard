@@ -121,7 +121,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="knl-lT-QgK">
-                                <rect key="frame" x="0.0" y="121" width="375" height="546"/>
+                                <rect key="frame" x="0.0" y="165" width="375" height="502"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -132,35 +132,27 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7k-Ad-ADj">
-                                                    <rect key="frame" x="278" y="12" width="38" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7k-Ad-ADj">
+                                                    <rect key="frame" x="268" y="12" width="107" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQj-C7-Jxe">
-                                                    <rect key="frame" x="129" y="12" width="76" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQj-C7-Jxe">
+                                                    <rect key="frame" x="102" y="12" width="163" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJd-ZN-ahj">
-                                                    <rect key="frame" x="28" y="12" width="40" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJd-ZN-ahj">
+                                                    <rect key="frame" x="5" y="12" width="95" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyO-ud-Qbb">
-                                                    <rect key="frame" x="194" y="-13" width="122" height="64"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="click to move on"/>
-                                                    <connections>
-                                                        <segue destination="GVr-17-Ukh" kind="show" id="Bbv-xv-7oS"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -176,12 +168,20 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Past Runs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIn-Eu-4RV">
-                                <rect key="frame" x="26" y="50" width="323" height="63"/>
+                                <rect key="frame" x="26" y="78" width="323" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="62"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyO-ud-Qbb">
+                                <rect key="frame" x="237" y="105" width="122" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="click to move on"/>
+                                <connections>
+                                    <segue destination="GVr-17-Ukh" kind="show" id="Bbv-xv-7oS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="7sh-qD-e0S"/>
@@ -193,23 +193,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQR-b0-Okt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1837.5999999999999" y="314.39280359820094"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="0lh-vd-CmZ">
-            <objects>
-                <navigationController id="Joy-9H-Obo" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DXc-D5-swa">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Vl5-mO-GvI" kind="show" id="l81-TV-aYr"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="2bH-fh-R32"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ylT-PM-vVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-991" y="1581"/>
         </scene>
         <!--Share Page View Controller-->
         <scene sceneID="xAN-iY-xig">
@@ -283,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3pB-s8-nDW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="676" y="850.52473763118451"/>
+            <point key="canvasLocation" x="1838" y="1042"/>
         </scene>
         <!--Directions View Controller-->
         <scene sceneID="eSU-nf-sH9">
@@ -599,7 +582,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egr-KO-Ojg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-930.39999999999998" y="850.52473763118451"/>
+            <point key="canvasLocation" x="-822" y="1203"/>
         </scene>
         <!--Share Run-->
         <scene sceneID="7na-nb-LZG">
@@ -630,17 +613,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cg8-6Z-fJ4">
-                                <rect key="frame" x="67" y="520" width="241" height="136"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="40"/>
-                                <state key="normal" title="Share Run?">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="shareMenu" destination="Vl5-mO-GvI" eventType="touchUpInside" id="ICz-nG-drH"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pace:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9X-k8-WW7">
                                 <rect key="frame" x="131" y="458" width="228" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -662,6 +634,28 @@
                                     <outlet property="delegate" destination="Vl5-mO-GvI" id="htm-VR-u3F"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsb-0t-Nxy">
+                                <rect key="frame" x="84" y="615" width="207" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="19"/>
+                                <state key="normal" title="Return to Main Menu">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnButton:" destination="Vl5-mO-GvI" eventType="touchUpInside" id="AC7-xw-ALA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cg8-6Z-fJ4">
+                                <rect key="frame" x="69" y="545" width="237" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="40"/>
+                                <state key="normal" title="Share Run?">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareMenu" destination="Vl5-mO-GvI" eventType="touchUpInside" id="ICz-nG-drH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="hEO-kK-trv"/>
@@ -677,7 +671,108 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfd-h4-FI2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="142" y="1659"/>
+            <point key="canvasLocation" x="-148" y="1202"/>
+        </scene>
+        <!--Share Page View Controller-->
+        <scene sceneID="qdb-w7-MYU">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DhL-NJ-KE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="shareFriends" id="rDT-8L-4KK" customClass="SharePageViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hle-gi-NN9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JFg-IA-MD2">
+                                <rect key="frame" x="0.0" y="131" width="375" height="469"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendsCell" rowHeight="100" id="cQb-Gu-M1O" customClass="SharePageTableViewCell" customModule="RunTrax" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cQb-Gu-M1O" id="NvG-qf-HX7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fv-rv-kS7">
+                                                    <rect key="frame" x="290" y="36" width="78" height="29"/>
+                                                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="16"/>
+                                                    <state key="normal" title="Send Run">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="sendRun:" destination="cQb-Gu-M1O" eventType="touchUpInside" id="vhk-Qi-NjU"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MV4-Ru-sLc">
+                                                    <rect key="frame" x="15" y="16" width="87" height="66"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="87" id="45n-QP-ypV"/>
+                                                        <constraint firstAttribute="height" constant="66" id="VHK-Jt-gBE"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nal-0x-CQk">
+                                                    <rect key="frame" x="110" y="39" width="172" height="26"/>
+                                                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3fv-rv-kS7" firstAttribute="leading" secondItem="nal-0x-CQk" secondAttribute="trailing" constant="8" id="1Ke-Tc-H0w"/>
+                                                <constraint firstItem="nal-0x-CQk" firstAttribute="leading" secondItem="MV4-Ru-sLc" secondAttribute="trailing" constant="8" id="2Xi-ui-ZFI"/>
+                                                <constraint firstItem="nal-0x-CQk" firstAttribute="leading" secondItem="MV4-Ru-sLc" secondAttribute="trailing" constant="8" id="Cb9-ZE-1SD"/>
+                                                <constraint firstItem="3fv-rv-kS7" firstAttribute="top" secondItem="NvG-qf-HX7" secondAttribute="top" constant="36" id="Gys-jb-irm"/>
+                                                <constraint firstAttribute="bottom" secondItem="3fv-rv-kS7" secondAttribute="bottom" constant="34.5" id="HRZ-3j-lux"/>
+                                                <constraint firstAttribute="trailing" secondItem="3fv-rv-kS7" secondAttribute="trailing" constant="7" id="IGb-hv-e5y"/>
+                                                <constraint firstItem="nal-0x-CQk" firstAttribute="top" secondItem="NvG-qf-HX7" secondAttribute="topMargin" constant="28" id="KuJ-hj-6e4"/>
+                                                <constraint firstItem="MV4-Ru-sLc" firstAttribute="leading" secondItem="NvG-qf-HX7" secondAttribute="leadingMargin" id="L1K-Fe-Q9g"/>
+                                                <constraint firstItem="MV4-Ru-sLc" firstAttribute="top" secondItem="NvG-qf-HX7" secondAttribute="topMargin" constant="5" id="T7X-Ab-ATB"/>
+                                                <constraint firstItem="3fv-rv-kS7" firstAttribute="leading" secondItem="nal-0x-CQk" secondAttribute="trailing" constant="8" id="XKk-uF-LdJ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="MV4-Ru-sLc" secondAttribute="bottom" constant="7" id="hIl-Bt-KKT"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="nal-0x-CQk" secondAttribute="bottom" constant="24" id="u9A-X3-PI2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addButton" destination="3fv-rv-kS7" id="8Xt-3l-EG3"/>
+                                            <outlet property="friendsProfilePicture" destination="MV4-Ru-sLc" id="P7h-Cd-6Pb"/>
+                                            <outlet property="friendsUsername" destination="nal-0x-CQk" id="z0V-Hd-0yt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="rDT-8L-4KK" id="twd-C5-jRu"/>
+                                    <outlet property="delegate" destination="rDT-8L-4KK" id="grb-gD-zjB"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Users to Share Run With:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQd-of-9Sf">
+                                <rect key="frame" x="0.0" y="65" width="375" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNG-kO-svc">
+                                <rect key="frame" x="75" y="619" width="229" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="21"/>
+                                <state key="normal" title="Return to Main Menu">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnToMain:" destination="rDT-8L-4KK" eventType="touchUpInside" id="l9K-ax-NNj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="suX-la-a1m"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="JFg-IA-MD2" id="MRL-xu-de0"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="536.79999999999995" y="1199.5502248875564"/>
         </scene>
         <!--Account-->
         <scene sceneID="aFG-5x-HuJ">
@@ -1146,7 +1241,6 @@
         <image name="runner" width="2268" height="1417"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DUi-qe-baO"/>
-        <segue reference="2bH-fh-R32"/>
+        <segue reference="Bbv-xv-7oS"/>
     </inferredMetricsTieBreakers>
 </document>

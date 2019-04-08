@@ -100,14 +100,51 @@ class RunOverviewViewController: UIViewController {
     //Actions
     @IBAction func shareMenu()
     {
-        let alert = UIAlertController(title: "Sharing Run",
-                                      message: "How would you like to share?",
-                                      preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        alert.addAction(UIAlertAction(title: "Share", style: .default))
+//        let alert = UIAlertController(title: "Sharing Run",
+//                                      message: "How would you like to share?",
+//                                      preferredStyle: .actionSheet)
+//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+//        alert.addAction(UIAlertAction(title: "Share", style: .default, handler: {
+//            action in
+//            self.shareRun()
+//        }))
+        let alert = UIAlertController(title: "Sharing Run", message: "How would you like to share?", preferredStyle: .actionSheet)
+      
+        alert.addAction(UIAlertAction(title: "Other User", style: .default, handler: { (_) in
+            print("User click User button")
+            self.shareRun()
+
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Messaging", style: .default, handler: { (_) in
+            print("User click Messaging button")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Other", style: .default, handler: { (_) in
+            print("User click Other button")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+            print("User click Dismiss button")
+        }))
+        
         self.present(alert, animated: true, completion: nil)
         
         
+    }
+    
+    @IBAction func returnButton(_ sender: Any) {
+        let nav = self.storyboard?.instantiateViewController(withIdentifier: "AccountNavigator") as! UINavigationController
+        self.present(nav,animated: true, completion: nil)
+    }
+    func shareRun()
+    {
+        /*
+         take run key from current run,
+         
+         */
+        let nav = self.storyboard?.instantiateViewController(withIdentifier: "shareFriends") as! SharePageViewController
+        self.present(nav,animated: true, completion: nil)
     }
 }
 
