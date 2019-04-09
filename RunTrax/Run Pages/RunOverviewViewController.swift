@@ -29,6 +29,9 @@ class RunOverviewViewController: UIViewController {
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 500
     var runKey : String?
+    var shareRunKey : String?
+    var handle : AuthStateDidChangeListenerHandle!
+    var currentUser : User!
     
     var ref = Database.database().reference()
     var locationList = [CLLocation]()
@@ -97,21 +100,13 @@ class RunOverviewViewController: UIViewController {
     }
     
     
-    //Actions
     @IBAction func shareMenu()
     {
-//        let alert = UIAlertController(title: "Sharing Run",
-//                                      message: "How would you like to share?",
-//                                      preferredStyle: .actionSheet)
-//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-//        alert.addAction(UIAlertAction(title: "Share", style: .default, handler: {
-//            action in
-//            self.shareRun()
-//        }))
         let alert = UIAlertController(title: "Sharing Run", message: "How would you like to share?", preferredStyle: .actionSheet)
       
         alert.addAction(UIAlertAction(title: "Other User", style: .default, handler: { (_) in
             print("User click User button")
+           
             self.shareRun()
 
         }))
@@ -139,13 +134,19 @@ class RunOverviewViewController: UIViewController {
     }
     func shareRun()
     {
-        /*
-         take run key from current run,
-         
-         */
+        /*let nav = self.storyboard!.instantiateViewController(withIdentifier: "RunOverview") as! RunOverviewViewController
+         nav.runKey = sendKey
+         self.present(nav,animated: true, completion: nil)*/
+        
+        
         let nav = self.storyboard?.instantiateViewController(withIdentifier: "shareFriends") as! SharePageViewController
+        nav.shareRunKey = runKey ?? "derps"
         self.present(nav,animated: true, completion: nil)
+        
+        
     }
+    
+ 
 }
 
 //adds line

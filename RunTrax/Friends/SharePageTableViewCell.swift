@@ -16,9 +16,8 @@ class SharePageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var friendsProfilePicture: UIImageView!
     @IBOutlet weak var friendsUsername: UILabel!
-    @IBOutlet weak var addButton: UIButton!
     
-    var sharedFriendItem : SharedFriendItem!
+        var sharedFriendItem : SharedFriendItem!
     {
         didSet
         {
@@ -30,6 +29,9 @@ class SharePageTableViewCell: UITableViewCell {
     let storage = Storage.storage()
     var handle : AuthStateDidChangeListenerHandle!
     var userID : User!
+    var shareRunKey : String?
+    var sharedFriend : SharedFriendItem?
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -58,7 +60,34 @@ class SharePageTableViewCell: UITableViewCell {
     
     @IBAction func sendRun(_ sender: UIButton) {
         /*
-         here imma need to do the query to send that run (from runkey from overview) to the other users "shared run" thing (need to make key) */
+         here imma need to do the query to send that run (from runkey from overview) to the other users "shared run" thing (need to make key)
+         
+         let key = ref.child("sharedRuns").childByAutoId().key
+         self.runKey = key
+         let update = [key : runKey!]
+         
+         let updateUser = ["users/\(sharedFriend!.id)/sharedRuns/\(shareRunKey!)" : run]
+         
+         // let userDbRef =  newRun.child("users").child(currentUser!.uid)
+         newRun.child("users").updateChildValues(updateUser) {
+         (error:Error?, ref:DatabaseReference) in
+         if let error = error {
+         print("Data could not be saved: \(error).")
+         } else {
+         print("Data saved successfully!")
+         }
+         }
+         */
+        
+ //ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
+        
+        ref.child("users/\(sharedFriend!.id)").child("sharedRuns/\(shareRunKey!)").observeSingleEvent(of: .value, with: {(snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            
+            
+            
+        })
     }
     
     

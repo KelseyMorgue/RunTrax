@@ -143,13 +143,6 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         
         self.sendKey = key
         
-
-        
-//        let date = Date()
-//        let df = DateFormatter()
-//        df.dateFormat = "mm dd yyyy"
-//        let result = df.string(from: date)
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none

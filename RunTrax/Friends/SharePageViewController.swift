@@ -14,6 +14,8 @@ import FirebaseUI
 
 class SharePageViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var shareRun: UIButton!
+    
     let ref = Database.database().reference()
     // Get a reference to the storage service using the default Firebase App
     let storage = Storage.storage()
@@ -21,6 +23,7 @@ class SharePageViewController: UIViewController {
     var userID : User!
     var sharedFriend : SharedFriendItem?
     lazy var sharedFriendList: [SharedFriendItem] = [SharedFriendItem]()
+    var shareRunKey : String?
 
     override func viewWillAppear(_ animated: Bool)
     {
@@ -40,6 +43,7 @@ class SharePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadFriends()
+        shareRun.isEnabled = false
         // Do any additional setup after loading the view.
     }
     
@@ -49,7 +53,7 @@ class SharePageViewController: UIViewController {
     }
     func loadFriends()
     {
-        self.userID = Auth.auth().currentUser
+         self.userID = Auth.auth().currentUser
         self.tableView.beginUpdates()
         ref.child("users").child(userID?.uid ?? "no users here").child("friends").observeSingleEvent(of: .value){(snapshot) in
             
@@ -82,6 +86,17 @@ class SharePageViewController: UIViewController {
         }
     }
     
+    @IBAction func shareClick(_ sender: Any) {
+        shareRunWithSelectedFriends()
+    
+    }
+    private func shareRunWithSelectedFriends() -> Void
+        
+    {
+        
+        //for each selected friend add run key as a child to sharedruns
+        
+    }
 }
 
 extension SharePageViewController: UITableViewDataSource
@@ -110,8 +125,7 @@ extension SharePageViewController: UITableViewDataSource
         {
             let friend = sharedFriendList[indexPath.row]
             cell.friendsUsername?.text = friend.name
-            //cell.friendsProfilePicture = friend.imageUrl
-            let storageRef = storage.reference(withPath: "profile_images/\(friend.id ?? "derp")/userImage.png")
+            let storageRef = storage.reference(withPath: "profile_images/\(sharedFriend?.id  ?? "derpy")/userImage.png")
             let placeHolderImage = UIImage(named: "default")
             cell.friendsProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)
             //
@@ -122,6 +136,44 @@ extension SharePageViewController: UITableViewDataSource
         
         
         return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) -> Void
+        
+    {
+        
+        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark
+            
+        {
+            
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+            
+        }
+            
+        else
+            
+        {
+            
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+            
+        }
+        
+        
+        
+        let selectedCount = (tableView.indexPathsForSelectedRows?.count)!
+        
+        
+        
+        if selectedCount > 1
+            
+        {
+            
+            shareRun.isEnabled = true
+            
+        }
+        
+        
         
     }
     

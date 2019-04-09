@@ -78,65 +78,68 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate
     
     func searchUsers(searchText: String)
     {
-        //        //foundFriends.removeAll()
-        //        self.tableView.beginUpdates()
-        //
-        //        //see dads query email
-        //        ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: searchText.lowercased()).observeSingleEvent(of: .value){(snapshot) in
-        //
-        //            let value = snapshot.value as? NSDictionary
-        //            let userKeys = value?.allKeys as? [String]
-        //
-        //            //make guard statement about checking users exist
-        //            for currentKey in userKeys!
-        //            {
-        //                let userValues = value?[currentKey] as? NSDictionary
-        //
-        //                //if (!self.foundFriends.contains(where: { $0.id == currentKey}))
-        //               // {
-        //                    let username = userValues?["username"] as? String ?? "yeet"
-        //                    let imageUrl = userValues?["profileImageUrl"] as? String ?? "noppers"
-        //
-        //                    self.foundFriends.append(FriendsItem(name: username, imageUrl: imageUrl, id: currentKey))
-        //                //}
-        //                DispatchQueue.main.async {
-        //                    self.tableView.reloadData()
-        //                }
-        //            }
-        //            self.tableView.reloadData()
-        //            self.tableView.endUpdates()
-        //        }
-        foundFriends.removeAll()
-        ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: searchText.lowercased()).observeSingleEvent(of: .value)
-        {(snapshot) in
-            
-            
-            //I think I need to go through all the keys and add each key if not in list to foundFriends
-            self.tableView.beginUpdates()
-            
-            let value = snapshot.value as? NSDictionary
-            let userKeys = value?.allKeys as? [String]
-            
-            //make guard statement about checking users exist
-            for currentKey in userKeys!
-            {
-                let userValues = value?[currentKey] as? NSDictionary
-                
-                if (!self.foundFriends.contains(where: { $0.id == currentKey}))
-                {
-                    let username = userValues?["username"] as? String ?? "yeet"
-                    let imageUrl = userValues?["profileImageUrl"] as? String ?? "noppers"
-                    
-                    self.foundFriends.append(FriendsItem(name: username, imageUrl: imageUrl, id: currentKey))
+                //foundFriends.removeAll()
+                self.tableView.beginUpdates()
+        
+                //see dads query email
+                ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: searchText.lowercased()).observeSingleEvent(of: .value){(snapshot) in
+        
+                    let value = snapshot.value as? NSDictionary
+                    let userKeys = value?.allKeys as? [String]
+        
+                    //make guard statement about checking users exist
+                    for currentKey in userKeys!
+                    {
+                        let userValues = value?[currentKey] as? NSDictionary
+        
+                        //if (!self.foundFriends.contains(where: { $0.id == currentKey}))
+                       // {
+                            let username = userValues?["username"] as? String ?? "yeet"
+                            let imageUrl = userValues?["profileImageUrl"] as? String ?? "noppers"
+        
+                            self.foundFriends.append(FriendsItem(name: username, imageUrl: imageUrl, id: currentKey))
+                        //}
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    }
+                    self.tableView.reloadData()
+                    self.tableView.endUpdates()
                 }
-            }
-            
-            self.tableView.endUpdates()
-            DispatchQueue.main.async
-            {
-                self.tableView.reloadData()
-            }
-        }
+//        foundFriends.removeAll()
+//        self.tableView.beginUpdates()
+//
+//        ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: searchText.lowercased()).observeSingleEvent(of: .value)
+//        {(snapshot) in
+//
+//
+//            //I think I need to go through all the keys and add each key if not in list to foundFriends
+//
+//            let value = snapshot.value as? NSDictionary
+//            let userKeys = value?.allKeys as? [String]
+//
+//            //make guard statement about checking users exist
+//            for currentKey in userKeys!
+//            {
+//                let userValues = value?[currentKey] as? NSDictionary
+//
+//                if (!self.foundFriends.contains(where: { $0.id == currentKey}))
+//                {
+//                    let username = userValues?["username"] as? String ?? "yeet"
+//                    let imageUrl = userValues?["profileImageUrl"] as? String ?? "noppers"
+//
+//                    self.foundFriends.append(FriendsItem(name: username, imageUrl: imageUrl, id: currentKey))
+//                    print("found friends is here", self.foundFriends)
+//                }
+//            }
+//
+//            DispatchQueue.main.async
+//            {
+//                self.tableView.reloadData()
+//            }
+//            self.tableView.endUpdates()
+//
+//        }
         
     }
     
@@ -175,12 +178,7 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate
             
         }
         
-        /*
-        func numberOfSections(in tableView: UITableView) -> Int
-        {
-            return 1
-        }
-        */
+     
     }
     
 }
@@ -221,13 +219,11 @@ extension FriendsListViewController: UITableViewDataSource
         let index = indexPath.row
         if searchButtonClicked
         {
-            
-            
             if foundFriends.count > 0 &&  indexPath.row < foundFriends.count
             {
                 cell.addButtonOn = true
                 cell.friendItem = foundFriends[indexPath.row]
-                
+
                 //                ref.child("users").child(userID.uid).child("friends").observe(.value){(snapshot) in
                 //
                 //                    self.tableView.beginUpdates()
@@ -236,9 +232,10 @@ extension FriendsListViewController: UITableViewDataSource
                 //                    self.tableView.endUpdates()
                 return cell
             }
-            
+
         }
-            
+        
+       
         else if friendList.count > 0
         {
             // cell.addButtonOn = false
