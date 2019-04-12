@@ -38,7 +38,6 @@
 		DFF370452235D1A7006BEF17 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF370442235D1A7006BEF17 /* CoreDataStack.swift */; };
 		DFF7E7A821F77D22002220E1 /* NewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */; };
 		DFF7E7AE21FA27D4002220E1 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF7E7AD21FA27D4002220E1 /* DirectionsViewController.swift */; };
-		DFFFF082225A9FC8000360E5 /* SharedFriendItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFFF081225A9FC8000360E5 /* SharedFriendItem.swift */; };
 		DFFFF084225A9FFD000360E5 /* SharePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFFF083225A9FFD000360E5 /* SharePageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,7 +91,6 @@
 		DFF370442235D1A7006BEF17 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		DFF7E7A721F77D22002220E1 /* NewRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRunViewController.swift; sourceTree = "<group>"; };
 		DFF7E7AD21FA27D4002220E1 /* DirectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
-		DFFFF081225A9FC8000360E5 /* SharedFriendItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFriendItem.swift; sourceTree = "<group>"; };
 		DFFFF083225A9FFD000360E5 /* SharePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePageTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,7 +249,6 @@
 				DFF370422235B35A006BEF17 /* FriendsItem.swift */,
 				DFDC884922499FEA00C2C988 /* PastRunItem.swift */,
 				DF2BB39D22593B6E00439262 /* DirectionsItem.swift */,
-				DFFFF081225A9FC8000360E5 /* SharedFriendItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -475,7 +472,6 @@
 				DFBA4A2921A5DAB6008BFB7A /* RunDetailsDisplay.swift in Sources */,
 				DFF370452235D1A7006BEF17 /* CoreDataStack.swift in Sources */,
 				DFBA4A3221A64691008BFB7A /* UnitExtension.swift in Sources */,
-				DFFFF082225A9FC8000360E5 /* SharedFriendItem.swift in Sources */,
 				DF808DBA2200F82700D46EDA /* SharePageViewController.swift in Sources */,
 				DF808DBE2201025800D46EDA /* FriendsListViewController.swift in Sources */,
 				DFBA4A3021A6466A008BFB7A /* LocationManager.swift in Sources */,
