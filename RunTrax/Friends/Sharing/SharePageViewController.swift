@@ -38,7 +38,8 @@ class SharePageViewController: UIViewController, UITableViewDelegate {
                 // ...
         }
         self.userID = Auth.auth().currentUser
-        
+        let allUsers = ref.child("users").child("username")
+
     }
     
     override func viewDidLoad() {
@@ -88,37 +89,79 @@ class SharePageViewController: UIViewController, UITableViewDelegate {
     }
     
     @IBAction func shareClick(_ sender: Any) {
+        selectFriends()
         shareRunWithSelectedFriends()
     
     }
-    private func shareRunWithSelectedFriends() -> Void
-        
+    
+    private func selectFriends() -> Void
     {
-        
-        let key = ref.child("sharedRuns").childByAutoId().key
-
-        print(sharedFriend?.id, "this is the id") //this is nil, need to take in the selected users id
-        print(sharedFriendList, "dumped here")
-        print(selectedFriends, "heres selected")
-        for _ in selectedFriends
+        if let selection = tableView.indexPathsForSelectedRows
         {
-        let updateUser = ["/\(sharedFriend!.id)/sharedRuns/\(key)" : shareRunKey!]
-        print(updateUser, "updated user")
-        // let userDbRef =  newRun.child("users").child(currentUser!.uid)
-        ref.child("users").updateChildValues(updateUser as [AnyHashable : Any]) {
-            (error:Error?, ref:DatabaseReference) in
-            if let error = error {
-                print("Data could not be saved: \(error).")
-            } else {
-                print("Data saved successfully!")
+            for row in selection
+            {
+                if let currentFriend = (tableView.cellForRow(at: row) as! SharePageTableViewCell).FriendsItem
+                {
+                    selectedFriends.append(currentFriend)
+                }
             }
         }
+    }
+    
+    
+    
+    
+    private func shareRunWithSelectedFriends() -> Void
+    {
+        for currentFriend in selectedFriends
+        {
+            if let friendKey = ref.child("users/\(currentFriend.id)/sharedRuns").childByAutoId().key
+            {
+                print("\(friendKey): is the current key")
+                let updateSharedRun = ["/users/\(currentFriend.id)/sharedRuns/\(friendKey)" : shareRunKey]
+                ref.updateChildValues(updateSharedRun as [AnyHashable: Any])
+                {
+                    (error:Error?, ref:DatabaseReference) in
+                    if let error = error
+                    {
+                        print("Data could not be saved: \(error)")
+                    }
+                    else
+                    {
+                        print("Data saved@@@!!!")
+                    }
+                }
+            }
         }
         
+//        if let key = ref.child("sharedRuns").childByAutoId().key
+//        {
+//
+//            print(sharedFriend?.id, "this is the id") //this is nil, need to take in the selected users id
+//            print(sharedFriendList, "dumped here")
+//            print(sharedFriendList.count)
+//            for _ in sharedFriendList
+//            {
+//                print(sharedFriend?.id, "this is the id again")
+//                let updateUser = ["/\(sharedFriend?.id)/sharedRuns/\(key)" : shareRunKey]
+//                print(updateUser, "updated user")
+//                // let userDbRef =  newRun.child("users").child(currentUser!.uid)
+//                ref.child("users").updateChildValues(updateUser as [AnyHashable : Any]) {
+//                    (error:Error?, ref:DatabaseReference) in
+//                    if let error = error
+//                    {
+//                        print("Data could not be saved: \(error).")
+//                    }
+//                    else
+//                    {
+//                        print("Data saved successfully!")
+//                    }
+//                }
+//            }
+//        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) -> Void
-        
     {
         if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark
             
@@ -140,7 +183,6 @@ class SharePageViewController: UIViewController, UITableViewDelegate {
         
         
         if selectedCount >= 1
-            
         {
             
             shareRun.isEnabled = true
@@ -176,13 +218,8 @@ extension SharePageViewController: UITableViewDataSource
             
          if sharedFriendList.count > 0
         {
-            let friend = sharedFriendList[indexPath.row]
-            cell.friendsUsername?.text = friend.name
-            let storageRef = storage.reference(withPath: "profile_images/\(sharedFriend?.id ?? "derp")/userImage.png")
-            let placeHolderImage = UIImage(named: "default")
-            cell.friendsProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)
-            //let storageRef = storage.reference(withPath: "profile_images/\(userID?.uid ?? "derp")/userImage.png")
-           
+            
+           cell.FriendsItem = sharedFriendList[indexPath.row]
             
             return cell
             

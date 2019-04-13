@@ -46,12 +46,13 @@ class SharePageTableViewCell: UITableViewCell {
     }
     func loadFriend()
     {
-        if FriendsItem != nil
+        if FriendsItem != nil && friendsUsername != nil && friendsProfilePicture != nil
         {
+            
             friendsUsername.text = FriendsItem.name
             
             //TODO: query on user, for the friends that equals that id
-            let storageRef = storage.reference(withPath: "profile_images/\(FriendsItem!.id ?? "derp")/userImage.png")
+            let storageRef = storage.reference(withPath: "profile_images/\(sharedFriend?.id ?? "derp")/userImage.png")
             let placeHolderImage = UIImage(named: "default")
             friendsProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)
             

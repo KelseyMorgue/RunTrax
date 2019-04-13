@@ -57,7 +57,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         displayUser()
         displayImage()
-      //  displayRuns()
+        displayRuns()
     }
     
     // Do any additional setup after loading the view.
@@ -98,31 +98,10 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
 
     func displayRuns()
     {
-//        ref.child("users").child(userID?.uid ?? "deerrpppy").observeSingleEvent(of: .value, with: { (snapshot) in
-//
-//            let run = self.ref.child("users").child(self.userID?.uid ?? "deerrpppy").child("runs").queryOrderedByKey()
-//            let runCount = [run]
-//            let value = runCount.count
-//
-//            self.runLabel.text = "Runs:  \(value)"
-//
-//        }) { (error) in
-//            print("hello error")
-//            print(error.localizedDescription)
-//        }
-        
-        var temp = 0
-        ref.child("users").child(userID?.uid ?? "deerrpppy").observeSingleEvent(of: .value, with: { (snapshot) in
-        let value = snapshot.value as? NSDictionary
-        let location = value?["runs"] as? NSArray
-        let count = location!.count
-            for index in 0 ..< count
-            {
-                temp+=1
-            }
-            self.runLabel.text = "Runs: \(temp)"
-            
-    })
+        ref.child("users").child(userID?.uid ?? "didn't work").child("runs").observeSingleEvent(of: .value, with: {(snapshot) in
+            let count = snapshot.childrenCount
+            self.runLabel.text = "Runs: \(count)"
+        })
     }
     
     func displayMileage()
