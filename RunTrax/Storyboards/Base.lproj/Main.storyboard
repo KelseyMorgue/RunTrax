@@ -225,13 +225,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JP4-7W-eJ2">
-                                                    <rect key="frame" x="319" y="34" width="36" height="18"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrF-q8-ALk">
                                                     <rect key="frame" x="200" y="34" width="81" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -244,7 +237,6 @@
                                         <connections>
                                             <outlet property="friendProfilePicture" destination="Hc6-pZ-1cZ" id="q7w-bC-1oR"/>
                                             <outlet property="friendUsername" destination="LNN-UC-lpd" id="TtS-1C-Cbw"/>
-                                            <outlet property="runCity" destination="JP4-7W-eJ2" id="ydQ-S9-znO"/>
                                             <outlet property="runDistance" destination="UrF-q8-ALk" id="sqa-rj-3iG"/>
                                         </connections>
                                     </tableViewCell>
@@ -269,6 +261,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zyF-ws-44o"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="WpP-Z8-JZ1" id="ei8-Oq-NGS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3pB-s8-nDW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -277,7 +272,7 @@
         <!--directionsViewController-->
         <scene sceneID="eSU-nf-sH9">
             <objects>
-                <viewController title="directionsViewController" id="GVr-17-Ukh" customClass="DirectionsViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="directionsViewController" title="directionsViewController" id="GVr-17-Ukh" customClass="DirectionsViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fyf-ap-kpx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

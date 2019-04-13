@@ -130,8 +130,7 @@ class DirectionsViewController: UIViewController {
 //        })
 //
         
-        ref.child("runs/-LcJZrqx0f3SzqeGgx8L").observeSingleEvent(of: .value, with: { (snapshot) in
-            //        ref.child("runs/\(runKey!)").child("location").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
             
             if let value = snapshot.value as? NSDictionary
             {

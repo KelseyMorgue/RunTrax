@@ -41,6 +41,7 @@
 		DFFFF084225A9FFD000360E5 /* SharePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFFF083225A9FFD000360E5 /* SharePageTableViewCell.swift */; };
 		DFFFF08722618B5A000360E5 /* SharedRunsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFFF08622618B5A000360E5 /* SharedRunsViewController.swift */; };
 		DFFFF08922618BD5000360E5 /* SharedRunsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFFF08822618BD5000360E5 /* SharedRunsTableViewCell.swift */; };
+		DFFFF08D2262769B000360E5 /* SharedRunItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFFF08C2262769B000360E5 /* SharedRunItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		DFFFF083225A9FFD000360E5 /* SharePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePageTableViewCell.swift; sourceTree = "<group>"; };
 		DFFFF08622618B5A000360E5 /* SharedRunsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedRunsViewController.swift; sourceTree = "<group>"; };
 		DFFFF08822618BD5000360E5 /* SharedRunsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedRunsTableViewCell.swift; sourceTree = "<group>"; };
+		DFFFF08C2262769B000360E5 /* SharedRunItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedRunItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 				DFF370422235B35A006BEF17 /* FriendsItem.swift */,
 				DFDC884922499FEA00C2C988 /* PastRunItem.swift */,
 				DF2BB39D22593B6E00439262 /* DirectionsItem.swift */,
+				DFFFF08C2262769B000360E5 /* SharedRunItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				DF98CE052229A62800086812 /* OpeningViewController.swift in Sources */,
 				DFF7E7AE21FA27D4002220E1 /* DirectionsViewController.swift in Sources */,
 				DF808DC22202689500D46EDA /* AccountViewController.swift in Sources */,
+				DFFFF08D2262769B000360E5 /* SharedRunItem.swift in Sources */,
 				DFDC884C2249A09800C2C988 /* PastRunsTableViewCell.swift in Sources */,
 				DF808DBC2200FA2500D46EDA /* PastRunsViewController.swift in Sources */,
 				DF98CE092229A9B900086812 /* SignUpViewController.swift in Sources */,

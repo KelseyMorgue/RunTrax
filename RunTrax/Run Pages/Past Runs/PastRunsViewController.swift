@@ -12,7 +12,7 @@ import SDWebImage
 //import FirebaseStorage
 import FirebaseUI
 
-class PastRunsViewController: UIViewController{
+class PastRunsViewController: UIViewController, UITableViewDelegate{
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -24,6 +24,7 @@ class PastRunsViewController: UIViewController{
     var userID : User!
     var run : PastRunItem?
     var pastRunsList = [PastRunItem]()
+    var sendKey : String?
     //var runs = PastRunsTableViewCell.loadRuns()
     
     
@@ -32,6 +33,14 @@ class PastRunsViewController: UIViewController{
          getRuns()
         // Do any additional setup after loading the view.
         
+    }
+    
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+     {
+        let nav = self.storyboard?.instantiateViewController(withIdentifier: "directionsViewController") as! DirectionsViewController
+        
+        nav.runKey = pastRunsList[indexPath.row].id
+        self.present(nav,animated: true, completion: nil)
     }
     
     
