@@ -274,10 +274,10 @@
             </objects>
             <point key="canvasLocation" x="1837.5999999999999" y="1041.2293853073463"/>
         </scene>
-        <!--Directions View Controller-->
+        <!--directionsViewController-->
         <scene sceneID="eSU-nf-sH9">
             <objects>
-                <viewController id="GVr-17-Ukh" customClass="DirectionsViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="directionsViewController" id="GVr-17-Ukh" customClass="DirectionsViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fyf-ap-kpx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1245,6 +1245,6 @@
         <image name="runner" width="2268" height="1417"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DUi-qe-baO"/>
+        <segue reference="Bbv-xv-7oS"/>
     </inferredMetricsTieBreakers>
 </document>

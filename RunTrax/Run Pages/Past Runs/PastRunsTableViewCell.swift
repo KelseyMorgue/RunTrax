@@ -54,8 +54,6 @@ class PastRunsTableViewCell: UITableViewCell {
             
         }
         
-        
-        
     }
     
 }

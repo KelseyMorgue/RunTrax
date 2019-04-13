@@ -25,10 +25,10 @@ class DirectionsViewController: UIViewController {
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 500
     var previousLocation: CLLocation?
-     var ref = Database.database().reference()
+    var ref = Database.database().reference()
     let geoCoder = CLGeocoder()
     var runKey : String?
-
+    
     var directionsArray: [MKDirections] = []
     var coordinateArray = [CLLocationCoordinate2D]()
     var locationList = [CLLocation]()
@@ -38,8 +38,8 @@ class DirectionsViewController: UIViewController {
         super.viewDidLoad()
         mapView.showsUserLocation = true
         centerViewOnUserLocation()
-       // loadMap()
-       // goButton.layer.cornerRadius = goButton.frame.size.height/2
+        // loadMap()
+        // goButton.layer.cornerRadius = goButton.frame.size.height/2
         checkLocationServices()
         
     }
@@ -119,78 +119,128 @@ class DirectionsViewController: UIViewController {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
-    func loadMap()
+    func getRunInformation()
     {
-        ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
+        
+//        ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
+//
+//            let value = snapshot.value as? NSDictionary
+//            let location = value?["location"] as? NSArray
+//            let count = location!.count
+//        })
+//
+        
+        ref.child("runs/-LcJZrqx0f3SzqeGgx8L").observeSingleEvent(of: .value, with: { (snapshot) in
+            //        ref.child("runs/\(runKey!)").child("location").observeSingleEvent(of: .value, with: { (snapshot) in
             
-            let value = snapshot.value as? NSDictionary
-            let location = value?["location"] as? NSArray
-            let count = location!.count
-            for index in 1 ..< count
+            if let value = snapshot.value as? NSDictionary
             {
-                let temp = location![index] as! [Double]
-                
-                self.locationList.append(CLLocation(latitude: temp[0], longitude: temp[1]))
-                let coordinate = CLLocationCoordinate2DMake(temp[0], temp[1]);
-
-                self.coordinateArray.append(coordinate)
-                
-                
+                if let location = value["location"] as? NSArray
+                {
+                //            let count = location!.count
+                    for index in 1 ..< location.count
+                    {
+                        let temp = location[index] as! [Double]
+                        
+                        self.locationList.append(CLLocation(latitude: temp[0], longitude: temp[1]))
+                        let coordinate = CLLocationCoordinate2DMake(temp[0], temp[1]);
+                        self.coordinateArray.append(coordinate)
+                        
+                    }
+                }
             }
             
-            //idk it mad
-            //self.addRouteToMap(locations: self.locationList)
-            
-//                        for route in self.locationList
-//                        {
-//                            self.mapView.addOverlay(route.polyline)
-//                            self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-//                        }
             
         })
     }
-
+    
+    func loadMap()
+    {
+        
+        
+        //idk it mad
+        //self.addRouteToMap(locations: self.locationList)
+        
+        //                        for route in self.locationList
+        //                        {
+        //                            self.mapView.addOverlay(route.polyline)
+        //                            self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+        //                        }
+        
+    }
+    
     //TODO: Change to get the directions from a queried run (from runkey)
     func getDirections()
     {
-        guard let location = locationManager.location?.coordinate
+        
+        //makes sure we have users location
+        //let coordinates = locationManager.location!.coordinate
+        guard let location = locationManager.location
             else
         {
             //TODO: Inform user we don't have their current location
             return
         }
         
-        let request = createDirectionsRequest(from: location)
-        let directions = MKDirections(request: request)
-        resetMapView(withNew: directions)
+        //start run
         
-        directions.calculate { [unowned self] (response, error) in
-            //TODO: Handle error if needed
-            guard let response = response else { return } //TODO: Show response not available in an alert
-            
-            for route in response.routes {
-                self.mapView.addOverlay(route.polyline)
-                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-
-                
-                //here for direction steps
-                //TODO: make it so it doesn't print any empty ones
-                for step in route.steps
+        if locationList.count > 0
+        {
+            if location.distance(from: locationList[0]) < 10000
+            {
+                for coordinates in coordinateArray
                 {
-                    self.routeSteps.append(step.instructions)
-                    print(step.instructions)
-
+                    let request = createDirectionsRequest(from: coordinates)
+                    let directions = MKDirections(request: request)
+                    
+                    resetMapView(withNew: directions)
+                    directions.calculate { [unowned self] (response, error) in
+                        //TODO: Handle error if needed
+                        guard let response = response else { return } //TODO: Show response not available in an alert
+                        
+                        for route in response.routes {
+                            self.mapView.addOverlay(route.polyline)
+                            self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                            
+                            
+                            //here for direction steps
+                            //TODO: make it so it doesn't print any empty ones
+                            for step in route.steps
+                            {
+                                self.routeSteps.append(step.instructions)
+                                print(step.instructions)
+                                
+                            }
+                        }
+                    }
                 }
-                
-                
             }
             
-            //Open new screen on nav stack
+            let startAnnotation = MKPointAnnotation()
+            startAnnotation.coordinate = locationList.first!.coordinate
+            startAnnotation.title = "Start"
             
+            let finishAnnotation = MKPointAnnotation()
+            startAnnotation.coordinate = locationList.last!.coordinate
+            startAnnotation.title = "Finish!"
+            
+            mapView.addAnnotation(startAnnotation)
+            mapView.addAnnotation(finishAnnotation)
             
         }
-       
+            
+        else
+        {
+            //let them know whats up with alert probably
+            //give them mappable direction thing for google
+        }
+        
+        
+        
     }
+    
+    
+    
     
     @IBAction func detailsClicked(_ sender: Any) {
         let directions = storyboard?.instantiateViewController(withIdentifier: "DirectionsTableView") as! DirectionsTableViewController
@@ -208,7 +258,7 @@ class DirectionsViewController: UIViewController {
         request.source                  = MKMapItem(placemark: startingLocation)
         request.destination             = MKMapItem(placemark: destination)
         request.transportType           = .walking
-//        request.requestsAlternateRoutes = true
+        //        request.requestsAlternateRoutes = true
         
         return request
     }
@@ -222,6 +272,7 @@ class DirectionsViewController: UIViewController {
     
     
     @IBAction func goButtonTapped(_ sender: Any) {
+        getRunInformation()
         getDirections()
     }
     

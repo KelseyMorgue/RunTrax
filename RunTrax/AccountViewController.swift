@@ -106,7 +106,10 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     func displayMileage()
     {
-        
+        ref.child("users").child(userID?.uid ?? "didn't work").child("runs").observeSingleEvent(of: .value, with: {(snapshot) in
+            let count = snapshot.childrenCount
+            self.runLabel.text = "Mileage: \(count) miles  this is totally fake rn"
+        })
     }
 
     
