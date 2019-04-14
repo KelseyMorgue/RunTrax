@@ -12,7 +12,7 @@ import SDWebImage
 //import FirebaseStorage
 import FirebaseUI
 
-class FriendsListViewController: UIViewController, UISearchBarDelegate
+class FriendsListViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 {
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -29,11 +29,31 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate
     lazy var foundFriends: [FriendsItem] = [FriendsItem]()
     var userInput = ""
     var searchButtonClicked : Bool = false
+    var data : FriendDataSource?
+    {
+        didSet
+        {
+            tableView.dataSource = data
+            tableView.reloadData()
+            
+        }
+        
+    }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        loadFriends()
+        loadFriends(){(friends) in
+            if friends.count > 0
+            {
+                self.data = FriendDataSource(friends: friends, found: false)
+                self.friendList = friends
+            }
+            
+        }
+        
+        //self.data = FriendDataSource(friends: self.friendList, found: false)
+        self.tableView.dataSource = self.data
         searchBar.delegate = self
         
         
@@ -59,23 +79,26 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate
         }
         self.userID = Auth.auth().currentUser
         
+        
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let nav = self.storyboard?.instantiateViewController(withIdentifier: "friendAccount") as! FriendAccountViewController
         
-        //        nav.friendKey = friendList[indexPath.row].id
+        nav.friend = friendList[indexPath.row]
+        
         self.present(nav,animated: true, completion: nil)
     }
-    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
     {
         
         print("searchText \(String(describing: searchBar.text))")
         searchUsers(searchText: searchBar.text ?? "didn't get it")
-        searchButtonClicked = true
+        self.data = FriendDataSource(friends: foundFriends, found: true)
+        tableView.dataSource = data
     }
     
     private func setUpSearchBar()
@@ -104,15 +127,21 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate
                         // {
                         let username = userValues?["username"] as? String ?? "yeet"
                         let imageUrl = userValues?["profileImageUrl"] as? String ?? "noppers"
-                        let count = self.queryForRuns(friendID: currentKey)
-                        
-                        self.foundFriends.append(FriendsItem(name: username, imageUrl: imageUrl, id: currentKey, runCount: count))
-                        //}
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
+                        self.queryForRuns(friendID: currentKey){ (runTotal) -> () in
+                            print("Result for runs is: \(runTotal)")
+                            self.foundFriends.append(FriendsItem(name: username, imageUrl: imageUrl, id: currentKey, runCount: runTotal))
+                            DispatchQueue.main.async {
+                                self.data = FriendDataSource(friends: self.foundFriends, found: true)
+                                self.tableView.dataSource = self.data
+                                self.tableView.reloadData()
+                            }
+                            
                         }
+                        
+                        //}
+                        
                     }
-                    self.tableView.reloadData()
+                   // self.tableView.reloadData()
                     self.tableView.endUpdates()
                 }
             }
@@ -156,10 +185,11 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate
     }
     
     
-    func loadFriends()
+    func loadFriends(completion: @escaping ([FriendsItem]) -> Void)
     {
         self.userID = Auth.auth().currentUser
         self.tableView.beginUpdates()
+        var friendz = [FriendsItem]()
         ref.child("users").child(userID?.uid ?? "no users here").child("friends").observeSingleEvent(of: .value){(snapshot) in
             
             
@@ -167,120 +197,48 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate
             {
                 if let friendKeys = value.allValues as? [String]
                 {
+                    
                     for current in friendKeys
                     {
                         self.ref.child("users").child(current).observeSingleEvent(of: .value)
                         {(snapshot) in
                             let friendValue = snapshot.value as? NSDictionary
                             
-                            
                             let name = friendValue?["username"] as? String ?? "yeet"
                             let imageUrl = friendValue?["profileImageUrl"] as? String ?? "yeet"
                             let id = current
-                            let count = self.queryForRuns(friendID: current);
+                            self.queryForRuns(friendID: current)
+                            {
+                                (result) -> () in print(result)
                             
-                            self.friendList.append(FriendsItem(name: name, imageUrl: imageUrl, id: id, runCount: count))
-                            DispatchQueue.main.async
-                                {
-                                    self.tableView.reloadData()
+                                friendz.append(FriendsItem(name: name, imageUrl: imageUrl, id: id, runCount: result))
+//                                DispatchQueue.main.async
+//                                    {
+//
+//                                        self.tableView.reloadData()
+//                                }
+                                
                             }
                         }
-                        
                     }
-                    
                     self.tableView.endUpdates()
+                    completion(friendz)
                 }
             }
-            
-            
+        
         }
+        
     }
     
-    private func queryForRuns(friendID : String) -> Int
+    private func queryForRuns(friendID : String, completion: @escaping (Int) -> Void) -> Void
     {
         var runCount = 0
         
-        ref.child("users").child(friendID).child("runs").observeSingleEvent(of: .value, with: {(snapshot) in
+        ref.child("users").child(friendID).child("runs").observeSingleEvent( of: .value) {(snapshot) in
             let count = snapshot.childrenCount
             runCount = Int(count)
-        })
-        
-        return runCount
-    }
-    
-}
-extension FriendsListViewController: UITableViewDataSource
-{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        if searchButtonClicked
-        {
-            searchButtonClicked = false
-            return foundFriends.count
+            completion(runCount)
         }
-        else if friendList.count > 0
-        {
-            return friendList.count
-        }
-        else if foundFriends.count > 0
-        {
-            return foundFriends.count
-        }
-        else
-        {
-            return 1
-        }
-        
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        
-        /*
-         have an if searching --> pull all users in DB to search through users (if greater that 0 --> to be sure theres something in it) set addButton to true
-         else --> load friends table
-         */
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as! FriendsTableViewCell
-        cell.addButtonOn = false
-        
-        let index = indexPath.row
-        if searchButtonClicked
-        {
-            if foundFriends.count > 0 &&  indexPath.row < foundFriends.count
-            {
-                
-                cell.addButtonOn = true
-                cell.friendItem = foundFriends[indexPath.row]
-                
-                //                ref.child("users").child(userID.uid).child("friends").observe(.value){(snapshot) in
-                //
-                //                    self.tableView.beginUpdates()
-                //                    cell.loadFriend()
-                //                    self.tableView.reloadData()
-                //                    self.tableView.endUpdates()
-                return cell
-            }
-            
-        }
-            
-            
-        else if friendList.count > 0
-        {
-            // cell.addButtonOn = false
-            let friend = friendList[indexPath.row]
-            cell.friendsUsername?.text = friend.name
-            //cell.friendsProfilePicture = friend.imageUrl
-            let storageRef = storage.reference(withPath: "profile_images/\(friend.id ?? "derp")/userImage.png")
-            let placeHolderImage = UIImage(named: "default")
-            cell.friendsProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)
-            //
-            
-            return cell
-            
-        }
-        
-        
-        return cell
         
     }
     

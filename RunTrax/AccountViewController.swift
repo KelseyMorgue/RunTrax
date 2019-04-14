@@ -120,10 +120,12 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                     let distance = userValues?["mileage"] as? Int ?? 0
                     sum += distance
                 }
+            print(sum, "this is sum")
+            self.mileageLabel.text = "Mileage: \(sum) miles"
             }
 
         })
-        mileageLabel.text = "Total Mileage: \(sum) miles"
+       
     }
 
     

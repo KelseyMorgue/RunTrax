@@ -129,13 +129,15 @@ class SharePageViewController: UIViewController, UITableViewDelegate {
                     (error:Error?, ref:DatabaseReference) in
                     if let error = error
                     {
-                        let saveAlert = UIAlertController(title: "Run Not Shared 😿!", message: "Your run did not share", preferredStyle: .actionSheet)
+                        let saveAlert = UIAlertController(title: "Run Not Shared 😿", message: "Your run did not share", preferredStyle: .actionSheet)
+                        saveAlert.addAction(UIAlertAction(title: "Okay", style: .cancel))
                         self.present(saveAlert, animated: true, completion: nil)
                     }
                     else
                     {
                         
-                        let saveAlert = UIAlertController(title: "Run Shared 🏃🏾‍♀️!", message: "You have successfully shared a run", preferredStyle: .actionSheet)
+                        let saveAlert = UIAlertController(title: "Run Shared 🏃🏾‍♀️", message: "You have successfully shared a run", preferredStyle: .actionSheet)
+                        saveAlert.addAction(UIAlertAction(title: "Okay", style: .cancel))
                         self.present(saveAlert, animated: true, completion: nil)
                     }
                 }

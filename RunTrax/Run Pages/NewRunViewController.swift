@@ -35,6 +35,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     let temp = CLLocation()
     var runDictionary : [String : [Double]] = [:]
     var sendKey : String?
+    var backgroundTask: UIBackgroundTaskIdentifier = .invalid
 
 
     
@@ -56,12 +57,31 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         }
     }
     
+    
+    func registerBackgroundTask() {
+        backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
+            self?.endBackgroundTask()
+        }
+        assert(backgroundTask != .invalid)
+    }
+    
+    func endBackgroundTask() {
+        print("Background task ended.")
+        UIApplication.shared.endBackgroundTask(backgroundTask)
+        backgroundTask = .invalid
+    }
+
+    
+    
     func eachSecond() {
         seconds += 1
         updateDisplay()
     }
     
+  
+    
     func updateDisplay() {
+        
         let formattedDistance = FormatDisplay.distance(distance)
         let formattedTime = FormatDisplay.time(seconds)
         let formattedPace = FormatDisplay.pace(distance: distance,seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
@@ -77,6 +97,8 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     
     //KELSEY NOTE: I think I should have the locked screen only on this function
     func startRun() {
+        registerBackgroundTask()
+
         seconds = 0
         distance = Measurement(value: 0, unit: UnitLength.meters)
         locationList.removeAll()
@@ -89,6 +111,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     }
     
     func stopRun() {
+        endBackgroundTask()
         locationManager.stopUpdatingLocation()
     }
     
