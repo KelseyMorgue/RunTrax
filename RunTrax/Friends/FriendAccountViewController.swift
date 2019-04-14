@@ -58,14 +58,12 @@ class FriendAccountViewController: UIViewController
     
     private func loadFriendProfile()
     {
-        
-        
         if friendProfilePicture != nil && friendRuns != nil && friendMileage != nil && friendUsername != nil
         {
             loadMoreInfo()
-            
+            displayMileage()
             friendUsername.text = friend?.name
-
+            friendRuns.text = "Total Runs: \(friend?.runCount)"
         }
     }
     
@@ -75,6 +73,26 @@ class FriendAccountViewController: UIViewController
         let storageRef = storage.reference(withPath: "profile_images/\(friend?.id ?? "derp")/userImage.png")
         let placeHolderImage = UIImage(named: "default")
         friendProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)
+    }
+    
+    private func displayMileage()
+    {
+        var sum = 0
+        
+        ref.child("users").child(userID?.uid ?? "didn't work").child("runs").observeSingleEvent(of: .value, with: {(snapshot) in
+            let runValues = snapshot.value as? NSDictionary
+            if let runKeys = runValues?.allKeys as? [String]
+            {
+                for current in runKeys
+                {
+                    let userValues = runValues?[current] as? NSDictionary
+                    let distance = userValues?["mileage"] as? Int ?? 0
+                    sum += distance
+                }
+            }
+            
+        })
+        friendMileage.text = "Total Mileage: \(sum) miles"
     }
     
 

@@ -15,12 +15,10 @@ import FirebaseUI
 class FriendsListViewController: UIViewController, UISearchBarDelegate
 {
     
-    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    
-    
+    //MARK: Database stuff
     let ref = Database.database().reference()
     // Get a reference to the storage service using the default Firebase App
     let storage = Storage.storage()
@@ -242,6 +240,7 @@ extension FriendsListViewController: UITableViewDataSource
         {
             if foundFriends.count > 0 &&  indexPath.row < foundFriends.count
             {
+                
                 cell.addButtonOn = true
                 cell.friendItem = foundFriends[indexPath.row]
 
