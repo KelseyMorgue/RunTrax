@@ -403,9 +403,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbd-cd-yxG">
-                                <rect key="frame" x="159" y="620" width="46" height="30"/>
+                                <rect key="frame" x="129" y="623" width="112" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                <state key="normal" title="Check Fields"/>
                                 <connections>
                                     <action selector="checkFields:" destination="uuq-K6-Sr5" eventType="touchUpInside" id="HZM-Gu-LSu"/>
                                 </connections>
@@ -457,6 +458,7 @@
                         <viewLayoutGuide key="safeArea" id="KWI-lx-O6I"/>
                     </view>
                     <connections>
+                        <outlet property="checkFieldsButton" destination="fbd-cd-yxG" id="Yk7-TU-S29"/>
                         <outlet property="createAccountButton" destination="F2A-Fk-RI1" id="ifC-YU-WkN"/>
                         <outlet property="emailField" destination="39c-pq-VOm" id="jyt-91-VVW"/>
                         <outlet property="passwordField" destination="Bc9-mh-hac" id="UbE-zM-8My"/>

@@ -27,13 +27,15 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var createAccountButton: UIButton!
     
+    @IBOutlet weak var checkFieldsButton: UIButton!
     var newUsers = Database.database().reference()
     var appAuth = Auth.auth()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createAccountButton.isEnabled = false
+        createAccountButton.isHidden = true
+        checkFieldsButton.isHidden = false
         self.usernameField.delegate = self
         self.emailField.delegate = self
         self.passwordField.delegate = self
@@ -49,7 +51,6 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     }
     
     @IBAction func checkFields(_ sender: Any) {
-        ifNilCheck()
          usernameCheck(username: usernameField.text ?? "")
     }
     
@@ -135,12 +136,8 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     
     func usernameCheck(username: String)
     {
-       // let userID = Auth.auth().currentUser?.uid
         let ref = Database.database().reference()
-        //might need to use current user also in here  ref.child("users").child(userID). etc
-       //ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: usernameField.text)
-        //.child("fg1eM6pQvMQ5SToiK7q3C16zXFg1")
-        //isn't working why??
+        
         ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: username).observeSingleEvent(of: .value, with: { (snapshot) in
        //  let checkUser = snapshot.value as! String
            // if checkUser == "goal"{
@@ -156,9 +153,13 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
             }))
             self.present(alert, animated: true, completion: nil)
          print("username already exists")
+            
          
-         }else{
-         self.createAccountButton.isEnabled = true
+         }
+         else{
+            self.ifNilCheck()
+//         self.createAccountButton.isHidden = false
+//            self.checkFieldsButton.isHidden = true
          print("new username")
          }
          
@@ -166,7 +167,7 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
          })
  
         
-        
+
         
     }
     
@@ -188,8 +189,10 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
             print("Not all fields are completed")
         }
         else{
-            usernameCheck(username: usernameField.text ?? "")
-            createAccountButton.isEnabled = true
+            //usernameCheck(username: usernameField.text ?? "")
+            createAccountButton.isHidden = false
+            checkFieldsButton.isHidden = true
+
         }
     }
     
@@ -229,29 +232,6 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
             picker.dismiss(animated: true, completion: nil)
         }
     }
-    func addQuery()
-    {
-        // DB Check
-        let key = newUsers.childByAutoId().key
-        
-        /*
-         Need to make an if statement or something here,
-         if username/email already exist then print error
-         else set user = []
-         */
-        
-        let user = ["Id" : key,
-                    "Username" : usernameField.text! as String,
-                    "Email" : emailField.text! as String,
-                    "Password" : passwordField.text! as String]
-        
-        
-        
-        
-        //Also need to add the optional profile photo image
-        // string -> URL path
-        
-        newUsers.child(key!).setValue(user)
-    }
+
     
 }
