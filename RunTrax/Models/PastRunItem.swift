@@ -10,11 +10,10 @@ import Foundation
 
 public class PastRunItem
 {
-    
-    var date : String?
-    var distance : String?
-    var time : String?
-    var id : String?
+    var date : String
+    var distance : String
+    var time : String
+    var id : String
     
     init(date : String, distance : String, time: String, id: String)
     {
@@ -22,7 +21,5 @@ public class PastRunItem
         self.distance = distance
         self.time = time
         self.id = id
-    }
-
-    
+    }   
 }

@@ -59,7 +59,6 @@ class PastRunsViewController: UIViewController, UITableViewDelegate{
         self.present(nav,animated: true, completion: nil)
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             
@@ -110,29 +109,4 @@ class PastRunsViewController: UIViewController, UITableViewDelegate{
         })
     }
 }
-//extension PastRunsViewController: UITableViewDataSource
-//{
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//
-//        return pastRunsList.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "pastRun", for: indexPath) as! PastRunsTableViewCell
-//        let run = pastRunsList[indexPath.row]
-//        cell.distanceLabel?.text = run.distance
-//        cell.dateLabel?.text = run.date
-//        cell.timeLabel?.text = run.time
-//
-//        return cell
-//
-//        /*
-//         let user = users[indexPath.row]
-//         cell.textLabel?.text = user.name
-//         cell.detailTextLabel?.text = user.email
-//         */
-//
-//
-//    }
-//}
+

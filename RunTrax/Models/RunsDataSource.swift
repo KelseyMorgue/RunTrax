@@ -17,7 +17,6 @@ class RunsDataSource: NSObject, UITableViewDataSource
         self.runs = runs
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return runs.count
