@@ -129,7 +129,7 @@ class DirectionsViewController: UIViewController {
 //            let count = location!.count
 //        })
 //
-        
+        print(runKey, "this is the runkey")
         ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
             
             if let value = snapshot.value as? NSDictionary

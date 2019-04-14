@@ -63,6 +63,15 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let nav = self.storyboard?.instantiateViewController(withIdentifier: "friendAccount") as! FriendAccountViewController
+        
+//        nav.runKey = sharedRunsList[indexPath.row].id
+        self.present(nav,animated: true, completion: nil)
+    }
+    
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
     {
         

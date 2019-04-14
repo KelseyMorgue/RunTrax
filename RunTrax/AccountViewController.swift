@@ -58,6 +58,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         displayUser()
         displayImage()
         displayRuns()
+        displayMileage()
     }
     
     // Do any additional setup after loading the view.
@@ -100,15 +101,23 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     {
         ref.child("users").child(userID?.uid ?? "didn't work").child("runs").observeSingleEvent(of: .value, with: {(snapshot) in
             let count = snapshot.childrenCount
-            self.runLabel.text = "Runs: \(count)"
+            self.runLabel.text = "Total Runs: \(count)"
         })
     }
     
     func displayMileage()
     {
+//        ref.child("users").child(userID?.uid ?? "didn't work").child("runs").observeSingleEvent(of: .value, with: {(snapshot) in
+//            let count = snapshot.childrenCount
+//            self.runLabel.text = "Mileage: \(count) miles  this is totally fake rn"
+//        })
+       // var sum = 0
+
         ref.child("users").child(userID?.uid ?? "didn't work").child("runs").observeSingleEvent(of: .value, with: {(snapshot) in
-            let count = snapshot.childrenCount
-            self.runLabel.text = "Mileage: \(count) miles  this is totally fake rn"
+            let data = snapshot.childSnapshot(forPath: "mileage")
+           
+            print(data, "outside sum")
+            self.mileageLabel.text = "Total Mileage: \(data) miles"
         })
     }
 

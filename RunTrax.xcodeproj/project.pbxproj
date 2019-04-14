@@ -30,6 +30,7 @@
 		DFBA4A2E21A643BB008BFB7A /* RunTrax.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2C21A643BB008BFB7A /* RunTrax.xcdatamodeld */; };
 		DFBA4A3021A6466A008BFB7A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A2F21A6466A008BFB7A /* LocationManager.swift */; };
 		DFBA4A3221A64691008BFB7A /* UnitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA4A3121A64691008BFB7A /* UnitExtension.swift */; };
+		DFCBC416226297C1002D116B /* FriendAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCBC415226297C1002D116B /* FriendAccountViewController.swift */; };
 		DFDC884A22499FEA00C2C988 /* PastRunItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDC884922499FEA00C2C988 /* PastRunItem.swift */; };
 		DFDC884C2249A09800C2C988 /* PastRunsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDC884B2249A09800C2C988 /* PastRunsTableViewCell.swift */; };
 		DFF37035222F7A64006BEF17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DFF37034222F7A64006BEF17 /* GoogleService-Info.plist */; };
@@ -85,6 +86,7 @@
 		DFBA4A2D21A643BB008BFB7A /* RunTrax.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunTrax.xcdatamodel; sourceTree = "<group>"; };
 		DFBA4A2F21A6466A008BFB7A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DFBA4A3121A64691008BFB7A /* UnitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitExtension.swift; sourceTree = "<group>"; };
+		DFCBC415226297C1002D116B /* FriendAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAccountViewController.swift; sourceTree = "<group>"; };
 		DFDC884922499FEA00C2C988 /* PastRunItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastRunItem.swift; sourceTree = "<group>"; };
 		DFDC884B2249A09800C2C988 /* PastRunsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastRunsTableViewCell.swift; sourceTree = "<group>"; };
 		DFF37034222F7A64006BEF17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				DFFFF08522618B00000360E5 /* Sharing */,
 				DF808DBD2201025800D46EDA /* FriendsListViewController.swift */,
 				DFF3703E2235B25F006BEF17 /* FriendsTableViewCell.swift */,
+				DFCBC415226297C1002D116B /* FriendAccountViewController.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				DF808DBE2201025800D46EDA /* FriendsListViewController.swift in Sources */,
 				DFBA4A3021A6466A008BFB7A /* LocationManager.swift in Sources */,
 				DF1BF587219E289000DC5DA8 /* StartScreenViewController.swift in Sources */,
+				DFCBC416226297C1002D116B /* FriendAccountViewController.swift in Sources */,
 				DF2BB39E22593B6E00439262 /* DirectionsItem.swift in Sources */,
 				DFFFF08922618BD5000360E5 /* SharedRunsTableViewCell.swift in Sources */,
 				DFFFF084225A9FFD000360E5 /* SharePageTableViewCell.swift in Sources */,

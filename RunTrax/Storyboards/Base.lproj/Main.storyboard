@@ -935,7 +935,78 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qiH-NX-nJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1615.2" y="-572.56371814092961"/>
+            <point key="canvasLocation" x="1732" y="-568"/>
+        </scene>
+        <!--Friend Account View Controller-->
+        <scene sceneID="5hR-vW-5JI">
+            <objects>
+                <viewController storyboardIdentifier="friendAccount" id="wgc-Dm-9ci" customClass="FriendAccountViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DxC-v6-ZEH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzY-vd-b6G">
+                                <rect key="frame" x="40" y="374" width="279" height="87.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Username:">
+                                        <attributes>
+                                            <font key="NSFont" size="23" name="Copperplate"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mileage:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMw-ke-fOl">
+                                <rect key="frame" x="40" y="521.5" width="279" height="32.5"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Runs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXS-wz-Fub">
+                                <rect key="frame" x="40" y="469.5" width="279" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="5nz-JE-ZS1">
+                                <rect key="frame" x="62" y="65" width="250" height="261"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="1g2-Ze-dy9"/>
+                                    <constraint firstAttribute="height" constant="261" id="xxX-oe-Okf"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9j7-mN-Uev" firstAttribute="bottom" secondItem="TXS-wz-Fub" secondAttribute="bottom" constant="174" id="1Mc-bq-Y10"/>
+                            <constraint firstItem="5nz-JE-ZS1" firstAttribute="top" secondItem="9j7-mN-Uev" secondAttribute="top" constant="45" id="2tc-XJ-coJ"/>
+                            <constraint firstItem="5nz-JE-ZS1" firstAttribute="leading" secondItem="9j7-mN-Uev" secondAttribute="leading" constant="62" id="3oo-vb-tr9"/>
+                            <constraint firstItem="EMw-ke-fOl" firstAttribute="leading" secondItem="9j7-mN-Uev" secondAttribute="leading" constant="40" id="4Hw-ZU-RSB"/>
+                            <constraint firstItem="9j7-mN-Uev" firstAttribute="trailing" secondItem="EMw-ke-fOl" secondAttribute="trailing" constant="56" id="6S2-py-N0V"/>
+                            <constraint firstItem="9j7-mN-Uev" firstAttribute="trailing" secondItem="tzY-vd-b6G" secondAttribute="trailing" constant="56" id="79s-8H-HMg"/>
+                            <constraint firstItem="TXS-wz-Fub" firstAttribute="top" secondItem="tzY-vd-b6G" secondAttribute="bottom" constant="8" id="Dl6-WT-8HY"/>
+                            <constraint firstItem="tzY-vd-b6G" firstAttribute="top" secondItem="5nz-JE-ZS1" secondAttribute="bottom" constant="48" id="Iuj-o1-1Yc"/>
+                            <constraint firstItem="9j7-mN-Uev" firstAttribute="trailing" secondItem="5nz-JE-ZS1" secondAttribute="trailing" constant="63" id="MQl-7w-bcx"/>
+                            <constraint firstItem="tzY-vd-b6G" firstAttribute="top" secondItem="5nz-JE-ZS1" secondAttribute="bottom" constant="48" id="NDK-OL-eUt"/>
+                            <constraint firstItem="EMw-ke-fOl" firstAttribute="top" secondItem="tzY-vd-b6G" secondAttribute="bottom" constant="60" id="X5J-Kd-u8T"/>
+                            <constraint firstItem="TXS-wz-Fub" firstAttribute="leading" secondItem="9j7-mN-Uev" secondAttribute="leading" constant="40" id="aDr-Qa-6Q6"/>
+                            <constraint firstItem="9j7-mN-Uev" firstAttribute="bottom" secondItem="EMw-ke-fOl" secondAttribute="bottom" constant="113" id="v1X-y8-ZBu"/>
+                            <constraint firstItem="tzY-vd-b6G" firstAttribute="leading" secondItem="9j7-mN-Uev" secondAttribute="leading" constant="40" id="wCH-cJ-E04"/>
+                            <constraint firstItem="9j7-mN-Uev" firstAttribute="trailing" secondItem="TXS-wz-Fub" secondAttribute="trailing" constant="56" id="xJD-Fr-ogK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9j7-mN-Uev"/>
+                    </view>
+                    <connections>
+                        <outlet property="friendMileage" destination="EMw-ke-fOl" id="yat-CE-Wuq"/>
+                        <outlet property="friendProfilePicture" destination="5nz-JE-ZS1" id="yMj-ro-XSm"/>
+                        <outlet property="friendRuns" destination="TXS-wz-Fub" id="J6R-oJ-QeO"/>
+                        <outlet property="friendUsername" destination="tzY-vd-b6G" id="Rga-xR-Gg1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ifg-3w-3wp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2480.8000000000002" y="-568.06596701649175"/>
         </scene>
         <!--Opening View Controller-->
         <scene sceneID="ykp-C8-gOF">
