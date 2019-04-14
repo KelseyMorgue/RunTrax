@@ -39,7 +39,6 @@ class DirectionsViewController: UIViewController {
         mapView.showsUserLocation = true
         centerViewOnUserLocation()
         // loadMap()
-        // goButton.layer.cornerRadius = goButton.frame.size.height/2
         checkLocationServices()
         
     }
@@ -64,8 +63,12 @@ class DirectionsViewController: UIViewController {
             setupLocationManager()
             checkLocationAuthorization()
         } else {
-            // Show alert letting the user know they have to turn this on.
-        }
+            let alert = UIAlertController(title: "Location Services Must Be Turned On",
+                                          message: "Go to settings to turn on location",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(alert, animated: true, completion: nil)        }
     }
     
     
@@ -121,8 +124,6 @@ class DirectionsViewController: UIViewController {
     
     func getRunInformation()
     {
-        
-
         print(runKey, "this is the runkey")
         ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
             

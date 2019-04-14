@@ -56,7 +56,7 @@ class SharedRunsViewController: UIViewController, UITableViewDelegate {
         self.tableView.beginUpdates()
         
         //
-        ref.child("users").child(userID?.uid ?? "no users here").child("runs").observeSingleEvent(of: .value){(snapshot) in
+        ref.child("users").child(userID?.uid ?? "no users here").child("sharedRuns").observeSingleEvent(of: .value){(snapshot) in
             
             //            for _ in snapshot.children
             //            {
@@ -68,7 +68,7 @@ class SharedRunsViewController: UIViewController, UITableViewDelegate {
                     
                     let userValues = value[current] as? NSDictionary
                     let distance = userValues?["mileage"] as? String ?? "yeeet"
-                    let imageUrl = userValues?["time"] as? String ?? "yeet"
+                    let imageUrl = userValues?["profileImageUrl"] as? String ?? "yeet"
                     let id = userValues?["id"] as? String ?? "yeet"
                     let username = userValues?["username"] as? String ?? "yeet"
                     

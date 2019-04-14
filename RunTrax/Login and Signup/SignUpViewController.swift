@@ -25,6 +25,7 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var createAccountButton: UIButton!
     
     var newUsers = Database.database().reference()
     var appAuth = Auth.auth()
@@ -32,7 +33,7 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        createAccountButton.isEnabled = false
         self.usernameField.delegate = self
         self.emailField.delegate = self
         self.passwordField.delegate = self
@@ -47,6 +48,10 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
         self.present(vc, animated: true, completion: nil)
     }
     
+    @IBAction func checkFields(_ sender: Any) {
+        ifNilCheck()
+         usernameCheck(username: usernameField.text ?? "")
+    }
     
 //    
 //    
@@ -60,60 +65,6 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     
     func addUser()
     {
-        //TODO: make these work
-//        ifNilCheck()
-        
-        //TODO: make this cleaner becuase holy shit if statements
-        //checks to make sure all are entered (these are required, unlike the image)
-        if emailField.text == ""{
-            let alert = UIAlertController(title: "Not all fields are completed",
-                                          message: "Please be sure to have a username, password, and email",
-                                          preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler:
-                {
-                    action in
-                    let nav = self.storyboard?.instantiateViewController(withIdentifier: "startNav") as! UINavigationController
-                    self.present(nav,animated: true, completion: nil)
-            }))
-            self.present(alert, animated: true, completion: nil)
-            print("Not all fields are completed")
-            
-            
-        }
-        if passwordField.text == ""{
-            let alert = UIAlertController(title: "Not all fields are completed",
-                                          message: "Please be sure to have a username, password, and email",
-                                          preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler:
-                {
-                    action in
-                    let nav = self.storyboard?.instantiateViewController(withIdentifier: "startNav") as! UINavigationController
-                    self.present(nav,animated: true, completion: nil)
-            }))
-            self.present(alert, animated: true, completion: nil)
-            print("Not all fields are completed")
-            
-        }
-        if usernameField.text == ""
-        {
-            let alert = UIAlertController(title: "Not all fields are completed",
-                                          message: "Please be sure to have a username, password, and email",
-                                          preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler:
-                {
-                    action in
-                    let nav = self.storyboard?.instantiateViewController(withIdentifier: "startNav") as! UINavigationController
-                    self.present(nav,animated: true, completion: nil)
-            }))
-            self.present(alert, animated: true, completion: nil)
-            print("Not all fields are completed")
-            
-        }
-        else
-        {
-            usernameCheck(username: usernameField.text ?? "")
-        }
-        
         guard let email = emailField.text, let password = passwordField.text, let name = usernameField.text else {
           print("nope")
             return
@@ -207,7 +158,7 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
          print("username already exists")
          
          }else{
-         
+         self.createAccountButton.isEnabled = true
          print("new username")
          }
          
@@ -223,7 +174,7 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
     {
         //TODO: make this cleaner becuase holy shit if statements
         //checks to make sure all are entered (these are required, unlike the image)
-        if emailField.text == ""{
+        if emailField.text == "" || passwordField.text == "" || usernameField.text == "" {
             let alert = UIAlertController(title: "Not all fields are completed",
                                           message: "Please be sure to have a username, password, and email",
                                           preferredStyle: .actionSheet)
@@ -235,37 +186,10 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
             }))
             self.present(alert, animated: true, completion: nil)
             print("Not all fields are completed")
-            
-            
         }
-        if passwordField.text == ""{
-            let alert = UIAlertController(title: "Not all fields are completed",
-                                          message: "Please be sure to have a username, password, and email",
-                                          preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler:
-                {
-                    action in
-                    let nav = self.storyboard?.instantiateViewController(withIdentifier: "startNav") as! UINavigationController
-                    self.present(nav,animated: true, completion: nil)
-            }))
-            self.present(alert, animated: true, completion: nil)
-            print("Not all fields are completed")
-            
-        }
-        if usernameField.text == ""
-        {
-            let alert = UIAlertController(title: "Not all fields are completed",
-                                          message: "Please be sure to have a username, password, and email",
-                                          preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler:
-                {
-                    action in
-                    let nav = self.storyboard?.instantiateViewController(withIdentifier: "startNav") as! UINavigationController
-                    self.present(nav,animated: true, completion: nil)
-            }))
-            self.present(alert, animated: true, completion: nil)
-            print("Not all fields are completed")
-            
+        else{
+            usernameCheck(username: usernameField.text ?? "")
+            createAccountButton.isEnabled = true
         }
     }
     

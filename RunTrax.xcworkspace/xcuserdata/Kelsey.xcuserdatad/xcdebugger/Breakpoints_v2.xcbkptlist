@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Run Pages/Directions/DirectionsViewController.swift"
-            timestampString = "576947661.035099"
+            timestampString = "576951896.906651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "getRunInformation()"
             landmarkType = "7">
             <Locations>
@@ -26,11 +26,11 @@
                   moduleName = "RunTrax"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Kelsey/Desktop/Swift/RunTrax/RunTrax/RunTrax/Run%20Pages/Directions/DirectionsViewController.swift"
-                  timestampString = "576947661.596771"
+                  timestampString = "576951897.5095021"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "127"
-                  endingLineNumber = "127"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
                   offsetFromSymbolStart = "399">
                </Location>
                <Location
@@ -41,11 +41,11 @@
                   moduleName = "RunTrax"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Kelsey/Desktop/Swift/RunTrax/RunTrax/RunTrax/Run%20Pages/Directions/DirectionsViewController.swift"
-                  timestampString = "576947661.6010751"
+                  timestampString = "576951897.513033"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "129"
-                  endingLineNumber = "129"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
                   offsetFromSymbolStart = "280">
                </Location>
             </Locations>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Run Pages/Directions/DirectionsViewController.swift"
-            timestampString = "576947661.035619"
+            timestampString = "576951896.9071569"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "getDirections()"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/AccountViewController.swift"
-            timestampString = "576947661.035724"
+            timestampString = "576951896.9073091"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "120"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/AccountViewController.swift"
-            timestampString = "576947661.036013"
+            timestampString = "576951896.907768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/AccountViewController.swift"
-            timestampString = "576947661.0360841"
+            timestampString = "576951896.907891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "118"
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/AccountViewController.swift"
-            timestampString = "576947661.03614"
+            timestampString = "576951896.907981"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "113"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Friends/FriendsListViewController.swift"
-            timestampString = "576947661.036256"
+            timestampString = "576951896.908193"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "240"
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Friends/FriendsListViewController.swift"
-            timestampString = "576947661.036356"
+            timestampString = "576951896.908345"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
@@ -202,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Friends/FriendsListViewController.swift"
-            timestampString = "576947661.036682"
+            timestampString = "576951896.9088531"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
@@ -218,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Friends/FriendsListViewController.swift"
-            timestampString = "576947661.036777"
+            timestampString = "576951896.909009"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
@@ -234,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Friends/FriendsListViewController.swift"
-            timestampString = "576947661.036846"
+            timestampString = "576951896.909181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "214"
@@ -250,7 +250,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Models/FriendDataSource.swift"
-            timestampString = "576947661.0369329"
+            timestampString = "576951896.909325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -266,7 +266,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Models/FriendDataSource.swift"
-            timestampString = "576947661.037196"
+            timestampString = "576951896.909743"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
@@ -282,7 +282,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Models/FriendDataSource.swift"
-            timestampString = "576947661.037257"
+            timestampString = "576951896.909833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "24"
@@ -298,7 +298,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Friends/FriendsListViewController.swift"
-            timestampString = "576947661.03737"
+            timestampString = "576951896.909914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
@@ -314,7 +314,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Friends/FriendsListViewController.swift"
-            timestampString = "576947661.037479"
+            timestampString = "576951896.9100209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "207"
@@ -330,7 +330,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Friends/FriendsListViewController.swift"
-            timestampString = "576947661.037551"
+            timestampString = "576951896.9101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
@@ -346,7 +346,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Models/FriendDataSource.swift"
-            timestampString = "576947661.037618"
+            timestampString = "576951896.910177"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -362,7 +362,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Friends/FriendsListViewController.swift"
-            timestampString = "576947661.037676"
+            timestampString = "576951896.910248"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -378,12 +378,204 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/Friends/FriendsListViewController.swift"
-            timestampString = "576947661.037734"
+            timestampString = "576951896.91034"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "224"
             endingLineNumber = "224"
             landmarkName = "loadFriends(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunTrax/Friends/Sharing/SharedRunsTableViewCell.swift"
+            timestampString = "576951896.910419"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "loadData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunTrax/Friends/Sharing/SharedRunsViewController.swift"
+            timestampString = "576951896.910853"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "getRuns()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RunTrax.SharedRunsViewController.getRuns() -&gt; ()"
+                  moduleName = "RunTrax"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Kelsey/Desktop/Swift/RunTrax/RunTrax/RunTrax/Friends/Sharing/SharedRunsViewController.swift"
+                  timestampString = "576951897.640771"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "367">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in RunTrax.SharedRunsViewController.getRuns() -&gt; ()"
+                  moduleName = "RunTrax"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Kelsey/Desktop/Swift/RunTrax/RunTrax/RunTrax/Friends/Sharing/SharedRunsViewController.swift"
+                  timestampString = "576951897.643402"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "253">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunTrax/Friends/Sharing/SharedRunsViewController.swift"
+            timestampString = "576951896.91124"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "getRuns()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunTrax/Run Pages/Past Runs/PastRunsViewController.swift"
+            timestampString = "576951896.9113441"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "getRuns()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RunTrax.PastRunsViewController.getRuns() -&gt; ()"
+                  moduleName = "RunTrax"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Kelsey/Desktop/Swift/RunTrax/RunTrax/RunTrax/Run%20Pages/Past%20Runs/PastRunsViewController.swift"
+                  timestampString = "576949722.641977"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "367">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in RunTrax.PastRunsViewController.getRuns() -&gt; ()"
+                  moduleName = "RunTrax"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Kelsey/Desktop/Swift/RunTrax/RunTrax/RunTrax/Run%20Pages/Past%20Runs/PastRunsViewController.swift"
+                  timestampString = "576949722.644479"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "253">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunTrax/Login and Signup/SignUpViewController.swift"
+            timestampString = "576951896.911736"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "usernameCheck(username:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RunTrax.SignUpViewController.usernameCheck(username: Swift.String) -&gt; ()"
+                  moduleName = "RunTrax"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Kelsey/Desktop/Swift/RunTrax/RunTrax/RunTrax/Login%20and%20Signup/SignUpViewController.swift"
+                  timestampString = "576951512.191447"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in RunTrax.SignUpViewController.usernameCheck(username: Swift.String) -&gt; ()"
+                  moduleName = "RunTrax"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Kelsey/Desktop/Swift/RunTrax/RunTrax/RunTrax/Login%20and%20Signup/SignUpViewController.swift"
+                  timestampString = "576951512.196026"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "86">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RunTrax/Login and Signup/SignUpViewController.swift"
+            timestampString = "576951896.913481"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
+            landmarkName = "ifNilCheck()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
