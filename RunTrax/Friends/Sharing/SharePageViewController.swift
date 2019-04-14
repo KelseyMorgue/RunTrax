@@ -50,10 +50,7 @@ class SharePageViewController: UIViewController, UITableViewDelegate {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func returnToMain(_ sender: Any) {
-        let nav = self.storyboard?.instantiateViewController(withIdentifier: "AccountNavigator") as! UINavigationController
-        self.present(nav,animated: true, completion: nil)
-    }
+
     func loadFriends()
     {
          self.userID = Auth.auth().currentUser
@@ -137,7 +134,13 @@ class SharePageViewController: UIViewController, UITableViewDelegate {
                     {
                         
                         let saveAlert = UIAlertController(title: "Run Shared 🏃🏾‍♀️", message: "You have successfully shared a run", preferredStyle: .actionSheet)
-                        saveAlert.addAction(UIAlertAction(title: "Okay", style: .cancel))
+                        saveAlert.addAction(UIAlertAction(title: "Okay, return to main screen", style: .cancel, handler:
+                            {
+                                action in
+                                let nav = self.storyboard?.instantiateViewController(withIdentifier: "AccountNavigator") as! UINavigationController
+                                self.present(nav,animated: true, completion: nil)
+                                
+                        }))
                         self.present(saveAlert, animated: true, completion: nil)
                     }
                 }

@@ -307,7 +307,6 @@ extension NewRunViewController: CLLocationManagerDelegate {
                 let lat = Double(lastLocation.coordinate.latitude)
                 let long = Double(lastLocation.coordinate.longitude)
                 runDictionary.updateValue([lat, long], forKey: index)
-               // print(runDictionary.values, "in if")
                 
                 
             }
@@ -316,9 +315,7 @@ extension NewRunViewController: CLLocationManagerDelegate {
             //runDictionary.updateValue([lat, long], forKey: i)
            
         }
-       // print(runDictionary.values, "out")
-        print(runDictionary, "here ya hoe")
-        //print(random)
+      
 
     }
     

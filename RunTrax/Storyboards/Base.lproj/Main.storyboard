@@ -269,10 +269,10 @@
             </objects>
             <point key="canvasLocation" x="1837.5999999999999" y="1041.2293853073463"/>
         </scene>
-        <!--directionsViewController-->
+        <!--Directions View Controller-->
         <scene sceneID="eSU-nf-sH9">
             <objects>
-                <viewController storyboardIdentifier="directionsViewController" title="directionsViewController" id="GVr-17-Ukh" customClass="DirectionsViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="directionsViewController" id="GVr-17-Ukh" customClass="DirectionsViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fyf-ap-kpx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -475,10 +475,10 @@
             </objects>
             <point key="canvasLocation" x="-1708" y="-21.139430284857571"/>
         </scene>
-        <!--Tracking Run-->
+        <!--New Run View Controller-->
         <scene sceneID="s7U-0G-nXs">
             <objects>
-                <viewController title="Tracking Run" id="Anw-lb-hPQ" customClass="NewRunViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Anw-lb-hPQ" customClass="NewRunViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vAf-nj-IpQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -747,19 +747,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNG-kO-svc">
-                                <rect key="frame" x="123" y="622" width="131" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="12"/>
-                                <state key="normal" title="Return to Main Menu">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="returnToMain:" destination="rDT-8L-4KK" eventType="touchUpInside" id="ZFZ-x6-tP0"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgb-w3-3YM">
-                                <rect key="frame" x="109" y="563" width="156" height="45"/>
+                                <rect key="frame" x="109" y="583" width="156" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="32"/>
                                 <state key="normal" title="Send Run"/>
@@ -780,10 +769,10 @@
             </objects>
             <point key="canvasLocation" x="536.79999999999995" y="1199.5502248875564"/>
         </scene>
-        <!--Account-->
+        <!--Account View Controller-->
         <scene sceneID="aFG-5x-HuJ">
             <objects>
-                <viewController title="Account" id="yuG-Wn-Ghs" customClass="AccountViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yuG-Wn-Ghs" customClass="AccountViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="htA-Sg-hem">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1219,7 +1208,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W9L-QS-5rW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="7IG-GL-wNI"/>
+                    <navigationItem key="navigationItem" id="7IG-GL-wNI"/>
                     <connections>
                         <outlet property="emailField" destination="DPX-WM-B1s" id="XZc-Bc-0by"/>
                         <outlet property="passwordField" destination="fl6-qr-N1o" id="SFQ-WC-GQr"/>
