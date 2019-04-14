@@ -278,25 +278,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zxe-xM-sKt">
-                                <rect key="frame" x="16" y="86" width="343" height="495"/>
+                                <rect key="frame" x="0.0" y="64" width="382" height="553"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="GVr-17-Ukh" id="GhJ-D0-PWa"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtR-vf-s5B">
-                                <rect key="frame" x="197" y="527" width="153" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="29"/>
-                                <state key="normal" title="Begin Run">
-                                    <color key="titleColor" red="0.0493264593079644" green="0.4461018458549223" blue="0.017838489857311117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="goButtonTapped:" destination="GVr-17-Ukh" eventType="touchUpInside" id="eLx-2H-kTl"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64E-bc-s6a">
-                                <rect key="frame" x="225" y="625" width="125" height="30"/>
+                                <rect key="frame" x="234" y="625" width="125" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="18"/>
                                 <state key="normal" title="Run Details">
@@ -306,19 +295,22 @@
                                     <action selector="detailsClicked:" destination="GVr-17-Ukh" eventType="touchUpInside" id="Asg-YY-M8i"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQe-8B-QvV">
-                                <rect key="frame" x="58" y="589" width="273" height="28"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtR-vf-s5B">
+                                <rect key="frame" x="16" y="619" width="153" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="29"/>
+                                <state key="normal" title="Begin Run">
+                                    <color key="titleColor" red="0.0493264593079644" green="0.4461018458549223" blue="0.017838489857311117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goButtonTapped:" destination="GVr-17-Ukh" eventType="touchUpInside" id="eLx-2H-kTl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zkO-3y-WU7"/>
                     </view>
                     <connections>
-                        <outlet property="addressLabel" destination="JQe-8B-QvV" id="wFI-bm-hIH"/>
                         <outlet property="goButton" destination="gtR-vf-s5B" id="MPx-zB-jct"/>
                         <outlet property="mapView" destination="Zxe-xM-sKt" id="VzV-0X-mBe"/>
                         <outlet property="runDetails" destination="64E-bc-s6a" id="3Z7-jB-alf"/>
@@ -326,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boo-TN-45j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2700" y="906"/>
+            <point key="canvasLocation" x="2700" y="905.3973013493254"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="22F-Hu-cDg">
