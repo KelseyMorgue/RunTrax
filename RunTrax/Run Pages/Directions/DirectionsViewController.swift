@@ -32,14 +32,15 @@ class DirectionsViewController: UIViewController {
     var directionsArray: [MKDirections] = []
     var coordinateArray = [CLLocationCoordinate2D]()
     var locationList = [CLLocation]()
-    
+    var installedNavigationApps : [String] = ["Apple Maps"] // Apple Maps is always installed
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.showsUserLocation = true
         centerViewOnUserLocation()
-        // loadMap()
         checkLocationServices()
+        getRunInformation()
         
     }
     
@@ -118,7 +119,6 @@ class DirectionsViewController: UIViewController {
     func getCenterLocation(for mapView: MKMapView) -> CLLocation {
         let latitude = mapView.centerCoordinate.latitude
         let longitude = mapView.centerCoordinate.longitude
-        
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
@@ -126,9 +126,7 @@ class DirectionsViewController: UIViewController {
     {
        // print(runKey, "this is the runkey")
       //  ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
-            ref.child("runs/-LcRruavO3FqK8QKtJtY").observeSingleEvent(of: .value, with: { (snapshot) in
-
-            
+            ref.child("runs/-LcJUm9Xm3ciy_VwouIA").observeSingleEvent(of: .value, with: { (snapshot) in
             if let value = snapshot.value as? NSDictionary
             {
                 if let location = value["location"] as? NSArray
@@ -149,22 +147,7 @@ class DirectionsViewController: UIViewController {
             
         })
     }
-    
-    func loadMap()
-    {
-        
-        
-        //idk it mad
-        //self.addRouteToMap(locations: self.locationList)
-        
-        //                        for route in self.locationList
-        //                        {
-        //                            self.mapView.addOverlay(route.polyline)
-        //                            self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-        //                        }
-        
-    }
-    
+
     //TODO: Change to get the directions from a queried run (from runkey)
     func getDirections()
     {
@@ -182,7 +165,7 @@ class DirectionsViewController: UIViewController {
         
         if locationList.count > 0
         {
-            if location.distance(from: locationList[0]) < 10000
+            if location.distance(from: locationList[0]) < 10
             {
                 for coordinates in coordinateArray
                 {
@@ -192,7 +175,7 @@ class DirectionsViewController: UIViewController {
                     resetMapView(withNew: directions)
                     directions.calculate { [unowned self] (response, error) in
                         //TODO: Handle error if needed
-                        if let response = response  //TODO: Show response not available in an alert
+                        if let response = response
                         {
                             for route in response.routes {
                                 self.mapView.addOverlay(route.polyline)
@@ -200,7 +183,6 @@ class DirectionsViewController: UIViewController {
                                 
                                 
                                 //here for direction steps
-                                //TODO: make it so it doesn't print any empty ones
                                 for step in route.steps
                                 {
                                     self.routeSteps.append(step.instructions)
@@ -211,30 +193,69 @@ class DirectionsViewController: UIViewController {
                         }
                     }
                     
-                }
-                let startAnnotation = MKPointAnnotation()
-                startAnnotation.coordinate = locationList.first!.coordinate
-                startAnnotation.title = "Start"
+                    let startAnnotation = MKPointAnnotation()
+                    startAnnotation.coordinate = locationList.first!.coordinate
+                    startAnnotation.title = "Start"
+                    
+                    let finishAnnotation = MKPointAnnotation()
+                    startAnnotation.coordinate = locationList.last!.coordinate
+                    startAnnotation.title = "Finish!"
+                    
+                    mapView.addAnnotation(startAnnotation)
+                    mapView.addAnnotation(finishAnnotation) }
                 
-                let finishAnnotation = MKPointAnnotation()
-                startAnnotation.coordinate = locationList.last!.coordinate
-                startAnnotation.title = "Finish!"
-                
-                mapView.addAnnotation(startAnnotation)
-                mapView.addAnnotation(finishAnnotation)
                         }
-                        
-            
-            
-            
+            else
+            {
+                print("in the else")
+                
+                
+                let center = getCenterLocation(for: mapView)
+                geoCoder.cancelGeocode()
+                
+                geoCoder.reverseGeocodeLocation(center) { [weak self] (placemarks, error) in
+                    
+                //geoC
+                    
+                    guard let self = self else { return }
+                    
+                    if let _ = error {
+                        //TODO: Show alert informing the user
+                        return
+                    }
+                    
+                    guard let placemark = placemarks?.first else {
+                        //TODO: Show alert informing the user
+                        return
+                    }
+                    
+                    let country = placemark.country ?? ""
+                    let streetNumber = placemark.subThoroughfare ?? ""
+                    let streetName = placemark.thoroughfare ?? ""
+                    let cityName = placemark.locality ?? ""
+                    let postalcode = placemark.postalCode ?? ""
+                    let locality = placemark.subLocality ?? ""
+                    
+                 
+                    DispatchQueue.main.async {
+                     
+                       let address = "\(streetNumber) \(streetName) \(cityName) \(postalcode) \(country)"
+                        print(address, "here is address")
+                    }
+                }
+                
+                
+                let alert = UIAlertController(title: "You are not at the starting location", message: "Please procede to the starting location ", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Okay", style: .cancel))
+                self.present(alert, animated: true, completion: nil)
+                
+                
+//
+            }
         }
             
-        else
-        {
-            //let them know whats up with alert probably
-            //give them mappable direction thing for google
-        }
         
+    
         
         
     }
@@ -272,7 +293,7 @@ class DirectionsViewController: UIViewController {
     
     
     @IBAction func goButtonTapped(_ sender: Any) {
-        getRunInformation()
+        //getRunInformation()
         getDirections()
     }
     
@@ -333,7 +354,7 @@ extension DirectionsViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay as! MKPolyline)
         renderer.strokeColor = UIColor.black
-        renderer.lineWidth = 10
+        renderer.lineWidth = 5
         return renderer
     }
 }
