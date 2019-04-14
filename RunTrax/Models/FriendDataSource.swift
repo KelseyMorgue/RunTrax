@@ -27,16 +27,11 @@ class FriendDataSource: NSObject, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as! FriendsTableViewCell
+        
+        cell.addButtonOn = found
         cell.friendItem = friends[indexPath.row]
         
-        if found
-        {
-            cell.addButtonOn = true
-            return cell
-        }
-        cell.addButtonOn = false
         return cell
-        
     }
     
     

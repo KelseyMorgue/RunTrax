@@ -22,10 +22,12 @@ class FriendsTableViewCell: UITableViewCell {
     {
         didSet
         {
-            if addButtonOn == true{
+            if addButtonOn
+            {
                 addButton.isHidden = false
             }
-            else{
+            else
+            {
                 addButton.isHidden = true
             }
             loadFriend()
@@ -64,23 +66,17 @@ class FriendsTableViewCell: UITableViewCell {
             let placeHolderImage = UIImage(named: "default")
             friendsProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)
             
-            
-            
         }
     }
     
     
     //adds new friend to user's friendlist
-    @IBAction func addButtonClicked(_ sender: UIButton) {
-        
+    @IBAction func addButtonClicked(_ sender: UIButton)
+    {
         self.userID = Auth.auth().currentUser
         
         //update child id for friends --> pass id of user
         let key = ref.childByAutoId().key
-        
-      //  let key = ref.child("friends").childByAutoId()
-        
-        
         
         let updateUser = ["/\(userID!.uid)/friends/\(key ?? "not here ")/" : friendItem.id]
         
@@ -93,11 +89,6 @@ class FriendsTableViewCell: UITableViewCell {
                 
             }
         }
-        
-        //FriendsListViewController.friendList.append(FriendsItem(name: friendItem.name, imageUrl: friendItem.imageUrl, id: friendItem.id))
-
     }
-    
-    
     
 }

@@ -49,13 +49,9 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate, UITableV
                 self.friendList = friends
                 self.tableView.dataSource = self.data
             }
-            
         }
         searchBar.delegate = self
-        
-        
-        
-        
+       
         //call something to load current friends
         
         let allUsers = ref.child("users").child("username")
@@ -77,15 +73,13 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate, UITableV
         }
         self.userID = Auth.auth().currentUser
         
-        
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let nav = self.storyboard?.instantiateViewController(withIdentifier: "friendAccount") as! FriendAccountViewController
         
-        nav.friend = friendList[indexPath.row]
+        nav.friend = data?.friends[indexPath.row]
         
         self.present(nav,animated: true, completion: nil)
     }
@@ -132,13 +126,13 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate, UITableV
                             let username = userValues?["username"] as? String ?? "yeet"
                             let imageUrl = userValues?["profileImageUrl"] as? String ?? "noppers"
                             
-                            
                             self.queryForRuns(friendID: currentKey){ (runTotal) -> () in
                                 print("Result for runs is: \(runTotal)")
                                 newFriends.append(FriendsItem(name: username, imageUrl: imageUrl, id: currentKey, runCount: runTotal))
                                 DispatchQueue.main.async
                                     {
                                     self.data = FriendDataSource(friends: newFriends, found: true)
+                                    self.foundFriends = newFriends
                                     self.tableView.reloadData()
                                 }
                             }
@@ -151,7 +145,6 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate, UITableV
             }
         })
     }
-    
     
     func loadFriends(completion: @escaping ([FriendsItem]) -> Void)
     {
