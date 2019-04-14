@@ -73,13 +73,13 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
 
         ref.child("users").child(userID?.uid ?? "derp").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let value = snapshot.value as? NSDictionary
-            let username = value?["username"] as? String ?? "yeet"
-            self.usernameLabel.text = "Username: \(username)"
-            }) { (error) in
-                print("hello error")
-            print(error.localizedDescription)
-        }
+            if let value = snapshot.value as? NSDictionary
+            {
+                let username = value["username"] as? String ?? "yeet"
+                self.usernameLabel.text = "Username: \(username)"
+            }
+    
+            })
     }
     
     
@@ -100,8 +100,9 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     func displayRuns()
     {
         ref.child("users").child(userID?.uid ?? "didn't work").child("runs").observeSingleEvent(of: .value, with: {(snapshot) in
-            let count = snapshot.childrenCount
+           let count = snapshot.childrenCount
             self.runLabel.text = "Total Runs: \(count)"
+            
         })
     }
     

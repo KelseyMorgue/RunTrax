@@ -30,13 +30,13 @@ class PastRunsViewController: UIViewController, UITableViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         getRuns()
+        getRuns()
         // Do any additional setup after loading the view.
         
     }
     
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-     {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
         let nav = self.storyboard?.instantiateViewController(withIdentifier: "directionsViewController") as! DirectionsViewController
         
         nav.runKey = pastRunsList[indexPath.row].id
@@ -64,42 +64,36 @@ class PastRunsViewController: UIViewController, UITableViewDelegate{
         //
         ref.child("users").child(userID?.uid ?? "no users here").child("runs").observeSingleEvent(of: .value){(snapshot) in
             
-//            for _ in snapshot.children
-//            {
-                let value = snapshot.value as? NSDictionary
-                let runKeys = value?.allKeys as! [String]
-            /*
-             let userKeys = value?.allKeys as? [String]
-             
-             //make guard statement about checking users exist
-             for currentKey in userKeys!
-             {
-             let userValues = value?[currentKey] as? NSDictionary
-             
-             */
-            
-            
-            
-            for current in runKeys{
+            //            for _ in snapshot.children
+            //            {
+            if let value = snapshot.value as? NSDictionary
+            {
+               if let runKeys = value.allKeys as? [String]
+               {
                 
-                let userValues = value?[current] as? NSDictionary
-
-                let date = userValues?["date"] as? String ?? "yeet"
-                let distance = userValues?["mileage"] as? String ?? "yeet"
-                let time = userValues?["time"] as? String ?? "yeet"
-                let id = userValues?["id"] as? String ?? "yeet"
-                self.pastRunsList.append(PastRunItem(date: date, distance: distance, time: time, id: id))
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+                for current in runKeys{
+                    
+                    let userValues = value[current] as? NSDictionary
+                    
+                    let date = userValues?["date"] as? String ?? "yeet"
+                    let distance = userValues?["mileage"] as? String ?? "yeet"
+                    let time = userValues?["time"] as? String ?? "yeet"
+                    let id = userValues?["id"] as? String ?? "yeet"
+                    self.pastRunsList.append(PastRunItem(date: date, distance: distance, time: time, id: id))
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+                
+                
             }
-            }
-//            }
+                
             
-            
+            self.tableView.endUpdates()
+        }
         }
         
-        self.tableView.endUpdates()
-       
+        
     }
     
 }
@@ -107,7 +101,7 @@ class PastRunsViewController: UIViewController, UITableViewDelegate{
 extension PastRunsViewController: UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        
         return pastRunsList.count
     }
     
@@ -118,7 +112,7 @@ extension PastRunsViewController: UITableViewDataSource
         cell.distanceLabel?.text = run.distance
         cell.dateLabel?.text = run.date
         cell.timeLabel?.text = run.time
-
+        
         return cell
         
         /*

@@ -60,9 +60,10 @@ class SharePageViewController: UIViewController, UITableViewDelegate {
         self.tableView.beginUpdates()
         ref.child("users").child(userID?.uid ?? "no users here").child("friends").observeSingleEvent(of: .value){(snapshot) in
             
-            let value = snapshot.value as? NSDictionary
-            let friendKeys = value?.allValues as! [String]
-            
+           if let value = snapshot.value as? NSDictionary
+           {
+            if let friendKeys = value.allValues as? [String]
+            {
             for current in friendKeys
             {
                 self.ref.child("users").child(current).observeSingleEvent(of: .value)
@@ -85,6 +86,9 @@ class SharePageViewController: UIViewController, UITableViewDelegate {
             }
             
             self.tableView.endUpdates()
+            }
+            }
+            
             
         }
     }

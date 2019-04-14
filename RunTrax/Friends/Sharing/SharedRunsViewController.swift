@@ -60,40 +60,33 @@ class SharedRunsViewController: UIViewController, UITableViewDelegate {
             
             //            for _ in snapshot.children
             //            {
-            let value = snapshot.value as? NSDictionary
-            let runKeys = value?.allKeys as! [String]
-            /*
-             let userKeys = value?.allKeys as? [String]
-             
-             //make guard statement about checking users exist
-             for currentKey in userKeys!
-             {
-             let userValues = value?[currentKey] as? NSDictionary
-             
-             */
-            
-            
-            
-            for current in runKeys{
-                
-                let userValues = value?[current] as? NSDictionary
-               let distance = userValues?["mileage"] as? String ?? "yeeet"
-                let imageUrl = userValues?["time"] as? String ?? "yeet"
-                let id = userValues?["id"] as? String ?? "yeet"
-                let username = userValues?["username"] as? String ?? "yeet"
-                
-                self.sharedRunsList.append(SharedRunItem(distance: distance, id: id, imageUrl: imageUrl, username: username))
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+            if let value = snapshot.value as? NSDictionary
+            {
+               if let runKeys = value.allKeys as? [String]
+               {
+                for current in runKeys{
+                    
+                    let userValues = value[current] as? NSDictionary
+                    let distance = userValues?["mileage"] as? String ?? "yeeet"
+                    let imageUrl = userValues?["time"] as? String ?? "yeet"
+                    let id = userValues?["id"] as? String ?? "yeet"
+                    let username = userValues?["username"] as? String ?? "yeet"
+                    
+                    self.sharedRunsList.append(SharedRunItem(distance: distance, id: id, imageUrl: imageUrl, username: username))
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
+                //            }
+                
+                
             }
-            //            }
             
-            
+            self.tableView.endUpdates()
+            }
         }
-        
-        self.tableView.endUpdates()
+            
         
     }
     

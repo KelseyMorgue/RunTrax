@@ -47,19 +47,23 @@ class RunOverviewViewController: UIViewController {
     {
         ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
             
-            let value = snapshot.value as? NSDictionary
-            let location = value?["location"] as? NSArray
-            let count = location!.count
+           if let value = snapshot.value as? NSDictionary
+           {
+            if let location = value["location"] as? NSArray
+            {
+            let count = location.count
             for index in 1 ..< count
             {
-                let temp = location![index] as! [Double]
-//
+                let temp = location[index] as! [Double]
+                //
                 self.locationList.append(CLLocation(latitude: temp[0], longitude: temp[1]))
-//
+                //
                 
             }
             
             self.addRouteToMap(locations: self.locationList)
+            }
+            }
             
 //            for route in self.locationList
 //            {
@@ -83,21 +87,19 @@ class RunOverviewViewController: UIViewController {
     private func loadFields() -> Void
     {
         ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            let distance = value?["mileage"] as? String ?? "yeet"
+             if let value = snapshot.value as? NSDictionary
+             {
+            let distance = value["mileage"] as? String ?? "yeet"
             self.distanceLabel.text = "Total Distance: \(distance)"
-            let time = value?["time"] as? String ?? "nopers"
+            let time = value["time"] as? String ?? "nopers"
             self.timeLabel.text = "Total Time: \(time)"
-            let pace = value?["pace"] as? String ?? "ahhhh"
+            let pace = value["pace"] as? String ?? "ahhhh"
             self.paceLabel.text = "Pace: \(pace)"
-            let date = value?["date"] as? String ?? "lol"
+            let date = value["date"] as? String ?? "lol"
             self.dateLabel.text = "Date: \(date)"
+            }
             
-        }) { (error) in
-            print("hello error")
-            print(error.localizedDescription)
-        }
-    }
+        })     }
     
     
     @IBAction func shareMenu()

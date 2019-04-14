@@ -26,12 +26,12 @@
                   moduleName = "RunTrax"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Kelsey/Desktop/Swift/RunTrax/RunTrax/RunTrax/Run%20Pages/Directions/DirectionsViewController.swift"
-                  timestampString = "576886096.263685"
+                  timestampString = "576902519.624647"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "133"
                   endingLineNumber = "133"
-                  offsetFromSymbolStart = "349">
+                  offsetFromSymbolStart = "324">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -41,12 +41,12 @@
                   moduleName = "RunTrax"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Kelsey/Desktop/Swift/RunTrax/RunTrax/RunTrax/Run%20Pages/Directions/DirectionsViewController.swift"
-                  timestampString = "576886096.266513"
+                  timestampString = "576902519.627466"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "135"
                   endingLineNumber = "135"
-                  offsetFromSymbolStart = "78">
+                  offsetFromSymbolStart = "244">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -70,7 +70,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/AccountViewController.swift"
@@ -86,7 +86,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/AccountViewController.swift"
@@ -97,44 +97,12 @@
             endingLineNumber = "116"
             landmarkName = "displayMileage()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RunTrax.AccountViewController.displayMileage() -&gt; ()"
-                  moduleName = "RunTrax"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Kelsey/Desktop/Swift/RunTrax/RunTrax/RunTrax/AccountViewController.swift"
-                  timestampString = "576886096.288449"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "116"
-                  endingLineNumber = "116"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in RunTrax.AccountViewController.displayMileage() -&gt; ()"
-                  moduleName = "RunTrax"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Kelsey/Desktop/Swift/RunTrax/RunTrax/RunTrax/AccountViewController.swift"
-                  timestampString = "576886096.291054"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117"
-                  offsetFromSymbolStart = "56">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTrax/AccountViewController.swift"
