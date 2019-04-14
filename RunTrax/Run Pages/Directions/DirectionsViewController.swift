@@ -32,7 +32,6 @@ class DirectionsViewController: UIViewController {
     var directionsArray: [MKDirections] = []
     var coordinateArray = [CLLocationCoordinate2D]()
     var locationList = [CLLocation]()
-    var installedNavigationApps : [String] = ["Apple Maps"] // Apple Maps is always installed
 
     
     override func viewDidLoad() {
@@ -112,7 +111,7 @@ class DirectionsViewController: UIViewController {
         mapView.showsUserLocation = true
         centerViewOnUserLocation()
         locationManager.startUpdatingLocation()
-        previousLocation = getCenterLocation(for: mapView)
+        //previousLocation = getCenterLocation(for: mapView)
     }
     
     
@@ -126,7 +125,7 @@ class DirectionsViewController: UIViewController {
     {
        // print(runKey, "this is the runkey")
       //  ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
-            ref.child("runs/-LcJUm9Xm3ciy_VwouIA").observeSingleEvent(of: .value, with: { (snapshot) in
+            ref.child("runs/-LcT7ixFd8IWrztfSDZL").observeSingleEvent(of: .value, with: { (snapshot) in
             if let value = snapshot.value as? NSDictionary
             {
                 if let location = value["location"] as? NSArray
@@ -147,6 +146,21 @@ class DirectionsViewController: UIViewController {
             
         })
     }
+    
+    func addAnnotations()
+    {
+        let startAnnotation = MKPointAnnotation()
+        startAnnotation.coordinate = locationList.first!.coordinate
+        startAnnotation.title = "Start"
+        mapView.addAnnotation(startAnnotation)
+        
+        let finishAnnotation = MKPointAnnotation()
+        startAnnotation.coordinate = locationList.last!.coordinate
+        startAnnotation.title = "Finish!"
+        
+        print(startAnnotation.coordinate, "idk i guess")
+        mapView.addAnnotation(finishAnnotation)
+    }
 
     //TODO: Change to get the directions from a queried run (from runkey)
     func getDirections()
@@ -161,11 +175,12 @@ class DirectionsViewController: UIViewController {
             return
         }
         
+       // let check = location.distance(from: locationList[0])
         //start run
         
         if locationList.count > 0
         {
-            if location.distance(from: locationList[0]) < 10
+            if location.distance(from: locationList[0]) < 100
             {
                 for coordinates in coordinateArray
                 {
@@ -192,66 +207,26 @@ class DirectionsViewController: UIViewController {
                             }
                         }
                     }
+                   
                     
-                    let startAnnotation = MKPointAnnotation()
-                    startAnnotation.coordinate = locationList.first!.coordinate
-                    startAnnotation.title = "Start"
                     
-                    let finishAnnotation = MKPointAnnotation()
-                    startAnnotation.coordinate = locationList.last!.coordinate
-                    startAnnotation.title = "Finish!"
-                    
-                    mapView.addAnnotation(startAnnotation)
-                    mapView.addAnnotation(finishAnnotation) }
+                }
                 
                         }
             else
             {
                 print("in the else")
                 
-                
-                let center = getCenterLocation(for: mapView)
-                geoCoder.cancelGeocode()
-                
-                geoCoder.reverseGeocodeLocation(center) { [weak self] (placemarks, error) in
-                    
-                //geoC
-                    
-                    guard let self = self else { return }
-                    
-                    if let _ = error {
-                        //TODO: Show alert informing the user
-                        return
-                    }
-                    
-                    guard let placemark = placemarks?.first else {
-                        //TODO: Show alert informing the user
-                        return
-                    }
-                    
-                    let country = placemark.country ?? ""
-                    let streetNumber = placemark.subThoroughfare ?? ""
-                    let streetName = placemark.thoroughfare ?? ""
-                    let cityName = placemark.locality ?? ""
-                    let postalcode = placemark.postalCode ?? ""
-                    let locality = placemark.subLocality ?? ""
-                    
-                 
-                    DispatchQueue.main.async {
-                     
-                       let address = "\(streetNumber) \(streetName) \(cityName) \(postalcode) \(country)"
-                        print(address, "here is address")
-                    }
-                }
-                
-                
-                let alert = UIAlertController(title: "You are not at the starting location", message: "Please procede to the starting location ", preferredStyle: .actionSheet)
+                let alert = UIAlertController(title: "You are not at the starting location", message: "Please procede to the starting location \(self.locationList.first!.coordinate)", preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Okay", style: .cancel))
                 self.present(alert, animated: true, completion: nil)
                 
                 
 //
             }
+            addAnnotations()
+
+            
         }
             
         
@@ -311,44 +286,44 @@ extension DirectionsViewController: CLLocationManagerDelegate {
 
 extension DirectionsViewController: MKMapViewDelegate {
     
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        let center = getCenterLocation(for: mapView)
-        
-        guard let previousLocation = self.previousLocation else { return }
-        
-        guard center.distance(from: previousLocation) > 10 else { return }
-        self.previousLocation = center
-        
-        geoCoder.cancelGeocode()
-        
-        geoCoder.reverseGeocodeLocation(center) { [weak self] (placemarks, error) in
-            guard let self = self else { return }
-            
-            if let _ = error {
-                //TODO: Show alert informing the user
-                return
-            }
-            
-            guard let placemark = placemarks?.first else {
-                //TODO: Show alert informing the user
-                return
-            }
-            
-            let streetNumber = placemark.subThoroughfare ?? ""
-            let streetName = placemark.thoroughfare ?? ""
-            let cityName = placemark.locality ?? ""
-            print("Here!!!!!: \(streetName)")
-            print(streetNumber)
-            print(cityName)
-            
-            DispatchQueue.main.async {
-                print(streetName)
-                print(streetNumber)
-                print(cityName)
-                self.addressLabel.text = "\(streetNumber) \(streetName) \(cityName)"
-            }
-        }
-    }
+//    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+//        let center = getCenterLocation(for: mapView)
+//
+//        guard let previousLocation = self.previousLocation else { return }
+//
+//        guard center.distance(from: previousLocation) > 10 else { return }
+//        self.previousLocation = center
+//
+//        geoCoder.cancelGeocode()
+//
+//        geoCoder.reverseGeocodeLocation(center) { [weak self] (placemarks, error) in
+//            guard let self = self else { return }
+//
+//            if let _ = error {
+//                //TODO: Show alert informing the user
+//                return
+//            }
+//
+//            guard let placemark = placemarks?.first else {
+//                //TODO: Show alert informing the user
+//                return
+//            }
+//
+//            let streetNumber = placemark.subThoroughfare ?? ""
+//            let streetName = placemark.thoroughfare ?? ""
+//            let cityName = placemark.locality ?? ""
+//            print("Here!!!!!: \(streetName)")
+//            print(streetNumber)
+//            print(cityName)
+//
+//            DispatchQueue.main.async {
+//                print(streetName)
+//                print(streetNumber)
+//                print(cityName)
+//                self.addressLabel.text = "\(streetNumber) \(streetName) \(cityName)"
+//            }
+//        }
+//    }
     
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
