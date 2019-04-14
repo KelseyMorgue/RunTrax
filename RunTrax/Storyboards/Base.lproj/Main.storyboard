@@ -781,9 +781,6 @@
                                 <rect key="frame" x="97" y="140" width="180" height="217"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="neT-HS-eei" appends="YES" id="8Cd-nw-yog"/>
-                                </connections>
                             </imageView>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zs8-EY-nj4">
                                 <rect key="frame" x="37" y="365" width="279" height="70"/>
@@ -830,11 +827,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yDE-FS-GEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="neT-HS-eei">
-                    <connections>
-                        <action selector="selectedImage:" destination="yuG-Wn-Ghs" id="sD9-gQ-lRX"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="500" y="-571.66416791604206"/>
         </scene>

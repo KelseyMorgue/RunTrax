@@ -15,10 +15,7 @@ import FirebaseUI
 
 class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    //User inputted
     @IBOutlet weak var profilePicture: UIImageView!
-    
-    //From Database
     @IBOutlet weak var runLabel: UILabel!
     @IBOutlet weak var mileageLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -34,11 +31,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // self.ref = Database.database().reference().child("users")
-        
-        
-        
-    }
+  }
     
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
@@ -73,7 +66,6 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             
         })
     }
-    
     
     
     //sets up DB to pull current user's profile picture
@@ -136,36 +128,62 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     //stuff for choosing the image
     // TODO Update the new image into the database
     
-    @IBAction func selectedImage(_ sender: UITapGestureRecognizer) {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.sourceType = .photoLibrary
-        imagePickerController.delegate = self
-        imagePickerController.allowsEditing = true
-        present(imagePickerController, animated: true, completion: nil)
-        
-    }
-    
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        // Dismiss the picker if the user canceled.
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        var selectedImage: UIImage?
-        
-        // this changes image to what user crops it too
-        if let editedImage = info[.editedImage] as? UIImage {
-            selectedImage = editedImage
-            self.profilePicture.image = selectedImage!
-            picker.dismiss(animated: true, completion: nil)
-        } else if let originalImage = info[.originalImage] as? UIImage {
-            selectedImage = originalImage
-            self.profilePicture.image = selectedImage!
-            picker.dismiss(animated: true, completion: nil)
-        }
-    }
+//    @IBAction func selectedImage(_ sender: UITapGestureRecognizer) {
+//        let imagePickerController = UIImagePickerController()
+//        imagePickerController.sourceType = .photoLibrary
+//        imagePickerController.delegate = self
+//        imagePickerController.allowsEditing = true
+//        present(imagePickerController, animated: true, completion: nil)
+//        updatePicture()
+//
+//        
+//        
+//    }
+//    
+//    func updatePicture()
+//    {
+//        let imageName = "userImage.png"
+//        let storageRef = Storage.storage().reference().child("profile_images/\(userID.uid)/\(imageName)")
+//        if let uploadData = self.profilePicture.image!.pngData() {
+//            storageRef.putData(uploadData, metadata: nil, completion: { (_, err) in
+//                if let err = err {
+//                    print(err, "there is an error here")
+//                    return
+//                }
+//                storageRef.downloadURL(completion: { (url, err) in
+//                    if let err = err {
+//                        print(err, "there is another error here")
+//                        return
+//                    }
+//                }
+//                )}
+//            )}
+//        
+//    }
+//    
+//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//        // Dismiss the picker if the user canceled.
+//        dismiss(animated: true, completion: nil)
+//    }
+//    
+//    func imagePickerController(_ picker: UIImagePickerController,
+//                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//        var selectedImage: UIImage?
+//        
+//        // this changes image to what user crops it too
+//        if let editedImage = info[.editedImage] as? UIImage {
+//            selectedImage = editedImage
+//            self.profilePicture.image = selectedImage!
+//            picker.dismiss(animated: true, completion: nil)
+//
+//        } else if let originalImage = info[.originalImage] as? UIImage {
+//            selectedImage = originalImage
+//            self.profilePicture.image = selectedImage!
+//            picker.dismiss(animated: true, completion: nil)
+//            
+//        }
+//
+//    }
     
     
     
