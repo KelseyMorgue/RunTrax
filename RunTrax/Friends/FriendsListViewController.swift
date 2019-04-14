@@ -67,7 +67,7 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate
     {
         let nav = self.storyboard?.instantiateViewController(withIdentifier: "friendAccount") as! FriendAccountViewController
         
-//        nav.runKey = sharedRunsList[indexPath.row].id
+//        nav.friendKey = friendList[indexPath.row].id
         self.present(nav,animated: true, completion: nil)
     }
     
@@ -105,8 +105,9 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate
                        // {
                             let username = userValues?["username"] as? String ?? "yeet"
                             let imageUrl = userValues?["profileImageUrl"] as? String ?? "noppers"
+                            let count = self.queryForRuns(friendID: currentKey)
         
-                            self.foundFriends.append(FriendsItem(name: username, imageUrl: imageUrl, id: currentKey))
+                        self.foundFriends.append(FriendsItem(name: username, imageUrl: imageUrl, id: currentKey, runCount: count))
                         //}
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
@@ -173,8 +174,9 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate
                     let name = friendValue?["username"] as? String ?? "yeet"
                     let imageUrl = friendValue?["profileImageUrl"] as? String ?? "yeet"
                     let id = current
+                    let count = self.queryForRuns(friendID: current);
                     
-                    self.friendList.append(FriendsItem(name: name, imageUrl: imageUrl, id: id))
+                    self.friendList.append(FriendsItem(name: name, imageUrl: imageUrl, id: id, runCount: count))
                     DispatchQueue.main.async
                         {
                             self.tableView.reloadData()
@@ -186,8 +188,18 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate
             self.tableView.endUpdates()
             
         }
+    }
+    
+    private func queryForRuns(friendID : String) -> Int
+    {
+        var runCount = 0
+
+        ref.child("users").child(friendID).child("runs").observeSingleEvent(of: .value, with: {(snapshot) in
+            let count = snapshot.childrenCount
+            runCount = Int(count)
+        })
         
-     
+        return runCount
     }
     
 }

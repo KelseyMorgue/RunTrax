@@ -12,29 +12,70 @@ import MapKit
 import CoreLocation
 import Firebase
 
-class FriendAccountViewController: UIViewController {
+class FriendAccountViewController: UIViewController
+{
 
-    var friendKey : String?
+    var friend : FriendsItem?
+    {
+        didSet
+        {
+            loadFriendProfile()
+        }
+    }
     
     @IBOutlet weak var friendProfilePicture: UIImageView!
     @IBOutlet weak var friendUsername: UILabel!
     @IBOutlet weak var friendRuns: UILabel!
     @IBOutlet weak var friendMileage: UILabel!
-    override func viewDidLoad() {
+    
+    let ref = Database.database().reference()
+    let storage = Storage.storage()
+    var handle : AuthStateDidChangeListenerHandle!
+    var userID : User!
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        handle = Auth.auth().addStateDidChangeListener
+            { (auth, user) in
+                
+                if Auth.auth().currentUser == nil
+                {
+                    //TODO: force relogin
+                }
+                // ...
+        }
+        self.userID = Auth.auth().currentUser
+        
+    }
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    
+    private func loadFriendProfile()
+    {
+        
+        
+        if friendProfilePicture != nil && friendRuns != nil && friendMileage != nil && friendUsername != nil
+        {
+            loadMoreInfo()
+            
+            friendUsername.text = friend?.name
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        }
     }
-    */
+    
+
+    private func loadMoreInfo()
+    {
+        let storageRef = storage.reference(withPath: "profile_images/\(friend?.id ?? "derp")/userImage.png")
+        let placeHolderImage = UIImage(named: "default")
+        friendProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)
+    }
+    
 
 }

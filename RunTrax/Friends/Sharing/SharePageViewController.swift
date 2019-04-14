@@ -73,8 +73,9 @@ class SharePageViewController: UIViewController, UITableViewDelegate {
                     let name = friendValue?["username"] as? String ?? "yeet"
                     let imageUrl = friendValue?["profileImageUrl"] as? String ?? "yeet"
                     let id = current
+                    let count = 0
                     
-                    self.sharedFriendList.append(FriendsItem(name: name, imageUrl: imageUrl, id: id))
+                    self.sharedFriendList.append(FriendsItem(name: name, imageUrl: imageUrl, id: id, runCount: count))
                     DispatchQueue.main.async
                         {
                             self.tableView.reloadData()
