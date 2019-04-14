@@ -107,18 +107,22 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     func displayMileage()
     {
-//        ref.child("users").child(userID?.uid ?? "didn't work").child("runs").observeSingleEvent(of: .value, with: {(snapshot) in
-//            let count = snapshot.childrenCount
-//            self.runLabel.text = "Mileage: \(count) miles  this is totally fake rn"
-//        })
-       // var sum = 0
+        var sum = 0
 
         ref.child("users").child(userID?.uid ?? "didn't work").child("runs").observeSingleEvent(of: .value, with: {(snapshot) in
-            let data = snapshot.childSnapshot(forPath: "mileage")
-           
-            print(data, "outside sum")
-            self.mileageLabel.text = "Total Mileage: \(data) miles"
+           let runValues = snapshot.value as? NSDictionary
+           if let runKeys = runValues?.allKeys as? [String]
+           {
+                for current in runKeys
+                {
+                    let userValues = runValues?[current] as? NSDictionary
+                    let distance = userValues?["mileage"] as? Int ?? 0
+                    sum += distance
+                }
+            }
+
         })
+        mileageLabel.text = "Total Mileage: \(sum) miles"
     }
 
     
