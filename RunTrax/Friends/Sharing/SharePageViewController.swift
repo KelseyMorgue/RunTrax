@@ -101,7 +101,7 @@ class SharePageViewController: UIViewController, UITableViewDelegate {
         {
             for row in selection
             {
-                if let currentFriend = (tableView.cellForRow(at: row) as! SharePageTableViewCell).FriendsItem
+                if let currentFriend = (tableView.cellForRow(at: row) as! SharePageTableViewCell).sharedFriend
                 {
                     selectedFriends.append(currentFriend)
                 }
@@ -125,11 +125,14 @@ class SharePageViewController: UIViewController, UITableViewDelegate {
                     (error:Error?, ref:DatabaseReference) in
                     if let error = error
                     {
-                        print("Data could not be saved: \(error)")
+                        let saveAlert = UIAlertController(title: "Run Not Shared 😿!", message: "Your run did not share", preferredStyle: .actionSheet)
+                        self.present(saveAlert, animated: true, completion: nil)
                     }
                     else
                     {
-                        print("Data saved@@@!!!")
+                        
+                        let saveAlert = UIAlertController(title: "Run Shared 🏃🏾‍♀️!", message: "You have successfully shared a run", preferredStyle: .actionSheet)
+                        self.present(saveAlert, animated: true, completion: nil)
                     }
                 }
             }
@@ -220,7 +223,7 @@ extension SharePageViewController: UITableViewDataSource
          if sharedFriendList.count > 0
         {
             
-           cell.FriendsItem = sharedFriendList[indexPath.row]
+           cell.sharedFriend = sharedFriendList[indexPath.row]
             
             return cell
             

@@ -17,21 +17,21 @@ class SharePageTableViewCell: UITableViewCell {
     @IBOutlet weak var friendsProfilePicture: UIImageView!
     @IBOutlet weak var friendsUsername: UILabel!
     
-        var FriendsItem : FriendsItem!
+    var sharedFriend : FriendsItem!
     {
         didSet
         {
             loadFriend()
         }
     }
+    
     var ref = Database.database().reference()
     // Get a reference to the storage service using the default Firebase App
     let storage = Storage.storage()
     var handle : AuthStateDidChangeListenerHandle!
     var userID : User!
     var shareRunKey : String?
-    var sharedFriend : FriendsItem?
-
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,10 +46,10 @@ class SharePageTableViewCell: UITableViewCell {
     }
     func loadFriend()
     {
-        if FriendsItem != nil && friendsUsername != nil && friendsProfilePicture != nil
+        if sharedFriend != nil && friendsUsername != nil && friendsProfilePicture != nil
         {
             
-            friendsUsername.text = FriendsItem.name
+            friendsUsername.text = sharedFriend?.name
             
             //TODO: query on user, for the friends that equals that id
             let storageRef = storage.reference(withPath: "profile_images/\(sharedFriend?.id ?? "derp")/userImage.png")
