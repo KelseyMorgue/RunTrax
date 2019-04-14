@@ -39,7 +39,6 @@ class DirectionsViewController: UIViewController {
         mapView.showsUserLocation = true
         centerViewOnUserLocation()
         // loadMap()
-        // goButton.layer.cornerRadius = goButton.frame.size.height/2
         checkLocationServices()
         
     }
@@ -64,8 +63,12 @@ class DirectionsViewController: UIViewController {
             setupLocationManager()
             checkLocationAuthorization()
         } else {
-            // Show alert letting the user know they have to turn this on.
-        }
+            let alert = UIAlertController(title: "Location Services Must Be Turned On",
+                                          message: "Go to settings to turn on location",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(alert, animated: true, completion: nil)        }
     }
     
     
@@ -121,10 +124,10 @@ class DirectionsViewController: UIViewController {
     
     func getRunInformation()
     {
-        
+       // print(runKey, "this is the runkey")
+      //  ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
+            ref.child("runs/-LcRruavO3FqK8QKtJtY").observeSingleEvent(of: .value, with: { (snapshot) in
 
-        print(runKey, "this is the runkey")
-        ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
             
             if let value = snapshot.value as? NSDictionary
             {
@@ -189,36 +192,40 @@ class DirectionsViewController: UIViewController {
                     resetMapView(withNew: directions)
                     directions.calculate { [unowned self] (response, error) in
                         //TODO: Handle error if needed
-                        guard let response = response else { return } //TODO: Show response not available in an alert
-                        
-                        for route in response.routes {
-                            self.mapView.addOverlay(route.polyline)
-                            self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-                            
-                            
-                            //here for direction steps
-                            //TODO: make it so it doesn't print any empty ones
-                            for step in route.steps
-                            {
-                                self.routeSteps.append(step.instructions)
-                                print(step.instructions)
+                        if let response = response  //TODO: Show response not available in an alert
+                        {
+                            for route in response.routes {
+                                self.mapView.addOverlay(route.polyline)
+                                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
                                 
+                                
+                                //here for direction steps
+                                //TODO: make it so it doesn't print any empty ones
+                                for step in route.steps
+                                {
+                                    self.routeSteps.append(step.instructions)
+                                    print(step.instructions)
+                                    
+                                }
                             }
                         }
                     }
+                    
                 }
-            }
+                let startAnnotation = MKPointAnnotation()
+                startAnnotation.coordinate = locationList.first!.coordinate
+                startAnnotation.title = "Start"
+                
+                let finishAnnotation = MKPointAnnotation()
+                startAnnotation.coordinate = locationList.last!.coordinate
+                startAnnotation.title = "Finish!"
+                
+                mapView.addAnnotation(startAnnotation)
+                mapView.addAnnotation(finishAnnotation)
+                        }
+                        
             
-            let startAnnotation = MKPointAnnotation()
-            startAnnotation.coordinate = locationList.first!.coordinate
-            startAnnotation.title = "Start"
             
-            let finishAnnotation = MKPointAnnotation()
-            startAnnotation.coordinate = locationList.last!.coordinate
-            startAnnotation.title = "Finish!"
-            
-            mapView.addAnnotation(startAnnotation)
-            mapView.addAnnotation(finishAnnotation)
             
         }
             

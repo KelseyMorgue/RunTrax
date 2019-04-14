@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HjU-tw-Ngt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HjU-tw-Ngt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -268,10 +269,10 @@
             </objects>
             <point key="canvasLocation" x="1837.5999999999999" y="1041.2293853073463"/>
         </scene>
-        <!--directionsViewController-->
+        <!--Directions View Controller-->
         <scene sceneID="eSU-nf-sH9">
             <objects>
-                <viewController storyboardIdentifier="directionsViewController" title="directionsViewController" id="GVr-17-Ukh" customClass="DirectionsViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="directionsViewController" id="GVr-17-Ukh" customClass="DirectionsViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fyf-ap-kpx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -283,10 +284,6 @@
                                     <outlet property="delegate" destination="GVr-17-Ukh" id="GhJ-D0-PWa"/>
                                 </connections>
                             </mapView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="DQW-jY-XAZ">
-                                <rect key="frame" x="167" y="305" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtR-vf-s5B">
                                 <rect key="frame" x="197" y="527" width="153" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -405,6 +402,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbd-cd-yxG">
+                                <rect key="frame" x="129" y="623" width="112" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                <state key="normal" title="Check Fields"/>
+                                <connections>
+                                    <action selector="checkFields:" destination="uuq-K6-Sr5" eventType="touchUpInside" id="HZM-Gu-LSu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -452,6 +458,8 @@
                         <viewLayoutGuide key="safeArea" id="KWI-lx-O6I"/>
                     </view>
                     <connections>
+                        <outlet property="checkFieldsButton" destination="fbd-cd-yxG" id="Yk7-TU-S29"/>
+                        <outlet property="createAccountButton" destination="F2A-Fk-RI1" id="ifC-YU-WkN"/>
                         <outlet property="emailField" destination="39c-pq-VOm" id="jyt-91-VVW"/>
                         <outlet property="passwordField" destination="Bc9-mh-hac" id="UbE-zM-8My"/>
                         <outlet property="profileImageView" destination="rWY-57-ZzI" id="l5d-zA-Af8"/>
@@ -467,10 +475,10 @@
             </objects>
             <point key="canvasLocation" x="-1708" y="-21.139430284857571"/>
         </scene>
-        <!--Tracking Run-->
+        <!--New Run View Controller-->
         <scene sceneID="s7U-0G-nXs">
             <objects>
-                <viewController title="Tracking Run" id="Anw-lb-hPQ" customClass="NewRunViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Anw-lb-hPQ" customClass="NewRunViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vAf-nj-IpQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -739,19 +747,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNG-kO-svc">
-                                <rect key="frame" x="123" y="622" width="131" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="12"/>
-                                <state key="normal" title="Return to Main Menu">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="returnToMain:" destination="rDT-8L-4KK" eventType="touchUpInside" id="ZFZ-x6-tP0"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgb-w3-3YM">
-                                <rect key="frame" x="109" y="563" width="156" height="45"/>
+                                <rect key="frame" x="109" y="583" width="156" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="32"/>
                                 <state key="normal" title="Send Run"/>
@@ -772,10 +769,10 @@
             </objects>
             <point key="canvasLocation" x="536.79999999999995" y="1199.5502248875564"/>
         </scene>
-        <!--Account-->
+        <!--Account View Controller-->
         <scene sceneID="aFG-5x-HuJ">
             <objects>
-                <viewController title="Account" id="yuG-Wn-Ghs" customClass="AccountViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yuG-Wn-Ghs" customClass="AccountViewController" customModule="RunTrax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="htA-Sg-hem">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -784,9 +781,6 @@
                                 <rect key="frame" x="97" y="140" width="180" height="217"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="neT-HS-eei" appends="YES" id="8Cd-nw-yog"/>
-                                </connections>
                             </imageView>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zs8-EY-nj4">
                                 <rect key="frame" x="37" y="365" width="279" height="70"/>
@@ -833,11 +827,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yDE-FS-GEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="neT-HS-eei">
-                    <connections>
-                        <action selector="selectedImage:" destination="yuG-Wn-Ghs" id="sD9-gQ-lRX"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="500" y="-571.66416791604206"/>
         </scene>
@@ -1210,7 +1199,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W9L-QS-5rW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="7IG-GL-wNI"/>
+                    <navigationItem key="navigationItem" id="7IG-GL-wNI"/>
                     <connections>
                         <outlet property="emailField" destination="DPX-WM-B1s" id="XZc-Bc-0by"/>
                         <outlet property="passwordField" destination="fl6-qr-N1o" id="SFQ-WC-GQr"/>
@@ -1305,10 +1294,9 @@
     <resources>
         <image name="addButton" width="2000" height="2000"/>
         <image name="default" width="308" height="308"/>
-        <image name="pin" width="720" height="720"/>
         <image name="runner" width="2268" height="1417"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bbv-xv-7oS"/>
+        <segue reference="DUi-qe-baO"/>
     </inferredMetricsTieBreakers>
 </document>

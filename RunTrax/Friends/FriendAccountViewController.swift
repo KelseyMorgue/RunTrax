@@ -14,7 +14,7 @@ import Firebase
 
 class FriendAccountViewController: UIViewController
 {
-
+    
     var friend : FriendsItem?
     {
         didSet
@@ -51,7 +51,7 @@ class FriendAccountViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -67,7 +67,7 @@ class FriendAccountViewController: UIViewController
         }
     }
     
-
+    
     private func loadMoreInfo()
     {
         let storageRef = storage.reference(withPath: "profile_images/\(friend?.id ?? "derp")/userImage.png")
@@ -77,23 +77,39 @@ class FriendAccountViewController: UIViewController
     
     private func displayMileage()
     {
-        var sum = 0
-        
-        ref.child("users").child(userID?.uid ?? "didn't work").child("runs").observeSingleEvent(of: .value, with: {(snapshot) in
-            let runValues = snapshot.value as? NSDictionary
-            if let runKeys = runValues?.allKeys as? [String]
+        var sum = 0.00
+        ref.child("users").child(friend?.id ?? "didn't work").child("runs").observeSingleEvent(of: .value, with: {(snapshot) in
+            if let runValues = snapshot.value as? NSDictionary
             {
-                for current in runKeys
+                if let runKeys = runValues.allKeys as? [String]
                 {
-                    let userValues = runValues?[current] as? NSDictionary
-                    let distance = userValues?["mileage"] as? Int ?? 0
-                    sum += distance
+                    for current in runKeys
+                    {
+                        if let userValues = runValues[current] as? NSDictionary
+                        {
+                            let data = userValues["mileage"] as? String
+                            if let split = data?.components(separatedBy: " ")
+                            {
+                                if let distance = Double(split[0])
+                                {
+                                    sum += distance
+                                }
+                            }
+                        }
+                    }
+                    let formatter = NumberFormatter()
+                    formatter.usesGroupingSeparator = true
+                    formatter.numberStyle = .decimal
+                    formatter.locale = Locale.current
+                    let myNumber = NSNumber(value: sum)
+                    let mileage = formatter.string(from: myNumber)!
+                    print(mileage, "this is sum")
+                    self.friendMileage.text = "Mileage: \(mileage) miles"
+                 
                 }
             }
-            
         })
-        friendMileage.text = "Total Mileage: \(sum) miles"
     }
-    
-
+            
+            
 }
