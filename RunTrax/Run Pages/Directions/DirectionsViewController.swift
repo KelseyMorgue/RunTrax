@@ -123,9 +123,8 @@ class DirectionsViewController: UIViewController {
     
     func getRunInformation()
     {
-       // print(runKey, "this is the runkey")
-      //  ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
-            ref.child("runs/-LcT7ixFd8IWrztfSDZL").observeSingleEvent(of: .value, with: { (snapshot) in
+        print(runKey, "this is the runkey")
+            ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
             if let value = snapshot.value as? NSDictionary
             {
                 if let location = value["location"] as? NSArray
