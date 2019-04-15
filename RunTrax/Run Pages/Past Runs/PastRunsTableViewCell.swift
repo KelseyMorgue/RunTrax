@@ -48,9 +48,9 @@ class PastRunsTableViewCell: UITableViewCell {
     {
         if let run = pastRunItem
         {
-            distanceLabel.text = "Distance: \(run.distance)"
-            timeLabel.text = "Time: \(run.time)"
-            dateLabel.text = "Date: \(run.date)"
+            distanceLabel.text = "\(run.distance)"
+            timeLabel.text = "\(run.time)"
+            dateLabel.text = "\(run.date)"
         }
     }
     

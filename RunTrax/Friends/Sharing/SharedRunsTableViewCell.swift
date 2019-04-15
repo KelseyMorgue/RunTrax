@@ -48,17 +48,15 @@ class SharedRunsTableViewCell: UITableViewCell {
     
     func loadData()
     {
-        if sharedRunItem != nil
+        if let run = sharedRunItem
         {
-            runDistance.text = "Distance: \(sharedRunItem.distance)"
-            friendUsername.text = "\(sharedRunItem.username)"
-            
+            runDistance.text = "\(run.distance ?? "distance fail")"
+            friendUsername.text = "\(run.username ?? "username fail")"
             let storageRef = storage.reference(withPath: "profile_images/\(friendItem?.id ?? "derp")/userImage.png")
             let placeHolderImage = UIImage(named: "default")
             friendProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)
-            
         }
-        
+       
     }
     
 }
