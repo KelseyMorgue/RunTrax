@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HjU-tw-Ngt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HjU-tw-Ngt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -204,25 +204,38 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="84.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hc6-pZ-1cZ">
-                                                    <rect key="frame" x="15" y="8" width="60" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hc6-pZ-1cZ">
+                                                    <rect key="frame" x="15" y="13" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="5cj-YQ-kJp"/>
+                                                        <constraint firstAttribute="width" constant="60" id="e2c-zq-cdV"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNN-UC-lpd">
-                                                    <rect key="frame" x="90" y="33" width="90" height="19"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrF-q8-ALk">
+                                                    <rect key="frame" x="260" y="32" width="81" height="19"/>
                                                     <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrF-q8-ALk">
-                                                    <rect key="frame" x="200" y="34" width="81" height="19"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNN-UC-lpd">
+                                                    <rect key="frame" x="126" y="33" width="90" height="19"/>
                                                     <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Hc6-pZ-1cZ" secondAttribute="bottom" constant="1" id="DXc-tj-kxV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="UrF-q8-ALk" secondAttribute="bottom" constant="23" id="F5H-bu-Nj0"/>
+                                                <constraint firstItem="UrF-q8-ALk" firstAttribute="leading" secondItem="LNN-UC-lpd" secondAttribute="trailing" constant="44" id="IZF-gA-Wby"/>
+                                                <constraint firstItem="UrF-q8-ALk" firstAttribute="top" secondItem="vfG-ec-wlX" secondAttribute="topMargin" constant="21" id="Ntk-sS-Cdh"/>
+                                                <constraint firstItem="LNN-UC-lpd" firstAttribute="leading" secondItem="Hc6-pZ-1cZ" secondAttribute="trailing" constant="51" id="Wzq-kX-Gfh"/>
+                                                <constraint firstItem="Hc6-pZ-1cZ" firstAttribute="top" secondItem="vfG-ec-wlX" secondAttribute="topMargin" constant="2" id="Yuj-d8-fPl"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UrF-q8-ALk" secondAttribute="trailing" constant="19" id="a25-IC-Nq9"/>
+                                                <constraint firstItem="LNN-UC-lpd" firstAttribute="top" secondItem="vfG-ec-wlX" secondAttribute="topMargin" constant="22" id="d11-np-GUl"/>
+                                                <constraint firstItem="Hc6-pZ-1cZ" firstAttribute="leading" secondItem="vfG-ec-wlX" secondAttribute="leadingMargin" id="eP9-2T-VQQ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="LNN-UC-lpd" secondAttribute="bottom" constant="22" id="efZ-Kp-VEn"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="friendProfilePicture" destination="Hc6-pZ-1cZ" id="q7w-bC-1oR"/>
@@ -242,14 +255,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJB-ph-fPA">
-                                <rect key="frame" x="39" y="113" width="149" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="click to move on"/>
-                                <connections>
-                                    <segue destination="GVr-17-Ukh" kind="show" id="DUi-qe-baO"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zyF-ws-44o"/>
@@ -1297,8 +1302,4 @@
         <image name="default" width="308" height="308"/>
         <image name="runner" width="2268" height="1417"/>
     </resources>
-
-    <inferredMetricsTieBreakers>
-        <segue reference="DUi-qe-baO"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -85,21 +85,33 @@ class SharedRunsViewController: UIViewController, UITableViewDelegate {
                {
                 for current in runKeys
                 {
-                    
-                    let userValues = value[current] as? NSDictionary
-                    let distance = userValues?["mileage"] as? String ?? "yeeet"
-                    let imageUrl = userValues?["profileImageUrl"] as? String ?? "yeet"
-                    let id = userValues?["id"] as? String ?? "yeet"
-                    let username = userValues?["username"] as? String ?? "yeet"
-                    
-                    sharedRuns.append(SharedRunItem(distance: distance, id: id, imageUrl: imageUrl, username: username))
-                    
-                    DispatchQueue.main.async
-                        {
-                        self.sharedData = SharedRunDataSource(shared: sharedRuns)
-                        self.sharedRunsList = sharedRuns
-                        self.tableView.reloadData()
+                    if let runKey = value[current] as? String
+                    {
+                        self.ref.child("runs").child(runKey).observe( .value , with: {(snapshot) in
+                            if let runValues = snapshot.value as? NSDictionary
+                            {
+                                let distance = runValues["mileage"] as? String ?? "yeeet"
+                                //                                let imageUrl = runValues["profileImageUrl"] as? String ?? "yeet"
+                                
+                                let userId = runValues["userId"] as? String ?? "spongebob"
+                                self.queryForFriends(friendID: userId)
+                                {
+                                    (profileData) in
+                                    sharedRuns.append(SharedRunItem(distance: distance, id: userId, imageUrl: profileData[1], username: profileData[0]))
+                                
+                                //sharedRuns.append(SharedRunItem(distance: distance, id: id, imageUrl: imageUrl, username: username))
+                                DispatchQueue.main.async
+                                    {
+                                        self.sharedData = SharedRunDataSource(shared: sharedRuns)
+                                        self.sharedRunsList = sharedRuns
+                                        self.tableView.reloadData()
+                                }
+                                }
+                            }
+                        })
                     }
+                    //new Q
+                    
                 }
                 self.tableView.endUpdates()
             }
@@ -108,4 +120,24 @@ class SharedRunsViewController: UIViewController, UITableViewDelegate {
     })
     
     }
+    
+    private func queryForFriends(friendID: String, completion: @escaping ([String]) -> Void) -> Void
+    {
+        var userData = [String]()
+        
+        ref.child("users").child(friendID).observeSingleEvent(of: .value) {(snapshot) in
+            if let data = snapshot.value as? NSDictionary
+            {
+                let name = data["username"] as? String ?? "derps"
+                let url = data["imageProfileUrl"] as? String ?? "www.derp.com"
+                userData.append(name)
+                userData.append(url)
+                completion(userData)
+            }
+        }
+    }
+    
+    
+    
+    
 }

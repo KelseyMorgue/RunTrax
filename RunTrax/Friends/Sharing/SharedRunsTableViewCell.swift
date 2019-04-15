@@ -26,7 +26,6 @@ class SharedRunsTableViewCell: UITableViewCell {
             loadData()
         }
     }
-    var friendItem : FriendsItem!
 
     var ref = Database.database().reference()
     let storage = Storage.storage()
@@ -52,7 +51,8 @@ class SharedRunsTableViewCell: UITableViewCell {
         {
             runDistance.text = "\(run.distance ?? "distance fail")"
             friendUsername.text = "\(run.username ?? "username fail")"
-            let storageRef = storage.reference(withPath: "profile_images/\(friendItem?.id ?? "derp")/userImage.png")
+            
+            let storageRef = storage.reference(withPath: "profile_images/\(run.id ?? "derp")/userImage.png")
             let placeHolderImage = UIImage(named: "default")
             friendProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)
         }
