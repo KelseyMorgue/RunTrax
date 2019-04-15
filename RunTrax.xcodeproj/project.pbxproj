@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A455B0BB2263F0A50051A182 /* RunsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A455B0BA2263F0A50051A182 /* RunsDataSource.swift */; };
 		A455B0BD22640D900051A182 /* SharedRunDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A455B0BC22640D900051A182 /* SharedRunDataSource.swift */; };
+		A455B0BF226412090051A182 /* DirectionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A455B0BE226412090051A182 /* DirectionsDataSource.swift */; };
 		A46A84982262BC28006981DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A46A84972262BC28006981DC /* GoogleService-Info.plist */; };
 		A674485741F8D8A0AF0CCB58 /* Pods_RunTrax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C4CCF109B8A571210B2C67 /* Pods_RunTrax.framework */; };
 		DF1BF585219E289000DC5DA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1BF584219E289000DC5DA8 /* AppDelegate.swift */; };
@@ -17,7 +18,6 @@
 		DF1BF58C219E289A00DC5DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF58B219E289A00DC5DA8 /* Assets.xcassets */; };
 		DF1BF58F219E289A00DC5DA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF1BF58D219E289A00DC5DA8 /* LaunchScreen.storyboard */; };
 		DF1BF59A219E289B00DC5DA8 /* RunTraxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1BF599219E289B00DC5DA8 /* RunTraxTests.swift */; };
-		DF2BB39E22593B6E00439262 /* DirectionsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2BB39D22593B6E00439262 /* DirectionsItem.swift */; };
 		DF2BB3A222593DB100439262 /* DirectionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2BB3A122593DB100439262 /* DirectionsTableViewController.swift */; };
 		DF2BB3A422593E3F00439262 /* DirectionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2BB3A322593E3F00439262 /* DirectionsTableViewCell.swift */; };
 		DF7726F22263214C00DA28B2 /* FriendDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7726F12263214C00DA28B2 /* FriendDataSource.swift */; };
@@ -64,6 +64,7 @@
 		9E66B519E83D8DE1EF56D967 /* Pods_RunTraxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunTraxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A455B0BA2263F0A50051A182 /* RunsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsDataSource.swift; sourceTree = "<group>"; };
 		A455B0BC22640D900051A182 /* SharedRunDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedRunDataSource.swift; sourceTree = "<group>"; };
+		A455B0BE226412090051A182 /* DirectionsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsDataSource.swift; sourceTree = "<group>"; };
 		A46A84972262BC28006981DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D2C4CCF109B8A571210B2C67 /* Pods_RunTrax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunTrax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1BF581219E289000DC5DA8 /* RunTrax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunTrax.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +77,6 @@
 		DF1BF595219E289A00DC5DA8 /* RunTraxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunTraxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1BF599219E289B00DC5DA8 /* RunTraxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunTraxTests.swift; sourceTree = "<group>"; };
 		DF1BF59B219E289B00DC5DA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DF2BB39D22593B6E00439262 /* DirectionsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsItem.swift; sourceTree = "<group>"; };
 		DF2BB3A122593DB100439262 /* DirectionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsTableViewController.swift; sourceTree = "<group>"; };
 		DF2BB3A322593E3F00439262 /* DirectionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsTableViewCell.swift; sourceTree = "<group>"; };
 		DF7726F12263214C00DA28B2 /* FriendDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDataSource.swift; sourceTree = "<group>"; };
@@ -262,11 +262,11 @@
 			children = (
 				DFF370422235B35A006BEF17 /* FriendsItem.swift */,
 				DFDC884922499FEA00C2C988 /* PastRunItem.swift */,
-				DF2BB39D22593B6E00439262 /* DirectionsItem.swift */,
 				DFFFF08C2262769B000360E5 /* SharedRunItem.swift */,
 				DF7726F12263214C00DA28B2 /* FriendDataSource.swift */,
 				A455B0BA2263F0A50051A182 /* RunsDataSource.swift */,
 				A455B0BC22640D900051A182 /* SharedRunDataSource.swift */,
+				A455B0BE226412090051A182 /* DirectionsDataSource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -510,11 +510,11 @@
 				DFBA4A3021A6466A008BFB7A /* LocationManager.swift in Sources */,
 				DF1BF587219E289000DC5DA8 /* StartScreenViewController.swift in Sources */,
 				DFCBC416226297C1002D116B /* FriendAccountViewController.swift in Sources */,
-				DF2BB39E22593B6E00439262 /* DirectionsItem.swift in Sources */,
 				DFFFF08922618BD5000360E5 /* SharedRunsTableViewCell.swift in Sources */,
 				DFFFF084225A9FFD000360E5 /* SharePageTableViewCell.swift in Sources */,
 				DF2BB3A222593DB100439262 /* DirectionsTableViewController.swift in Sources */,
 				DFFFF08722618B5A000360E5 /* SharedRunsViewController.swift in Sources */,
+				A455B0BF226412090051A182 /* DirectionsDataSource.swift in Sources */,
 				DF98CE072229A97B00086812 /* LoginViewController.swift in Sources */,
 				DF1BF585219E289000DC5DA8 /* AppDelegate.swift in Sources */,
 				DFF7E7A821F77D22002220E1 /* NewRunViewController.swift in Sources */,

@@ -12,12 +12,11 @@ class DirectionsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var directionsLabel: UILabel!
     
-    var directionsItem : DirectionsItem!
+    var directionsItem : String!
     {
         didSet
         {
-            directionsLabel.text = "\(directionsItem.direction)"
-            
+            updateText()
         }
     }
     override func awakeFromNib() {
@@ -31,8 +30,13 @@ class DirectionsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    
-    
+    private func updateText()
+    {
+        if let directions = directionsItem
+        {
+            directionsLabel.text = directions
+        }
+    }
     
     
     
