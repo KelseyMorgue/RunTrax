@@ -53,10 +53,12 @@ class PastRunsViewController: UIViewController, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        let nav = self.storyboard?.instantiateViewController(withIdentifier: "directionsViewController") as! DirectionsViewController
+        let directionsScreen = self.storyboard?.instantiateViewController(withIdentifier: "directionsViewController") as! DirectionsViewController
         
-        nav.runKey = pastRunsList[indexPath.row].id
-        self.present(nav,animated: true, completion: nil)
+        directionsScreen.runKey = pastRunsList[indexPath.row].id
+        let nav = self.navigationController
+        nav?.pushViewController(directionsScreen, animated: true)
+//        self.present(directionsScreen,animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {

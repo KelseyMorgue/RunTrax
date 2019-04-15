@@ -1283,18 +1283,13 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="cJE-n8-EDe" id="wqv-ey-Grn"/>
                             <outlet property="delegate" destination="cJE-n8-EDe" id="YZZ-6W-cRE"/>
                         </connections>
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZw-dT-AlI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-
             <point key="canvasLocation" x="3386" y="905"/>
-
-            <point key="canvasLocation" x="3374" y="905"/>
-
         </scene>
     </scenes>
     <resources>

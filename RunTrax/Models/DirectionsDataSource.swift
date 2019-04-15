@@ -22,7 +22,7 @@ class DirectionsDataSource: NSObject, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath) as! DirectionsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "directionsCell", for: indexPath) as! DirectionsTableViewCell
         
         cell.directionsItem = directions [indexPath.row]
         return cell
