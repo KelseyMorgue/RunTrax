@@ -23,10 +23,29 @@ class SharedRunsViewController: UIViewController, UITableViewDelegate {
     var userID : User!
     var run : SharedRunItem?
     var sharedRunsList = [SharedRunItem]()
+    var sharedData : SharedRunDataSource?
+    {
+        didSet
+        {
+            tableView.dataSource = sharedData
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        getRuns()
+        {(shared) in
+            if shared.count > 0
+            {
+                self.sharedData = SharedRunDataSource(shared: shared)
+                self.sharedRunsList = shared
+                self.tableView.dataSource = self.sharedData
+            }
+                
+        }
+        
         // Do any additional setup after loading the view.
     }
     
@@ -50,21 +69,22 @@ class SharedRunsViewController: UIViewController, UITableViewDelegate {
         self.userID = Auth.auth().currentUser
     }
     
-    func getRuns()    {
+    func getRuns(completion: @escaping ([SharedRunItem]) -> Void)
+    {
         
         self.userID = Auth.auth().currentUser
         self.tableView.beginUpdates()
         
         //
-        ref.child("users").child(userID?.uid ?? "no users here").child("sharedRuns").observeSingleEvent(of: .value){(snapshot) in
+        ref.child("users").child(userID?.uid ?? "no users here").child("sharedRuns").observe( .value, with: {(snapshot) in
             
-            //            for _ in snapshot.children
-            //            {
+            var sharedRuns = [SharedRunItem]()
             if let value = snapshot.value as? NSDictionary
             {
                if let runKeys = value.allKeys as? [String]
                {
-                for current in runKeys{
+                for current in runKeys
+                {
                     
                     let userValues = value[current] as? NSDictionary
                     let distance = userValues?["mileage"] as? String ?? "yeeet"
@@ -72,48 +92,20 @@ class SharedRunsViewController: UIViewController, UITableViewDelegate {
                     let id = userValues?["id"] as? String ?? "yeet"
                     let username = userValues?["username"] as? String ?? "yeet"
                     
-                    self.sharedRunsList.append(SharedRunItem(distance: distance, id: id, imageUrl: imageUrl, username: username))
+                    sharedRuns.append(SharedRunItem(distance: distance, id: id, imageUrl: imageUrl, username: username))
                     
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.async
+                        {
+                        self.sharedData = SharedRunDataSource(shared: sharedRuns)
+                        self.sharedRunsList = sharedRuns
                         self.tableView.reloadData()
                     }
                 }
-                //            }
-                
-                
+                self.tableView.endUpdates()
             }
-            
-            self.tableView.endUpdates()
-            }
+            completion(sharedRuns)
         }
-            
-        
-    }
+    })
     
-}
-
-extension SharedRunsViewController: UITableViewDataSource
-{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return sharedRunsList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "sharedRun", for: indexPath) as! SharedRunsTableViewCell
-        let run = sharedRunsList[indexPath.row]
-        cell.runDistance?.text = run.distance
-        cell.friendUsername?.text = run.username
-        
-        return cell
-        
-        /*
-         let user = users[indexPath.row]
-         cell.textLabel?.text = user.name
-         cell.detailTextLabel?.text = user.email
-         */
-        
-        
     }
 }
