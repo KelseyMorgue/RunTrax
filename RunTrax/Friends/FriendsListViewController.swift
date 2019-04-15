@@ -127,7 +127,6 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate, UITableV
                             let imageUrl = userValues?["profileImageUrl"] as? String ?? "noppers"
                             
                             self.queryForRuns(friendID: currentKey){ (runTotal) -> () in
-                                print("Result for runs is: \(runTotal)")
                                 newFriends.append(FriendsItem(name: username, imageUrl: imageUrl, id: currentKey, runCount: runTotal))
                                 DispatchQueue.main.async
                                     {
@@ -167,10 +166,10 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate, UITableV
                             let name = friendValue?["username"] as? String ?? "yeet"
                             let imageUrl = friendValue?["profileImageUrl"] as? String ?? "yeet"
                             let id = current
-                            print("User: \(name) and key: \(current)")
+                            
                             self.queryForRuns(friendID: current)
                             {
-                                (result) -> () in print(result)
+                                (result) -> () in 
                             
                                 friendz.append(FriendsItem(name: name, imageUrl: imageUrl, id: id, runCount: result))
                                 DispatchQueue.main.async {
