@@ -51,24 +51,48 @@ class FriendAccountViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        loadFriendProfile()
         
         // Do any additional setup after loading the view.
     }
-    
+    func displayRuns()
+    {
+        ref.child("users").child(friend?.id ?? "didn't work").child("runs").observeSingleEvent(of: .value, with: {(snapshot) in
+            let count = snapshot.childrenCount
+            self.friendRuns.text = "Total Runs: \(count)"
+            
+        })
+    }
+    func displayUsername()
+    {
+        ref.child("users").child(friend?.id ?? "derp").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let value = snapshot.value as? NSDictionary
+            {
+                let friendsUsername = value["username"] as? String ?? "yeet"
+                self.friendUsername.text = "Username: \(friendsUsername)"
+            }
+            
+        })
+    }
     
     private func loadFriendProfile()
     {
         if friendProfilePicture != nil && friendRuns != nil && friendMileage != nil && friendUsername != nil
         {
-            loadMoreInfo()
+            displayUsername()
+            displayImage()
+            displayRuns()
             displayMileage()
-            friendUsername.text = friend?.name
-            friendRuns.text = "Total Runs: \(friend?.runCount)"
         }
     }
     
+    @IBAction func returnToMain(_ sender: Any)
+    {
+        let nav = self.storyboard?.instantiateViewController(withIdentifier: "AccountNavigator") as! UINavigationController
+        self.present(nav,animated: true, completion: nil)
+    }
     
-    private func loadMoreInfo()
+    private func displayImage()
     {
         let storageRef = storage.reference(withPath: "profile_images/\(friend?.id ?? "derp")/userImage.png")
         let placeHolderImage = UIImage(named: "default")
