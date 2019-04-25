@@ -17,7 +17,6 @@ class DirectionsViewController: UIViewController {
     
     //Properties
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var goButton: UIButton!
     @IBOutlet weak var runDetails: UIButton!
     
@@ -123,7 +122,6 @@ class DirectionsViewController: UIViewController {
     
     func getRunInformation()
     {
-        print(runKey, "this is the runkey")
         ref.child("runs/\(runKey!)").observe( .value, with: { (snapshot) in
             
             if let value = snapshot.value as? NSDictionary
@@ -149,7 +147,6 @@ class DirectionsViewController: UIViewController {
     {
         let startAnnotation = MKPointAnnotation()
         startAnnotation.coordinate = locationList.first!.coordinate
-        print(startAnnotation.coordinate, startAnnotation, "hereish")
         startAnnotation.title = "Start"
         mapView.addAnnotation(startAnnotation)
         
@@ -160,21 +157,26 @@ class DirectionsViewController: UIViewController {
         mapView.addAnnotation(finishAnnotation)
     }
     
-    //TODO: Change to get the directions from a queried run (from runkey)
     func getDirections()
     {
+        var test = 1
         
         //makes sure we have users location
-        //let coordinates = locationManager.location!.coordinate
         guard let location = locationManager.location
             else
         {
-            //TODO: Inform user we don't have their current location
+            //alerts the user if we don't have their location
+            let alert = UIAlertController(title: "Location error",
+                                          message: "We need your location to open run directions",
+                                          preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(alert, animated: true, completion: nil)
             return
         }
         
-        // let check = location.distance(from: locationList[0])
-        //start run
+    
+      
         
         if locationList.count > 0
         {
@@ -188,6 +190,8 @@ class DirectionsViewController: UIViewController {
                     resetMapView(withNew: directions)
                     directions.calculate { [unowned self] (response, error) in
                         //TODO: Handle error if needed
+                       if test == 1
+                       {
                         if let response = response
                         {
                             for route in response.routes {
@@ -202,12 +206,14 @@ class DirectionsViewController: UIViewController {
                                     if trash != ""
                                     {
                                         self.routeSteps.append(step.instructions)
-                                        print(step.instructions)
                                     }
                                     
                                 }
                             }
+                            
+                            test = 2
                         }
+                    }
                     }
                     
                 }
@@ -215,8 +221,6 @@ class DirectionsViewController: UIViewController {
             }
             else
             {
-                print("in the else")
-                
                 let alert = UIAlertController(title: "You are not at the starting location", message: "Please procede to the starting location)", preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Okay", style: .cancel))
                 self.present(alert, animated: true, completion: nil)

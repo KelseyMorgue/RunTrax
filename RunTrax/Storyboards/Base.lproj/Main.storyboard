@@ -320,13 +320,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zxe-xM-sKt">
-                                <rect key="frame" x="0.0" y="64" width="382" height="553"/>
+                                <rect key="frame" x="0.0" y="20" width="382" height="597"/>
                                 <connections>
                                     <outlet property="delegate" destination="GVr-17-Ukh" id="GhJ-D0-PWa"/>
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64E-bc-s6a">
-                                <rect key="frame" x="234" y="625" width="125" height="30"/>
+                                <rect key="frame" x="234" y="624" width="125" height="31"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="18"/>
                                 <state key="normal" title="Run Details">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -351,15 +351,15 @@
                             <constraint firstItem="Zxe-xM-sKt" firstAttribute="leading" secondItem="zkO-3y-WU7" secondAttribute="leading" id="18t-SL-wo4"/>
                             <constraint firstItem="zkO-3y-WU7" firstAttribute="trailing" secondItem="gtR-vf-s5B" secondAttribute="trailing" constant="206" id="3Jd-7q-VXm"/>
                             <constraint firstItem="Zxe-xM-sKt" firstAttribute="trailing" secondItem="zkO-3y-WU7" secondAttribute="trailing" constant="7" id="BCd-fC-pI3"/>
+                            <constraint firstItem="64E-bc-s6a" firstAttribute="top" secondItem="Zxe-xM-sKt" secondAttribute="bottom" constant="7" id="FKT-2E-dAS"/>
                             <constraint firstItem="gtR-vf-s5B" firstAttribute="leading" secondItem="zkO-3y-WU7" secondAttribute="leading" constant="16" id="GBf-Hw-MqY"/>
                             <constraint firstItem="zkO-3y-WU7" firstAttribute="bottom" secondItem="64E-bc-s6a" secondAttribute="bottom" constant="12" id="In2-tI-X3E"/>
                             <constraint firstItem="gtR-vf-s5B" firstAttribute="top" secondItem="Zxe-xM-sKt" secondAttribute="bottom" constant="2" id="JKG-Db-FiW"/>
                             <constraint firstItem="64E-bc-s6a" firstAttribute="leading" secondItem="zkO-3y-WU7" secondAttribute="leading" constant="234" id="Jgm-qM-bIp"/>
-                            <constraint firstItem="Zxe-xM-sKt" firstAttribute="top" secondItem="zkO-3y-WU7" secondAttribute="top" constant="44" id="flD-3T-5qz"/>
+                            <constraint firstItem="Zxe-xM-sKt" firstAttribute="top" secondItem="zkO-3y-WU7" secondAttribute="top" id="lBb-oh-qxK"/>
                             <constraint firstItem="zkO-3y-WU7" firstAttribute="trailing" secondItem="64E-bc-s6a" secondAttribute="trailing" constant="16" id="tox-Ox-Wav"/>
                             <constraint firstItem="gtR-vf-s5B" firstAttribute="firstBaseline" secondItem="Zxe-xM-sKt" secondAttribute="baseline" constant="33.5" symbolType="layoutAnchor" id="uFc-26-WBg"/>
                             <constraint firstItem="zkO-3y-WU7" firstAttribute="bottom" secondItem="Zxe-xM-sKt" secondAttribute="bottom" constant="50" id="ulW-En-G0g"/>
-                            <constraint firstItem="64E-bc-s6a" firstAttribute="top" secondItem="zkO-3y-WU7" secondAttribute="top" constant="605" id="y5H-VI-KNF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zkO-3y-WU7"/>
                     </view>
