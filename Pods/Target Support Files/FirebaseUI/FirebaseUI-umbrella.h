@@ -26,8 +26,6 @@
 #import "FUIPrivacyAndTermsOfServiceView.h"
 #import "FUIAuthTableViewCell.h"
 #import "FUIAuthTableHeaderView.h"
-#import "FirebaseGoogleAuthUI.h"
-#import "FUIGoogleAuth.h"
 #import "FirebaseStorageUI.h"
 #import "UIImageView+FirebaseStorage.h"
 

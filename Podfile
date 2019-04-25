@@ -14,7 +14,6 @@ pod 'Firebase/Storage'
 pod 'SDWebImage'
 pod 'FirebaseUI/Storage'
 
-pod 'FirebaseUI/Google'
 
  
 
