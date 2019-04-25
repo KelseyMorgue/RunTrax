@@ -1,6 +1,7 @@
-//
 //  NewRunViewController.swift
 //  RunTrax
+//
+//  Page to start a new run
 //
 //  Created by Kelsey Henrichsen on 1/22/19.
 //  Copyright © 2019 Kelsey Henrichsen. All rights reserved.
@@ -36,8 +37,8 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     var runDictionary : [String : [Double]] = [:]
     var sendKey : String?
     var backgroundTask: UIBackgroundTaskIdentifier = .invalid
-
-
+    
+    
     
     var handle : AuthStateDidChangeListenerHandle!
     var currentUser : User!
@@ -53,11 +54,11 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             
-            self.currentUser = Auth.auth().currentUser            // ...
+            self.currentUser = Auth.auth().currentUser
         }
     }
     
-    
+    //makes it so the tracking works even if app is in background while running
     func registerBackgroundTask() {
         backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
             self?.endBackgroundTask()
@@ -65,21 +66,21 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         assert(backgroundTask != .invalid)
     }
     
+    //ends the background tasks
     func endBackgroundTask() {
         print("Background task ended.")
         UIApplication.shared.endBackgroundTask(backgroundTask)
         backgroundTask = .invalid
     }
-
     
-    
+    //updates seconds and calls updateDisplay()
     func eachSecond() {
         seconds += 1
         updateDisplay()
     }
     
-  
     
+    //takes the run information and displays the current information on the screen and constantly updates until endRun() is called
     func updateDisplay() {
         
         let formattedDistance = FormatDisplay.distance(distance)
@@ -94,11 +95,10 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     }
     
     
-    
-    //KELSEY NOTE: I think I should have the locked screen only on this function
+    //starts tracking the run
     func startRun() {
         registerBackgroundTask()
-
+        
         seconds = 0
         distance = Measurement(value: 0, unit: UnitLength.meters)
         locationList.removeAll()
@@ -110,17 +110,19 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         
     }
     
+    //stops tracking the run
     func stopRun() {
         endBackgroundTask()
         locationManager.stopUpdatingLocation()
     }
     
-    
+    //button
     @IBAction func startTapped(_ sender: UIButton) {
         
         startRun()
     }
     
+    //button
     @IBAction func stopTapped(_ sender: Any) {
         
         stopRun()
@@ -143,6 +145,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         
     }
     
+    //opens the next screen
     func openOverview()
     {
         let nav = self.storyboard!.instantiateViewController(withIdentifier: "RunOverview") as! RunOverviewViewController
@@ -150,18 +153,18 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         self.present(nav,animated: true, completion: nil)
     }
     
+    //opens the main screen
     func returnToMain()
     {
         let nav = self.storyboard?.instantiateViewController(withIdentifier: "AccountNavigator") as! UINavigationController
         self.present(nav,animated: true, completion: nil)
     }
     
-    
+    //saves the run information into the database
     func saveRun()
     {
-
         
-        //let currentUser = Auth.auth().currentUser
+        
         let key = newRun.child("runs").childByAutoId().key
         
         self.sendKey = key
@@ -172,35 +175,32 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         
         let date = Date()
         
-        // US English Locale (en_US)
         dateFormatter.locale = Locale(identifier: "en_US")
         
         
-        
+        //had to save the locations as a dictionary so firebase would save the info
         let run = [
             "id" : key as Any,
-            "userId" : currentUser?.uid as Any,  //need foreign for user key
+            "userId" : currentUser?.uid as Any,
             "mileage" : FormatDisplay.distance(distance),
             "pace" : FormatDisplay.pace(distance: distance,seconds: seconds, outputUnit: UnitSpeed.minutesPerMile),
             "date" : dateFormatter.string(from: date),
-            // "name" : "",
             "time" : FormatDisplay.time(seconds),
             "location" : runDictionary
-            ]
+        ]
         
         let updateRun = ["/\(key!)" : run]
         let updateUser = ["/\(currentUser!.uid)/runs/\(key!)" : run]
         
-        // let userDbRef =  newRun.child("users").child(currentUser!.uid)
-       newRun.child("users").updateChildValues(updateUser) {
-        (error:Error?, ref:DatabaseReference) in
-        if let error = error {
-            print("Data could not be saved: \(error).")
-        } else {
-            print("Data saved successfully!")
+        newRun.child("users").updateChildValues(updateUser) {
+            (error:Error?, ref:DatabaseReference) in
+            if let error = error {
+                print("Data could not be saved: \(error).")
+            } else {
+                print("Data saved successfully!")
+            }
         }
-        }
-
+        
         newRun.child("runs").updateChildValues(updateRun) {
             (error:Error?, ref:DatabaseReference) in
             if let error = error {
@@ -212,7 +212,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         
     }
     
-    
+    //starts getting location updates
     func startLocationUpdates() {
         locationManager.delegate = self
         locationManager.activityType = .fitness
@@ -224,7 +224,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    
+    //keeps the user's location as the center
     func centerViewOnUserLocation() {
         if let location = locationManager.location?.coordinate {
             let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
@@ -232,7 +232,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
         }
     }
     
-    
+    //makes sure location services are correctly on
     func checkLocationServices() {
         if CLLocationManager.locationServicesEnabled() {
             setupLocationManager()
@@ -247,6 +247,7 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     }
     
     
+    //again, checks correctness of location
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways:
@@ -287,13 +288,13 @@ class NewRunViewController: UIViewController, UITextFieldDelegate
     
 }
 
+//adds directions to the dictionary
 extension NewRunViewController: CLLocationManagerDelegate {
-    //review l8r
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let index = String(locationList.count)
-       
-       
-       
+        
+        
+        
         guard let location = locations.last else { return }
         let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
         mapView.setRegion(region, animated: true)
@@ -312,28 +313,18 @@ extension NewRunViewController: CLLocationManagerDelegate {
             }
             
             locationList.append(newLocation)
-            //runDictionary.updateValue([lat, long], forKey: i)
-           
+            
         }
-      
-
+        
+        
     }
     
-    //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    //
-    //        // NOTE guard makes it so it has to "pass" before continuing to whatever is below it
-    //        guard let location = locations.last else { return }
-    //        let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-    //        mapView.setRegion(region, animated: true)
-    //    }
-    //
+    
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         checkLocationAuthorization()
         
-//        let loc: CLLocation = locations[locations.count - 1]
-//        currentLat = loc.coordinate.latitude
-//        currentLong = loc.coordinate.longitude
+        
         
     }
 }

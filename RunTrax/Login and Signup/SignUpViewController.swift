@@ -32,18 +32,19 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
         self.newUsers = Database.database().reference().child("users")
     }
     
-    
+    //button
     @IBAction func createAccount(_ sender: Any) {
         addUser()
-        //addQuery()
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "startScreen") as! StartScreenViewController
         self.present(vc, animated: true, completion: nil)
     }
     
+    //button
     @IBAction func checkFields(_ sender: Any) {
         usernameCheck(username: usernameField.text ?? "")
     }
     
+    //adds user into the database
     func addUser()
     {
         guard let email = emailField.text, let password = passwordField.text, let name = usernameField.text else {
@@ -94,18 +95,17 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
                 print(err)
                 return
             }
-            //what does this do
-           self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         })
     }
     
+    //this checks if the user name is already taken
     func usernameCheck(username: String)
     {
         let ref = Database.database().reference()
         
         ref.child("users").queryOrdered(byChild: "username").queryEqual(toValue: username).observeSingleEvent(of: .value, with: { (snapshot) in
-            //  let checkUser = snapshot.value as! String
-            // if checkUser == "goal"{
+            
             if snapshot.exists(){
                 let alert = UIAlertController(title: "Username already exists",
                                               message: "Please try a new username",
@@ -125,6 +125,7 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
         
     }
     
+    //makes sure all fields are filled out
     func ifNilCheck()
     {
         //checks to make sure all are entered (these are required, unlike the image)
@@ -162,6 +163,8 @@ class SignUpViewController:UIViewController, UITextFieldDelegate, UIImagePickerC
         
     }
     
+    
+    //these functions are for picking an image and allowing cropping etc
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
         dismiss(animated: true, completion: nil)

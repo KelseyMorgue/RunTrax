@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import SDWebImage
-//import FirebaseStorage
 import FirebaseUI
 class FriendsTableViewCell: UITableViewCell {
     
@@ -37,7 +36,6 @@ class FriendsTableViewCell: UITableViewCell {
     //boolean value to show "add" button
     var addButtonOn : Bool = false
     var ref = Database.database().reference()
-    // Get a reference to the storage service using the default Firebase App
     let storage = Storage.storage()
     var handle : AuthStateDidChangeListenerHandle!
     var userID : User!
@@ -45,14 +43,12 @@ class FriendsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         addButton.isHidden = true
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        // Configure the view for the selected state
     }
     
     func loadFriend()
@@ -61,7 +57,6 @@ class FriendsTableViewCell: UITableViewCell {
         {
             friendsUsername.text = friendItem.name
             
-            //TODO: query on user, for the friends that equals that id
             let storageRef = storage.reference(withPath: "profile_images/\(friendItem?.id ?? "derp")/userImage.png")
             let placeHolderImage = UIImage(named: "default")
             friendsProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)

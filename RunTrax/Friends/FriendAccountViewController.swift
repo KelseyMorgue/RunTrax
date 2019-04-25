@@ -40,9 +40,7 @@ class FriendAccountViewController: UIViewController
                 
                 if Auth.auth().currentUser == nil
                 {
-                    //TODO: force relogin
                 }
-                // ...
         }
         self.userID = Auth.auth().currentUser
         
@@ -53,7 +51,6 @@ class FriendAccountViewController: UIViewController
         super.viewDidLoad()
         loadFriendProfile()
         
-        // Do any additional setup after loading the view.
     }
     func displayRuns()
     {

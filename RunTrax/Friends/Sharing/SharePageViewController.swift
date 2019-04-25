@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import SDWebImage
-//import FirebaseStorage
 import FirebaseUI
 
 class SharePageViewController: UIViewController, UITableViewDelegate {
@@ -17,7 +16,6 @@ class SharePageViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var shareRun: UIButton!
     
     let ref = Database.database().reference()
-    // Get a reference to the storage service using the default Firebase App
     let storage = Storage.storage()
     var handle : AuthStateDidChangeListenerHandle!
     var userID : User!
@@ -33,9 +31,7 @@ class SharePageViewController: UIViewController, UITableViewDelegate {
                 
                 if Auth.auth().currentUser == nil
                 {
-                    //TODO: force relogin
                 }
-                // ...
         }
         self.userID = Auth.auth().currentUser
         let allUsers = ref.child("users").child("username")
@@ -47,7 +43,6 @@ class SharePageViewController: UIViewController, UITableViewDelegate {
        
         loadFriends()
         shareRun.isEnabled = false
-        // Do any additional setup after loading the view.
     }
     
 
@@ -146,32 +141,7 @@ class SharePageViewController: UIViewController, UITableViewDelegate {
                 }
             }
         }
-        
-//        if let key = ref.child("sharedRuns").childByAutoId().key
-//        {
-//
-//            print(sharedFriend?.id, "this is the id") //this is nil, need to take in the selected users id
-//            print(sharedFriendList, "dumped here")
-//            print(sharedFriendList.count)
-//            for _ in sharedFriendList
-//            {
-//                print(sharedFriend?.id, "this is the id again")
-//                let updateUser = ["/\(sharedFriend?.id)/sharedRuns/\(key)" : shareRunKey]
-//                print(updateUser, "updated user")
-//                // let userDbRef =  newRun.child("users").child(currentUser!.uid)
-//                ref.child("users").updateChildValues(updateUser as [AnyHashable : Any]) {
-//                    (error:Error?, ref:DatabaseReference) in
-//                    if let error = error
-//                    {
-//                        print("Data could not be saved: \(error).")
-//                    }
-//                    else
-//                    {
-//                        print("Data saved successfully!")
-//                    }
-//                }
-//            }
-//        }
+
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) -> Void

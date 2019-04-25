@@ -12,29 +12,28 @@ import Firebase
 
 
 class LoginViewController:UIViewController, UITextFieldDelegate {
-  
+    
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-   
+    
     //Makes the keyboard dismiss when return is hit
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.emailField.delegate = self
         self.passwordField.delegate = self
     }
-
+    
+    //button
     @IBAction func login(_ sender: Any) {
         signIn()
-        //let me = Auth.auth().currentUser
         let nav = self.storyboard?.instantiateViewController(withIdentifier: "AccountNavigator") as! UINavigationController
         self.present(nav,animated: true, completion: nil)
         
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "startScreen") as! StartScreenViewController
-//        self.present(vc, animated: true, completion: nil)
         
     }
     
+    //takes information from user to check and open that user's app
     func signIn()
     {
         let email = emailField.text! as String
@@ -42,31 +41,28 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
         
         if let current = Auth.auth().currentUser
         {
-            //TODO: Check if user is already signed in - no
             
             
-         self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
         else
         {
-    
-        Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             
-            if error != nil
-            {
-                print("login errrrrrrrr")
-                print(error?.localizedDescription)
-            }
-            
-            if let loginFail = error {
-                print(loginFail)
-                return
-            }
-//
-            
-            //successfully logged in our user
-            self.dismiss(animated: true, completion: nil)
-            
+            Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+                
+                if error != nil
+                {
+                    print("login errrrrrrrr")
+                    print(error?.localizedDescription)
+                }
+                
+                if let loginFail = error {
+                    print(loginFail)
+                    return
+                }
+                
+                self.dismiss(animated: true, completion: nil)
+                
             })
         }
     }
@@ -74,7 +70,7 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
         return false
     }
-
+    
 }
 
 

@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import SDWebImage
-//import FirebaseStorage
 import FirebaseUI
 
 class FriendsListViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
@@ -18,9 +17,7 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate, UITableV
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    //MARK: Database stuff
     let ref = Database.database().reference()
-    // Get a reference to the storage service using the default Firebase App
     let storage = Storage.storage()
     var handle : AuthStateDidChangeListenerHandle!
     var userID : User!
@@ -52,12 +49,10 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate, UITableV
         }
         searchBar.delegate = self
        
-        //call something to load current friends
         
         let allUsers = ref.child("users").child("username")
         
         
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -67,9 +62,7 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate, UITableV
                 
                 if Auth.auth().currentUser == nil
                 {
-                    //TODO: force relogin
                 }
-                // ...
         }
         self.userID = Auth.auth().currentUser
         
@@ -106,7 +99,6 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate, UITableV
     
     func searchUsers(searchText: String, completion: @escaping ([FriendsItem]) -> Void)
     {
-        //foundFriends.removeAll()
         self.tableView.beginUpdates()
         
         
@@ -116,7 +108,6 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate, UITableV
             {
                 if let userKeys = value.allKeys as? [String]
                 {
-                    //make guard statement about checking users exist
                     for currentKey in userKeys
                     {
                         let friendsKeys = self.friendList.compactMap {$0.id }
@@ -137,7 +128,6 @@ class FriendsListViewController: UIViewController, UISearchBarDelegate, UITableV
                             }
                         }
                     }
-                   // self.tableView.reloadData()
                     self.tableView.endUpdates()
                 }
             completion(newFriends)

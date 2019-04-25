@@ -42,38 +42,33 @@ class RunOverviewViewController: UIViewController {
         loadMap()
     }
     
-    
+    //pulls the information about the run from the database from the run that was just completed
     func loadMap()
     {
         ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
             
-           if let value = snapshot.value as? NSDictionary
-           {
-            if let location = value["location"] as? NSArray
+            if let value = snapshot.value as? NSDictionary
             {
-            let count = location.count
-            for index in 1 ..< count
-            {
-                let temp = location[index] as! [Double]
-                //
-                self.locationList.append(CLLocation(latitude: temp[0], longitude: temp[1]))
-                //
-                
+                if let location = value["location"] as? NSArray
+                {
+                    let count = location.count
+                    for index in 1 ..< count
+                    {
+                        let temp = location[index] as! [Double]
+                        self.locationList.append(CLLocation(latitude: temp[0], longitude: temp[1]))
+                        
+                    }
+                    
+                    self.addRouteToMap(locations: self.locationList)
+                }
             }
             
-            self.addRouteToMap(locations: self.locationList)
-            }
-            }
             
-//            for route in self.locationList
-//            {
-//                self.mapView.addOverlay(route.polyline)
-//                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-//            }
             
         })
     }
     
+    //makes the line to display the path ran
     private func addRouteToMap(locations: [CLLocation])
     {
         let coordinates = locations.map { $0.coordinate }
@@ -84,35 +79,36 @@ class RunOverviewViewController: UIViewController {
         mapView.setRegion(region, animated: true)
     }
     
+    //populates the fields to display information from database
     private func loadFields() -> Void
     {
         ref.child("runs/\(runKey!)").observeSingleEvent(of: .value, with: { (snapshot) in
-             if let value = snapshot.value as? NSDictionary
-             {
-            let distance = value["mileage"] as? String ?? "yeet"
-            self.distanceLabel.text = "Total Distance: \(distance)"
-            let time = value["time"] as? String ?? "nopers"
-            self.timeLabel.text = "Total Time: \(time)"
-            let pace = value["pace"] as? String ?? "ahhhh"
-            self.paceLabel.text = "Pace: \(pace)"
-            let date = value["date"] as? String ?? "lol"
-            self.dateLabel.text = "Date: \(date)"
+            if let value = snapshot.value as? NSDictionary
+            {
+                let distance = value["mileage"] as? String ?? "yeet"
+                self.distanceLabel.text = "Total Distance: \(distance)"
+                let time = value["time"] as? String ?? "nopers"
+                self.timeLabel.text = "Total Time: \(time)"
+                let pace = value["pace"] as? String ?? "ahhhh"
+                self.paceLabel.text = "Pace: \(pace)"
+                let date = value["date"] as? String ?? "lol"
+                self.dateLabel.text = "Date: \(date)"
             }
             
         })     }
     
-    
+    //creates an alert that lets a user share
     @IBAction func shareMenu()
     {
         let alert = UIAlertController(title: "Sharing Run", message: "How would you like to share?", preferredStyle: .actionSheet)
-      
+        
         alert.addAction(UIAlertAction(title: "Other User", style: .default, handler: { (_) in
             print("User click User button")
-           
+            
             self.shareRun()
-
+            
         }))
-        
+        //messaging and other do not load anything because i didn't have time to complete
         alert.addAction(UIAlertAction(title: "Messaging", style: .default, handler: { (_) in
             print("User click Messaging button")
         }))
@@ -130,17 +126,15 @@ class RunOverviewViewController: UIViewController {
         
     }
     
+    //returns to main screen
     @IBAction func returnButton(_ sender: Any) {
         let nav = self.storyboard?.instantiateViewController(withIdentifier: "AccountNavigator") as! UINavigationController
         self.present(nav,animated: true, completion: nil)
     }
+    
+    //shares the runkey to next screen to share
     func shareRun()
     {
-        /*let nav = self.storyboard!.instantiateViewController(withIdentifier: "RunOverview") as! RunOverviewViewController
-         nav.runKey = sendKey
-         self.present(nav,animated: true, completion: nil)*/
-        
-        
         let nav = self.storyboard?.instantiateViewController(withIdentifier: "shareFriends") as! SharePageViewController
         nav.shareRunKey = runKey ?? "derps"
         self.present(nav,animated: true, completion: nil)
@@ -148,11 +142,10 @@ class RunOverviewViewController: UIViewController {
         
     }
     
- 
+    
 }
 
 //adds line
-//add an if to change colors?? for speed?
 extension RunOverviewViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let polyline = overlay as? MKPolyline else {

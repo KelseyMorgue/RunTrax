@@ -10,7 +10,6 @@ import UIKit
 import UIKit
 import Firebase
 import SDWebImage
-//import FirebaseStorage
 import FirebaseUI
 
 class SharedRunsViewController: UIViewController, UITableViewDelegate {
@@ -46,7 +45,6 @@ class SharedRunsViewController: UIViewController, UITableViewDelegate {
                 
         }
         
-        // Do any additional setup after loading the view.
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
@@ -62,9 +60,7 @@ class SharedRunsViewController: UIViewController, UITableViewDelegate {
             
             if Auth.auth().currentUser == nil
             {
-                //TODO: force relogin
             }
-            // ...
         }
         self.userID = Auth.auth().currentUser
     }
@@ -75,7 +71,7 @@ class SharedRunsViewController: UIViewController, UITableViewDelegate {
         self.userID = Auth.auth().currentUser
         self.tableView.beginUpdates()
         
-        //
+        
         ref.child("users").child(userID?.uid ?? "no users here").child("sharedRuns").observe( .value, with: {(snapshot) in
             
             var sharedRuns = [SharedRunItem]()
@@ -91,7 +87,6 @@ class SharedRunsViewController: UIViewController, UITableViewDelegate {
                             if let runValues = snapshot.value as? NSDictionary
                             {
                                 let distance = runValues["mileage"] as? String ?? "yeeet"
-                                //                                let imageUrl = runValues["profileImageUrl"] as? String ?? "yeet"
                                 
                                 let userId = runValues["userId"] as? String ?? "spongebob"
                                 self.queryForFriends(friendID: userId)
@@ -99,7 +94,6 @@ class SharedRunsViewController: UIViewController, UITableViewDelegate {
                                     (profileData) in
                                     sharedRuns.append(SharedRunItem(distance: distance, id: userId, imageUrl: profileData[1], username: profileData[0]))
                                 
-                                //sharedRuns.append(SharedRunItem(distance: distance, id: id, imageUrl: imageUrl, username: username))
                                 DispatchQueue.main.async
                                     {
                                         self.sharedData = SharedRunDataSource(shared: sharedRuns)
@@ -110,7 +104,6 @@ class SharedRunsViewController: UIViewController, UITableViewDelegate {
                             }
                         })
                     }
-                    //new Q
                     
                 }
                 self.tableView.endUpdates()

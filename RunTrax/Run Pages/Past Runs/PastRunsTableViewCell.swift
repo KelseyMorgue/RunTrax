@@ -2,6 +2,8 @@
 //  PastRunsTableViewCell.swift
 //  RunTrax
 //
+//  Code for the cell of the tableview
+//
 //  Created by Kelsey Henrichsen on 3/25/19.
 //  Copyright © 2019 Kelsey Henrichsen. All rights reserved.
 //
@@ -9,15 +11,15 @@
 import UIKit
 import Firebase
 import SDWebImage
-//import FirebaseStorage
 import FirebaseUI
 class PastRunsTableViewCell: UITableViewCell {
-
+    
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    //from item
     var pastRunItem : PastRunItem!
     {
         didSet
@@ -33,19 +35,17 @@ class PastRunsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         loadRuns()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        //tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-        // Configure the view for the selected state
     }
-
+    
     
     func loadRuns()
     {
+        //pulls data from the database
         if let run = pastRunItem
         {
             distanceLabel.text = "\(run.distance)"

@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import SDWebImage
-//import FirebaseStorage
 import FirebaseUI
 
 class SharePageTableViewCell: UITableViewCell {
@@ -26,7 +25,6 @@ class SharePageTableViewCell: UITableViewCell {
     }
     
     var ref = Database.database().reference()
-    // Get a reference to the storage service using the default Firebase App
     let storage = Storage.storage()
     var handle : AuthStateDidChangeListenerHandle!
     var userID : User!
@@ -35,14 +33,12 @@ class SharePageTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         loadFriend()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        // Configure the view for the selected state
     }
     func loadFriend()
     {
@@ -51,7 +47,6 @@ class SharePageTableViewCell: UITableViewCell {
             
             friendsUsername.text = sharedFriend?.name
             
-            //TODO: query on user, for the friends that equals that id
             let storageRef = storage.reference(withPath: "profile_images/\(sharedFriend?.id ?? "derp")/userImage.png")
             let placeHolderImage = UIImage(named: "default")
             friendsProfilePicture.sd_setImage(with: storageRef, placeholderImage: placeHolderImage)

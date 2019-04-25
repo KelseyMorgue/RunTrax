@@ -22,7 +22,6 @@ class StartScreenViewController: UIViewController {
     //Actions
     
     var ref = Database.database().reference()
-    // Get a reference to the storage service using the default Firebase App
     let storage = Storage.storage()
     var handle : AuthStateDidChangeListenerHandle!
     var userID : User!
@@ -33,10 +32,7 @@ class StartScreenViewController: UIViewController {
             
             if Auth.auth().currentUser == nil
             {
-                //TODO: force relogin
-                print("flub!~")
             }
-            // ...
         }
         self.userID = Auth.auth().currentUser
         
@@ -45,7 +41,6 @@ class StartScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //print(Auth.auth().currentUser!.uid)
     }
     
     

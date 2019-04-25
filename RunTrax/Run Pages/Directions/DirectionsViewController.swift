@@ -1,6 +1,7 @@
-//
 //  SharedRunViewController.swift
 //  RunTrax
+//
+//  Code to calculate the direction from the saved run data for the chosen run
 //
 //  Created by Kelsey Henrichsen on 1/24/19.
 //  Copyright © 2019 Kelsey Henrichsen. All rights reserved.
@@ -48,7 +49,7 @@ class DirectionsViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    
+    //centers in on users current location
     func centerViewOnUserLocation() {
         if let location = locationManager.location?.coordinate {
             let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
@@ -56,7 +57,7 @@ class DirectionsViewController: UIViewController {
         }
     }
     
-    
+    //checks for the correctness of location
     func checkLocationServices() {
         if CLLocationManager.locationServicesEnabled() {
             setupLocationManager()
@@ -70,6 +71,7 @@ class DirectionsViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)        }
     }
     
+    //checks for the correctness of location
     
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
@@ -105,21 +107,21 @@ class DirectionsViewController: UIViewController {
         }
     }
     
-    
+    //starts tracking the users location
     func startTackingUserLocation() {
         mapView.showsUserLocation = true
         centerViewOnUserLocation()
         locationManager.startUpdatingLocation()
-        //previousLocation = getCenterLocation(for: mapView)
     }
     
-    
+    //centers in on location
     func getCenterLocation(for mapView: MKMapView) -> CLLocation {
         let latitude = mapView.centerCoordinate.latitude
         let longitude = mapView.centerCoordinate.longitude
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
+    //gets the run information from the database for chosen run
     func getRunInformation()
     {
         ref.child("runs/\(runKey!)").observe( .value, with: { (snapshot) in
@@ -143,6 +145,7 @@ class DirectionsViewController: UIViewController {
         })
     }
     
+    //adds the little start and finish marks
     func addAnnotations()
     {
         let startAnnotation = MKPointAnnotation()
@@ -157,6 +160,7 @@ class DirectionsViewController: UIViewController {
         mapView.addAnnotation(finishAnnotation)
     }
     
+    //gets the directions from the run dictionary from the database
     func getDirections()
     {
         var test = 1
@@ -175,13 +179,15 @@ class DirectionsViewController: UIViewController {
             return
         }
         
-    
-      
         
+        
+        //checks to make sure there are directions
         if locationList.count > 0
         {
+            //checks if the user is close enough to begin run
             if location.distance(from: locationList[0]) < 1000
             {
+                // starts going through the directions
                 for coordinates in coordinateArray
                 {
                     let request = createDirectionsRequest(from: coordinates)
@@ -189,31 +195,30 @@ class DirectionsViewController: UIViewController {
                     
                     resetMapView(withNew: directions)
                     directions.calculate { [unowned self] (response, error) in
-                        //TODO: Handle error if needed
-                       if test == 1
-                       {
-                        if let response = response
+                        
+                        //checks that the directions are over or not, if they are over it stops reprinting the directions
+                        if test == 1
                         {
-                            for route in response.routes {
-                                self.mapView.addOverlay(route.polyline)
-                                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-                                
-                                //here for direction steps
-                                for step in route.steps
-                                {
-                                    let trash = step.instructions
-                                    
-                                    if trash != ""
+                            if let response = response
+                            {
+                                for route in response.routes {
+                                    self.mapView.addOverlay(route.polyline)
+                                    self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                                    for step in route.steps
                                     {
-                                        self.routeSteps.append(step.instructions)
+                                        let trash = step.instructions
+                                        
+                                        if trash != ""
+                                        {
+                                            self.routeSteps.append(step.instructions)
+                                        }
+                                        
                                     }
-                                    
                                 }
+                                
+                                test = 2
                             }
-                            
-                            test = 2
                         }
-                    }
                     }
                     
                 }
@@ -232,7 +237,7 @@ class DirectionsViewController: UIViewController {
     
     
     
-    
+    //shows the tableview of directions
     @IBAction func detailsClicked(_ sender: Any) {
         let directions = storyboard?.instantiateViewController(withIdentifier: "DirectionsTableView") as! DirectionsTableViewController
         directions.directionsData = DirectionsDataSource(directions: routeSteps)
@@ -246,7 +251,6 @@ class DirectionsViewController: UIViewController {
         let destinationCoordinate       = getCenterLocation(for: mapView).coordinate
         let startingLocation            = MKPlacemark(coordinate: coordinate)
         let destination                 = MKPlacemark(coordinate: destinationCoordinate)
-        
         let request                     = MKDirections.Request()
         request.source                  = MKMapItem(placemark: startingLocation)
         request.destination             = MKMapItem(placemark: destination)

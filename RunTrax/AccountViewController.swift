@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import SDWebImage
-//import FirebaseStorage
 import FirebaseUI
 
 
@@ -21,7 +20,6 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     @IBOutlet weak var usernameLabel: UILabel!
     
     var ref = Database.database().reference()
-    // Get a reference to the storage service using the default Firebase App
     let storage = Storage.storage()
     var handle : AuthStateDidChangeListenerHandle!
     var userID : User!
@@ -38,15 +36,12 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             
             if Auth.auth().currentUser == nil
             {
-                //TODO: force relogin
             }
-            // ...
             self.sampleUser = user
             self.testauth = auth
             
         }
         self.userID = Auth.auth().currentUser
-        //print(handle)
         
         displayUser()
         displayImage()
@@ -113,7 +108,6 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                     formatter.locale = Locale.current
                     let myNumber = NSNumber(value: sum)
                     let mileage = formatter.string(from: myNumber)!
-                    print(mileage, "this is sum")
                     self.mileageLabel.text = "Mileage: \(mileage) miles"
                     
                 }
@@ -125,66 +119,5 @@ class AccountViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     
     
-    //stuff for choosing the image
-    // TODO Update the new image into the database
-    
-//    @IBAction func selectedImage(_ sender: UITapGestureRecognizer) {
-//        let imagePickerController = UIImagePickerController()
-//        imagePickerController.sourceType = .photoLibrary
-//        imagePickerController.delegate = self
-//        imagePickerController.allowsEditing = true
-//        present(imagePickerController, animated: true, completion: nil)
-//        updatePicture()
-//
-//        
-//        
-//    }
-//    
-//    func updatePicture()
-//    {
-//        let imageName = "userImage.png"
-//        let storageRef = Storage.storage().reference().child("profile_images/\(userID.uid)/\(imageName)")
-//        if let uploadData = self.profilePicture.image!.pngData() {
-//            storageRef.putData(uploadData, metadata: nil, completion: { (_, err) in
-//                if let err = err {
-//                    print(err, "there is an error here")
-//                    return
-//                }
-//                storageRef.downloadURL(completion: { (url, err) in
-//                    if let err = err {
-//                        print(err, "there is another error here")
-//                        return
-//                    }
-//                }
-//                )}
-//            )}
-//        
-//    }
-//    
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        // Dismiss the picker if the user canceled.
-//        dismiss(animated: true, completion: nil)
-//    }
-//    
-//    func imagePickerController(_ picker: UIImagePickerController,
-//                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//        var selectedImage: UIImage?
-//        
-//        // this changes image to what user crops it too
-//        if let editedImage = info[.editedImage] as? UIImage {
-//            selectedImage = editedImage
-//            self.profilePicture.image = selectedImage!
-//            picker.dismiss(animated: true, completion: nil)
-//
-//        } else if let originalImage = info[.originalImage] as? UIImage {
-//            selectedImage = originalImage
-//            self.profilePicture.image = selectedImage!
-//            picker.dismiss(animated: true, completion: nil)
-//            
-//        }
-//
-//    }
-    
-    
-    
+   
 }
